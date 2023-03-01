@@ -1,9 +1,14 @@
-import React from 'react'
+import React from "react";
+import Cards from "../../components/Cards/Cards";
+import NavBar from "../../components/NavBar/NavBar";
 
 function Home() {
   return (
-    <div>Home</div>
-  )
+    <>
+      <NavBar />
+      <Cards />
+    </>
+  );
 }
 
-export default Home
+export default Home;

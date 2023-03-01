@@ -1,11 +1,9 @@
-// import RoutesApp from "./routes/RoutesApp";
-import Cards from "./components/Cards/Cards";
+import RoutesApp from "./routes/RoutesApp";
+
 function App() {
   return (
     <>
-      {/* <RoutesApp /> */}
-      
-      <Cards/>
+      <RoutesApp />
     </>
   );
 }
