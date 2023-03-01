@@ -1,9 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import NavBar from "../../components/NavBar/NavBar";
 
 function LandingPage() {
   return (
     <>
-      <h1>LandingPage</h1>
+      {/* <NavBar /> */}
+      <Link to="home">
+        <button>Start</button>
+      </Link>
     </>
   );
 }

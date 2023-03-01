@@ -1,4 +1,12 @@
 
+import RoutesApp from "./routes/RoutesApp";
+
+function App() {
+  return (
+    <>
+      <RoutesApp />
+
+
 //import RoutesApp from "./routes/RoutesApp.jsx";
 import React from "react";
 import { Route, Routes } from "react-router-dom";
@@ -19,6 +27,7 @@ function App() {
       <Route exact path="*" element={<NotFound />} />
     </Routes>
       <Cards/>
+
     </>
   );
 }
