@@ -51,7 +51,11 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
+
+  background-color: #b62525;
+
   background-color: rgb(251,133,0);
+
   cursor: pointer;
   
 }
