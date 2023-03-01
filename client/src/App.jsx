@@ -1,9 +1,11 @@
 // import RoutesApp from "./routes/RoutesApp";
+import Cards from "./components/Cards/Cards";
 function App() {
   return (
     <>
       {/* <RoutesApp /> */}
-      <h1>Estamos en linea..</h1>
+      
+      <Cards/>
     </>
   );
 }
