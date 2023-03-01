@@ -1,6 +1,11 @@
+
+import React from 'react'
+import NavBar from "../../components/NavBar/NavBar";
+
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useParams, Link } from 'react-router-dom';
+
 
 function About() {
 
@@ -9,6 +14,11 @@ function About() {
 
 
   return (
+
+    <>
+    <NavBar/>
+    </>
+
     <div>
       <div>
         <Link to='/home'>
@@ -26,6 +36,7 @@ function About() {
       <h3>tipo de combustible</h3>
       <h3>descripcion</h3>
     </div>
+
   )
 }
 
