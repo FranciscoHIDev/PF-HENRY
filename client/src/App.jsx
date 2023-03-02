@@ -1,5 +1,5 @@
-import RoutesApp from "./routes/RoutesApp.jsx";
 import React from "react";
+import RoutesApp from "./routes/RoutesApp";
 
 function App() {
   return (
@@ -9,5 +9,4 @@ function App() {
   );
 }
 
-export default App; 
-  
+export default App;

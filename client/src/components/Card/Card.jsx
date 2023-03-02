@@ -1,7 +1,7 @@
 import React from "react";
 import { RiGasStationFill } from "react-icons/ri";
 import { MdHdrAutoSelect } from "react-icons/md";
-
+import { Link } from "react-router-dom";
 function Card({
   brand,
   model,
@@ -12,7 +12,7 @@ function Card({
   image,
   year,
   type,
-}) { 
+}) {
   return (
     <div className="flex flex-col w-[340px] h-[450px] rounded-lg mb-12 mx-4  bg-zinc-400 items-center shadow-md ">
       <img className="rounded-t-lg h-auto" src={image} alt="image" />
@@ -36,7 +36,9 @@ function Card({
       </div>
 
       <p className="text-3xl text-black font-bold mb-4">$ {price}</p>
-      <button className="bg-[rgb(251,133,0)] ">Detalles</button>
+      <Link to={`/detail/${model}`}>
+        <button className="bg-[rgb(251,133,0)] ">Detalles</button>
+      </Link>
     </div>
   );
 }
