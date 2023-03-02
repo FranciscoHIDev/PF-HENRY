@@ -34,7 +34,7 @@ a:focus{
   color: rgb(251,133,0);
 }
 
-body { width: 100%;
+body {
   padding-top: 0px;
   margin: 0px;
   display: flex;
