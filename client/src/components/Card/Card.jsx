@@ -37,9 +37,8 @@ function Card({
       </div>
 
       <p className="text-3xl text-black font-bold mb-4">$ {price}</p>
-      <Link to='/detail'>
-        <button className="bg-[rgb(251,133,0)] ">Detalles</button>
-      </Link>
+      <button className="bg-[rgb(251,133,0)] ">Detalles</button>
+     
     </div>
   );
 }
