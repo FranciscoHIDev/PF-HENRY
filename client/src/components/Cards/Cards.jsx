@@ -10,6 +10,7 @@ function Cards() {
           return (
             <Card
               key={c.id}
+              _id={c._id}
               type={c.type}
               image={c.image}
               brand={c.brand}
