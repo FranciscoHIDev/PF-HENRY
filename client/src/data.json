@@ -1,6 +1,5 @@
 [
   {
-    "id": 1,
     "type": "Nuevo",
     "brand": "Jeep",
     "model": "Renegade",
@@ -17,7 +16,6 @@
     "image": "https://www.jeep.com.mx/content/dam/cross-regional/nafta/jeep/es_mx/modelos/modelos-home/jeep-color-renegade-limited-gris-mantarraya-modelo-home.jpg.img.500.jpg"
   },
   {
-    "id": 2,
     "type": "Seminuevo",
     "brand": "Jeep",
     "model": "Wagonner",
@@ -34,7 +32,6 @@
     "image": "https://www.jeep.com.mx/content/dam/cross-regional/nafta/jeep/es_mx/modelos/modelos-home/jeep-color-wagoneer-rojo-granate-modello-home.jpg.img.500.jpg"
   },
   {
-    "id": 3,
     "type": "Nuevo",
     "brand": "Jeep",
     "model": "Compass",
@@ -51,7 +48,6 @@
     "image": "https://www.jeep.com.mx/content/dam/cross-regional/nafta/jeep/es_mx/modelos/modelos-home/jeep-color-wagoneer-rojo-granate-modello-home.jpg.img.500.jpg"
   },
   {
-    "id": 4,
     "type": "Seminuevo",
     "brand": "Jeep",
     "model": "JT",
@@ -68,7 +64,6 @@
     "image": "https://www.jeep.com.mx/content/dam/cross-regional/nafta/jeep/es_mx/modelos/modelos-home/jeep-color-jt-mojave-gris-mantarraya-modelo-home.jpg.img.500.jpg"
   },
   {
-    "id": 5,
     "type": "Nuevo",
     "brand": "Jeep",
     "model": "Wrangler",
@@ -85,7 +80,6 @@
     "image": "https://www.jeep.com.mx/content/dam/cross-regional/nafta/jeep/es_mx/modelos/modelos-home/jeep-color-wrangler-negro-modelo-home.jpg.img.500.jpg"
   },
   {
-    "id": 6,
     "type": "Seminuevo",
     "brand": "Jeep",
     "model": "Grand Cherokee",
@@ -102,7 +96,6 @@
     "image": "https://www.jeep.com.mx/content/dam/cross-regional/nafta/jeep/es_mx/01-home/02-modelos/jeep-color-grand-cherokee-summit-reserve-4x4-rojo-granate-modelo-home.jpg.img.500.jpg"
   },
   {
-    "id": 7,
     "type": "Nuevo",
     "brand": "Chevrolet",
     "model": "Cruze 5",
@@ -119,7 +112,6 @@
     "image": "https://www.jeep.com.mx/content/dam/cross-regional/nafta/jeep/es_mx/modelos/modelos-home/jeep-color-jt-mojave-gris-mantarraya-modelo-home.jpg.img.500.jpg"
   },
   {
-    "id": 8,
     "type": "Nuevo",
     "brand": "Chevrolet",
     "model": "Tracker",
@@ -136,7 +128,6 @@
     "image": "https://www.jeep.com.mx/content/dam/cross-regional/nafta/jeep/es_mx/modelos/modelos-home/jeep-color-jt-mojave-gris-mantarraya-modelo-home.jpg.img.500.jpg"
   },
   {
-    "id": 9,
     "type": "Nuevo",
     "brand": "Jeep",
     "model": "Renegade",
@@ -153,7 +144,6 @@
     "image": "https://www.jeep.com.mx/content/dam/cross-regional/nafta/jeep/es_mx/modelos/modelos-home/jeep-color-renegade-limited-gris-mantarraya-modelo-home.jpg.img.500.jpg"
   },
   {
-    "id": 10,
     "type": "Seminuevo",
     "brand": "Jeep",
     "model": "Wagonner",
@@ -170,7 +160,6 @@
     "image": "https://www.jeep.com.mx/content/dam/cross-regional/nafta/jeep/es_mx/modelos/modelos-home/jeep-color-wagoneer-rojo-granate-modello-home.jpg.img.500.jpg"
   },
   {
-    "id": 11,
     "type": "Nuevo",
     "brand": "Jeep",
     "model": "Compass",
@@ -187,7 +176,6 @@
     "image": "https://www.jeep.com.mx/content/dam/cross-regional/nafta/jeep/es_mx/modelos/modelos-home/jeep-color-wagoneer-rojo-granate-modello-home.jpg.img.500.jpg"
   },
   {
-    "id": 12,
     "type": "Nuevo",
     "brand": "Jeep",
     "model": "Compass",
