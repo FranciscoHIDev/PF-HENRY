@@ -1,10 +1,7 @@
 import React from "react";
-
 import Style from '../LandingPage/LandingPage.module.css'
 import { Link } from "react-router-dom";
 import Home from "../Home/Home";
-
-import { Link } from "react-router-dom";
 import NavBar from "../../components/NavBar/NavBar";
 
 
@@ -41,19 +38,19 @@ function onButtonClick(e){
 
       </div>
        <div className={Style.boxBtn}>
-          <Link to="/Home">
+          <Link to = "/Home">
           <button>{lenguaje.boton}</button>
          </Link> 
         
        </div>
     </div>
 
-    <>
-      {/* <NavBar /> */}
-      <Link to="home">
-        <button>Start</button>
-      </Link>
-    </>
+    // <div>
+    //   {/* <NavBar /> */}
+    //   <Link to= "home">
+    //     <button>Start</button>
+    //   </Link>
+    // </div>
 
   );
 }
