@@ -4,9 +4,8 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Home, About, Contact, LandingPage, NotFound } from "./pages/index"; 
-
-// import RoutesApp from "./routes/RoutesApp";
 import Cards from "./components/Cards/Cards"
+import Footer from "./components/Footer/Footer";
 function App() {
   return (
     <>
@@ -19,7 +18,10 @@ function App() {
       <Route exact path="contact" element={<Contact />} />
       <Route exact path="*" element={<NotFound />} />
     </Routes>
-      
+
+      <Cards/>
+
+
     </>
   );
 }

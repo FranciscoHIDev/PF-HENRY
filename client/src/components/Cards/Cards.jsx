@@ -4,7 +4,7 @@ import Card from "../Card/Card";
 
 function Cards() {
   return (
-    <div className="flex  mt-12 mb-12 flex-wrap  justify-center">
+    <div className="flex  mt-40 mb-12 flex-wrap  justify-center">
       {data.length !== 0 ? (
         data.map((c) => {
           return (
