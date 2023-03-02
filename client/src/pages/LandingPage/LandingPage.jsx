@@ -1,28 +1,34 @@
 import React from "react";
+
 import Style from '../LandingPage/LandingPage.module.css'
 import { Link } from "react-router-dom";
 import Home from "../Home/Home";
 
+import { Link } from "react-router-dom";
+import NavBar from "../../components/NavBar/NavBar";
+
+
 function LandingPage() {
 
   const [lenguaje, setLenguje] = React.useState({
-    titulo: "EL sitio donde compras y Vendes" ,
-    boton: "Entrar!"
-  })
-
-function onButtonClick(e){
-  e.target.value === "EN" ?
-  setLenguje({
-    titulo: "The site You can buy an sell",
-   boton: "GO!"
-  }) : setLenguje({
     titulo: "EL sitio donde compras y Vendes",
     boton: "Entrar!"
   })
 
-}
+  function onButtonClick(e) {
+    e.target.value === "EN" ?
+      setLenguje({
+        titulo: "The site You can buy an sell",
+        boton: "GO!"
+      }) : setLenguje({
+        titulo: "EL sitio donde compras y Vendes",
+        boton: "Entrar!"
+      })
+
+  }
 
   return (
+
     <div className={Style.container}>
 <div>
 
@@ -41,6 +47,7 @@ function onButtonClick(e){
         
        </div>
     </div>
+
   );
 }
 
