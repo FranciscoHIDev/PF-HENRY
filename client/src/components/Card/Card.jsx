@@ -3,7 +3,6 @@ import { RiGasStationFill } from "react-icons/ri";
 import { MdHdrAutoSelect } from "react-icons/md";
 import { Link } from "react-router-dom";
 function Card({
-  _id,
   brand,
   model,
   price,
@@ -37,7 +36,7 @@ function Card({
       </div>
 
       <p className="text-3xl text-black font-bold mb-4">$ {price}</p>
-      <Link to={`/detail/${_id}`}>
+      <Link to={`/detail/${model}`}>
         <button className="bg-[rgb(251,133,0)] ">Detalles</button>
       </Link>
     </div>
