@@ -1,12 +1,20 @@
-import React from "react";
-import data from "../../data.json";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { getAllCars } from "../../redux/actions/actions";
 import Card from "../Card/Card";
 
 function Cards() {
+  const dispatch = useDispatch();
+  const cars = useSelector((state) => state.cars);
+
+  useEffect(() => {
+    dispatch(getAllCars());
+  }, [dispatch]);
+
   return (
     <div className="flex  mt-40 mb-12 flex-wrap  justify-center">
-      {data.length !== 0 ? (
-        data.map((c) => {
+      {cars.length !== 0 ? (
+        cars.map((c) => {
           return (
             <Card
               key={c.id}
