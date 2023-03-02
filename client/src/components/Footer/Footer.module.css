@@ -1,0 +1,36 @@
+.footer{
+    width: 100%;
+    padding: 20px 0px;
+    background-color: rgb(51, 54, 54);
+}
+.footer_contenedor{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 10px;
+    padding: 50px;
+}
+.item{
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+}
+.item a {
+    margin: 5px;
+    color: #7a7a7a;
+    font-weight: 600;
+}
+.descrip{
+    max-width: 350px;
+    margin: 5px;
+    color: #7a7a7a;
+    font-weight: 600;
+}
+.logo{
+    margin:10px;
+    max-width: 200px;
+    max-height: 200px;
+}
+.i{
+    padding: 10px;
+}
