@@ -1,9 +1,11 @@
 .about {
     align-items: center;
     justify-content: center;
+    height: auto;
+    width: auto;
 }
 .container {
+    margin-top: 50px;
     align-items: center;
     justify-content: center;
-    margin: auto;
 }

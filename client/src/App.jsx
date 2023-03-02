@@ -2,7 +2,7 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import { Home, About, Contact, LandingPage, NotFound } from "./pages/index"; 
-
+import Cards from "./components/Cards/Cards";
 
 function App() {
   return (
@@ -14,9 +14,11 @@ function App() {
       <Route exact path="about" element={<About />} />
       <Route exact path="contact" element={<Contact />} />
       <Route exact path="*" element={<NotFound />} />
-    </Routes>
+    </Routes> 
+      <Cards/>
     </>
   );
 }
 
 export default App; 
+  

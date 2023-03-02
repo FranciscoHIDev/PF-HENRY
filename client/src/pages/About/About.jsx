@@ -1,24 +1,19 @@
-import React, { useState } from 'react';
+import NavBar from "../../components/NavBar/NavBar";
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useParams, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import style from './About.module.css';
 import data from "../../data.json";
+import { useLocation } from "react-router-dom";
 
 function About() {
-console.log(data)
   const dispatch = useDispatch();
-  const [loading, setLoading] = useState(true);
-  const [, setDetailId] = useState(null);
+  const [state, setState] = useState();
 
-
-  return data.hasOwnProperty("name") ? (
+  return (
     <div className={style.about}>
-      <div className={style.back}>
-        <Link to='/home'>
-          <button>Go Back</button>
-        </Link>
-      </div>
-        <div className={style.container} key={data.id}>
+        <NavBar/>
+        <div className={style.container}>
           <h3>brand: {data.brand}</h3>
           <h3>year: {data.year}</h3>
           <h3>color: {data.color}</h3>
@@ -26,14 +21,14 @@ console.log(data)
           <h3>image: {data.image}</h3>
           <h3>transmission: {data.transissionType}</h3>
           <h3>doors: {data.doors}</h3>
-          <h3>category: {e.category}</h3>
-          <h3>mileage: {e.mileage}</h3>
-          <h3>fuelType: {e.fuelType}</h3>
-          <h3>desciption: {e.description}</h3>
+          <h3>category: {data.category}</h3>
+          <h3>mileage: {data.mileage}</h3>
+          <h3>fuelType: {data.fuelType}</h3>
+          <h3>desciption: {data.description}</h3>
           <br />
-        </div>
+      </div>
     </div>
-  ) : <h2>Loading...</h2>
+  ) 
 }
 
 export default About
