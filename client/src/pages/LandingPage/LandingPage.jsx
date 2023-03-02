@@ -34,7 +34,7 @@ function LandingPage() {
         <h1>{lenguaje.titulo}</h1>
       </div>
       <div className={Style.boxBtn}>
-        <Link to="/Home">
+        <Link to="/home">
           <button>{lenguaje.boton}</button>
         </Link>
       </div>
