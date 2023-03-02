@@ -1,8 +1,13 @@
 import React from 'react'
+import Cards from '../../components/Cards/Cards'
 
 function Home() {
   return (
-    <div>Home</div>
+    <div>
+    <Cards/>
+
+    </div>
+
   )
 }
 

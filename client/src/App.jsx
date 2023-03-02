@@ -2,6 +2,7 @@
 //import RoutesApp from "./routes/RoutesApp.jsx";
 import React from "react";
 import { Route, Routes } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Home, About, Contact, LandingPage, NotFound } from "./pages/index"; 
 
 // import RoutesApp from "./routes/RoutesApp";
@@ -18,7 +19,7 @@ function App() {
       <Route exact path="contact" element={<Contact />} />
       <Route exact path="*" element={<NotFound />} />
     </Routes>
-      <Cards/>
+      
     </>
   );
 }
