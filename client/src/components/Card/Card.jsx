@@ -12,7 +12,7 @@ function Card({
   image,
   year,
   type,
-}) {
+}) { 
   return (
     <div className="flex flex-col w-[340px] h-[450px] rounded-lg mb-12 mx-4  bg-zinc-400 items-center shadow-md ">
       <img className="rounded-t-lg h-auto" src={image} alt="image" />
