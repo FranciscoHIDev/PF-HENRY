@@ -1,4 +1,4 @@
-import { GET_ALL_CARS } from "../actions/actions";
+import { GET_ALL_CARS, SEARCH } from "../actions/actions";
 
 const initialState = {
     cars: [],
@@ -12,6 +12,15 @@ const rootReducer = (state = initialState, action) => {
                 cars: action.payload,
                 allCars: action.payoad,
             };
+        case SEARCH: {
+            let search = []
+            search = state.cars.filter((c) => c.model.toLowerCase().includes(action.payload.toLowerCase())) && state.cars.filter((c) => c.brand.toLowerCase().includes(action.payload.toLowerCase()))
+            return {
+                ...state,
+                cars: [...search],
+
+            }
+        }
         default:
             return state;
     }

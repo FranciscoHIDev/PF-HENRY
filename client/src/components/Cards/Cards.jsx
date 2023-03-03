@@ -6,13 +6,14 @@ import Card from "../Card/Card";
 function Cards() {
   const dispatch = useDispatch();
   const cars = useSelector((state) => state.cars);
+  const allCars = useSelector((state) => state.allCars);
 
   useEffect(() => {
     dispatch(getAllCars());
   }, [dispatch]);
 
   return (
-    <div className="flex  mt-40 mb-12 flex-wrap  justify-center">
+    <div className="flex  mt-20 mb-12 flex-wrap  justify-center">
       {cars.length !== 0 ? (
         cars.map((c) => {
           return (
@@ -26,6 +27,7 @@ function Cards() {
               year={c.year}
               price={c.price}
               mileage={c.mileage}
+              location={c.location}
               fuelType={c.fuelType}
               transissionType={c.transissionType}
             />
