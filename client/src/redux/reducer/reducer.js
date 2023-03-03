@@ -14,7 +14,7 @@ const rootReducer = (state = initialState, action) => {
             };
         case SEARCH: {
             let search = []
-            search = state.cars.filter((c) => c.model.toLowerCase().includes(action.payload.toLowerCase())) && state.cars.filter((c) => c.brand.toLowerCase().includes(action.payload.toLowerCase()))
+            search = state.cars.filter((c) => c.brand.toLowerCase().includes(action.payload.toLowerCase()))
             return {
                 ...state,
                 cars: [...search],

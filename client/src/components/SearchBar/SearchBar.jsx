@@ -22,7 +22,7 @@ function SearchBar() {
             type="search"
             name="search"
             value={input}
-            placeholder="Search by car make, model, year..."
+            placeholder="Search by car make..."
             onChange={(e) => handleChange(e)}
           />
           <FiSearch className="text-[#FB8500] absolute mt-[-36px] left-[882px] text-[25px]" />
