@@ -1,6 +1,6 @@
 import axios from "axios"
 export const GET_ALL_CARS = "GET_ALL_CARS";
-
+export const SEARCH = "SEARCH"
 
 export const getAllCars = () => async (dispatch) => {
     try {
@@ -13,3 +13,10 @@ export const getAllCars = () => async (dispatch) => {
       console.log(e);
     }
   };
+
+  export const setSearch= (payload) =>{
+    return{
+      type:"SEARCH",
+      payload
+    }
+  }
