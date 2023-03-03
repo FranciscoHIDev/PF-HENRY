@@ -34,7 +34,7 @@ function LandingPage() {
 
   return (
     <div className={Style.container}>
-      <div>
+      <div className={Style.botones}>
         <button className=" mr-2" onClick={onButtonClick} value="EN">
           EN
         </button>
