@@ -8,7 +8,6 @@ function About() {
     <div className={style.about}>
       <NavBar />
       <div className={style.container}>
-        <h1>GET TO KNOW US</h1>
         <div class={style.cards}>
           <div class={style.padding_global}>
             <div class={style.container_large}>

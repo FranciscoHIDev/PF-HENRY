@@ -4,17 +4,13 @@
   height: auto;
   width: auto;
 }
+
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding-top: 100px;
-}
-
-h1 {
-  padding-top: 10px;
-  padding-bottom: 50px;
 }
 
 .cards {
@@ -61,6 +57,7 @@ h1 {
   grid-template-columns: 1fr minmax(0rem, 1fr);
   grid-template-rows: auto;
   border-radius: 1.25rem;
+  z-index: -1;
 }
 .stack_card.is_2 {
   background-color: rgb(163, 91, 3);
