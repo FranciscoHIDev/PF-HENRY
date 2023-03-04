@@ -8,6 +8,13 @@ function Home() {
     <>
       <NavBar />
       <Cards />
+      <Cards />
+      <Cards />
+      <Cards />
+      <Cards /> <Cards />
+      <Cards />
+      <Cards />
+      <Cards />
       <Footer />
     </>
   );

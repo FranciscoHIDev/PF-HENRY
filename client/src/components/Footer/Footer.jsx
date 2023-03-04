@@ -4,7 +4,7 @@ import stl from './Footer.module.css'
 import { BsFacebook } from "react-icons/bs"
 import { BsGithub } from "react-icons/bs";
 import { BsLinkedin } from "react-icons/bs";
-import logo from '../../assets/logo.png'
+import logo from '../../assets/logo-w.png'
 function Footer() {
     return (
         <div className={stl.footer}>

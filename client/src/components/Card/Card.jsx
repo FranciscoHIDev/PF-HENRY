@@ -12,6 +12,7 @@ function Card({
   image,
   year,
   type,
+  id
 }) {
   return (
     <div className="flex flex-col w-[340px] h-[450px] rounded-lg mb-12 mx-4  bg-zinc-400 items-center shadow-md ">
@@ -36,7 +37,7 @@ function Card({
       </div>
 
       <p className="text-3xl text-black font-bold mb-4">$ {price}</p>
-      <Link to={`/detail/${model}`}>
+      <Link to={`/detail/${id}`}>
         <button className="bg-[rgb(251,133,0)] ">Detalles</button>
       </Link>
     </div>

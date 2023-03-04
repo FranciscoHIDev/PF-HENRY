@@ -28,6 +28,7 @@ function Cards() {
               mileage={c.mileage}
               fuelType={c.fuelType}
               transissionType={c.transissionType}
+              id={c._id}
             />
           );
         })

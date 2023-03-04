@@ -2,6 +2,7 @@ import React from "react";
 import { Link, Outlet } from "react-router-dom";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { MdFavoriteBorder } from "react-icons/md";
+import logo from '../../assets/logo-n1.png'
 
 function NavBar() {
   return (
@@ -10,7 +11,7 @@ function NavBar() {
         <div className="container mx-auto ">
           <div className="flex justify-around text-[20px] text-black">
             <Link className="" to="/">
-              CarManía
+              <img className="h-[50px] w-[150]" src={logo}></img>
             </Link>
             <Link to="/home">HOME</Link>
             <Link to="/about">ABOUT</Link>
