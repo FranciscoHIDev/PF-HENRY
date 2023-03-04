@@ -3,6 +3,7 @@ import {
   GET_BY_NAME,
   GET_BY_ID,
   SORT_BY_PRICE,
+  SEARCH,
 } from "../actions/actions";
 
 const initialState = {
@@ -38,10 +39,23 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         cars: [...weightArr],
       };
-
-    default:
-      return state;
-  }
-};
-
+    switch (action.type) {
+        case GET_ALL_CARS:
+            return {
+                ...state,
+                cars: action.payload,
+                allCars: action.payoad,
+            };
+        case SEARCH: {
+            let search = []
+            search = state.cars.filter((c) => c.brand.toLowerCase().includes(action.payload.toLowerCase()))
+            return {
+                ...state,
+                cars: [...search],
+            }
+        }
+        default:
+            return state;
+    }
+}
 export default rootReducer;

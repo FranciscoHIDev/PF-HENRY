@@ -12,13 +12,13 @@ const routerGetCars = async (req, res) => {
   const { model } = req.query;
   const cars = await carSchema
     .find()
-    // .populate("review", { description: 1, rate: 1, user: 1 })
-    // .populate("billing", {
-    //   invoice_number: 1,
-    //   full_value: 1,
-    //   discount: 1,
-    //   user: 1,
-    // });
+  // .populate("review", { description: 1, rate: 1, user: 1 })
+  // .populate("billing", {
+  //   invoice_number: 1,
+  //   full_value: 1,
+  //   discount: 1,
+  //   user: 1,
+  // });
   try {
     if (model) {
       let carsModel = cars.filter((car) =>
