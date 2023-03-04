@@ -1,0 +1,10 @@
+.detail {
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+}
+.container {
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+}

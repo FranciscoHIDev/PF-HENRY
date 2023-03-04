@@ -12,13 +12,13 @@ const routerGetCars = async (req, res) => {
   const { model } = req.query;
   const cars = await carSchema
     .find()
-    .populate("review", { description: 1, rate: 1, user: 1 })
-    .populate("billing", {
-      invoice_number: 1,
-      full_value: 1,
-      discount: 1,
-      user: 1,
-    });
+    // .populate("review", { description: 1, rate: 1, user: 1 })
+    // .populate("billing", {
+    //   invoice_number: 1,
+    //   full_value: 1,
+    //   discount: 1,
+    //   user: 1,
+    // });
   try {
     if (model) {
       let carsModel = cars.filter((car) =>
@@ -44,7 +44,7 @@ const routerGetCars = async (req, res) => {
  * @returns the carSchema.
  */
 const routerPostCars = async (req, res) => {
-//   validateCreate;
+  //   validateCreate;
   const car = carSchema(req.body);
 
   car
@@ -61,9 +61,10 @@ const routerPostCars = async (req, res) => {
  */
 const routerByidCars = (req, res) => {
   const { id } = req.params;
+console.log(id)
   carSchema
     .findById(id)
-    .populate("review", { description: 1, rate: 1 })
+    //.populate("review", { description: 1, rate: 1 })
     .then((data) => res.status(200).json(data))
     .catch((error) => res.status(500).json({ message: `${error}` }));
 };
@@ -105,26 +106,26 @@ const routerPutCars = async (req, res) => {
       { _id: id },
       {
         $set: {
-            type,
-            brand,
-            model,
-            category,
-            year,
-            color,
-            price,
-            doors,
-            mileage,
-            fuelType,
-            transissionType,
-            fuelConsumption,
-            description,
-            status,
-            active,
-            location
+          type,
+          brand,
+          model,
+          category,
+          year,
+          color,
+          price,
+          doors,
+          mileage,
+          fuelType,
+          transissionType,
+          fuelConsumption,
+          description,
+          status,
+          active,
+          location
         },
       }
     )
-    .populate("review", { description: 1, rate: 1 })
+    //.populate("review", { description: 1, rate: 1 })
     .then((data) => res.json(data))
     .catch((error) => res.json({ message: error }));
 };
@@ -143,7 +144,7 @@ const routerDeleteCars = async (req, res) => {
 
   carSchema
     .updateOne({ _id: id }, { $set: { active } })
-    .populate("review", { description: 1, rate: 1 })
+    //.populate("review", { description: 1, rate: 1 })
     .then((data) => res.status(200).json(data))
     .catch((error) => res.status(500).json({ message: `${error} ` }));
 };

@@ -3,6 +3,7 @@ import stl from "./Footer.module.css";
 import { BsFacebook } from "react-icons/bs";
 import { BsGithub } from "react-icons/bs";
 import { BsLinkedin } from "react-icons/bs";
+
 import logo from "../../assets/logo.png";
 function Footer() {
   return (
@@ -55,3 +56,4 @@ function Footer() {
 }
 
 export default Footer;
+
