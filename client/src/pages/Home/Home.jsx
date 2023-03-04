@@ -9,8 +9,8 @@ function Home() {
   return (
     <React.Fragment>
       <NavBar />
-      <Filters/>
       <SearchBar />
+      <Filters />
       <Cards />
       <Footer />
     </React.Fragment>

@@ -14,7 +14,7 @@ function Card({
   image,
   year,
   type,
-  _id
+  _id,
 }) {
   return (
     <div className="flex flex-col w-[360px] h-[500px] rounded-lg mb-12 mx-4  bg-zinc-100  items-center shadow-md ">
@@ -56,9 +56,9 @@ function Card({
       </div>
       <p className="text-3xl text-black font-bold mb-4">US$ {price}</p>
       <Link to={`/detail/${_id}`}>
-        <button className="bg-[rgb(251,133,0)] ">Detalles</button>
+        <button className="bg-[rgb(251,133,0)] ">Details</button>
       </Link>
-    </div> 
+    </div>
   );
 }
 

@@ -4,6 +4,7 @@ export const GET_BY_NAME = "GET_BY_NAME";
 export const GET_BY_ID = "GET_BY_ID";
 export const SORT_BY_PRICE = "SORT_BY_PRICE"
 export const SEARCH = "SEARCH"
+export const CLEAR_DETAIL= "CLEAR_DETAIL"
 
 export const getAllCars = () => async (dispatch) => {
   try {
@@ -25,7 +26,7 @@ export const getCarsByName = (name) => {
 }
 
 export const getCardsById = (id) => {
-  return async function(dispatch) {
+  return async function (dispatch) {
     try {
       const response = await axios.get(`http://localhost:3001/cars/idcar/${id}`)
       return dispatch({
@@ -33,7 +34,7 @@ export const getCardsById = (id) => {
         payload: response.data
       })
     } catch (error) {
-      return ({error: error.message})
+      return ({ error: error.message })
     }
   }
 }
@@ -44,12 +45,17 @@ export const sortByPrice = (payload) => {
     payload
   }
 }
-};
 
-export const setSearch= (payload) =>{
-    return{
-      type:"SEARCH",
-      payload
-    }
+export const setSearch = (payload) => {
+  return {
+    type: "SEARCH",
+    payload
+  }
+}
+
+export const clearDetail = () => {
+  return {
+    type: "CLEAR_DETAIL"
+  }
 }
 

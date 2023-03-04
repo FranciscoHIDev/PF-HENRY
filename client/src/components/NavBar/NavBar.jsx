@@ -5,7 +5,7 @@ import { MdFavoriteBorder } from "react-icons/md";
 
 function NavBar() {
   return (
-    <>
+    <React.Fragment>
       <div className=" flex bg-white w-full fixed p-4">
         <div className="container mx-auto ">
           <div className="flex justify-around text-[20px] text-black">
@@ -29,7 +29,7 @@ function NavBar() {
         </div>
       </div>
       <Outlet />
-    </>
+    </React.Fragment>
   );
 }
 
