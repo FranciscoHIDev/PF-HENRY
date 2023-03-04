@@ -45,7 +45,6 @@ export const sortByPrice = (payload) => {
     payload
   }
 }
-};
 
 export const setSearch= (payload) =>{
     return{

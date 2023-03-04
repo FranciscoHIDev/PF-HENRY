@@ -5,7 +5,7 @@ const router = express.Router();
 const carRoutes = require("./Cars");
 
 /* Telling the server to use the routes in the files that are imported. */
-router.use("/cars/id", carRoutes);
+router.use("/cars", carRoutes);
 
 
 module.exports = router;
