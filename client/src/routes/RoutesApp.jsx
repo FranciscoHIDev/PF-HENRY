@@ -20,7 +20,7 @@ function RoutesApp() {
         <Route exact path="contact" element={<Contact />} />
         <Route exact path="*" element={<NotFound />} />
       </Routes>
-    </>
+    </> 
   );
 }
 
