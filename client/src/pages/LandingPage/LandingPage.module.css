@@ -1,27 +1,23 @@
 .container {
-
-    width: 100vw;
-    height: 100vh;
+    margin: 0px;
+    padding: 0px;    
+    
     background-image: url('../../assets/peter-broomfield-m3m-lnR90uM-unsplash.jpg');
     background-size: cover;
-    background-attachment: fixed;
-
-
-
-}
+    }
 
 .titulo {
-
-    padding: 10px;
+    padding: 15px;
+    margin-top: 65px;
     margin-left: 30px;
     width: 400px;
-    height: 400px;
+    height: 350px;
 }
 
 .titulo h1 {
     padding: 2px;
     color: #FB8500;
-    font-size: 5em;
+    font-size: 4.5em;
 
 }
 
@@ -37,8 +33,19 @@
     height: 88px;
     font-size: 60px;
     padding: 0px;
-    margin: 0px;
+    margin-bottom:  50px;
     background-color: #FB8500;
+}
+.botones{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding: 10px;
+    
+}
+.footer{
+    margin-top: 6rem;
+    display: grid;
 }
 
 @media screen and (max-width: 780px) {
