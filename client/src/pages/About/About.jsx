@@ -1,5 +1,3 @@
-import NavBar from "../../components/NavBar/NavBar";
-import Footer from "../../components/Footer/Footer";
 import React from "react";
 import style from "./About.module.css";
 import our_mission from "../../assets/about-images/our-mission.jpg";
