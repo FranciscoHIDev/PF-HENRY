@@ -31,30 +31,31 @@ function LandingPage() {
         });
   }
   return (
+    <>
     <div className={Style.container}>
-      <div className={Style.botones}>
-        <NavBar onButtonClick={onButtonClick} className="w-100vw"/>
-        {/* <button className=" mr-2" onClick={onButtonClick} value="EN">
+      <div>
+        <button className=" mr-2" onClick={onButtonClick} value="EN">
           EN
         </button>
         <button className=" mr-2" onClick={onButtonClick} value="ES">
           ES
-        </button> */}
+        </button>
 
       </div>
       <div className={Style.titulo}>
         <h1>{lenguaje.titulo}</h1>
       </div>
-      <div className={Style.boxBtn}>
-        <Link to="/home">
-          <button>{lenguaje.boton}</button>
-        </Link>
-      </div>
+
+        <div className={Style.boxBtn}>
+          <Link to="/Home">
+            <button>{lenguaje.boton}</button>
+          </Link> 
+        </div>
     </div>
       <div className={Style.footer}>
         <Footer/>
-      </div>      
-    </div>
+      </div>
+   </>      
   );
 }
 
