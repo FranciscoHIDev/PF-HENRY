@@ -5,6 +5,7 @@ import Card from "../Card/Card";
 import Loading from "../Loading/Loading";
 import Pagination from "../Pagination/Pagination";
 import SearchBar from "../../components/SearchBar/SearchBar";
+import Filters from "../FiltersAndSorts/Filters";
 
 function Cards() {
   const dispatch = useDispatch();
@@ -41,7 +42,10 @@ function Cards() {
           maxPage={maxPage}
         />
       </div>
+      
+      
       <div className="flex  mt-20 mb-12 flex-wrap  justify-center">
+        <div className=" "><Filters /></div>
         {totalCars.length !== 0 ? (
           totalCars.map((c) => {
             return (

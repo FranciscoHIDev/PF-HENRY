@@ -24,7 +24,10 @@ function Footer() {
           <Link to= "/about"><a><h3>About</h3></a></Link>
         </div>
         <div className={stl.item}>
-          <h3>item 4</h3>
+          <Link to= "/contact"><a><h3>Contact</h3></a></Link>
+        </div>
+        <div className={stl.item}>
+          <h3>Redes</h3>
          <a><div className={stl.i}>
             <BsFacebook></BsFacebook>
           </div></a> 
