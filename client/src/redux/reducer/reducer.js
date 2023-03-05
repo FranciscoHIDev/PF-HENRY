@@ -26,7 +26,7 @@ const rootReducer = (state = initialState, action) => {
     case GET_BY_NAME:
       return {
         ...state,
-        allCards: action.payload,
+        cars: action.payload,
       };
     case GET_BY_ID:
       return {

@@ -3,6 +3,7 @@ import { useDispatch, useSelector} from 'react-redux';
 import { allFilter, getAllCars, push, sortByPrice } from "../../redux/actions/actions";
 
 function Filters() {
+  const cars = useSelector(state => state.allCars);
   const dispatch = useDispatch();
 let filtroLinks = useSelector(state => state.cars)
  const auxCategory = filtroLinks.map(e=> e.category)
