@@ -34,7 +34,7 @@ return errores;
     console.log(errores)
   }
 function handleSubmit(){
-  return alert("usuario creado")
+  return alert("Pronto nos pondremos en contacto con usted")
 }
   return (
     <>
@@ -73,8 +73,25 @@ function handleSubmit(){
               key="comentario"  placeholder="ingrese su comentario" name="comentario" />
               {errores && errores.comentario ? <spam style={{color: "red"}}> * this field is requerid  </spam> : null}
              </div>
-              
-             <button   type="submit" name='submit' disabled={ Object.keys(errores).length === 0  ? false : true} >Enviar</button>
+              <br />
+             <button type="submit" class="
+              w-full
+              px-6
+              py-2.5
+              bg-blue-600
+              text-white
+              font-medium
+              text-xs
+              leading-tight
+              uppercase
+              rounded
+              shadow-md
+              hover:bg-blue-700 hover:shadow-lg
+              focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0
+              active:bg-blue-800 active:shadow-lg
+              transition
+              duration-150
+              ease-in-out">Send</button>
             
 
           
