@@ -46,7 +46,6 @@ function NavBar(props) {
         </div> 
         <Outlet />
       </div>
-      </div>
       <Outlet />
     </React.Fragment>   
       );
