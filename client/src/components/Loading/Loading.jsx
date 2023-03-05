@@ -4,7 +4,9 @@ import loading from "../../assets/loading6.gif";
 function Loading() {
   return (
     <React.Fragment>
-      <img className="w-[300px]" src={loading} alt="loading" />
+      <div className="flex justify-center">
+        <img className="w-[300px] " src={loading} alt="loading" />
+      </div>
     </React.Fragment>
   );
 }

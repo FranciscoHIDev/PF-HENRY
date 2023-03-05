@@ -19,9 +19,7 @@ function Cards() {
   const lastCar = page * carPerPage;
   const firstCar = lastCar - carPerPage;
   const totalCars = cars.slice(firstCar, lastCar);
-  // const paginado = (pageNumber) => {
-  //   setPage(pageNumber);
-  // };
+
   function paginate(e, num) {
     e.preventDefault();
     setPage(num);
@@ -36,7 +34,6 @@ function Cards() {
           paginate={paginate}
         />
       </div>
-
       <div className="flex  mt-20 mb-12 flex-wrap  justify-center">
         {totalCars.length !== 0 ? (
           totalCars.map((c) => {
@@ -61,6 +58,13 @@ function Cards() {
           <Loading />
         )}
       </div>
+      {/* <div>
+        <Pagination
+          carPerPage={carPerPage}
+          cars={cars.length}
+          paginate={paginate}
+        />
+      </div> */}
     </React.Fragment>
   );
 }

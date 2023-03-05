@@ -13,6 +13,12 @@ function SearchBar() {
     dispatch(setSearch(input));
   }
 
+  // function handleSubmit(e) {
+  //   e.preventDefault();
+  //   dispatch(setSearch(input));
+  //   setInput("");
+  // }
+
   return (
     <React.Fragment>
       <div className="flex  mt-[130px] mb-12 flex-wrap  justify-center">
@@ -27,6 +33,9 @@ function SearchBar() {
           />
           <FiSearch className="text-[#FB8500] absolute mt-[-36px] left-[882px] text-[25px]" />
         </div>
+        {/* <button type="submit" onClick={(e) => handleSubmit(e)}>
+          Search
+        </button> */}
       </div>
     </React.Fragment>
   );

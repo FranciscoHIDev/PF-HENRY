@@ -7,6 +7,7 @@ import { RiGasStationFill } from "react-icons/ri";
 import { ImLocation } from "react-icons/im";
 import Footer from "../../components/Footer/Footer";
 import { Link } from "react-router-dom";
+import Loading from "../../components/Loading/Loading";
 
 function Details() {
   const { id } = useParams();
@@ -163,7 +164,7 @@ function Details() {
           </div>
         </div>
       ) : (
-        <h2>loading...</h2>
+        <Loading />
       )}
       <Footer />
     </>
