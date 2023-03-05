@@ -29,7 +29,6 @@ function LandingPage() {
           titulo: "EL sitio donde compras tu auto",
           boton: "Entrar!",
         });
-
   }
   return (
     <div className={Style.container}>
@@ -51,11 +50,11 @@ function LandingPage() {
           <button>{lenguaje.boton}</button>
         </Link>
       </div>
+    </div>
       <div className={Style.footer}>
         <Footer/>
       </div>      
     </div>
-
   );
 }
 
