@@ -8,12 +8,12 @@ function About() {
     <div className={style.about}>
       <NavBar />
       <div className={style.container}>
-        <div class={style.cards}>
-          <div class={style.padding_global}>
-            <div class={style.container_large}>
-              <div class={style.stack_component}>
-                <div class={`${style.stack_card}`}>
-                  <div class={style.w_node}>
+        <div className={style.cards}>
+          <div className={style.padding_global}>
+            <div className={style.container_large}>
+              <div className={style.stack_component}>
+                <div className={`${style.stack_card}`}>
+                  <div className={style.w_node}>
                     <h2>Our mission</h2>
                     <p>
                       Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, dignissimos in. Aliquam, adipisci! Expedita adipisci
@@ -22,19 +22,19 @@ function About() {
                       vitae exercitationem.
                     </p>
                   </div>
-                  <div class={`${style.w_node} ${style.stack_card_image_wrapper}`}>
+                  <div className={`${style.w_node} ${style.stack_card_image_wrapper}`}>
                     <img
                       src="https://assets.website-files.com/63dff00111b8736d73b2b08d/63e0efdf7044543dc5c1d94c__retro_van_by_the_lake_basketball_court_watercolor_ma.jpg"
                       loading="lazy"
                       sizes="46vw"
-                      srcset="https://assets.website-files.com/63dff00111b8736d73b2b08d/63e0efdf7044543dc5c1d94c__retro_van_by_the_lake_basketball_court_watercolor_ma-p-500.jpg 500w, https://assets.website-files.com/63dff00111b8736d73b2b08d/63e0efdf7044543dc5c1d94c__retro_van_by_the_lake_basketball_court_watercolor_ma-p-800.jpg 800w, https://assets.website-files.com/63dff00111b8736d73b2b08d/63e0efdf7044543dc5c1d94c__retro_van_by_the_lake_basketball_court_watercolor_ma.jpg 915w"
+                      srcSet="https://assets.website-files.com/63dff00111b8736d73b2b08d/63e0efdf7044543dc5c1d94c__retro_van_by_the_lake_basketball_court_watercolor_ma-p-500.jpg 500w, https://assets.website-files.com/63dff00111b8736d73b2b08d/63e0efdf7044543dc5c1d94c__retro_van_by_the_lake_basketball_court_watercolor_ma-p-800.jpg 800w, https://assets.website-files.com/63dff00111b8736d73b2b08d/63e0efdf7044543dc5c1d94c__retro_van_by_the_lake_basketball_court_watercolor_ma.jpg 915w"
                       alt=""
-                      class={style.stack_card_image}
+                      className={style.stack_card_image}
                     />
                   </div>
                 </div>
-                <div class={`${style.stack_card} ${style.is_2}`}>
-                  <div class={style.w_node}>
+                <div className={`${style.stack_card} ${style.is_2}`}>
+                  <div className={style.w_node}>
                     <h2>What we offer</h2>
                     <p>
                       Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus aperiam ducimus libero rerum dolorum tempora
@@ -43,19 +43,19 @@ function About() {
                       sed dolore, impedit, vel ad vitae reprehenderit ea fugit.
                     </p>
                   </div>
-                  <div class={`${style.w_node} ${style.stack_card_image_wrapper}`}>
+                  <div className={`${style.w_node} ${style.stack_card_image_wrapper}`}>
                     <img
                       src="https://assets.website-files.com/63dff00111b8736d73b2b08d/63e0f10fab783103f736a3a8_retro_bike_by_the_lake_watercolor_masterpiece_orange-p-800%20(1).png"
                       loading="lazy"
                       sizes="46vw"
-                      srcset="https://assets.website-files.com/63dff00111b8736d73b2b08d/63e0f10fab783103f736a3a8_retro_bike_by_the_lake_watercolor_masterpiece_orange-p-800%20(1)-p-500.png 500w, https://assets.website-files.com/63dff00111b8736d73b2b08d/63e0f10fab783103f736a3a8_retro_bike_by_the_lake_watercolor_masterpiece_orange-p-800%20(1).png 800w"
+                      srcSet="https://assets.website-files.com/63dff00111b8736d73b2b08d/63e0f10fab783103f736a3a8_retro_bike_by_the_lake_watercolor_masterpiece_orange-p-800%20(1)-p-500.png 500w, https://assets.website-files.com/63dff00111b8736d73b2b08d/63e0f10fab783103f736a3a8_retro_bike_by_the_lake_watercolor_masterpiece_orange-p-800%20(1).png 800w"
                       alt=""
-                      class={style.stack_card_image}
+                      className={style.stack_card_image}
                     />
                   </div>
                 </div>
-                <div class={`${style.stack_card} ${style.is_6}`}>
-                  <div class={style.w_node}>
+                <div className={`${style.stack_card} ${style.is_6}`}>
+                  <div className={style.w_node}>
                     <h2>Excellent service</h2>
                     <p>
                       Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi consequatur aliquam dicta dignissimos corrupti
@@ -63,20 +63,20 @@ function About() {
                       atque.
                     </p>
                   </div>
-                  <div class={`${style.w_node} ${style.stack_card_image_wrapper}`}>
+                  <div className={`${style.w_node} ${style.stack_card_image_wrapper}`}>
                     <img
                       src="https://assets.website-files.com/63dff00111b8736d73b2b08d/63e0f0e5e86e367e96ac2758_63e009620c95fca92528c3aa_Mike_Pecha_retro_car_by_the_lake_watercolor_masterpiece_orange_%20(1).png"
                       loading="lazy"
                       sizes="46vw"
-                      srcset="https://assets.website-files.com/63dff00111b8736d73b2b08d/63e0f0e5e86e367e96ac2758_63e009620c95fca92528c3aa_Mike_Pecha_retro_car_by_the_lake_watercolor_masterpiece_orange_%20(1)-p-500.png 500w, https://assets.website-files.com/63dff00111b8736d73b2b08d/63e0f0e5e86e367e96ac2758_63e009620c95fca92528c3aa_Mike_Pecha_retro_car_by_the_lake_watercolor_masterpiece_orange_%20(1).png 836w"
+                      srcSet="https://assets.website-files.com/63dff00111b8736d73b2b08d/63e0f0e5e86e367e96ac2758_63e009620c95fca92528c3aa_Mike_Pecha_retro_car_by_the_lake_watercolor_masterpiece_orange_%20(1)-p-500.png 500w, https://assets.website-files.com/63dff00111b8736d73b2b08d/63e0f0e5e86e367e96ac2758_63e009620c95fca92528c3aa_Mike_Pecha_retro_car_by_the_lake_watercolor_masterpiece_orange_%20(1).png 836w"
                       alt=""
-                      class={style.stack_card_image}
+                      className={style.stack_card_image}
                     />
                   </div>
                 </div>
-                <div class={`${style.stack_card} ${style.is_last}`}>
-                  <div class={style.w_node}>
-                    <h2>And much more ...</h2>
+                <div className={`${style.stack_card} ${style.is_last}`}>
+                  <div className={style.w_node}>
+                    <h2>And much more</h2>
                     <p>
                       Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque vero adipisci assumenda dolorem deserunt maxime
                       numquam sit repudiandae aperiam nemo, quae expedita magnam, nesciunt modi dolorum fugiat facere amet, quos molestias
@@ -84,14 +84,14 @@ function About() {
                       assumenda odio officia!
                     </p>
                   </div>
-                  <div class={`${style.w_node} ${style.stack_card_image_wrapper}`}>
+                  <div className={`${style.w_node} ${style.stack_card_image_wrapper}`}>
                     <img
                       src="https://assets.website-files.com/63dff00111b8736d73b2b08d/63e0f0e558610e5b1c9e0245_63e00d55e4e25f149e0e9f52_grid_0%20(4)-p-800%20(1).png"
                       loading="lazy"
                       sizes="46vw"
-                      srcset="https://assets.website-files.com/63dff00111b8736d73b2b08d/63e0f0e558610e5b1c9e0245_63e00d55e4e25f149e0e9f52_grid_0%20(4)-p-800%20(1)-p-500.png 500w, https://assets.website-files.com/63dff00111b8736d73b2b08d/63e0f0e558610e5b1c9e0245_63e00d55e4e25f149e0e9f52_grid_0%20(4)-p-800%20(1).png 800w"
+                      srcSet="https://assets.website-files.com/63dff00111b8736d73b2b08d/63e0f0e558610e5b1c9e0245_63e00d55e4e25f149e0e9f52_grid_0%20(4)-p-800%20(1)-p-500.png 500w, https://assets.website-files.com/63dff00111b8736d73b2b08d/63e0f0e558610e5b1c9e0245_63e00d55e4e25f149e0e9f52_grid_0%20(4)-p-800%20(1).png 800w"
                       alt=""
-                      class={style.stack_card_image}
+                      className={style.stack_card_image}
                     />
                   </div>
                 </div>
