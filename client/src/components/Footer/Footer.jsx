@@ -3,6 +3,7 @@ import stl from "./Footer.module.css";
 import { BsFacebook } from "react-icons/bs";
 import { BsGithub } from "react-icons/bs";
 import { BsLinkedin } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 import logo from "../../assets/logo-w.png";
 function Footer() {
@@ -15,40 +16,24 @@ function Footer() {
           </div>
           <div className={stl.descrip}>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum
-              nostrum, perferendis ad modi corrupti nesciunt qui ullam eos
-              corporis odit minus magni a fugiat delectus accusamus ex, nulla
-              aliquid quia?
+            Copyright © 2023 CarMania. All rights reserved.
             </p>
           </div>
         </div>
         <div className={stl.item}>
-          <h3>item 1</h3>
-          <a>subitem</a>
-          <a>subitem</a>
-          <a>subitem</a>
-          <a>subitem</a>
-          <a>subitem</a>
-        </div>
-        <div className={stl.item}>
-          <h3>item 3</h3>
-          <a>subitem</a>
-          <a>subitem</a>
-          <a>subitem</a>
-          <a>subitem</a>
-          <a>subitem</a>
+          <Link to= "/about"><a><h3>About</h3></a></Link>
         </div>
         <div className={stl.item}>
           <h3>item 4</h3>
-          <div className={stl.i}>
+         <a><div className={stl.i}>
             <BsFacebook></BsFacebook>
-          </div>
-          <div className={stl.i}>
+          </div></a> 
+          <a><div className={stl.i}>
             <BsGithub></BsGithub>
-          </div>
-          <div className={stl.i}>
+          </div></a>
+          <a><div className={stl.i}>
             <BsLinkedin></BsLinkedin>
-          </div>
+          </div></a>
         </div>
       </div>
     </div>

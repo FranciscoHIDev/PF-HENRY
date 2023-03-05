@@ -12,13 +12,6 @@ function Home() {
       <Filters/>
       <SearchBar />
       <Cards />
-      <Cards />
-      <Cards />
-      <Cards />
-      <Cards /> <Cards />
-      <Cards />
-      <Cards />
-      <Cards />
       <Footer />
     </React.Fragment>
   );
