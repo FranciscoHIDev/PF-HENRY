@@ -31,7 +31,7 @@ a:hover {
   color:  rgb(219, 130, 27);
 }
 
-a.active{
+a:active{
   color: #fb8500;
 }
 

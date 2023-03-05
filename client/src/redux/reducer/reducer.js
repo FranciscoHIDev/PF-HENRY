@@ -42,7 +42,7 @@ const rootReducer = (state = initialState, action) => {
       };
     case SEARCH: {
       let search = [];
-      search = state.cars.filter((c) =>
+      search = state.allCars?.filter((c) =>
         c.brand.toLowerCase().includes(action.payload.toLowerCase())
       );
       return {
