@@ -1,68 +1,45 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector} from 'react-redux';
-import { categoryFilter, filterByTransissionType, sortByPrice } from "../../redux/actions/actions";
-import Reset from "../../components/Reset/Reset";
+import { allFilter, getAllCars, push, sortByPrice } from "../../redux/actions/actions";
 
 function Filters() {
   const cars = useSelector(state => state.allCars);
   const dispatch = useDispatch();
-
-  const data = cars.map(e => e.category);
-  const fullData = data.filter((e,i) => data.indexOf(e) === i);
-  let copia = [...cars]
-
-  const arrayData = [];
-  for(let i = 0; i < data; i++) {
-    arrayData.push()
-  }
-
+let filtroLinks = useSelector(state => state.cars)
+ const auxCategory = filtroLinks.map(e=> e.category)
+ const reCategory = auxCategory.filter((e,i)=>auxCategory.indexOf(e) === i);
+ const auxModel = filtroLinks.map(e=> e.model)
+ const reModel = auxModel.filter((e,i)=>auxModel.indexOf(e) === i);
+ 
   function handlerPrice(e) {
     dispatch(sortByPrice(e.target.value));
   }
-
-  function handlerCategory(e) {
-    dispatch(categoryFilter(e.target.value));
+ 
+  
+  function handelrCate (e) {
+    dispatch(push({propety:"category",value:e.target.innerText}))
+    dispatch(allFilter());
+    console.log(arryfiltros)
   }
-
-  function handlerTransission(e) {
-    dispatch(filterByTransissionType(e.target.value))
+  function handelrModel (e) {
+    dispatch(push({propety:"model",value:e.target.innerText}))
+    dispatch(allFilter());
+    console.log(arryfiltros)
   }
 
   return (
-    <div className="m-[200px]">
+    <div className="m-[200px] flex flex-col pl-0">
       <select onChange={handlerPrice} >
-        <option hidden >Price</option>
+        <option hidden >Select</option>
         <option value="mayor">Mayor</option>
         <option value="menor">Menor</option>
       </select>
-      <select onChange={handlerCategory} >
-        <option hidden >Category</option>
-        {
-          fullData.map(e => {
-            return (
-              <option value={e}>{e}</option>
-            )
-          })                                    
-        }
-      </select>
-      <select onChange={handlerTransission} >
-        <option hidden >TransissionType</option>
-        <option value="automatic">automatic</option>
-        <option value="handbook">handbook</option>
-        {/* <option value="triptonic">Triptonic</option> */}
-      </select>
-    <div className=" flex flex-row mt-[120px] ml-40 ">
-      <select
-        className="bg-white text-2xl px-10 rounded-md mr-4"
-        onChange={handlerPrice}
-      >
-        <option hidden>Select</option>
-        <option value="mayor">Mayor</option>
-        <option value="menor">Menor</option>
-      </select>
-      <Reset />
+      <br />
+      <label>Category</label><br />
+    {reCategory.map(e=><><a onClick={handelrCate} >{e}</a> <br /></>)}
+      <label>Model</label><br />
+      {reModel.map(e=><><a onClick={handelrModel} >{e}</a> <br /></>)}
     </div>
-   </div> 
-  );
+  )
 }
 export default Filters;

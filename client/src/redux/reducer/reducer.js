@@ -5,15 +5,15 @@ import {
   SORT_BY_PRICE,
   SEARCH,
   CLEAR_DETAIL,
-  CATEGORY_FILTER,
-  FILTER_TRANSISSION_TYPE
+  ALL_FILTER,
+  PUSH
 } from "../actions/actions";
 
 const initialState = {
-  allCars: [], // esta es la original
-  cars: [],  // esta tiene ordenamiento y filtros
-  details: [], // solo para el id
-  filterTransission: []
+  cars: [],
+  allCars: [],
+  details: [],
+  filtros :[],
 };
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -34,7 +34,7 @@ const rootReducer = (state = initialState, action) => {
         details: action.payload,
       };
     case SORT_BY_PRICE:
-      const data = state.cars;
+       const data = state.cars;
       const weightArr =
         action.payload === "menor"
           ? data.sort((a, b) => a.price - b.price)
@@ -58,19 +58,24 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         details: initialState.details
       };
-    case CATEGORY_FILTER:
-      let stateCars = state.allCars
-      let resCat = stateCars.filter(e => e.category.includes(action.payload)) // se filtra allCars y se llena cars
-      return {
-        ...state,
-        cars: resCat
-      }   
-    case FILTER_TRANSISSION_TYPE:
-      const response = state.allCars.filter(e => e.transissionType.includes(action.payload))  // se filtra allCars y se llena cars 
-      return {
-        ...state,
-        cars: response
+    case ALL_FILTER:{
+      let arrfil=[]
+      const cfil = state.filtros
+      if(cfil.length===0){arrfil==state.allCars}
+      else{ for (let i = 0; i < cfil.length; i++) {
+        arrfil= state.allCars.filter(e =>e[cfil[i].propety].includes(cfil[i].value))}
+        return{
+          ...state,
+          cars:[...arrfil]
+        }
       }
+    } 
+    case PUSH :{
+      return{
+        ...state,
+        filtros :[...state.filtros,action.payload]
+      }
+    }
     default:
       return state;
   }
