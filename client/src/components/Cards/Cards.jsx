@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getAllCars } from "../../redux/actions/actions";
 import Card from "../Card/Card";
-import Loading from '../Loading/Loading'
+import Loading from "../Loading/Loading";
+import Pagination from "../Pagination/Pagination";
 
 function Cards() {
   const dispatch = useDispatch();
@@ -12,11 +13,33 @@ function Cards() {
     dispatch(getAllCars());
   }, [dispatch]);
 
+  const [page, setPage] = useState(1);
+  const [carPerPage] = useState(6);
+
+  const lastCar = page * carPerPage;
+  const firstCar = lastCar - carPerPage;
+  const totalCars = cars.slice(firstCar, lastCar);
+  // const paginado = (pageNumber) => {
+  //   setPage(pageNumber);
+  // };
+  function paginate(e, num) {
+    e.preventDefault();
+    setPage(num);
+  }
+
   return (
     <React.Fragment>
+      <div>
+        <Pagination
+          carPerPage={carPerPage}
+          cars={cars.length}
+          paginate={paginate}
+        />
+      </div>
+
       <div className="flex  mt-20 mb-12 flex-wrap  justify-center">
-        {cars.length !== 0 ? (
-          cars.map((c) => {
+        {totalCars.length !== 0 ? (
+          totalCars.map((c) => {
             return (
               <Card
                 key={crypto.randomUUID()}
@@ -35,7 +58,7 @@ function Cards() {
             );
           })
         ) : (
-          <Loading/>
+          <Loading />
         )}
       </div>
     </React.Fragment>

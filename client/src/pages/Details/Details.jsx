@@ -5,14 +5,15 @@ import { useParams } from "react-router-dom";
 import { getCardsById, clearDetail } from "../../redux/actions/actions";
 import { RiGasStationFill } from "react-icons/ri";
 import { ImLocation } from "react-icons/im";
-import Footer from "../../components/Footer/Footer.jsx"
+import Footer from "../../components/Footer/Footer";
+import { Link } from "react-router-dom";
 
 function Details() {
   const { id } = useParams();
   const dispatch = useDispatch();
   const allData = useSelector((state) => state.details);
 
-   useEffect(() => {
+  useEffect(() => {
     dispatch(getCardsById(id));
     return () => dispatch(clearDetail());
   }, [dispatch, id]);
@@ -20,17 +21,19 @@ function Details() {
   return (
     <>
       <NavBar />
-      <div className="flex mb-[200px]">
-      </div>
+      <div className="flex mt-[120px]  "></div>
       {allData.length !== 0 ? (
-        <div>
+        <div className="mb-[80px]">
+          <Link to="/home">
+            <button className="ml-12 mb-2">back Home</button>
+          </Link>
           <div className="relative mx-auto max-w-screen-xl px-4 py-8">
             <div className="grid grid-cols-1 items-start gap-8 md:grid-cols-2">
               <div className="grid grid-cols-2 gap-4 md:grid-cols-1">
                 <img
-                  alt="Les Paul"
+                  alt="image"
                   src={allData.image}
-                  className="w-[45em] h-[34em] aspect-square w-full rounded-xl"
+                  className="w-[45em] h-[34em] aspect-square rounded-xl"
                 />
               </div>
 
@@ -96,7 +99,7 @@ function Details() {
                   <p className="text-lg font-bold">${allData.price}</p>
                 </div>
                 <div className="mt-4">
-                  <div className="prose max-w-none">
+                  <div className="prose max-w-none ">
                     <p>
                       {" "}
                       <strong>Year: </strong>
@@ -106,24 +109,22 @@ function Details() {
                   </div>
                   {/* <button class="mt-2 text-sm font-medium underline">Read More</button> */}
                 </div>
-                <div className="mt-4">
-                  <div className="prose max-w-none">
-                    <RiGasStationFill />
-                    <p>{allData.fuelType}</p>
-                  </div>
-                </div>
-                <div className="mt-4">
-                  <div className="mb-[7px] prose max-w-none">
-                    <ImLocation />
-                    <p>{allData.location}</p>
-                  </div>
+                <div className="flex flex-row mb-3 mt-6">
+                  <p className="flex mb-2 mr-5 text-black">
+                    <RiGasStationFill className="text-[#FB8500] text-2xl" />
+                    <span className="ml-2 ">{allData.fuelType}</span>
+                  </p>
+                  <p className="flex mb-2 mr-5 text-black">
+                    <ImLocation className="text-[#FB8500] text-2xl" />{" "}
+                    <span className="ml-2">{allData.location}</span>
+                  </p>
                 </div>
                 <fieldset>
-                  <legend className="mb-1 text-sm font-medium">
-                    Specifications
+                  <legend className="mb-3 text-md font-medium">
+                    Specifications:
                   </legend>
                   <div className="flex flex-wrap gap-1">
-                    <label htmlFor="color_tt" className="cursor-pointer">
+                    <label htmlFor="color_tt">
                       <input
                         type="radio"
                         name="color"
@@ -137,16 +138,13 @@ function Details() {
                         Doors: {allData.doors}
                       </span>
                       <span className="m-[3px] group inline-block rounded-full border px-3 py-1 text-[15px] font-medium bg-black text-white">
-                        Mileage: {allData.mileage}
+                        Mileage: {allData.mileage} km
                       </span>
                       <span className="m-[3px] group inline-block rounded-full border px-3 py-1 text-[15px] font-medium bg-black text-white">
                         TransissionType: {allData.transissionType}
                       </span>
                       <span className="m-[3px] group inline-block rounded-full border px-3 py-1 text-[15px] font-medium bg-black text-white">
                         Consumption: {allData.fuelConsumption}
-                      </span>
-                      <span className="m-[3px] group inline-block rounded-full border px-3 py-1 text-[15px] font-medium bg-black text-white">
-                        Status: {allData.status}
                       </span>
                     </label>
                   </div>
@@ -155,7 +153,7 @@ function Details() {
                   <button
                     onClick={null}
                     type="submit"
-                    className="block rounded bg-[rgb(251,133,0)] px-5 py-3 text-xs font-medium text-white hover:bg-[rgb(220,143,0)]"
+                    className="block rounded bg-[rgb(251,133,0)] px-4 py-2 text-lx font-medium text-white hover:bg-[#0d6efd]]"
                   >
                     Add to Cart
                   </button>
@@ -166,9 +164,8 @@ function Details() {
         </div>
       ) : (
         <h2>loading...</h2>
-      ) 
-      }
-      <Footer/>
+      )}
+      <Footer />
     </>
   );
 }
