@@ -10,30 +10,7 @@ function NavBar(props) {
     boton: "Entrar!",
   });
 
-  // function onButtonClick(e) {
 
-  //   e.target.value === "EN" ?
-  //     setLenguje({
-  //       titulo: "The site You can buy an sell",
-  //       boton: "GO!"
-  //     }) : setLenguje({
-  //       titulo: "EL sitio donde compras y Vendes",
-  //       boton: "Entrar!"
-  //     })
-
-
-  //   e.target.value === "EN"
-  //     ? setLenguje({
-  //         titulo: "The site You can buy an sell",
-  //         boton: "GO!",
-  //       })
-  //     : setLenguje({
-  //         titulo: "EL sitio donde compras y Vendes",
-  //         boton: "Entrar!",
-  //       });
-import logo from '../../assets/logo-n1.png'
-
-  // }
   return (
     
       <div className=" flex al-center bg-white w-full fixed p-4 mr-0">

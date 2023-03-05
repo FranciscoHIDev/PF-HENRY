@@ -41,7 +41,6 @@ function LandingPage() {
         <button className=" mr-2" onClick={onButtonClick} value="ES">
           ES
         </button> */}
-        </button>
 
       </div>
       <div className={Style.titulo}>
