@@ -11,7 +11,7 @@ function Filters() {
   }
 
   return (
-    <div className=" flex flex-row mt-[15px] ml-40 ">
+    <div className=" flex flex-row mt-[120px] ml-40 ">
       <select
         className="bg-white text-2xl px-10 rounded-md mr-4"
         onChange={handlerPrice}

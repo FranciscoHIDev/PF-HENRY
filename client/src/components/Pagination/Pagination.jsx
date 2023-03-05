@@ -1,6 +1,6 @@
 import React from "react";
 
-function Pagination({ cars, carPerPage, paginate }) {
+function Pagination({ cars, carPerPage, paginate, page, setPage, maxPage }) {
   const pagesNumbers = [];
   const numberPages = Math.ceil(cars / carPerPage);
 
@@ -8,9 +8,18 @@ function Pagination({ cars, carPerPage, paginate }) {
     pagesNumbers.push(i + 1);
   }
 
+  function Prev() {
+    setPage(page - 1);
+  }
+
+  function Next() {
+    setPage(page + 1);
+  }
+
   return (
     <React.Fragment>
       <nav className="flex justify-center">
+        <button disabled={page === 1} onClick={Prev}>{`<<<`}</button>
         {pagesNumbers?.map((num) => (
           <button
             className="m-1 text-xl focus:bg-violet-700"
@@ -20,6 +29,7 @@ function Pagination({ cars, carPerPage, paginate }) {
             {num}
           </button>
         ))}
+        <button disabled={page === maxPage} onClick={Next}>{`>>>`}</button>
       </nav>
     </React.Fragment>
   );

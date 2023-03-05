@@ -4,6 +4,7 @@ import { getAllCars } from "../../redux/actions/actions";
 import Card from "../Card/Card";
 import Loading from "../Loading/Loading";
 import Pagination from "../Pagination/Pagination";
+import SearchBar from "../../components/SearchBar/SearchBar";
 
 function Cards() {
   const dispatch = useDispatch();
@@ -20,6 +21,8 @@ function Cards() {
   const firstCar = lastCar - carPerPage;
   const totalCars = cars.slice(firstCar, lastCar);
 
+  const maxPage = Math.ceil(cars.length / carPerPage);
+
   function paginate(e, num) {
     e.preventDefault();
     setPage(num);
@@ -27,11 +30,15 @@ function Cards() {
 
   return (
     <React.Fragment>
+      <SearchBar setPage={setPage} />
       <div>
         <Pagination
           carPerPage={carPerPage}
           cars={cars.length}
           paginate={paginate}
+          setPage={setPage}
+          page={page}
+          maxPage={maxPage}
         />
       </div>
       <div className="flex  mt-20 mb-12 flex-wrap  justify-center">
