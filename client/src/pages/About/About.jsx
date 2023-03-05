@@ -2,6 +2,10 @@ import NavBar from "../../components/NavBar/NavBar";
 import Footer from "../../components/Footer/Footer";
 import React from "react";
 import style from "./About.module.css";
+import our_mission from "../../assets/about-images/our-mission.jpg";
+import what_we_offer from "../../assets/about-images/what-we-offer.jpg";
+import excellent_service from "../../assets/about-images/excellent-service.jpg";
+import and_much_more from "../../assets/about-images/and-much-more.jpg";
 
 function About() {
   return (
@@ -23,14 +27,7 @@ function About() {
                     </p>
                   </div>
                   <div className={`${style.w_node} ${style.stack_card_image_wrapper}`}>
-                    <img
-                      src="https://assets.website-files.com/63dff00111b8736d73b2b08d/63e0efdf7044543dc5c1d94c__retro_van_by_the_lake_basketball_court_watercolor_ma.jpg"
-                      loading="lazy"
-                      sizes="46vw"
-                      srcSet="https://assets.website-files.com/63dff00111b8736d73b2b08d/63e0efdf7044543dc5c1d94c__retro_van_by_the_lake_basketball_court_watercolor_ma-p-500.jpg 500w, https://assets.website-files.com/63dff00111b8736d73b2b08d/63e0efdf7044543dc5c1d94c__retro_van_by_the_lake_basketball_court_watercolor_ma-p-800.jpg 800w, https://assets.website-files.com/63dff00111b8736d73b2b08d/63e0efdf7044543dc5c1d94c__retro_van_by_the_lake_basketball_court_watercolor_ma.jpg 915w"
-                      alt=""
-                      className={style.stack_card_image}
-                    />
+                    <img src={our_mission} loading="lazy" sizes="46vw" srcSet={our_mission} alt="" className={style.stack_card_image} />
                   </div>
                 </div>
                 <div className={`${style.stack_card} ${style.is_2}`}>
@@ -44,14 +41,7 @@ function About() {
                     </p>
                   </div>
                   <div className={`${style.w_node} ${style.stack_card_image_wrapper}`}>
-                    <img
-                      src="https://assets.website-files.com/63dff00111b8736d73b2b08d/63e0f10fab783103f736a3a8_retro_bike_by_the_lake_watercolor_masterpiece_orange-p-800%20(1).png"
-                      loading="lazy"
-                      sizes="46vw"
-                      srcSet="https://assets.website-files.com/63dff00111b8736d73b2b08d/63e0f10fab783103f736a3a8_retro_bike_by_the_lake_watercolor_masterpiece_orange-p-800%20(1)-p-500.png 500w, https://assets.website-files.com/63dff00111b8736d73b2b08d/63e0f10fab783103f736a3a8_retro_bike_by_the_lake_watercolor_masterpiece_orange-p-800%20(1).png 800w"
-                      alt=""
-                      className={style.stack_card_image}
-                    />
+                    <img src={what_we_offer} loading="lazy" sizes="46vw" srcSet={what_we_offer} alt="" className={style.stack_card_image} />
                   </div>
                 </div>
                 <div className={`${style.stack_card} ${style.is_6}`}>
@@ -65,10 +55,10 @@ function About() {
                   </div>
                   <div className={`${style.w_node} ${style.stack_card_image_wrapper}`}>
                     <img
-                      src="https://assets.website-files.com/63dff00111b8736d73b2b08d/63e0f0e5e86e367e96ac2758_63e009620c95fca92528c3aa_Mike_Pecha_retro_car_by_the_lake_watercolor_masterpiece_orange_%20(1).png"
+                      src={excellent_service}
                       loading="lazy"
                       sizes="46vw"
-                      srcSet="https://assets.website-files.com/63dff00111b8736d73b2b08d/63e0f0e5e86e367e96ac2758_63e009620c95fca92528c3aa_Mike_Pecha_retro_car_by_the_lake_watercolor_masterpiece_orange_%20(1)-p-500.png 500w, https://assets.website-files.com/63dff00111b8736d73b2b08d/63e0f0e5e86e367e96ac2758_63e009620c95fca92528c3aa_Mike_Pecha_retro_car_by_the_lake_watercolor_masterpiece_orange_%20(1).png 836w"
+                      srcSet={excellent_service}
                       alt=""
                       className={style.stack_card_image}
                     />
@@ -85,14 +75,7 @@ function About() {
                     </p>
                   </div>
                   <div className={`${style.w_node} ${style.stack_card_image_wrapper}`}>
-                    <img
-                      src="https://assets.website-files.com/63dff00111b8736d73b2b08d/63e0f0e558610e5b1c9e0245_63e00d55e4e25f149e0e9f52_grid_0%20(4)-p-800%20(1).png"
-                      loading="lazy"
-                      sizes="46vw"
-                      srcSet="https://assets.website-files.com/63dff00111b8736d73b2b08d/63e0f0e558610e5b1c9e0245_63e00d55e4e25f149e0e9f52_grid_0%20(4)-p-800%20(1)-p-500.png 500w, https://assets.website-files.com/63dff00111b8736d73b2b08d/63e0f0e558610e5b1c9e0245_63e00d55e4e25f149e0e9f52_grid_0%20(4)-p-800%20(1).png 800w"
-                      alt=""
-                      className={style.stack_card_image}
-                    />
+                    <img src={and_much_more} loading="lazy" sizes="46vw" srcSet={and_much_more} alt="" className={style.stack_card_image} />
                   </div>
                 </div>
               </div>
