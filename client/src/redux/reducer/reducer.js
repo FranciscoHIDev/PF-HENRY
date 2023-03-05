@@ -4,13 +4,16 @@ import {
   GET_BY_ID,
   SORT_BY_PRICE,
   SEARCH,
-  CLEAR_DETAIL
+  CLEAR_DETAIL,
+  CATEGORY_FILTER,
+  FILTER_TRANSISSION_TYPE
 } from "../actions/actions";
 
 const initialState = {
-  cars: [],
-  allCars: [],
-  details: [],
+  allCars: [], // esta es la original
+  cars: [],  // esta tiene ordenamiento y filtros
+  details: [], // solo para el id
+  filterTransission: []
 };
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -23,7 +26,7 @@ const rootReducer = (state = initialState, action) => {
     case GET_BY_NAME:
       return {
         ...state,
-        allCards: action.payload,
+        cars: action.payload,
       };
     case GET_BY_ID:
       return {
@@ -55,6 +58,19 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         details: initialState.details
       };
+    case CATEGORY_FILTER:
+      let stateCars = state.allCars
+      let resCat = stateCars.filter(e => e.category.includes(action.payload)) // se filtra allCars y se llena cars
+      return {
+        ...state,
+        cars: resCat
+      }   
+    case FILTER_TRANSISSION_TYPE:
+      const response = state.allCars.filter(e => e.transissionType.includes(action.payload))  // se filtra allCars y se llena cars 
+      return {
+        ...state,
+        cars: response
+      }
     default:
       return state;
   }

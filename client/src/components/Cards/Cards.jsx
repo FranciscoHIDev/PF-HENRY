@@ -6,7 +6,6 @@ import Card from "../Card/Card";
 function Cards() {
   const dispatch = useDispatch();
   const cars = useSelector((state) => state.cars);
-  const allCars = useSelector((state) => state.allCars);
 
   useEffect(() => {
     dispatch(getAllCars());
