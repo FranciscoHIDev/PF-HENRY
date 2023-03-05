@@ -46,31 +46,32 @@ function handleSubmit(){
 
         <form onSubmit={handleSubmit} className={Style.formulario}>
           <div className={Style.info}>
-            <label className={Style.label}>Name: </label>
-            <input className={Style.input} onChange={(e)=>handleInputChange(e)}
-               type="text" placeholder="ingrese su nombre" name="name" required />
+            <label className={Style.label} class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" >Name </label>
+            <input className={Style.input} class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" onChange={(e)=>handleInputChange(e)}
+               type="text" placeholder="type your name" name="name" required />
               {errores && errores.name ? <spam style={{color: "red"}}> {errores.name} </spam> : null}
              </div>
              
-             <div className={Style.info}>
-            <label className={Style.label}>Lastname: </label>
-            <input className={Style.input} onChange={(e)=>handleInputChange(e)}
-              key="lastname" type="text" placeholder="ingrese su Apellido" name="lastname" required />
+             <div className={Style.info}> <br />
+            <label className={Style.label} class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">Lastname </label>
+            <input className={Style.input} class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" onChange={(e)=>handleInputChange(e)}
+              key="lastname" type="text" placeholder="type your lastname" name="lastname" required />
               {errores && errores.lastname ? <spam style={{color: "red"}}> * this field is requerid  </spam> : null}
              </div>
             
-             <div className={Style.info}>
-            <label className={Style.label}>Email: </label>
-            <input className={Style.input} onChange={(e)=>handleInputChange(e)}
-              key="mail" type="text" placeholder="ingrese su Email" name="mail" required />
+             <div className={Style.info}> <br />
+            <label className={Style.label} class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Email </label>
+            <input className={Style.input} class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"onChange={(e)=>handleInputChange(e)}
+              key="mail" type="text" placeholder="type your email adress" name="mail" required />
               {errores && errores.mail ? <spam style={{color: "red"}}> * {errores.mail} </spam> : null}
              </div>
               
               
-             <div className={Style.info}>
-            <label className={Style.label} name="comentario" >Comentario: </label>
+             <div className={Style.info}>  <br />
+            <label className={Style.label} class ="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" name="comentario" >Comentario </label>
+          
             <textarea className={Style.input} onChange={(e)=>handleInputChange(e)}
-              key="comentario"  placeholder="ingrese su comentario" name="comentario" />
+              key="comentario"  placeholder="" name="comentario" />
               {errores && errores.comentario ? <spam style={{color: "red"}}> * this field is requerid  </spam> : null}
              </div>
               <br />

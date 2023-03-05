@@ -14,14 +14,14 @@
 
 .formulario{
     border-radius: 10px;
-    height: 70vh;
+    height: 75vh;
     margin: 10px;
     display: flex;
     flex-direction: column;
     justify-content:space-around;
     align-items: center;
     
-    padding: 60px;
+    padding: 65px;
     background-color: aliceblue;
 }
 .info{
