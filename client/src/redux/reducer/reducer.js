@@ -4,13 +4,16 @@ import {
   GET_BY_ID,
   SORT_BY_PRICE,
   SEARCH,
-  CLEAR_DETAIL
+  CLEAR_DETAIL,
+  ALL_FILTER,
+  PUSH
 } from "../actions/actions";
 
 const initialState = {
   cars: [],
   allCars: [],
   details: [],
+  filtros :[],
 };
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -23,7 +26,7 @@ const rootReducer = (state = initialState, action) => {
     case GET_BY_NAME:
       return {
         ...state,
-        allCards: action.payload,
+        cars: action.payload,
       };
     case GET_BY_ID:
       return {
@@ -31,7 +34,7 @@ const rootReducer = (state = initialState, action) => {
         details: action.payload,
       };
     case SORT_BY_PRICE:
-      const data = state.cars;
+       const data = state.cars;
       const weightArr =
         action.payload === "menor"
           ? data.sort((a, b) => a.price - b.price)
@@ -55,6 +58,24 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         details: initialState.details
       };
+    case ALL_FILTER:{
+      let arrfil=[]
+      const cfil = state.filtros
+      if(cfil.length===0){arrfil==state.allCars}
+      else{ for (let i = 0; i < cfil.length; i++) {
+        arrfil= state.allCars.filter(e =>e[cfil[i].propety].includes(cfil[i].value))}
+        return{
+          ...state,
+          cars:[...arrfil]
+        }
+      }
+    } 
+    case PUSH :{
+      return{
+        ...state,
+        filtros :[...state.filtros,action.payload]
+      }
+    }
     default:
       return state;
   }

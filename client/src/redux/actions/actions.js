@@ -4,7 +4,9 @@ export const GET_BY_NAME = "GET_BY_NAME";
 export const GET_BY_ID = "GET_BY_ID";
 export const SORT_BY_PRICE = "SORT_BY_PRICE";
 export const SEARCH = "SEARCH";
-export const CLEAR_DETAIL = "CLEAR_DETAIL"
+export const CLEAR_DETAIL = "CLEAR_DETAIL";
+export const ALL_FILTER = "ALL_FILTER"
+export const PUSH= "PUSH"
 
 export const getAllCars = () => async (dispatch) => {
   try {
@@ -17,6 +19,7 @@ export const getAllCars = () => async (dispatch) => {
     console.log(e);
   }
 };
+
 
 export const getCarsByName = (name) => {
   return {
@@ -60,3 +63,14 @@ export const clearDetail = () => {
     type: "CLEAR_DETAIL"
   }
 }
+export const allFilter = () => {
+  return {
+    type: "ALL_FILTER",
+  };
+};
+export const push = (payload) => {
+  return {
+    type: "PUSH",
+    payload,
+  };
+};

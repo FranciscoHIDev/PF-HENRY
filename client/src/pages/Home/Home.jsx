@@ -8,7 +8,6 @@ function Home() {
   return (
     <React.Fragment>
       <NavBar />
-      <Filters />
       <Cards />
       <Footer />
     </React.Fragment>
