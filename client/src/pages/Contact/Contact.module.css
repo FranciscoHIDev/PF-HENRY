@@ -3,9 +3,8 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 100vw;
-    height: 100vh;
-    background-color: #242424;
+    margin-top:130px;  
+    margin-bottom:50px;    
     color: black;
     line-height: 1.5;
     font-weight: 400;
