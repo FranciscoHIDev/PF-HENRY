@@ -41,6 +41,8 @@ function LandingPage() {
         <button className=" mr-2" onClick={onButtonClick} value="ES">
           ES
         </button> */}
+        </button>
+
       </div>
       <div className={Style.titulo}>
         <h1>{lenguaje.titulo}</h1>
@@ -52,11 +54,8 @@ function LandingPage() {
       </div>
       <div className={Style.footer}>
         <Footer/>
-      </div>
-      
+      </div>      
     </div>
-
-
 
   );
 }
