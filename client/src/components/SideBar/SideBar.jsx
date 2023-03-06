@@ -1,6 +1,7 @@
 import React from "react";
 import Filters from "../FiltersAndSorts/Filters";
 
+
 function SideBar() {
   return (
     <React.Fragment>

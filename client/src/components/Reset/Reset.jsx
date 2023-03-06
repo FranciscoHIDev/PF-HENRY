@@ -11,7 +11,9 @@ function Reset() {
   return (
     <>
       <div>
-        <button onClick={handleSubmit}>Reset</button>
+        <button className="ml-5 mb-2" onClick={handleSubmit}>
+          Reset
+        </button>
       </div>
     </>
   );

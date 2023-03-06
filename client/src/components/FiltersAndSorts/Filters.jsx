@@ -6,6 +6,7 @@ import {
   push,
   sortByPrice,
 } from "../../redux/actions/actions";
+import Reset from "../../components/Reset/Reset";
 
 function Filters() {
   const cars = useSelector((state) => state.allCars);
@@ -34,6 +35,7 @@ function Filters() {
   return (
     <React.Fragment>
       <div className="flex flex-col ">
+        <Reset />
         <p className="text-2xl mb-2 ml-3 font-extrabold">Filters:</p>
         <select
           key={crypto.randomUUID()}
