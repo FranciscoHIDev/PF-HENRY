@@ -1,9 +1,9 @@
-// import RoutesApp from "./routes/RoutesApp";
+import RoutesApp from "./routes/RoutesApp";
+
 function App() {
   return (
     <>
-      {/* <RoutesApp /> */}
-      <h1>Estamos en linea..</h1>
+      <RoutesApp />
     </>
   );
 }
