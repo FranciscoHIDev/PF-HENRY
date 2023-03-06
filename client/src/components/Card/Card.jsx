@@ -17,9 +17,9 @@ function Card({
   _id,
 }) {
   return (
-    <div className="flex flex-col w-[360px] h-[500px] rounded-lg mb-12 mx-4  bg-zinc-100  items-center shadow-md hover:scale-105">
+    <div className="flex flex-col w-[350px] h-[500px] rounded-lg mb-10 mx-3  bg-zinc-100  items-center shadow-md hover:scale-105">
       <img
-        className="rounded-t-lg h-[190px] w-[360px] bg-white"
+        className="rounded-t-lg h-[190px] w-[350px] bg-white"
         src={image}
         alt="image"
       />

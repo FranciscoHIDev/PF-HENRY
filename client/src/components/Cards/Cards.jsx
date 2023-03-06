@@ -5,7 +5,7 @@ import Card from "../Card/Card";
 import Loading from "../Loading/Loading";
 import Pagination from "../Pagination/Pagination";
 import SearchBar from "../../components/SearchBar/SearchBar";
-import Filters from "../FiltersAndSorts/Filters";
+import SideBar from "./../SideBar/SideBar";
 
 function Cards() {
   const dispatch = useDispatch();
@@ -16,7 +16,7 @@ function Cards() {
   }, [dispatch]);
 
   const [page, setPage] = useState(1);
-  const [carPerPage] = useState(6);
+  const [carPerPage] = useState(8);
 
   const lastCar = page * carPerPage;
   const firstCar = lastCar - carPerPage;
@@ -42,32 +42,35 @@ function Cards() {
           maxPage={maxPage}
         />
       </div>
-      
-      
-      <div className="flex  mt-20 mb-12 flex-wrap  justify-center">
-        <div className=" "><Filters /></div>
-        {totalCars.length !== 0 ? (
-          totalCars.map((c) => {
-            return (
-              <Card
-                key={crypto.randomUUID()}
-                _id={c._id}
-                type={c.type}
-                image={c.image}
-                brand={c.brand}
-                model={c.model}
-                year={c.year}
-                price={c.price}
-                mileage={c.mileage}
-                location={c.location}
-                fuelType={c.fuelType}
-                transissionType={c.transissionType}
-              />
-            );
-          })
-        ) : (
-          <Loading />
-        )}
+
+      <div className="flex justify-center">
+        <div className="w-[10%]">
+          <SideBar />
+        </div>
+        <div className="flex mb-80 mt-20 flex-wrap  justify-center w-[90%]">
+          {totalCars.length !== 0 ? (
+            totalCars.map((c) => {
+              return (
+                <Card
+                  key={crypto.randomUUID()}
+                  _id={c._id}
+                  type={c.type}
+                  image={c.image}
+                  brand={c.brand}
+                  model={c.model}
+                  year={c.year}
+                  price={c.price}
+                  mileage={c.mileage}
+                  location={c.location}
+                  fuelType={c.fuelType}
+                  transissionType={c.transissionType}
+                />
+              );
+            })
+          ) : (
+            <Loading />
+          )}
+        </div>
       </div>
       {/* <div>
         <Pagination
