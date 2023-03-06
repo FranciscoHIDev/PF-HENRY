@@ -19,17 +19,25 @@ function Pagination({ cars, carPerPage, paginate, page, setPage, maxPage }) {
   return (
     <React.Fragment>
       <nav className="flex justify-center">
-        <button disabled={page === 1} onClick={Prev}>{`<<<`}</button>
+        <button
+          className=" m-1 text-xl px-2"
+          disabled={page === 1}
+          onClick={Prev}
+        >{`«`}</button>
         {pagesNumbers?.map((num) => (
           <button
-            className="m-1 text-xl focus:bg-violet-700"
+            className="m-1  text-xl focus:bg-violet-700"
             key={crypto.randomUUID()}
             onClick={(e) => paginate(e, num)}
           >
             {num}
           </button>
         ))}
-        <button disabled={page === maxPage} onClick={Next}>{`>>>`}</button>
+        <button
+          className=" m-1 text-xl px-2"
+          disabled={page === maxPage}
+          onClick={Next}
+        >{`»`}</button>
       </nav>
     </React.Fragment>
   );
