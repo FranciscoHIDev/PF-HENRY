@@ -45,7 +45,6 @@ function Cards() {
       
       
       <div className="flex  mt-20 mb-12 flex-wrap  justify-center">
-        <div className=" "><Filters /></div>
         {totalCars.length !== 0 ? (
           totalCars.map((c) => {
             return (
