@@ -14,9 +14,10 @@ function Card({
   image,
   year,
   type,
+  _id,
 }) {
   return (
-    <div className="flex flex-col w-[360px] h-[500px] rounded-lg mb-12 mx-4  bg-zinc-100  items-center shadow-md ">
+    <div className="flex flex-col w-[360px] h-[500px] rounded-lg mb-12 mx-4  bg-zinc-100  items-center shadow-md hover:scale-105">
       <img
         className="rounded-t-lg h-[190px] w-[360px] bg-white"
         src={image}
@@ -36,7 +37,7 @@ function Card({
           <MdFavoriteBorder className="text-[#FB8500] cursor-pointer  text-[22px]" />
         </p>
       </div>
-      <div className="flex flex-row mb-1">
+      <div className="flex flex-row mb-1 ">
         <p className="flex mb-2 mr-5 text-black">
           <MdHdrAutoSelect className="text-[#FB8500] text-3xl" />
           <span className="ml-2 ">{transissionType}</span>
@@ -46,16 +47,16 @@ function Card({
           <span className="ml-2">{fuelType}</span>
         </p>
       </div>
+
       <div className="flex flex-row mb-1">
         <p className="flex mb-2 text-black">
           <MdLocationPin className="text-[#FB8500] text-3xl" />{" "}
           <span className="ml-2">{location}</span>
         </p>
       </div>
-
       <p className="text-3xl text-black font-bold mb-4">US$ {price}</p>
-      <Link to={`/detail/${model}`}>
-        <button className="bg-[rgb(251,133,0)] text-[18px]">Detalles</button>
+      <Link to={`/detail/${_id}`}>
+        <button className="bg-[rgb(251,133,0)] ">Details</button>
       </Link>
     </div>
   );

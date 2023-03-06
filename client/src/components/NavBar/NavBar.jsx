@@ -10,37 +10,15 @@ function NavBar(props) {
     boton: "Entrar!",
   });
 
-  // function onButtonClick(e) {
 
-  //   e.target.value === "EN" ?
-  //     setLenguje({
-  //       titulo: "The site You can buy an sell",
-  //       boton: "GO!"
-  //     }) : setLenguje({
-  //       titulo: "EL sitio donde compras y Vendes",
-  //       boton: "Entrar!"
-  //     })
-
-
-  //   e.target.value === "EN"
-  //     ? setLenguje({
-  //         titulo: "The site You can buy an sell",
-  //         boton: "GO!",
-  //       })
-  //     : setLenguje({
-  //         titulo: "EL sitio donde compras y Vendes",
-  //         boton: "Entrar!",
-  //       });
-
-  // }
   return (
-    
+    <React.Fragment>
+      <div className=" flex bg-white w-full fixed p-4">    
       <div className=" flex al-center bg-white w-full fixed p-4 mr-0">
         <div className="container mx-auto ">
           <div className="flex justify-around text-[20px] text-black">
             <Link className="" to="/Home">
-              {/* <img src={logo2} width="150px" height="50px"  alt="" /> */}
-              
+              {/* <img src={logo2} width="150px" height="50px"  alt="" /> */}              
             </Link>
             <Link to="/home">HOME</Link>
             <Link to="/about">ABOUT</Link>
@@ -53,7 +31,6 @@ function NavBar(props) {
                 <MdFavoriteBorder className="text-3xl" />
               </Link>
             </div>
-
             <button>Login</button> 
             <div>
                 <button  className=" mr-2" onClick={props.onButtonClick} value="EN">
@@ -69,9 +46,10 @@ function NavBar(props) {
         </div> 
         <Outlet />
       </div>
-     
-    
-  );
+      </div>
+      <Outlet />
+    </React.Fragment>   
+      );
 }
 
 export default NavBar;

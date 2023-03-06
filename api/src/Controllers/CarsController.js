@@ -61,6 +61,7 @@ const routerPostCars = async (req, res) => {
  */
 const routerByidCars = (req, res) => {
   const { id } = req.params;
+  console.log(id)
   carSchema
     .findById(id)
     //.populate("review", { description: 1, rate: 1 })
