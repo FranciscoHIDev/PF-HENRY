@@ -6,7 +6,7 @@ const {
   routerByidCars,
   routerPutCars,
   routerDeleteCars,
-} = require("../Controllers/CarsController.js");
+} = require("../Controllers/CarsController");
 
 const {routerLocation}=require('../Controllers/GetLocation')
 
@@ -31,7 +31,7 @@ router.get('/:location', async (req, res) => {
 });
 
 /* This is a get request that is being sent to the server. */
-router.get("/:id", (req, res) => {
+router.get("/idcar/:id", (req, res) => {
   routerByidCars(req, res);
 });
 
