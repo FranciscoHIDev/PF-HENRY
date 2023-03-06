@@ -13,7 +13,7 @@ const initialState = {
   cars: [],
   allCars: [],
   details: [],
-  filtros :[],
+  filtros: [],
 };
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -34,7 +34,7 @@ const rootReducer = (state = initialState, action) => {
         details: action.payload,
       };
     case SORT_BY_PRICE:
-       const data = state.cars;
+      const data = state.cars;
       const weightArr =
         action.payload === "menor"
           ? data.sort((a, b) => a.price - b.price)
@@ -58,22 +58,24 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         details: initialState.details
       };
-    case ALL_FILTER:{
-      let arrfil=[]
+    case ALL_FILTER: {
+      let arrfil = []
       const cfil = state.filtros
-      if(cfil.length===0){arrfil==state.allCars}
-      else{ for (let i = 0; i < cfil.length; i++) {
-        arrfil= state.allCars.filter(e =>e[cfil[i].propety].includes(cfil[i].value))}
-        return{
+      if (cfil.length === 0) { arrfil == state.allCars }
+      else {
+        for (let i = 0; i < cfil.length; i++) {
+          arrfil = state.allCars.filter(e => e[cfil[i].propety].includes(cfil[i].value))
+        }
+        return {
           ...state,
-          cars:[...arrfil]
+          cars: [...arrfil]
         }
       }
-    } 
-    case PUSH :{
-      return{
+    }
+    case PUSH: {
+      return {
         ...state,
-        filtros :[...state.filtros,action.payload]
+        filtros: [...state.filtros, action.payload]
       }
     }
     default:
