@@ -6,7 +6,8 @@ export const SORT_BY_PRICE = "SORT_BY_PRICE";
 export const SEARCH = "SEARCH";
 export const CLEAR_DETAIL = "CLEAR_DETAIL";
 export const ALL_FILTER = "ALL_FILTER"
-export const PUSH= "PUSH"
+export const PUSH= "PUSH";
+export const DELETE_FIL="DELETE_FIL"
 
 export const getAllCars = () => async (dispatch) => {
   try {
@@ -71,6 +72,12 @@ export const allFilter = () => {
 export const push = (payload) => {
   return {
     type: "PUSH",
+    payload,
+  };
+};
+export const deletefil = (payload) => {
+  return {
+    type: "DELETE_FIL",
     payload,
   };
 };
