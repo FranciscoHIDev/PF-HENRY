@@ -60,20 +60,19 @@ const rootReducer = (state = initialState, action) => {
         details: initialState.details
       };
     case ALL_FILTER:{
-      let arrfil=state.allCars
+      let arrfil = state.allCars
       const cfil = state.filtros
-      if(cfil.length===0){arrfil=state.allCars
+      if(cfil.length === 0){arrfil = state.allCars
         return{
           ...state,
           cars:arrfil
         }}
       else{ for (let i = 0; i < cfil.length; i++) {
-        arrfil= arrfil.filter(e =>e[cfil[i].propety].includes(cfil[i].value))}
+        arrfil = arrfil.filter(e => e[cfil[i].propety].includes(cfil[i].value))}
         return{
           ...state,
-          cars:arrfil
+          cars: arrfil
         }
-        
       }
     }
     case PUSH: {
@@ -83,14 +82,24 @@ const rootReducer = (state = initialState, action) => {
       }
     }
     case DELETE_FIL :{
-      let filt= state.filtros
-      const ff=action.payload
-      filt=filt.filter((e)=>e.value!==ff)
+      let filt = state.filtros
+      const ff = action.payload
+      filt=filt.filter((e) => e.value !== ff)
       return{ 
         ...state,
         filtros: filt
       }
     }
+    case "CREATE_CAR":
+      return {
+        ...state,
+        cars: action.payload
+      }
+    case "UPDATE_CAR":
+      return {
+        ...state,
+        cars: action.payload
+      }
     default:
       return state;
   }
