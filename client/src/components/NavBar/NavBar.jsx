@@ -3,7 +3,12 @@ import { Link, Outlet } from "react-router-dom";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { MdFavoriteBorder } from "react-icons/md";
 import logo2 from "../../assets/logo-n2.png";
+import { useAuth0 } from "@auth0/auth0-react";
+import LogoutButton from "./../Auth0/LogoutButton";
+import LoginButton from "./../Auth0/LoginButton";
+
 function NavBar() {
+  const { isAuthenticated, user, logout } = useAuth0();
   return (
     <React.Fragment>
       <div className=" flex bg-white w-full fixed p-3 ">
@@ -38,7 +43,11 @@ function NavBar() {
           <Link to="cart">
             <MdFavoriteBorder className="text-3xl mr-4" />
           </Link>
-          <button>Login</button>
+          {isAuthenticated ? (
+            <button onClick={logout}>Logout</button>
+          ) : (
+            <LoginButton />
+          )}
         </div>
       </div>
       <Outlet />
