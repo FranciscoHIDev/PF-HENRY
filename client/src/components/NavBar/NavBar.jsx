@@ -4,6 +4,9 @@ import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { MdFavoriteBorder } from "react-icons/md";
 import logo2 from "../../assets/logo-n2.png";
 function NavBar() {
+
+
+
   return (
     <React.Fragment>
       <div className=" flex bg-white w-full fixed p-3 ">
@@ -38,7 +41,10 @@ function NavBar() {
           <Link to="cart">
             <MdFavoriteBorder className="text-3xl mr-4" />
           </Link>
-          <button>Login</button>
+          <div>
+            <button >Login</button>
+          </div>
+          
         </div>
       </div>
       <Outlet />
