@@ -1,64 +1,70 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { categoryFilter, filterByTransissionType, sortByPrice } from "../../redux/actions/actions";
+import {allFilter,getAllCars,push,sortByPrice,} from "../../redux/actions/actions";
 import Reset from "../../components/Reset/Reset";
 
 function Filters() {
   const cars = useSelector((state) => state.allCars);
   const dispatch = useDispatch();
-
-  const data = cars.map((e) => e.category);
-  const fullData = data.filter((e, i) => data.indexOf(e) === i);
-  let copia = [...cars];
-
-  const arrayData = [];
-  for (let i = 0; i < data; i++) {
-    arrayData.push();
-  }
+  let filtroLinks = useSelector((state) => state.cars);
+  const auxCategory = filtroLinks.map((e) => e.category);
+  const reCategory = auxCategory.filter((e, i) => auxCategory.indexOf(e) === i);
+  const auxModel = filtroLinks.map((e) => e.model);
+  const reModel = auxModel.filter((e, i) => auxModel.indexOf(e) === i);
 
   function handlerPrice(e) {
     dispatch(sortByPrice(e.target.value));
   }
 
-  function handlerCategory(e) {
-    dispatch(categoryFilter(e.target.value));
+  function handelrCate(e) {
+    dispatch(push({ propety: "category", value: e.target.innerText }));
+    dispatch(allFilter());
+    console.log(arryfiltros);
   }
-
-  function handlerTransission(e) {
-    dispatch(filterByTransissionType(e.target.value));
+  function handelrModel(e) {
+    dispatch(push({ propety: "model", value: e.target.innerText }));
+    dispatch(allFilter());
+    console.log(arryfiltros);
   }
 
   return (
-    <div className="m-[200px]">
-      {/* <select onChange={handlerPrice}>
-        <option hidden>Price</option>
-        <option value="mayor">Mayor</option>
-        <option value="menor">Menor</option>
-      </select> */}
-      <select onChange={handlerCategory}>
-        <option hidden>Category</option>
-        {fullData.map((e) => {
-          return <option value={e}>{e}</option>;
-        })}
-      </select>
-      <select onChange={handlerTransission}>
-        <option hidden>TransissionType</option>
-        <option value="automatic">automatic</option>
-        <option value="handbook">handbook</option>
-        {/* <option value="triptonic">Triptonic</option> */}
-      </select>
-      <div className=" flex flex-row mt-[120px] ml-40 ">
+    <React.Fragment>
+      <div className="flex flex-col ">
+        <Reset />
+        <p className="text-2xl mb-2 ml-3 font-extrabold">Filters:</p>
         <select
-          className="bg-white text-2xl px-10 rounded-md mr-4"
+          key={crypto.randomUUID()}
+          className="bg-white p-2 w-[100px] rounded-md text-2xl font-bold"
           onChange={handlerPrice}
         >
-          <option hidden>Select</option>
-          <option value="mayor">Mayor</option>
-          <option value="menor">Menor</option>
+          <option disabled selected value="">
+            Price
+          </option>
+          <option className=" text-black font-medium text-lg " value="mayor">
+            Higher
+          </option>
+          <option className=" text-black font-medium text-lg" value="menor">
+            Lower
+          </option>
         </select>
-        <Reset />
+
+        <br />
+        <label className="  font-bold text-2xl">Category</label>
+        <br />
+        {reCategory.map((e) => (
+          <>
+            <button onClick={handelrCate}>{e}</button> <br />
+          </>
+        ))}
+        <label className="  font-bold text-2xl">Model</label>
+        <br />
+        {reModel.map((e) => (
+          <>
+            <button onClick={handelrModel}>{e}</button> <br />
+          </>
+        ))}
       </div>
-    </div>
+    </React.Fragment>
   );
 }
 export default Filters;
