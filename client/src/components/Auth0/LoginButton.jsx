@@ -2,9 +2,9 @@ import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 
 function LoginButton() {
-  const { isLoading, isAuthenticated, error, user, loginWithRedirect, logout } =
+  const { isLoading, isAuthenticated, error, user, loginWithPopup, logout } =
     useAuth0();
-  return <button onClick={() => loginWithRedirect()}>Login</button>;
+  return <button onClick={() => loginWithPopup()}>Login</button>;
 }
 
 export default LoginButton;
