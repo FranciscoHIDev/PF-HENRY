@@ -44,10 +44,10 @@ function Cards() {
       </div>
 
       <div className="flex justify-center">
-        <div className="w-[10%]">
+        <div className="">
           <SideBar />
         </div>
-        <div className="flex mb-80 mt-20 flex-wrap  justify-center w-[90%]">
+        <div className="flex mb-80 mt-20 flex-wrap  justify-center ">
           {totalCars.length !== 0 ? (
             totalCars.map((c) => {
               return (

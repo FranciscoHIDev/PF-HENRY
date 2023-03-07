@@ -6,7 +6,8 @@ import {
   SEARCH,
   CLEAR_DETAIL,
   ALL_FILTER,
-  PUSH
+  PUSH,
+  DELETE_FIL
 } from "../actions/actions";
 
 const initialState = {
@@ -58,24 +59,36 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         details: initialState.details
       };
-    case ALL_FILTER: {
-      let arrfil = []
+    case ALL_FILTER:{
+      let arrfil=state.allCars
       const cfil = state.filtros
-      if (cfil.length === 0) { arrfil == state.allCars }
-      else {
-        for (let i = 0; i < cfil.length; i++) {
-          arrfil = state.allCars.filter(e => e[cfil[i].propety].includes(cfil[i].value))
-        }
-        return {
+      if(cfil.length===0){arrfil=state.allCars
+        return{
           ...state,
-          cars: [...arrfil]
+          cars:arrfil
+        }}
+      else{ for (let i = 0; i < cfil.length; i++) {
+        arrfil= arrfil.filter(e =>e[cfil[i].propety].includes(cfil[i].value))}
+        return{
+          ...state,
+          cars:arrfil
         }
+        
       }
     }
     case PUSH: {
       return {
         ...state,
         filtros: [...state.filtros, action.payload]
+      }
+    }
+    case DELETE_FIL :{
+      let filt= state.filtros
+      const ff=action.payload
+      filt=filt.filter((e)=>e.value!==ff)
+      return{ 
+        ...state,
+        filtros: filt
       }
     }
     default:
