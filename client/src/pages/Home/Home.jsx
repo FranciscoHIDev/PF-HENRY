@@ -7,7 +7,6 @@ function Home() {
   return (
     <React.Fragment>
       <NavBar />
-      <Filters></Filters>
       <Cards />
       <Footer />
     </React.Fragment>
