@@ -14,7 +14,7 @@ const initialState = {
   cars: [],
   allCars: [],
   details: [],
-  filtros :[],
+  filtros: [],
 };
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -35,7 +35,7 @@ const rootReducer = (state = initialState, action) => {
         details: action.payload,
       };
     case SORT_BY_PRICE:
-       const data = state.cars;
+      const data = state.cars;
       const weightArr =
         action.payload === "menor"
           ? data.sort((a, b) => a.price - b.price)
@@ -75,11 +75,11 @@ const rootReducer = (state = initialState, action) => {
         }
         
       }
-    } 
-    case PUSH :{
-      return{
+    }
+    case PUSH: {
+      return {
         ...state,
-        filtros :[...state.filtros,action.payload]
+        filtros: [...state.filtros, action.payload]
       }
     }
     case DELETE_FIL :{
