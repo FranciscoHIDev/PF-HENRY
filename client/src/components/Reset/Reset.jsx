@@ -11,7 +11,7 @@ function Reset() {
   return (
     <>
       <div>
-        <button onClick={handleSubmit}>Reset</button>
+        <button className="mt-80" onClick={handleSubmit}>Reset</button>
       </div>
     </>
   );

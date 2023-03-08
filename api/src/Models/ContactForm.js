@@ -23,5 +23,10 @@ const contactFormSchema = mongoose.Schema({
     minLength: 10,
     maxLength: 500,
     },
+    active: {
+        type: String,
+        enum: ["valid", "invalid"],
+        default: "valid",
+    },
 });
     module.exports = mongoose.model("ContactForm", contactFormSchema);
