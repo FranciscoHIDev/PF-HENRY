@@ -7,7 +7,8 @@ import {
   CLEAR_DETAIL,
   ALL_FILTER,
   PUSH,
-  DELETE_FIL
+  DELETE_FIL,
+  RENDER_INFO_USERS,
 } from "../actions/actions";
 
 const initialState = {
@@ -15,6 +16,7 @@ const initialState = {
   allCars: [],
   details: [],
   filtros: [],
+  infoUsers: "",  
 };
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -90,15 +92,15 @@ const rootReducer = (state = initialState, action) => {
         filtros: filt
       }
     }
-    case "CREATE_CAR":
+    case "CREATE_USER":
       return {
         ...state,
         cars: action.payload
       }
-    case "UPDATE_CAR":
+    case RENDER_INFO_USERS:
       return {
         ...state,
-        cars: action.payload
+        infoUsers: action.payload
       }
     default:
       return state;
