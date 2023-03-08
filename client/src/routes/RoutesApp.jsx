@@ -13,7 +13,7 @@ function RoutesApp() {
         <Route exact path="about" element={<About />} />
         <Route exact path="contact" element={<Contact />} />
         <Route exact path="*" element={<d />} />
-        <Route exact path="/home/userProfile" element={<UserProfile/>} />
+        <Route exact path="/home/userProfile/" element={<UserProfile/>} />
       </Routes>
     </> 
   );
