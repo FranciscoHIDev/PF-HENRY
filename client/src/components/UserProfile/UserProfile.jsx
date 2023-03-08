@@ -11,15 +11,14 @@ import UserMyShopping from "../UserMyShopping/UserMyShopping";
 export default function UserProfile() {
   const infoUsers = useSelector((state) => state.infoUsers);
   const dispatch = useDispatch();
-  const [users, setUsers] = useState(<UserInfo/>)
+  const [users, setUsers] = useState();
 
-   /* useEffect(() => {
+  /* useEffect(() => {
     <UserMyShopping />
   }) */
 
   function handlerInfoUsers(e) {
     if(infoUsers === "myInfo") dispatch(renderInfoUsers(e.target.value));
-
   }
  
   return (
@@ -46,19 +45,16 @@ export default function UserProfile() {
             <button> Favorites! </button>
           </div>
         </div>
-
+        
         <div className={Style.contain}>
           <div className={Style.barraBtns}>
             <Link to="/home">
               <button className="mr-2">GO Home! </button>
             </Link>
-
-            <button className=" flex justify-center mr-2">
-              {" "}
-              <BsCalendar3 />{" "}
-            </button>
-            <button className="mr-2">User.Name</button>
+            <button className=" flex justify-center mr-2">{" "} <BsCalendar3 />{" "}</button>
+            <button className="mr-2">User Name</button>
           </div>
+          <UserInfo />
           <div className={Style.info}>
             <div className={Style.tp1}>
               <div className={Style.tp2}>

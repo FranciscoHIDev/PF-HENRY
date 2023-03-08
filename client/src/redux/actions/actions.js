@@ -22,7 +22,6 @@ export const getAllCars = () => async (dispatch) => {
   }
 };
 
-
 export const getCarsByName = (name) => {
   return {
     type: "GET_BY_NAME",
