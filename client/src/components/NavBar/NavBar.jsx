@@ -41,7 +41,7 @@ function NavBar() {
           <Link to="/cart">
             <HiOutlineShoppingBag className="text-3xl mr-4" />
           </Link>
-          <Link to="cart">
+          <Link to="/favorites">
             <MdFavoriteBorder className="text-3xl mr-4" />
           </Link>
           <Link to="userProfile">

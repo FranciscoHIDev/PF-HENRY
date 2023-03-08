@@ -61,7 +61,7 @@ button {
 button:hover { 
 
   background-color: #0d6efd;
-  text-shadow: 0 0 5px #fff;
+  /* text-shadow: 0 0 5px #fff; */
 
 }
 
