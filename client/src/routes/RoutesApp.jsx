@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import {Home, About, Contact, LandingPage, Details} from "../pages/index";
+import {Home, About, Contact, LandingPage, Details, Favorites} from "../pages/index";
 import UserProfile from "../components/UserProfile/UserProfile";
 
 function RoutesApp() {
@@ -14,6 +14,7 @@ function RoutesApp() {
         <Route exact path="contact" element={<Contact />} />
         <Route exact path="*" element={<d />} />
         <Route exact path="/home/userProfile/" element={<UserProfile/>} />
+        <Route exact path="favorites" element={<Favorites />} />
       </Routes>
     </> 
   );
