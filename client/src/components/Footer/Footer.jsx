@@ -27,7 +27,7 @@ function Footer() {
           <Link to= "/contact"><a><h3>Contact</h3></a></Link>
         </div>
         <div className={stl.item}>
-          <h3>Redes</h3>
+          <h3>Social networks</h3>
          <a><div className={stl.i}>
             <BsFacebook></BsFacebook>
           </div></a> 

@@ -6,14 +6,15 @@ import {
   SEARCH,
   CLEAR_DETAIL,
   ALL_FILTER,
-  PUSH
+  PUSH,
+  DELETE_FIL
 } from "../actions/actions";
 
 const initialState = {
   cars: [],
   allCars: [],
   details: [],
-  filtros :[],
+  filtros: [],
 };
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -34,7 +35,7 @@ const rootReducer = (state = initialState, action) => {
         details: action.payload,
       };
     case SORT_BY_PRICE:
-       const data = state.cars;
+      const data = state.cars;
       const weightArr =
         action.payload === "menor"
           ? data.sort((a, b) => a.price - b.price)
@@ -59,23 +60,46 @@ const rootReducer = (state = initialState, action) => {
         details: initialState.details
       };
     case ALL_FILTER:{
-      let arrfil=[]
+      let arrfil = state.allCars
       const cfil = state.filtros
-      if(cfil.length===0){arrfil==state.allCars}
-      else{ for (let i = 0; i < cfil.length; i++) {
-        arrfil= state.allCars.filter(e =>e[cfil[i].propety].includes(cfil[i].value))}
+      if(cfil.length === 0){arrfil = state.allCars
         return{
           ...state,
-          cars:[...arrfil]
+          cars:arrfil
+        }}
+      else{ for (let i = 0; i < cfil.length; i++) {
+        arrfil = arrfil.filter(e => e[cfil[i].propety].includes(cfil[i].value))}
+        return{
+          ...state,
+          cars: arrfil
         }
       }
-    } 
-    case PUSH :{
-      return{
+    }
+    case PUSH: {
+      return {
         ...state,
-        filtros :[...state.filtros,action.payload]
+        filtros: [...state.filtros, action.payload]
       }
     }
+    case DELETE_FIL :{
+      let filt = state.filtros
+      const ff = action.payload
+      filt=filt.filter((e) => e.value !== ff)
+      return{ 
+        ...state,
+        filtros: filt
+      }
+    }
+    case "CREATE_CAR":
+      return {
+        ...state,
+        cars: action.payload
+      }
+    case "UPDATE_CAR":
+      return {
+        ...state,
+        cars: action.payload
+      }
     default:
       return state;
   }

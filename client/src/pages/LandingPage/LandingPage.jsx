@@ -5,13 +5,13 @@ import NavBar from "../../components/NavBar/NavBar";
 import Footer from "../../components/Footer/Footer";
 function LandingPage() {
   const [lenguaje, setLenguje] = React.useState({
-    titulo: "EL sitio donde compras tu auto",
-    boton: "Entrar!",
+    titulo: "The place where you buy your car",
+    boton: "Go!",
   });
   function onButtonClick(e) {
     e.target.value === "EN"
       ? setLenguje({
-          titulo: "The site You can buy yor Car",
+          titulo: "The place where you buy your car",
           boton: "GO!",
         })
       : setLenguje({
