@@ -43,13 +43,16 @@ const Header = () => {
           </button>
           <Menu
             menuButton={
-              <MenuButton className="flex bg-primary items-center gap-x-2 transition-colors text-white font-bold hover:text-white">
+              <MenuButton
+                className="flex bg-primary items-center gap-x-2
+               transition-colors text-white font-bold hover:text-white"
+              >
                 <img
                   src={user.picture}
                   alt={user.name}
                   className="w-6 h-6 object-cover rounded-full"
                 />
-                <span>{user.name}</span>
+                <span className="mr-2">{user.name}</span>
                 <RiArrowDownSLine />
               </MenuButton>
             }
