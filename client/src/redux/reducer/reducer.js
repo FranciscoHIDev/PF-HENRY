@@ -7,7 +7,8 @@ import {
   CLEAR_DETAIL,
   ALL_FILTER,
   PUSH,
-  DELETE_FIL
+  DELETE_FIL,
+  RENDER_INFO_USERS,
 } from "../actions/actions";
 
 const initialState = {
@@ -15,6 +16,7 @@ const initialState = {
   allCars: [],
   details: [],
   filtros: [],
+  infoUsers: "",  
 };
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -60,20 +62,19 @@ const rootReducer = (state = initialState, action) => {
         details: initialState.details
       };
     case ALL_FILTER:{
-      let arrfil=state.allCars
+      let arrfil = state.allCars
       const cfil = state.filtros
-      if(cfil.length===0){arrfil=state.allCars
+      if(cfil.length === 0){arrfil = state.allCars
         return{
           ...state,
           cars:arrfil
         }}
       else{ for (let i = 0; i < cfil.length; i++) {
-        arrfil= arrfil.filter(e =>e[cfil[i].propety].includes(cfil[i].value))}
+        arrfil = arrfil.filter(e => e[cfil[i].propety].includes(cfil[i].value))}
         return{
           ...state,
-          cars:arrfil
+          cars: arrfil
         }
-        
       }
     }
     case PUSH: {
@@ -83,14 +84,24 @@ const rootReducer = (state = initialState, action) => {
       }
     }
     case DELETE_FIL :{
-      let filt= state.filtros
-      const ff=action.payload
-      filt=filt.filter((e)=>e.value!==ff)
+      let filt = state.filtros
+      const ff = action.payload
+      filt=filt.filter((e) => e.value !== ff)
       return{ 
         ...state,
         filtros: filt
       }
     }
+    case "CREATE_USER":
+      return {
+        ...state,
+        cars: action.payload
+      }
+    case RENDER_INFO_USERS:
+      return {
+        ...state,
+        infoUsers: action.payload
+      }
     default:
       return state;
   }

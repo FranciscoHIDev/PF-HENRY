@@ -6,6 +6,7 @@ import logo2 from "../../assets/logo-n2.png";
 import { useAuth0 } from "@auth0/auth0-react";
 import LogoutButton from "./../Auth0/LogoutButton";
 import LoginButton from "./../Auth0/LoginButton";
+import UserProfile from "../UserProfile/UserProfile";
 
 function NavBar() {
   const { isAuthenticated, user, logout } = useAuth0();
@@ -42,6 +43,9 @@ function NavBar() {
           </Link>
           <Link to="cart">
             <MdFavoriteBorder className="text-3xl mr-4" />
+          </Link>
+          <Link to="userProfile">
+            <button>UserProfile</button>
           </Link>
           {isAuthenticated ? (
             <button onClick={logout}>Logout</button>
