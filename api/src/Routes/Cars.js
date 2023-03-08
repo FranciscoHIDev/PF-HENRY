@@ -6,7 +6,7 @@ const {
   routerByidCars,
   routerPutCars,
   routerDeleteCars,
-} = require("../Controllers/CarsController.js");
+} = require("../Controllers/CarsController");
 
 const {routerLocation}=require('../Controllers/GetLocation')
 
