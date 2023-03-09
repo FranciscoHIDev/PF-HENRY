@@ -18,7 +18,7 @@ function Pagination({ cars, carPerPage, paginate, page, setPage, maxPage }) {
 
   return (
     <React.Fragment>
-      <nav className="flex justify-center">
+      <nav className="flex justify-center mb-[50px]">
         <button
           className=" m-1 text-xl px-2"
           disabled={page === 1}
