@@ -72,7 +72,7 @@ const carSchema = mongoose.Schema({
     type: String,
     required: true,
     minLength: 30,
-    maxLength: 500,
+    maxLength: 550,
   },
   image: {
     type: String,

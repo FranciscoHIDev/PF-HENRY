@@ -34,7 +34,7 @@ const validateCreate = [
         .exists()
         .withMessage("You must enter a description")
         .not()
-        .isLength({min: 30}, {max:500})
+        .isLength({min: 30}, {max:550})
         .isString(),
     check('fuelConsumption')
         .exists()
