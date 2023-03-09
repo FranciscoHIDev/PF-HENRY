@@ -1,21 +1,18 @@
-import React from "react";
+import React, {useState} from "react";
 import { RiGasStationFill } from "react-icons/ri";
 import { MdHdrAutoSelect, MdLocationPin } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { MdFavorite, MdFavoriteBorder } from "react-icons/md";
-function Card({
-  brand,
-  model,
-  price,
-  mileage,
-  location,
-  fuelType,
-  transissionType,
-  image,
-  year,
-  type,
-  _id,
-}) {
+
+function Card({brand,model,price,mileage,location,fuelType,transissionType,image,year,type,_id,}) {
+
+  const [isFavorite, setIsFavorite] = useState(false);
+
+  function toggleFavorite() {
+    setIsFavorite(!isFavorite);
+console.log(!isFavorite)
+  }
+
   return (
     <div className="flex flex-col w-[350px] h-[500px] rounded-lg mb-10 mx-3  bg-zinc-100  items-center shadow-md hover:scale-105">
       <img
@@ -34,7 +31,7 @@ function Card({
           {mileage} km
         </p>
         <p className="rounded-md bg-white px-1 ">
-          <MdFavoriteBorder className="text-[#FB8500] cursor-pointer  text-[22px]" />
+          <MdFavoriteBorder className={`favorite-icon ${isFavorite ? 'active' : ''}text-[#FB8500] cursor-pointer text-[22px]`} onClick={toggleFavorite}/>
         </p>
       </div>
       <div className="flex flex-row mb-1 ">

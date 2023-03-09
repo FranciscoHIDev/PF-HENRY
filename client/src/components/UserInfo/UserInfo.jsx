@@ -1,5 +1,5 @@
 import React from "react";
-import style from "../UserInfo/UserInfo.module.css";
+import style from "../routes/UserInfo.module.css";
 
 function UserInfo() {
   return (

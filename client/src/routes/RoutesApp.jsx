@@ -8,13 +8,14 @@ import {
   NotFound,
   Details,
 } from "../pages/index";
-import Favorites from '../components/Favorites/Favorites'
+import Favorites from '../pages/Favorites/Favorites'
 import LayoutAdmin from "../components/LayoutAdmin/LayoutAdmin";
 import HomeAdmin from "../components/LayoutAdmin/pages/HomeAdmin";
 import UsersAdmin from "../components/LayoutAdmin/pages/UsersAdmin";
 import CarsAdmin from "../components/LayoutAdmin/pages/CarsAdmin";
 import Bookings from "../components/LayoutAdmin/pages/Bookings";
 import UserProfile from "../components/UserProfile/UserProfile";
+import UserFavorites from "../components/UserFavorites/UserFavorites";
 
 function RoutesApp() {
   return (
@@ -26,7 +27,6 @@ function RoutesApp() {
         <Route exact path="about" element={<About />} />
         <Route exact path="contact" element={<Contact />} />
 
-
         {/* Configuración de rutas del Dashboard  */}
         <Route path="/dashboard" element={<LayoutAdmin />}>
           <Route index element={<HomeAdmin />} />
@@ -35,9 +35,10 @@ function RoutesApp() {
           <Route path="bookings" element={<Bookings />} />
         </Route>
         <Route exact path="*" element={<NotFound />} />
-        <Route exact path="/home/userProfile/" element={<UserProfile />} />    
+        <Route exact path="/home/userProfile" element={<UserProfile />} >
+          <Route path="userFavorites" element={<UserFavorites />} />    
+        </Route> 
          <Route exact path="favorites" element={<Favorites />} />
-
       </Routes>
     </>
   );
