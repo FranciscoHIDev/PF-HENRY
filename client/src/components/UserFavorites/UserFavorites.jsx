@@ -3,10 +3,6 @@ import React, { useState } from 'react';
 function UserFavorites({id}) {
   const [favorites, setFavorites] = useState([]);
 
-  const addFavorite = (id) => {
-    setFavorites([...favorites, id]);
-  };
-  
   const deleteFavorite = (id) => {
     const updatedFavorites = favorites.filter((e) => e !== id);
     setFavorites(updatedFavorites);
@@ -19,16 +15,10 @@ function UserFavorites({id}) {
         {favorites.map((favorite) => (
           <li key={favorite}>
             {favorite}
-            <button onClick={() => deleteFavorite(favorite)}>Eliminar</button>
+            <button onClick={() => deleteFavorite(favorite)}>Delete</button>
           </li>
         ))}
       </ul>
-      <input type="text" placeholder="Agregar nuevo favorito" onKeyDown={(e) => {
-        if (e.key === 'Enter') {
-          addFavorite(e.target.value);
-          e.target.value = '';
-        }
-      }} />
     </div>
   );
 }
