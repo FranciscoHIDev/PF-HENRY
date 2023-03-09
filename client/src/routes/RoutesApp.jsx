@@ -8,13 +8,15 @@ import {
   NotFound,
   Details,
 } from "../pages/index";
-import Favorites from '../components/Favorites/Favorites'
+import Favorites from '../pages/Favorites/Favorites'
 import LayoutAdmin from "../components/LayoutAdmin/LayoutAdmin";
 import HomeAdmin from "../components/LayoutAdmin/pages/HomeAdmin";
 import UsersAdmin from "../components/LayoutAdmin/pages/UsersAdmin";
 import CarsAdmin from "../components/LayoutAdmin/pages/CarsAdmin";
 import Bookings from "../components/LayoutAdmin/pages/Bookings";
-import UserProfile from "../components/UserProfile/UserProfile";
+
+import LayoutUser from "../components/UserProfile/LayoutUser";
+import Myprofile from "../components/UserProfile/pages/MyProfile";
 
 function RoutesApp() {
   return (
@@ -35,7 +37,9 @@ function RoutesApp() {
           <Route path="bookings" element={<Bookings />} />
         </Route>
         <Route exact path="*" element={<NotFound />} />
-        <Route exact path="/home/userProfile/" element={<UserProfile />} />    
+        <Route exact path="/home/userProfile/" element={<LayoutUser />} >
+          <Route path="MyProfile" element={<Myprofile/>}> </Route>
+          </Route>    
          <Route exact path="favorites" element={<Favorites />} />
 
       </Routes>

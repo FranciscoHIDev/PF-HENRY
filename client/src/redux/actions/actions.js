@@ -85,13 +85,18 @@ export const deletefil = (payload) => {
 };
 
 export const createUser = async(payload) => {
-  const carCreate = await axios.post("http://localhost:3001/cars", payload);
-  return carCreate.data
+  const userCreate = await axios.post("http://localhost:3001/users", payload);
+  return userCreate.data
 }
 
-export const renderInfoUsers = (payload) => {
+export const renderInfoUsers = async (id) => {
+  const infoUser = await axios.get(`http://localhost:3001/users/${id}` )
   return {
     type: "RENDER_INFO_USERS",
     payload
   }
 } 
+export const AllUsers = async() => {
+  const allUsers = await axios.get("http://localhost:3001/users");
+  return allUsers.data
+}

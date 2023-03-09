@@ -16,7 +16,8 @@ const initialState = {
   allCars: [],
   details: [],
   filtros: [],
-  infoUsers: "",  
+  allUsers: [],  
+  userById: []
 };
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
