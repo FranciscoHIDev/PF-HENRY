@@ -1,6 +1,6 @@
 const carSchema = require("../Models/Cars.js");
-// const Users = require("../Models/Users");
-// const { validateCreate } = require("../Validators/Cars.js");
+const Users = require("../Models/Users");
+const { validateCreate } = require("../Validators/Cars.js");
 
 /**
  * It gets all the cars from the database and returns them in the response
@@ -44,7 +44,7 @@ const routerGetCars = async (req, res) => {
  * @returns the carSchema.
  */
 const routerPostCars = async (req, res) => {
-  //   validateCreate;
+  validateCreate;
   const car = carSchema(req.body);
 
   car

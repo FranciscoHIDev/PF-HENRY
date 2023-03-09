@@ -101,11 +101,11 @@ const carSchema = mongoose.Schema({
   //     ref: "Review",
   //   },
   // ],
-  // billing: [
-  //   {
-  //     type: mongoose.Types.ObjectId,
-  //     ref: "Billings",
-  //   },
-  // ],
+  billing: [
+    {
+      type: mongoose.Types.ObjectId,
+      ref: "Billings",
+    },
+  ],
 });
 module.exports = mongoose.model("Cars", carSchema);
