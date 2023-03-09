@@ -8,7 +8,7 @@ import {
   NotFound,
   Details,
 } from "../pages/index";
-import Favorites from '../components/Favorites/Favorites'
+import Favorites from "../pages/Favorites/Favorites";
 import LayoutAdmin from "../components/LayoutAdmin/LayoutAdmin";
 import HomeAdmin from "../components/LayoutAdmin/pages/HomeAdmin";
 import UsersAdmin from "../components/LayoutAdmin/pages/UsersAdmin";
@@ -26,7 +26,6 @@ function RoutesApp() {
         <Route exact path="about" element={<About />} />
         <Route exact path="contact" element={<Contact />} />
 
-
         {/* Configuración de rutas del Dashboard  */}
         <Route path="/dashboard" element={<LayoutAdmin />}>
           <Route index element={<HomeAdmin />} />
@@ -35,9 +34,8 @@ function RoutesApp() {
           <Route path="bookings" element={<Bookings />} />
         </Route>
         <Route exact path="*" element={<NotFound />} />
-        <Route exact path="/home/userProfile/" element={<UserProfile />} />    
-         <Route exact path="favorites" element={<Favorites />} />
-
+        <Route exact path="/home/userProfile/" element={<UserProfile />} />
+        <Route exact path="favorites" element={<Favorites />} />
       </Routes>
     </>
   );
