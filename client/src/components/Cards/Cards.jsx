@@ -43,9 +43,9 @@ function Cards() {
         />
       </div>
 
-      <div className="flex justify-center">
-        <div className="">
-          <SideBar />
+      <div className="flex ">
+        <div className="mr-10">
+          <SideBar className="justify-self-start mr-3" />
         </div>
         <div className="flex mb-80 mt-20 flex-wrap  justify-center ">
           {totalCars.length !== 0 ? (

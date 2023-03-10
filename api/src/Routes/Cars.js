@@ -6,14 +6,16 @@ const {
   routerByidCars,
   routerPutCars,
   routerDeleteCars,
-} = require("../Controllers/CarsController.js");
-
+} = require("../Controllers/CarsController.js",);
+const {pagarProducto}=require('../Controllers/Producto')
 const {routerLocation}=require('../Controllers/GetLocation')
 
 /* This is a post request that is being sent to the server. */
 router.post("/", (req, res) => {
   routerPostCars(req, res);
 });
+
+router.get('/comprar/:id', pagarProducto)
 
 /* This is a get request that is being sent to the server. */
 router.get("/", (req, res) => {
