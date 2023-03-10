@@ -84,9 +84,9 @@ export const deletefil = (payload) => {
   };
 };
 
-export const createUser = async(payload) => {
-  const userCreate = await axios.post("http://localhost:3001/users", payload);
-  console.log(userCreate)
+export const createUser = (payload) => {
+  const userCreate =  axios.post("http://localhost:3001/users", payload);
+  
   return userCreate.data
 }
 
