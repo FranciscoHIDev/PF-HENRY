@@ -86,8 +86,10 @@ export const deletefil = (payload) => {
 
 export const createUser = async(payload) => {
   const userCreate = await axios.post("http://localhost:3001/users", payload);
+  console.log(userCreate)
   return userCreate.data
 }
+
 
 export const renderInfoUsers = async (id) => {
   const infoUser = await axios.get(`http://localhost:3001/users/${id}` )

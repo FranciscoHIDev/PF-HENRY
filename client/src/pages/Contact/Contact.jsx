@@ -3,7 +3,7 @@ import NavBar from "../../components/NavBar/NavBar";
 import Footer from "../../components/Footer/Footer";
 import Style from "../Contact/Contact.module.css";
 function Contact() {
-  const [state, setState] = useState({});
+  const [state, setState] = useState();
   const [errores, setErrores] = useState({});
 
   function validate(valor) {
@@ -35,8 +35,9 @@ function Contact() {
     );
     console.log(errores);
   }
+  console.log(state)
   function handleSubmit() {
-    return alert("Pronto nos pondremos en contacto con usted");
+    return alert(state);
   }
   return (
     <>

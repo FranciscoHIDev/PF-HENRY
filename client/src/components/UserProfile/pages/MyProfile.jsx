@@ -22,14 +22,17 @@ export default function Myprofile() {
     const [users, setUsers] = useState()
 
 
-    function handleSubmit(e) {
+    function handleInputChange(e) {
         e.preventDefault()
         setUsers({
             ...users,
             [e.target.name]: e.target.value
         })
+    }
 
-dispatch(createUser(users))
+    function handleSubmit(){
+        
+        dispatch(createUser(users))
 
         alert(user.given_name + " " + "tu informacion ha sido Guardada Correctamente")
     }
@@ -54,7 +57,7 @@ console.log(users)
                         </div>
                         <div class="absolute inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center cursor-pointer hover:bg-opacity-75">
                             <span class="text-white text-3xl font-bold">+</span>
-                            <input type="file" class="absolute inset-0 z-50 w-full h-full opacity-0 cursor-pointer" />
+                            <input type="file" class="absolute inset-0 z-50 w-full h-full opacity-0 cursor-pointer" onChange={(e)=>handleInputChange(e)} />
                         </div>
                     </div>
                 </div>
@@ -66,14 +69,14 @@ console.log(users)
                         <label class="block text-gray-700 font-bold mb-2" for="name">
                             Name
                         </label>
-                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" readOnly={true} id="name" type="text" placeholder={user.given_name} name="name" />
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" readOnly={true} id="name" type="text" placeholder={user.given_name} name="name"  onChange={(e)=>handleInputChange(e)}/>
                     </div>
                     &nbsp;&nbsp;
                     <div class="mb-4">
                         <label class="block text-gray-700 font-bold mb-2" for="lastname">
                             Lastname
                         </label>
-                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" readOnly={true} id="lastname" type="text" placeholder={user.family_name} name="lastname" />
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" readOnly={true} id="lastname" type="text" placeholder={user.family_name} name="lastname"  onChange={(e)=>handleInputChange(e)}/>
                     </div>
 
                 </div>
@@ -81,7 +84,7 @@ console.log(users)
                     <label class="block text-gray-700 font-bold mb-2" for="mail">
                         Mail
                     </label>
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" readOnly={true} id="mail" type="email" placeholder={user.email} name="email" />
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" readOnly={true} id="mail" type="email" placeholder={user.email} name="email" onChange={(e)=>handleInputChange(e)} />
                 </div>
 
 
@@ -92,7 +95,7 @@ console.log(users)
                         <label class="block text-gray-700 font-bold mb-2" for="Countrie">
                             Countrie
                         </label>
-                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="countrie" type="text" placeholder="Countrie" name="countrie" />
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="countrie" type="text" placeholder="Countrie" name="countrie" onChange={(e)=>handleInputChange(e)} />
                     </div>
                     &nbsp;&nbsp;
 
@@ -100,7 +103,7 @@ console.log(users)
                         <label class="block text-gray-700 font-bold mb-2" for="direction">
                             Direction
                         </label>
-                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="direction" type="text" placeholder="Direction" />
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="direction" type="text" placeholder="Direction" onChange={(e)=>handleInputChange(e)}/>
                     </div>
                 </div>
 
@@ -109,14 +112,14 @@ console.log(users)
                         <label class="block text-gray-700 font-bold mb-2" for="document">
                             Document
                         </label>
-                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="document" type="text" placeholder="Document" />
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="document" type="text" placeholder="Document" onChange={(e)=>handleInputChange(e)}/>
                     </div>
                     &nbsp;&nbsp;
                     <div class="mb-4">
                         <label class="block text-gray-700 font-bold mb-2" for="Phone">
                             Phone
                         </label>
-                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="Phone" type="tel" placeholder="Phone" />
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="Phone" type="tel" placeholder="Phone" onChange={(e)=>handleInputChange(e)}/>
                     </div>
                 </div>
 
