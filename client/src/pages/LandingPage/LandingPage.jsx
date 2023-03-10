@@ -59,9 +59,8 @@ function LandingPage() {
         <div className={Style.container_2}>
           <h2>Many brands to chose from</h2>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut tempora esse, sed, natus possimus nisi quibusdam autem, deleniti
-            excepturi odit facilis. Distinctio, assumenda sequi. Sit odit sapiente eveniet dolore, similique, nobis aliquam, nisi minus
-            distinctio magni quidem dolores obcaecati aliquid.
+            We provide tailor-made approach to fit your unique requirement and considerations. We offer full support and service on all
+            stages of purchase and financing a car of your dream. You may choose any model available in our showroom or from our partners
           </p>
           <div className={Style.slider}>
             <div className={Style.slide_track}>
@@ -126,10 +125,10 @@ function LandingPage() {
         <div className={Style.col2}>
           <h2>Go with our newest selection</h2>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt corporis libero deleniti autem at, mollitia eligendi, ipsa
-            omnis dolorum delectus eveniet dignissimos ullam soluta perspiciatis iure inventore tempore quaerat similique fugit.
-            Praesentium, voluptatem rerum similique officiis assumenda nobis rem necessitatibus dolorem, ex amet repellat harum fugiat error
-            sit facere id quos! Veniam vel maiores distinctio voluptate, hic inventore perspiciatis voluptatibus!
+            Our cars stand for automotive extravagance - more power, more comfort and more expertise. An exclusive selection in the sports
+            cars and luxury segment as well as the appropriate service focus for correspondingly high demands. In addition to prestigious
+            and traditional brands such as Ferrari, Lamborghini, Bentley, Porsche, Land Rover and Mercedes, we provide classics designs to
+            limited model variants. High-class tuning and procurement of rare model series are also possible.
           </p>
         </div>
       </div>
