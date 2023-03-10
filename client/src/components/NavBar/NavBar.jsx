@@ -12,16 +12,12 @@ function NavBar() {
   const { isAuthenticated, user, logout } = useAuth0();
   return (
     <React.Fragment>
-      <div className=" flex bg-white w-full fixed p-3 ">
+      <div className=" flex bg-white w-full fixed p-3 z-10">
         <div className="container">
           <div className="flex  text-[20px] text-black items-center">
             <div className="flex items-center mr-40 ml-10 ">
               <Link className="" to="/">
-                <img
-                  className="w-[130px] h-[53px] pt-1"
-                  src={logo2}
-                  alt="logo"
-                />
+                <img className="w-[130px] h-[53px] pt-1" src={logo2} alt="logo" />
               </Link>
             </div>
             <div className="flex">
@@ -47,11 +43,7 @@ function NavBar() {
           <Link to="userProfile">
             <button>UserProfile</button>
           </Link>
-          {isAuthenticated ? (
-            <button onClick={logout}>Logout</button>
-          ) : (
-            <LoginButton />
-          )}
+          {isAuthenticated ? <button onClick={logout}>Logout</button> : <LoginButton />}
         </div>
       </div>
       <Outlet />
