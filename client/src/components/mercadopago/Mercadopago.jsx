@@ -1,28 +1,37 @@
-import React, { useEffect } from 'react';
-import { useMercadoPago } from 'mercadopago-v2-react';
+import React, { useState } from 'react';
+import mercadopago from 'mercadopago';
 
-export default function Checkout() {
-    const mercadopago = useMercadoPago('TEST-b38eba64-c8b9-4330-aa82-c3e0e29d9f66', {
-        locale: 'es-AR'
-    });
+mercadopago.configure({
+  access_token: 'TU_ACCESS_TOKEN_AQUI'
+});
 
-    useEffect(() => {
-        if (mercadopago) {
-            mercadopago.checkout({
-                preference: {
-                    id: 'YOUR_PREFERENCE_ID'
-                },
-                render: {
-                    container: '.cho-container',
-                    label: 'Pay',
-                }
-            })
+const PaymentForm = () => {
+  const [preferenceId, setPreferenceId] = useState(null);
+  
+  const handlePayment = async () => {
+    // Crea una nueva preferencia de pago
+    const response = await mercadopago.preferences.create({
+      items: [
+        {
+          title: 'Producto de prueba',
+          description: 'Descripción del producto de prueba',
+          unit_price: 10.0,
+          quantity: 1,
         }
-    }, [mercadopago])
-
-    return (
-        <div>
-            <div class="cho-container" />
-        </div>
-    )
+      ],
+      payer: {
+        email: 'usuario@ejemplo.com'
+      }
+    });
+    setPreferenceId(response.body.id);
+  }
+  
+  return (
+    <div>
+      <button onClick={handlePayment}>Pagar</button>
+      {preferenceId && <iframe src={`https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js?preference-id=${preferenceId}`} width="100%" height="500" frameborder="0" allowfullscreen></iframe>}
+    </div>
+  );
 }
+
+export default PaymentForm;

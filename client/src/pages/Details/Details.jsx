@@ -8,7 +8,7 @@ import { ImLocation } from "react-icons/im";
 import Footer from "../../components/Footer/Footer";
 import { Link } from "react-router-dom";
 import Loading from "../../components/Loading/Loading";
-import Mercadopago  from "../../components/mercadopago/Mercadopago";
+import Mercadopago  from "../../components/Mercadopago/Mercadopago";
 
 function Details() {
   const { id } = useParams();

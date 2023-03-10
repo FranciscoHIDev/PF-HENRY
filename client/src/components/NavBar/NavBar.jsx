@@ -3,7 +3,13 @@ import { Link, Outlet } from "react-router-dom";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { MdFavoriteBorder } from "react-icons/md";
 import logo2 from "../../assets/logo-n2.png";
+import { useAuth0 } from "@auth0/auth0-react";
+import LogoutButton from "./../Auth0/LogoutButton";
+import LoginButton from "./../Auth0/LoginButton";
+import UserProfile from "../UserProfile/UserProfile";
+
 function NavBar() {
+  const { isAuthenticated, user, logout } = useAuth0();
   return (
     <React.Fragment>
       <div className=" flex bg-white w-full fixed p-3 ">
@@ -35,10 +41,17 @@ function NavBar() {
           <Link to="/cart">
             <HiOutlineShoppingBag className="text-3xl mr-4" />
           </Link>
-          <Link to="cart">
+          <Link to="/favorites">
             <MdFavoriteBorder className="text-3xl mr-4" />
           </Link>
-          <button>Login</button>
+          <Link to="userProfile">
+            <button>UserProfile</button>
+          </Link>
+          {isAuthenticated ? (
+            <button onClick={logout}>Logout</button>
+          ) : (
+            <LoginButton />
+          )}
         </div>
       </div>
       <Outlet />

@@ -8,6 +8,7 @@ export const CLEAR_DETAIL = "CLEAR_DETAIL";
 export const ALL_FILTER = "ALL_FILTER"
 export const PUSH= "PUSH";
 export const DELETE_FIL="DELETE_FIL"
+export const RENDER_INFO_USERS= "RENDER_INFO_USERS";
 
 export const getAllCars = () => async (dispatch) => {
   try {
@@ -32,9 +33,7 @@ export const getCarsByName = (name) => {
 export const getCardsById = (id) => {
   return async function (dispatch) {
     try {
-      const response = await axios.get(
-        `http://localhost:3001/cars/idcar/${id}`
-      );
+      const response = await axios.get(`http://localhost:3001/cars/idcar/${id}`);
       return dispatch({
         type: "GET_BY_ID",
         payload: response.data,
@@ -64,20 +63,35 @@ export const clearDetail = () => {
     type: "CLEAR_DETAIL"
   }
 }
+
 export const allFilter = () => {
   return {
     type: "ALL_FILTER",
   };
 };
+
 export const push = (payload) => {
   return {
     type: "PUSH",
     payload,
   };
 };
+
 export const deletefil = (payload) => {
   return {
     type: "DELETE_FIL",
     payload,
   };
 };
+
+export const createUser = async(payload) => {
+  const carCreate = await axios.post("http://localhost:3001/cars", payload);
+  return carCreate.data
+}
+
+export const renderInfoUsers = (payload) => {
+  return {
+    type: "RENDER_INFO_USERS",
+    payload
+  }
+} 

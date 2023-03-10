@@ -10,19 +10,23 @@ import SideBar from "./../SideBar/SideBar";
 function Cards() {
   const dispatch = useDispatch();
   const cars = useSelector((state) => state.cars);
+  const carsValid = [];
+  cars.map((car) => {
+    car.status === "valid" ? carsValid.push(car) : null;
+  });
 
   useEffect(() => {
     dispatch(getAllCars());
   }, [dispatch]);
 
   const [page, setPage] = useState(1);
-  const [carPerPage] = useState(8);
+  const [carPerPage] = useState(6);
 
   const lastCar = page * carPerPage;
   const firstCar = lastCar - carPerPage;
-  const totalCars = cars.slice(firstCar, lastCar);
+  const totalCars = carsValid.slice(firstCar, lastCar);
 
-  const maxPage = Math.ceil(cars.length / carPerPage);
+  const maxPage = Math.ceil(carsValid.length / carPerPage);
 
   function paginate(e, num) {
     e.preventDefault();
@@ -32,22 +36,12 @@ function Cards() {
   return (
     <React.Fragment>
       <SearchBar setPage={setPage} />
-      <div>
-        <Pagination
-          carPerPage={carPerPage}
-          cars={cars.length}
-          paginate={paginate}
-          setPage={setPage}
-          page={page}
-          maxPage={maxPage}
-        />
-      </div>
 
       <div className="flex ">
         <div className="mr-10">
           <SideBar className="justify-self-start mr-3" />
         </div>
-        <div className="flex mb-80 mt-20 flex-wrap  justify-center ">
+        <div className="flex mb-[10px] mt-20 flex-wrap  justify-center ">
           {totalCars.length !== 0 ? (
             totalCars.map((c) => {
               return (
@@ -72,13 +66,16 @@ function Cards() {
           )}
         </div>
       </div>
-      {/* <div>
+      <div>
         <Pagination
           carPerPage={carPerPage}
-          cars={cars.length}
+          cars={carsValid.length}
           paginate={paginate}
+          setPage={setPage}
+          page={page}
+          maxPage={maxPage}
         />
-      </div> */}
+      </div>
     </React.Fragment>
   );
 }
