@@ -37,7 +37,13 @@ export default function Myprofile() {
 
         alert(user.given_name + " " + "tu informacion ha sido Guardada Correctamente")
     }
+
+
+
 console.log(users)
+
+
+
 
     return (
 
