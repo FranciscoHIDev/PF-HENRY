@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+// import React, { useState, useEffect } from "react";
+// import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { Edit, Delete } from "@mui/icons-material";
 import loading from "../../../assets/loading.gif";
 import axios from "axios";
-import Swal from "sweetalert2";
 import {
   FormControlLabel,
   MenuItem,
@@ -73,8 +73,12 @@ function CarsAdmin() {
     setCarSelected(c);
     caso === "Edit" ? openCloseModalEdit() : openCloseModalDelete();
   }
-
-  const BanearCar = async () => {
+  // const peticionDelete = async () => {
+  //   await axios.delete(API_URL + carSelected.id).then((response) => {
+  //     setData(data.filter((c) => c.id !== carSelected.id));
+  //   });
+  // };
+  const PutCars = async () => {
     await axios.put(API_URL + carSelected._id, carSelected).then((response) => {
       var dataNew = data;
       console.log(dataNew);
@@ -94,7 +98,7 @@ function CarsAdmin() {
       });
     });
   };
-  const EditInfo = async () => {
+  const peticionPut = async () => {
     await axios.put(API_URL + carSelected._id, carSelected).then((response) => {
       var dataNew = data;
       dataNew.map((c) => {
@@ -312,7 +316,7 @@ function CarsAdmin() {
       </fieldset>
       <br />
       <div className="text-center pb-4">
-        <Button variant="contained" color="success" onClick={EditInfo}>
+        <Button variant="contained" color="success" onClick={peticionPut}>
           Edit
         </Button>
         <Button variant="contained" color="error" onClick={openCloseModalEdit}>
@@ -343,7 +347,7 @@ function CarsAdmin() {
         </RadioGroup>
       </fieldset>
       <div className="text-center pt-4 pb-4 ">
-        <Button variant="contained" color="success" onClick={BanearCar}>
+        <Button variant="contained" color="success" onClick={PutCars}>
           Yes
         </Button>
         <Button
@@ -374,10 +378,10 @@ function CarsAdmin() {
             <TableHead className="bg-[#8ECAE6]">
               <TableRow>
                 {/* <TableCell>Id</TableCell> */}
-                <TableCell>Type</TableCell>
+                <TableCell>type</TableCell>
                 <TableCell>Model</TableCell>
                 <TableCell>Doors</TableCell>
-                <TableCell>TransissionType</TableCell>
+                <TableCell>transissionType</TableCell>
                 <TableCell>Category</TableCell>
                 <TableCell>Price</TableCell>
                 {/* <TableCell>Colour</TableCell> */}
@@ -436,7 +440,7 @@ function CarsAdmin() {
           onClose={() => openCloseModalDelete()}
         >
           {bodyDelete}
-        </Modal>
+        </Modal>    
       </div>
     </>
   );
