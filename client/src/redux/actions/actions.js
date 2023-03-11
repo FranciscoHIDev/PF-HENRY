@@ -9,7 +9,8 @@ export const ALL_FILTER = "ALL_FILTER"
 export const PUSH= "PUSH";
 export const DELETE_FIL="DELETE_FIL"
 export const RENDER_INFO_USERS= "RENDER_INFO_USERS";
-
+export const POST_CONTACT ="POST_CONTACT"
+export const POST_USERS= "POST_USERS"
 export const getAllCars = () => async (dispatch) => {
   try {
     const { data } = await axios.get("http://localhost:3001/cars");
@@ -84,14 +85,34 @@ export const deletefil = (payload) => {
   };
 };
 
-export const createUser = async(payload) => {
-  const carCreate = await axios.post("http://localhost:3001/cars", payload);
-  return carCreate.data
+export const createUser = (payload) => {
+  const userCreate =  axios.post("http://localhost:3001/users", payload);
+  
+  return {
+    type: "POST_USERS",
+    payload: userCreate.data,
+    
+}
 }
 
-export const renderInfoUsers = (payload) => {
+
+export const renderInfoUsers = async (id) => {
+  const infoUser = await axios.get(`http://localhost:3001/users/${id}` )
   return {
     type: "RENDER_INFO_USERS",
     payload
   }
 } 
+export const AllUsers = async() => {
+  const allUsers = await axios.get("http://localhost:3001/users");
+  return allUsers.data
+} 
+
+
+export const PostContact = async() =>{
+  const contact = await axios.post("http://localhost:3001/contact");
+  return{
+    type: "POST_CONTACT",
+    payload: contact.data
+  } 
+}
