@@ -11,6 +11,9 @@ export const DELETE_FIL="DELETE_FIL"
 export const RENDER_INFO_USERS= "RENDER_INFO_USERS";
 export const POST_CONTACT ="POST_CONTACT"
 export const POST_USERS= "POST_USERS"
+export const PUT_USER = "PUT_USER"
+
+
 export const getAllCars = () => async (dispatch) => {
   try {
     const { data } = await axios.get("http://localhost:3001/cars");
@@ -85,16 +88,45 @@ export const deletefil = (payload) => {
   };
 };
 
-export const createUser = (payload) => {
-  const userCreate =  axios.post("http://localhost:3001/users", payload);
+// export const createUser = (payload) => {
+//   const userCreate =  axios.post("http://localhost:3001/users", payload);
   
-  return {
-    type: "POST_USERS",
-    payload: userCreate.data,
+//   return {
+//     type: "POST_USERS",
+//     payload: userCreate.data,
     
-}
+// }
+// }
+
+export const putUser = (object, id) =>  {
+  // try {
+    const editUser =  axios.put("http://localhost:3001/users/"+ id , object);
+   editUser.then((response)=> console.log("Actualizado"))
+  //   return dispatch({
+  //     type: "PUT_USER",
+  //     payload: editUser,
+  //   });
+  // } catch (error) {
+  //   console.log(error);
+
+  // }
+
 }
 
+export function createUser(infoUser) {
+  return dispatch => {
+    return axios.post('http://localhost:3001/users', infoUser)
+      .then(response => {
+        dispatch({
+          type: "POST_USERS",
+          payload: response.data
+        });
+      })
+      .catch(error => {
+        throw(error);
+      });
+  };
+}
 
 export const renderInfoUsers = async (id) => {
   const infoUser = await axios.get(`http://localhost:3001/users/${id}` )
@@ -103,16 +135,22 @@ export const renderInfoUsers = async (id) => {
     payload
   }
 } 
+
+
 export const AllUsers = async() => {
   const allUsers = await axios.get("http://localhost:3001/users");
   return allUsers.data
 } 
 
 
-export const PostContact = async() =>{
-  const contact = await axios.post("http://localhost:3001/contact");
-  return{
-    type: "POST_CONTACT",
-    payload: contact.data
-  } 
-}
+
+export const postContact = (payload) => async (dispatch) => {
+  try {
+    const contacCreated = await axios.post("http://localhost:3001/contact", payload);
+    return dispatch({
+      type: "POST_CONTACT",
+      payload: contacCreated,
+    });
+  } catch (error) {
+    console.log(error);
+  }}

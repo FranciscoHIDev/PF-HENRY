@@ -15,7 +15,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 function SideBarUser() {
   //overflow-y-scroll
   const { user , logout  } = useAuth0();
-  console.log(user)
+  
   const [showSubMenu, setShowSubMenu] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   return (

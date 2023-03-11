@@ -10,7 +10,8 @@ import {
   DELETE_FIL,
   RENDER_INFO_USERS,
   POST_CONTACT,
-  POST_USERS
+  POST_USERS,
+  PUT_USER
 } from "../actions/actions";
 
 const initialState = {
@@ -99,8 +100,15 @@ const rootReducer = (state = initialState, action) => {
     case POST_USERS:
       return {
         ...state,
-        cars: action.payload
+        allUsers: action.payload
       }
+
+      case PUT_USER:
+        return {
+          ...state,
+          allUsers: action.payload
+        }
+        
       case POST_CONTACT:
         return{
           ...state,
