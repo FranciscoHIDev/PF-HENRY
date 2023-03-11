@@ -187,7 +187,7 @@ const { id } = req.params;
 const {
     name,
     lastname,
-    kindOfPerson,
+   
     email,
     location,
     telephone,
@@ -202,7 +202,7 @@ userSchema
         $set: {
         name,
         lastname,
-        kindOfPerson,
+       
         email,
         location,
         telephone,
