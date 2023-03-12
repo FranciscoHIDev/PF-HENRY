@@ -23,7 +23,7 @@ function Card({
         src={image}
         alt="image"
       />
-      <p className="text-[#FB8500]  mt-1 text-2xl">{type}</p>
+       <p className="text-[#FB8500]  mt-1 text-2xl">{type}</p>
       <p className="mt-1 text-2xl text-black mb-2">
         {brand} {model}
       </p>
