@@ -10,7 +10,8 @@ import {
   DELETE_FIL,
   RENDER_INFO_USERS,
   POST_CONTACT,
-  POST_USERS
+  POST_USERS,
+  POST_CAR
 } from "../actions/actions";
 
 const initialState = {
@@ -18,7 +19,7 @@ const initialState = {
   allCars: [],
   details: [],
   filtros: [],
-  allUsers: [],  
+  allUsers: [],
   userById: [],
   allContacts: []
 };
@@ -65,17 +66,21 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         details: initialState.details
       };
-    case ALL_FILTER:{
+    case ALL_FILTER: {
       let arrfil = state.allCars
       const cfil = state.filtros
-      if(cfil.length === 0){arrfil = state.allCars
-        return{
+      if (cfil.length === 0) {
+        arrfil = state.allCars
+        return {
           ...state,
-          cars:arrfil
-        }}
-      else{ for (let i = 0; i < cfil.length; i++) {
-        arrfil = arrfil.filter(e => e[cfil[i].propety].includes(cfil[i].value))}
-        return{
+          cars: arrfil
+        }
+      }
+      else {
+        for (let i = 0; i < cfil.length; i++) {
+          arrfil = arrfil.filter(e => e[cfil[i].propety].includes(cfil[i].value))
+        }
+        return {
           ...state,
           cars: arrfil
         }
@@ -87,11 +92,11 @@ const rootReducer = (state = initialState, action) => {
         filtros: [...state.filtros, action.payload]
       }
     }
-    case DELETE_FIL :{
+    case DELETE_FIL: {
       let filt = state.filtros
       const ff = action.payload
-      filt=filt.filter((e) => e.value !== ff)
-      return{ 
+      filt = filt.filter((e) => e.value !== ff)
+      return {
         ...state,
         filtros: filt
       }
@@ -101,15 +106,20 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         cars: action.payload
       }
-      case POST_CONTACT:
-        return{
-          ...state,
-          allContacts: action.payload
-        }
+    case POST_CONTACT:
+      return {
+        ...state,
+        allContacts: action.payload
+      }
     case RENDER_INFO_USERS:
       return {
         ...state,
         infoUsers: action.payload
+      }
+    case POST_CAR:
+      return {
+        ...state,
+        cars: [...state.cars, action.payload]
       }
     default:
       return state;
