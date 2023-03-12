@@ -67,11 +67,11 @@ function NavBar() {
                     <MenuButton className="flex bg-primary items-center gap-x-2 hover:bg-[#0d6efd]  rounded-lg transition-colors pl-3 pr-5">
                       <img
                         src={user.picture}
-                        alt={user.name}
+                        alt={user.given_name}
                         className="w-6 h-6 object-cover rounded-full"
                       />
                       <p className="flex">
-                        Hi!<span className="ml-1">{user.name}</span>
+                        Hi!<span className="ml-1">{user.given_name}</span>
                       </p>
                       <RiArrowDownSLine />
                     </MenuButton>
@@ -89,11 +89,11 @@ function NavBar() {
                     >
                       <img
                         src={user.picture}
-                        alt={user.name}
+                        alt={user.given_name}
                         className="w-8 h-8 object-cover rounded-full"
                       />
                       <div className="flex flex-col text-sm">
-                        <span className="text-sm">{user.name} </span>
+                        <span className="text-sm">{user.given_name} </span>
                         <span className="text-xs text-gray-500">
                           {user.email}
                         </span>
