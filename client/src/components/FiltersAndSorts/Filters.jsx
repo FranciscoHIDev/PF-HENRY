@@ -19,15 +19,15 @@ function Filters() {
     dispatch(allFilter())
   }
 
-  function handelrCate(e) {
+  function handlerCate(e) {
     dispatch(push({ propety: "category", value: e.target.innerText }))
     dispatch(allFilter());
-    console.log(reFil)
+console.log(reFil)
   }
-  function handelrModel(e) {
+  function handlerModel(e) {
     dispatch(push({ propety: "model", value: e.target.innerText }))
     dispatch(allFilter());
-    console.log(reFil)
+console.log(reFil)
   }
 
   return (
@@ -40,9 +40,9 @@ function Filters() {
       <br />
       <div>{reFil[0] && reFil.map((e) => <div key={e.value}><p>{e.value}</p><button value={e.value} onClick={handlerDelete}>x</button> </div>)}</div>
       {reFil[0] && reFil.find(e=>e.propety==="category")?null:<div className="my-3"><label className="font-bold block my-2  rounded-lg"  >Category</label>
-      {reCategory.map(e => <div className="flex "><p className="hover:cursor-pointer hover:ml-1 text-sm" onClick={handelrCate} >{e}</p> <br /></div>)}</div> }
+      {reCategory.map(e => <div className="flex "><p className="hover:cursor-pointer hover:ml-1 text-sm" onClick={handlerCate} >{e}</p> <br /></div>)}</div> }
       {reFil[0] && reFil.find(e=>e.propety==="model")?null:<div className="my-3"><label className="font-bold block my-2  rounded-lg"  >Model</label>
-      {reModel.map(e => <div className="flex "><p className="hover:cursor-pointer hover:ml-1 text-sm" onClick={handelrModel} >{e}</p> <br /></div>)}</div>}
+      {reModel.map(e => <div className="flex "><p className="hover:cursor-pointer hover:ml-1 text-sm" onClick={handlerModel} >{e}</p> <br /></div>)}</div>}
       
     </div>
   ) 

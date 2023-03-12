@@ -1,10 +1,12 @@
+const checkJwt = require('../Auth/middleware/middleware');
 
-const controllerAuth = async(req, res) => {
+const controllerAuth = async (req, res) => {
   const { redirectUrl } = req.query;
   const loginOptions = {
     state: redirectUrl ? JSON.stringify({ redirectUrl }) : undefined
   };
-console.log(loginOptions)
+  checkJwt
+  const userId = req.user.sub;
   auth0Client.authorize(loginOptions);
 }
 

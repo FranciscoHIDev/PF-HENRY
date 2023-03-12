@@ -1,10 +1,10 @@
 const express = require("express");
 const { controllerAuth, tokenValidator, logOut } = require("../Controllers/AuthController");
-const checkJwt = require('../Auth/middleware/middleware')
+//const checkJwt = require('../Auth/middleware/middleware')
 
 const router = express.Router();
 
-router.get("/login", checkJwt, (req, res) => {
+router.get("/login", (req, res) => {
   controllerAuth(req, res);
 }); 
 

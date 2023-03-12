@@ -1,7 +1,7 @@
 const express = require("express");
 const {expressjwt: jwt} = require("express-jwt");
 const jwks = require("jwks-rsa");
-const auth0 = require('auth0-js');
+//const auth0 = require('auth0-js');
 
 const router = express.Router();
 
@@ -9,11 +9,11 @@ const authConfig = {
   domain: 'dev-2llhwpnt06dhuqy3.us.auth0.com',
   audience: 'https://dev-2llhwpnt06dhuqy3.us.auth0.com/api/v2/',
   clientID: 'Hpt83nEK3MsdzgUKBPayjcJz9x84qObs',
-  redirectUri: 'http://localhost:3001/cars',
+  redirectUri: 'http://localhost:3001/auth',
   responseType: 'token ',
   scope: 'openid'
 };
-const auth0Client = new auth0.WebAuth(authConfig);
+
 const checkJwt = jwt({
   secret: jwks.expressJwtSecret({
     cache: true,
@@ -27,4 +27,3 @@ const checkJwt = jwt({
 });
 
 module.exports = router
-//app.use(checkJwt);
