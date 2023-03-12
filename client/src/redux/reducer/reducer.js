@@ -9,6 +9,8 @@ import {
   PUSH,
   DELETE_FIL,
   RENDER_INFO_USERS,
+  POST_CONTACT,
+  POST_USERS,
   POST_CAR
 } from "../actions/actions";
 
@@ -17,7 +19,9 @@ const initialState = {
   allCars: [],
   details: [],
   filtros: [],
-  infoUsers: "",
+  allUsers: [],
+  userById: [],
+  allContacts: []
 };
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -97,10 +101,15 @@ const rootReducer = (state = initialState, action) => {
         filtros: filt
       }
     }
-    case "CREATE_USER":
+    case POST_USERS:
       return {
         ...state,
         cars: action.payload
+      }
+    case POST_CONTACT:
+      return {
+        ...state,
+        allContacts: action.payload
       }
     case RENDER_INFO_USERS:
       return {

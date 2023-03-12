@@ -2,8 +2,20 @@ import React, { useState } from "react";
 import NavBar from "../../components/NavBar/NavBar";
 import Footer from "../../components/Footer/Footer";
 import Style from "../Contact/Contact.module.css";
+import { useDispatch } from "react-redux";
+import { PostContact } from "../../redux/actions/actions";
+
+
 function Contact() {
-  const [state, setState] = useState({});
+ 
+  const dispatch = useDispatch()
+  
+  const [state, setState] = useState({
+    name: "",
+    lastname: "",
+    email: "",
+    comentario : "",
+  });
   const [errores, setErrores] = useState({});
 
   function validate(valor) {
@@ -12,11 +24,7 @@ function Contact() {
     if (!valor.lastname) errores.lastname = "Este campo es requerido!";
     if (!valor.mail) errores.mail = "This fiel is empty";
     if (!valor.comentario) errores.comentario = "este campo esta vacio";
-    else if (
-      !/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*/.test(
-        valor.mail
-      )
-    ) {
+    else if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*/.test(valor.mail)) {
       errores.mail = "Esto no es un mail";
     }
     return errores;
@@ -35,9 +43,27 @@ function Contact() {
     );
     console.log(errores);
   }
-  function handleSubmit() {
-    return alert("Pronto nos pondremos en contacto con usted");
+  console.log(state)
+
+
+  function handleSubmit(e) {
+
+    const newmensaje= { 
+      name: state.name,
+      lastname: state.lastname,
+      email: state.email,
+      comentario : state.comentario
+    }
+    e.preventDefault()
+    dispatch(PostContact(newmensaje))
+  
+alert("mensaje enviado")
+
   }
+
+
+
+
   return (
     <>
       <NavBar />
@@ -58,6 +84,7 @@ function Contact() {
               type="text"
               placeholder="type your name"
               name="name"
+              value={state.name}
               required
             />
             {errores && errores.name ? (
@@ -83,6 +110,7 @@ function Contact() {
               type="text"
               placeholder="type your lastname"
               name="lastname"
+              value={state.lastname}
               required
             />
             {errores && errores.lastname ? (
@@ -102,11 +130,12 @@ function Contact() {
             <input
               className={Style.input}
               class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-              onChange={(e) => handleInputChange(e)}
-              key="mail"
+              onChange={(e) =>handleInputChange(e)}
+              key="email"
               type="text"
               placeholder="type your email adress"
-              name="mail"
+              name="email"
+              value={state.email}
               required
             />
             {errores && errores.mail ? (
@@ -130,6 +159,7 @@ function Contact() {
               key="comentario"
               placeholder=""
               name="comentario"
+              value={state.comentario}
             />
             {errores && errores.comentario ? (
               <spam style={{ color: "red" }}> * this field is requerid </spam>

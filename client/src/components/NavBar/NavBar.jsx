@@ -6,7 +6,7 @@ import logo2 from "../../assets/logo-n2.png";
 import { useAuth0 } from "@auth0/auth0-react";
 
 import LoginButton from "./../Auth0/LoginButton";
-import UserProfile from "../UserProfile/UserProfile";
+import UserProfile from "../UserProfile/HeaderUser";
 import {
   RiArrowDownSLine,
   RiLogoutCircleRLine,
@@ -53,6 +53,7 @@ function NavBar() {
           <Link to="/favorites">
             <MdFavoriteBorder className="text-3xl mr-4" />
           </Link>
+
           <Link to="userProfile">
             <button>UserProfile</button>
           </Link>
