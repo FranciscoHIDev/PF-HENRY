@@ -35,14 +35,15 @@ function LandingPage() {
   return (
     <>
       <NavBar />
+
       <div className={Style.container}>
-        <div className={Style.botones}>
-          {/* <button className=" mr-2" onClick={onButtonClick} value="EN">
+        {/* <div className={Style.botones}>
+          <button className=" mr-2" onClick={onButtonClick} value="EN">
           EN
         </button>
         <button className=" mr-2" onClick={onButtonClick} value="ES">
           ES
-        </button> */}
+        </button>
         </div>
 
         <div className={Style.titulo}>
@@ -51,6 +52,18 @@ function LandingPage() {
         <div className={Style.boxBtn}>
           <Link to="/home">
             <button>{lenguaje.boton}</button>
+          </Link>
+        </div>*/}
+        <video className={Style.back_video} autoPlay loop muted>
+          <source
+            src="https://prod-streaming-video-msn-com.akamaized.net/a8c412fa-f696-4ff2-9c76-e8ed9cdffe0f/604a87fc-e7bc-463e-8d56-cde7e661d690.mp4"
+            type="video/mp4"
+          />
+        </video>
+        <div className={Style.content}>
+          <h1>RENT A CAR FROM $20 PER DAY</h1>
+          <Link to="/home">
+            <button className={Style.button}>Start</button>
           </Link>
         </div>
       </div>

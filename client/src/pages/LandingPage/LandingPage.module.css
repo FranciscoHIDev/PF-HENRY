@@ -2,7 +2,6 @@
   margin: 0px;
   padding: 0px;
 
-  background-image: url("../../assets/peter-broomfield-m3m-lnR90uM-unsplash.jpg");
   background-size: cover;
   height: 600px;
   display: flex;
@@ -155,4 +154,18 @@
 }
 .col2 p {
   margin-inline: 50px;
+}
+
+.back_video {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  width: 100%;
+  object-fit: cover;
+
+  height: 100%;
+  margin: 0px;
+  object-fit: cover;
+  padding: 0px;
 }
