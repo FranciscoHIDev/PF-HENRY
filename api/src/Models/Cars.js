@@ -72,7 +72,7 @@ const carSchema = mongoose.Schema({
     type: String,
     required: true,
     minLength: 30,
-    maxLength: 500,
+    maxLength: 550,
   },
   image: {
     type: String,
@@ -101,11 +101,11 @@ const carSchema = mongoose.Schema({
   //     ref: "Review",
   //   },
   // ],
-  // billing: [
-  //   {
-  //     type: mongoose.Types.ObjectId,
-  //     ref: "Billings",
-  //},
-  // ],
+  billing: [
+    {
+      type: mongoose.Types.ObjectId,
+      ref: "Billings",
+    },
+  ],
 });
 module.exports = mongoose.model("Cars", carSchema);
