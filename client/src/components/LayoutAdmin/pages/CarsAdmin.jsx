@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import { Edit, Delete } from "@mui/icons-material";
 import loading from "../../../assets/loading.gif";
 import axios from "axios";
@@ -133,19 +134,23 @@ function CarsAdmin() {
       <h3 className="text-center pt-4 font-bold text-2xl">EDIT CARS</h3>
       <br />
       <TextField
+        fullWidth
+        select
+        label="Type"
+        value={carSelected && carSelected.type}
         name="type"
         margin="normal"
-        fullWidth
-        label="type"
         onChange={handleChange}
-        value={carSelected && carSelected.type}
-      />
+      >
+        <MenuItem value="New">New</MenuItem>
+        <MenuItem value="Used">Used</MenuItem>
+      </TextField>
       <br />
       <TextField
         name="brand"
         margin="normal"
         fullWidth
-        label="brand"
+        label="Brand"
         onChange={handleChange}
         value={carSelected && carSelected.brand}
       />
@@ -154,7 +159,7 @@ function CarsAdmin() {
         name="model"
         margin="normal"
         fullWidth
-        label="model"
+        label="Model"
         onChange={handleChange}
         value={carSelected && carSelected.model}
       />
@@ -163,7 +168,7 @@ function CarsAdmin() {
         name="price"
         margin="normal"
         fullWidth
-        label="price"
+        label="Price"
         onChange={handleChange}
         value={carSelected && carSelected.price}
       />
@@ -172,7 +177,7 @@ function CarsAdmin() {
         name="description"
         margin="normal"
         fullWidth
-        label="description"
+        label="Description"
         onChange={handleChange}
         value={carSelected && carSelected.description}
       />
@@ -181,7 +186,7 @@ function CarsAdmin() {
         name="category"
         margin="normal"
         fullWidth
-        label="category"
+        label="Category"
         onChange={handleChange}
         value={carSelected && carSelected.category}
       />
@@ -189,7 +194,7 @@ function CarsAdmin() {
         name="location"
         margin="normal"
         fullWidth
-        label="location"
+        label="Location"
         onChange={handleChange}
         value={carSelected && carSelected.location}
       />
@@ -198,7 +203,7 @@ function CarsAdmin() {
         name="fuelConsumption"
         margin="normal"
         fullWidth
-        label="fuelConsumption"
+        label="FuelConsumption"
         onChange={handleChange}
         value={carSelected && carSelected.fuelConsumption}
       />
@@ -207,7 +212,7 @@ function CarsAdmin() {
         name="doors"
         margin="normal"
         fullWidth
-        label="doors"
+        label="Doors"
         onChange={handleChange}
         value={carSelected && carSelected.doors}
       />
@@ -216,7 +221,7 @@ function CarsAdmin() {
         name="color"
         margin="normal"
         fullWidth
-        label="color"
+        label="Color"
         onChange={handleChange}
         value={carSelected && carSelected.color}
       />
@@ -234,7 +239,7 @@ function CarsAdmin() {
         name="mileage"
         margin="normal"
         fullWidth
-        label="mileage"
+        label="Mileage"
         onChange={handleChange}
         value={carSelected && carSelected.mileage}
       />
@@ -256,14 +261,14 @@ function CarsAdmin() {
       <TextField
         fullWidth
         select
-        label="transissionType"
+        label="TransissionType"
         value={carSelected && carSelected.transissionType}
         name="transissionType"
         margin="normal"
         onChange={handleChange}
       >
         <MenuItem value="automatic">automatic</MenuItem>
-        <MenuItem value="Handbook">HandBook</MenuItem>
+        <MenuItem value="handbook">HandBook</MenuItem>
         <MenuItem value="semiautomatic">Semiautomatic</MenuItem>
       </TextField>
       <br />
@@ -358,20 +363,20 @@ function CarsAdmin() {
   );
   return (
     <>
-      <div className="flex font-bold text-3xl">
-        {/* <Link to="/dashboard/create-car">
-            <button
-              type="button"
-              className="absolute top-20 right-4 flex px-6 py-2.5 bg-primary text-[#023047] font-bold  text-xs leading-tight uppercase rounded shadow-md hover:bg-[#219EBC] hover:shadow-lg focus:bg-[#219EBC] focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg  duration-150 ease-in-out"
-            >
-              Create new car
-            </button>
-          </Link> */}
+      <div className="flex font-bold text-3xl ">
+        <Link to="/dashboard/create-car">
+          <button
+            type="button"
+            className="absolute top-20 mr-10 right-4 flex px-6 py-2.5 bg-primary text-white font-bold  text-xs leading-tight uppercase rounded shadow-md hover:bg-[#0d6efd] hover:shadow-lg  "
+          >
+            Create new car
+          </button>
+        </Link>
       </div>
       <div className="bg-white mt-[40px]">
         <TableContainer>
           <Table>
-            <TableHead className="bg-[#8ECAE6]">
+            <TableHead className="bg-[#0d6efd]">
               <TableRow>
                 {/* <TableCell>Id</TableCell> */}
                 <TableCell>Type</TableCell>

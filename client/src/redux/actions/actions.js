@@ -6,9 +6,10 @@ export const SORT_BY_PRICE = "SORT_BY_PRICE";
 export const SEARCH = "SEARCH";
 export const CLEAR_DETAIL = "CLEAR_DETAIL";
 export const ALL_FILTER = "ALL_FILTER"
-export const PUSH= "PUSH";
-export const DELETE_FIL="DELETE_FIL"
-export const RENDER_INFO_USERS= "RENDER_INFO_USERS";
+export const PUSH = "PUSH";
+export const DELETE_FIL = "DELETE_FIL"
+export const RENDER_INFO_USERS = "RENDER_INFO_USERS";
+export const POST_CAR = "POST_CAR"
 
 export const getAllCars = () => async (dispatch) => {
   try {
@@ -84,7 +85,7 @@ export const deletefil = (payload) => {
   };
 };
 
-export const createUser = async(payload) => {
+export const createUser = async (payload) => {
   const carCreate = await axios.post("http://localhost:3001/cars", payload);
   return carCreate.data
 }
@@ -94,4 +95,17 @@ export const renderInfoUsers = (payload) => {
     type: "RENDER_INFO_USERS",
     payload
   }
-} 
+}
+
+export const postCar = (payload) => async (dispatch) => {
+  try {
+    const carCreated = await axios.post("http://localhost:3001/cars", payload);
+    return dispatch({
+      type: "POST_CAR",
+      payload: carCreated,
+    });
+  } catch (e) {
+    console.log(e);
+  }
+};
+

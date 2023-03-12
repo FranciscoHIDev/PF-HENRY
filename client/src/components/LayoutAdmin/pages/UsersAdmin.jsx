@@ -213,7 +213,7 @@ function UsersAdmin() {
     <div className="bg-white">
       <TableContainer>
         <Table>
-          <TableHead className="bg-[#8ECAE6]">
+          <TableHead className="bg-[#0d6efd] ">
             <TableRow>
               {/* <TableCell>Id</TableCell> */}
               <TableCell>Name</TableCell>
