@@ -35,89 +35,86 @@ function LandingPage() {
   return (
     <>
       <NavBar />
-      <div className="main">
-        <div className={Style.container}>
-          <div className={Style.botones}>
-            {/* <button className=" mr-2" onClick={onButtonClick} value="EN">
+      <div className={Style.container}>
+        <div className={Style.botones}>
+          {/* <button className=" mr-2" onClick={onButtonClick} value="EN">
           EN
         </button>
         <button className=" mr-2" onClick={onButtonClick} value="ES">
           ES
         </button> */}
-          </div>
-
-          <div className={Style.titulo}>
-            <h1>{lenguaje.titulo}</h1>
-          </div>
-          <div className={Style.boxBtn}>
-            <Link to="/home">
-              <button>{lenguaje.boton}</button>
-            </Link>
-          </div>
         </div>
 
-        <div className={Style.container_2}>
-          <h2>Many brands to chose from</h2>
-          <p>
-            We provide tailor-made approach to fit your unique requirement and considerations. We offer full support and service on all
-            stages of purchase and financing a car of your dream. You may choose any model available in our showroom or from our partners
-          </p>
-          <div className={Style.slider}>
-            <div className={Style.slide_track}>
-              <div className={Style.con}>
-                <div className={Style.slide}>
-                  <img src={l1} alt="" />
-                </div>
+        <div className={Style.titulo}>
+          <h1>{lenguaje.titulo}</h1>
+        </div>
+        <div className={Style.boxBtn}>
+          <Link to="/home">
+            <button>{lenguaje.boton}</button>
+          </Link>
+        </div>
+      </div>
+
+      <div className={Style.container_2}>
+        <h2>Many brands to chose from</h2>
+        <p>
+          We provide tailor-made approach to fit your unique requirement and considerations. We offer full support and service on all stages
+          of purchase and financing a car of your dream. You may choose any model available in our showroom or from our partners
+        </p>
+        <div className={Style.slider}>
+          <div className={Style.slide_track}>
+            <div className={Style.con}>
+              <div className={Style.slide}>
+                <img src={l1} alt="" />
               </div>
-              <div className={Style.con}>
-                <div className={Style.slide}>
-                  <img src={l1} alt="" />
-                </div>
+            </div>
+            <div className={Style.con}>
+              <div className={Style.slide}>
+                <img src={l1} alt="" />
               </div>
-              <div className={Style.con}>
-                <div className={Style.slide}>
-                  <img src={l1} alt="" />
-                </div>
+            </div>
+            <div className={Style.con}>
+              <div className={Style.slide}>
+                <img src={l1} alt="" />
               </div>
-              <div className={Style.con}>
-                <div className={Style.slide}>
-                  <img src={l1} alt="" />
-                </div>
+            </div>
+            <div className={Style.con}>
+              <div className={Style.slide}>
+                <img src={l1} alt="" />
               </div>
-              <div className={Style.con}>
-                <div className={Style.slide}>
-                  <img src={l1} alt="" />
-                </div>
+            </div>
+            <div className={Style.con}>
+              <div className={Style.slide}>
+                <img src={l1} alt="" />
               </div>
-              <div className={Style.con}>
-                <div className={Style.slide}>
-                  <img src={l1} alt="" />
-                </div>
+            </div>
+            <div className={Style.con}>
+              <div className={Style.slide}>
+                <img src={l1} alt="" />
               </div>
-              <div className={Style.con}>
-                <div className={Style.slide}>
-                  <img src={l1} alt="" />
-                </div>
+            </div>
+            <div className={Style.con}>
+              <div className={Style.slide}>
+                <img src={l1} alt="" />
               </div>
-              <div className={Style.con}>
-                <div className={Style.slide}>
-                  <img src={l1} alt="" />
-                </div>
+            </div>
+            <div className={Style.con}>
+              <div className={Style.slide}>
+                <img src={l1} alt="" />
               </div>
-              <div className={Style.con}>
-                <div className={Style.slide}>
-                  <img src={l1} alt="" />
-                </div>
+            </div>
+            <div className={Style.con}>
+              <div className={Style.slide}>
+                <img src={l1} alt="" />
               </div>
-              <div className={Style.con}>
-                <div className={Style.slide}>
-                  <img src={l1} alt="" />
-                </div>
+            </div>
+            <div className={Style.con}>
+              <div className={Style.slide}>
+                <img src={l1} alt="" />
               </div>
             </div>
           </div>
         </div>
-        <div className={Style.footer}></div>
       </div>
 
       <div className={Style.container_3}>
