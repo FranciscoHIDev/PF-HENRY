@@ -6,16 +6,16 @@ import {
   RiCloseLine,
   RiCarFill,
   RiHome7Fill,
-  RiMessage3Fill,
 } from "react-icons/ri";
 
 import { FaUsers, FaShoppingBag } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 
-function Sidebar() {
+function SideBarUser() {
   //overflow-y-scroll
-  const { logout } = useAuth0();
+  const { user , logout  } = useAuth0();
+  console.log(user)
   const [showSubMenu, setShowSubMenu] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   return (
@@ -27,16 +27,16 @@ function Sidebar() {
       >
         <div>
           <h1 className="text-center text-4xl font-bold text-white mb-10">
-            Admin<span className="text-primary  ">.</span>
+            Wellcome, <br />{user.given_name}<span className="text-primary  ">.</span>
           </h1>
           <ul>
             <li>
               <Link
-                to="bookings"
+                to="MyProfile"
                 className="flex text-2xl items-center gap-4  py-2 px-4 rounded-lg hover:bg-secondary-900 w-full"
               >
                 <FaShoppingBag className="text-primary" />
-                <p className="text-white">Bookings</p>
+                <p className="text-white">My profile</p>
               </Link>
             </li>
 
@@ -52,20 +52,11 @@ function Sidebar() {
 
             <li>
               <Link
-                to="users"
+                to="favorites"
                 className="flex text-2xl items-center gap-4  py-2 px-4 rounded-lg hover:bg-secondary-900 w-full"
               >
                 <FaUsers className="text-primary" />
-                <p className="text-white">Users</p>
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="messages"
-                className="flex text-2xl items-center gap-4  py-2 px-4 rounded-lg hover:bg-secondary-900 w-full"
-              >
-                <RiMessage3Fill className="text-primary" />
-                <p className="text-white">Messages</p>
+                <p className="text-white">Favorites!</p>
               </Link>
             </li>
             {/* <li>
@@ -144,4 +135,4 @@ function Sidebar() {
   );
 }
 
-export default Sidebar;
+export default SideBarUser;
