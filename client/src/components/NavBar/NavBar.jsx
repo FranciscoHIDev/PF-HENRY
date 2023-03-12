@@ -63,7 +63,7 @@ function NavBar() {
               <nav>
                 <Menu
                   menuButton={
-                    <MenuButton className="flex bg-primary items-center gap-x-2 hover:bg-[#0d6efd]  rounded-lg transition-colors pl-3 pr-5">
+                    <MenuButton className="flex bg-primary items-center gap-x-2 hover:bg-[#0d6efd]  rounded-lg transition-colors pl-3 pr-6">
                       <img
                         src={user.picture}
                         alt={user.name}
