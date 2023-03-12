@@ -1,4 +1,5 @@
 const express = require("express");
+const {mercadopago}=require('../utils/mercadopago');
 const router = express.Router();
 const {
   routerGetCars,
@@ -7,7 +8,7 @@ const {
   routerPutCars,
   routerDeleteCars,
 } = require("../Controllers/CarsController");
-const {pagarProducto}=require('../Controllers/Producto')
+const {pagarProducto, feedback}=require('../Controllers/Producto')
 const {routerLocation}=require('../Controllers/GetLocation')
 
 /* This is a post request that is being sent to the server. */
@@ -15,7 +16,16 @@ router.post("/", (req, res) => {
   routerPostCars(req, res);
 });
 
-router.get('/comprar/:id', pagarProducto)
+router.post('/comprar',(req, res) => {
+  pagarProducto(req, res);
+});
+router.get('/feedback', function (req, res) {
+	res.json({
+		Payment: req.query.payment_id,
+		Status: req.query.status,
+		MerchantOrder: req.query.merchant_order_id
+	});
+});
 
 /* This is a get request that is being sent to the server. */
 router.get("/", (req, res) => {

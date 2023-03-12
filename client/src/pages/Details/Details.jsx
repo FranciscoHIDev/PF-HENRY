@@ -8,7 +8,7 @@ import { ImLocation } from "react-icons/im";
 import Footer from "../../components/Footer/Footer";
 import { Link } from "react-router-dom";
 import Loading from "../../components/Loading/Loading";
-import Mercadopago  from "../../components/Mercadopago/Mercadopago";
+import {MPButton} from "../../components/MPButton/MPButton"
 
 function Details() {
   const { id } = useParams();
@@ -151,9 +151,9 @@ function Details() {
                     </label>
                   </div>
                 </fieldset>
-                <div className="mt-8 flex gap-4">
-                  <Mercadopago></Mercadopago>
-                </div>
+                
+                <MPButton id={id}model={allData.model}brand={allData.brand}image={allData.image}price={allData.price}></MPButton>
+                
               </div>
             </div>
           </div>

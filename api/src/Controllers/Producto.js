@@ -1,31 +1,28 @@
 const {mercadopago}=require('../utils/mercadopago');
-const Producto =require('../Models/Cars')
+const carSchema = require("../Models/Cars.js");
 
 const pagarProducto = async(req , res) =>{
-    const idfind = req.params.id;
-    const datos = req.body.items;
-    const producto = await Producto.findById(idfind)
+ const car=req.body.dataMP
+ const a = await carSchema.findById(car.id)
+ //console.log(a)
+
     let preference = {
-        binary_mode: true,
 		items: [
             {
-              title: producto.module,
-              description: producto.marca,
-              picture_url: producto.image,
+              title: a.model+" "+a.brand,
+              description: a.brand,
+              picture_url: a.image,
               quantity: 1,
-              currency_id: "$ARS",
-              unit_price: producto.price
+              currency_id: "ARS",
+              unit_price: a.price
             }],
-        payer: {
-            phone: {},
-            identification: {nun:"12356545"},
-            address: {
-              /*   calle_av:"",
-                altura:123,
-                ciudad:"",
-                provincia:"", */
-            }
-          },
+            //notification_url: "http://localhost:3001/cars/feedback",
+           /*  payer: {
+              phone: {},
+              identification: {},
+              address: {}
+            }, */
+            
 		back_urls: {
 			"success": "http://success.com",
 			"failure": "http://failure.com",
@@ -33,15 +30,24 @@ const pagarProducto = async(req , res) =>{
 		},
 		auto_return: "approved",
 	};
-
+  //console.log(preference)
 	mercadopago.preferences.create(preference)
 		.then(function (response) {
-			res.json({
-				id: response.body.id
-			},
-            console.log(response));
+			res.send({ 
+				id: response.body.id,
+			})
+      console.log(response)
 		}).catch(function (error) {
 			console.log(error);
+      res.status(400).send(error)
 		});
 }
-module.exports={pagarProducto}
+const feedback = function (req, res) {
+	res.json({
+		Payment: req.query.payment_id,
+		Status: req.query.status,
+		MerchantOrder: req.query.merchant_order_id
+	});
+};
+module.exports={pagarProducto,
+                feedback}
