@@ -7,8 +7,8 @@ import {
   LandingPage,
   NotFound,
   Details,
+  Favorites,
 } from "../pages/index";
-import Favorites from "../pages/Favorites/Favorites";
 import LayoutAdmin from "../components/LayoutAdmin/LayoutAdmin";
 import HomeAdmin from "../components/LayoutAdmin/pages/HomeAdmin";
 import UsersAdmin from "../components/LayoutAdmin/pages/UsersAdmin";
