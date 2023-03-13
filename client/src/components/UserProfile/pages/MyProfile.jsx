@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Style from '../pages/Myprofile.module.css'
+//import Style from '../pages/Myprofile.module.css'
 // import HeaderUser from "../HeaderUser";
 // import SideBarUser from "../SideBarUser";
 import { useAuth0 } from '@auth0/auth0-react'
