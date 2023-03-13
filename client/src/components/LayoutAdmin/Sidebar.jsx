@@ -6,6 +6,7 @@ import {
   RiCloseLine,
   RiCarFill,
   RiHome7Fill,
+  RiMessage3Fill,
 } from "react-icons/ri";
 
 import { FaUsers, FaShoppingBag } from "react-icons/fa";
@@ -56,6 +57,15 @@ function Sidebar() {
               >
                 <FaUsers className="text-primary" />
                 <p className="text-white">Users</p>
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="messages"
+                className="flex text-2xl items-center gap-4  py-2 px-4 rounded-lg hover:bg-secondary-900 w-full"
+              >
+                <RiMessage3Fill className="text-primary" />
+                <p className="text-white">Messages</p>
               </Link>
             </li>
             {/* <li>

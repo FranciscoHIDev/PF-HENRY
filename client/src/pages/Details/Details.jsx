@@ -8,6 +8,7 @@ import { ImLocation } from "react-icons/im";
 import Footer from "../../components/Footer/Footer";
 import { Link } from "react-router-dom";
 import Loading from "../../components/Loading/Loading";
+import {MPButton} from "../../components/MPButton/MPButton"
 
 function Details() {
   const { id } = useParams();
@@ -150,15 +151,9 @@ function Details() {
                     </label>
                   </div>
                 </fieldset>
-                <div className="mt-8 flex gap-4">
-                  <button
-                    onClick={null}
-                    type="submit"
-                    className="block rounded bg-[rgb(251,133,0)] px-4 py-2 text-lx font-medium text-white hover:bg-[#0d6efd]]"
-                  >
-                    Add to Cart
-                  </button>
-                </div>
+                
+                <MPButton id={id}model={allData.model}brand={allData.brand}image={allData.image}price={allData.price}></MPButton>
+                
               </div>
             </div>
           </div>
