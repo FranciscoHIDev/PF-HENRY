@@ -11,7 +11,7 @@ import "@szhsin/react-menu/dist/index.css";
 import "@szhsin/react-menu/dist/transitions/slide.css";
 import { Link } from "react-router-dom";
 import logo2 from "../../assets/logo4.png";
-import Style from '../UserProfile/HeaderUser.module.css'
+//import Style from '../UserProfile/HeaderUser.module.css'
 
 
 
@@ -55,7 +55,7 @@ const HeaderUser = () => {
                   alt={user.given_name}
                   className="w-6 h-6 object-cover rounded-full"
                 />
-                <span className={Style.NameOfUser}>{user.given_name}</span>
+                <span >{user.given_name}</span>
                 <RiArrowDownSLine />
               </MenuButton>
             }
