@@ -49,10 +49,10 @@ const Header = () => {
               >
                 <img
                   src={user.picture}
-                  alt={user.name}
+                  alt={user.given_name}
                   className="w-6 h-6 object-cover rounded-full"
                 />
-                <span className="mr-2">{user.name}</span>
+                <span className="mr-2">{user.given_name}</span>
                 <RiArrowDownSLine />
               </MenuButton>
             }
@@ -69,11 +69,11 @@ const Header = () => {
               >
                 <img
                   src={user.picture}
-                  alt={user.name}
+                  alt={user.given_name}
                   className="w-8 h-8 object-cover rounded-full"
                 />
                 <div className="flex flex-col text-sm">
-                  <span className="text-sm">{user.name} </span>
+                  <span className="text-sm">{user.given_name} </span>
                   <span className="text-xs text-gray-500">{user.email}</span>
                 </div>
               </Link>
