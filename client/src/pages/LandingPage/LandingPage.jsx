@@ -69,11 +69,19 @@ function LandingPage() {
       </div>
 
       <div className={Style.container_2}>
-        <h2>Many brands to chose from</h2>
-        <p>
-          We provide tailor-made approach to fit your unique requirement and considerations. We offer full support and service on all stages
-          of purchase and financing a car of your dream. You may choose any model available in our showroom or from our partners
-        </p>
+        <h2>
+          CHOOSE YOUR <span>BRAND</span>
+        </h2>
+        <div className={Style.info}>
+          <p>
+            We provide tailor-made approach to fit your unique requirement and considerations. We offer full support and service on all
+            stages of purchase and financing a car of your dream.
+          </p>
+          <Link to="/home">
+            <button>EXPLORE MORE</button>
+          </Link>
+        </div>
+
         <div className={Style.slider}>
           <div className={Style.slide_track}>
             <div className={Style.con}>

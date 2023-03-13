@@ -71,10 +71,10 @@
   background: transparent;
   box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.125);
   height: 250px;
-  margin: auto;
+  margin: 30px auto;
   overflow: hidden;
   position: relative;
-  width: 1040px;
+  width: 95%;
 }
 .slider::before,
 .slider::after {
@@ -124,8 +124,32 @@
   margin-inline: 50px;
   font-size: 3.5em;
 }
+.container_2 h2 span {
+  color: rgb(255, 145, 0);
+}
 .container_2 p {
   margin: 30px 50px;
+  font-size: 19px;
+  width: 70%;
+  letter-spacing: 1px;
+}
+.container_2 .info {
+  display: flex;
+}
+.info a {
+  margin: auto;
+}
+.info button {
+  background: transparent;
+  text-decoration: underline;
+  letter-spacing: 5px;
+  font-size: 20px;
+  text-underline-offset: 10px;
+  transition: 0.5s;
+}
+.info button:hover {
+  background: transparent;
+  color: orange;
 }
 
 .container_3 {
