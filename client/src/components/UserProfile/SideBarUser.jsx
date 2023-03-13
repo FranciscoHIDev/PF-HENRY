@@ -7,6 +7,7 @@ import {
   RiCarFill,
   RiHome7Fill,
 } from "react-icons/ri";
+import {TbReportMoney} from 'react-icons/tb'
 
 import { FaUsers, FaShoppingBag } from "react-icons/fa";
 import { Link } from "react-router-dom";
@@ -42,13 +43,23 @@ function SideBarUser() {
 
             <li>
               <Link
-                to="cars"
+                to="MyCars"
                 className="flex text-2xl items-center gap-4  py-2 px-4 rounded-lg hover:bg-secondary-900 w-full"
               >
                 <RiCarFill className="text-primary" />
-                <p className="text-white">Cars</p>
+                <p className="text-white">My Cars</p>
               </Link>
             </li>
+            <li>
+              <Link
+                to="payment-plans"
+                className="flex text-2xl items-center gap-4  py-2 px-4 rounded-lg hover:bg-secondary-900 w-full"
+              >
+                <TbReportMoney className="text-primary text-2xl" />
+                <p className="text-white">Payment plants</p>
+              </Link>
+            </li>
+
 
             <li>
               <Link
