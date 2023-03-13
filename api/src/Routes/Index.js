@@ -1,5 +1,5 @@
 const express = require("express");
-const router = express.Router();
+const router = express.Router()
 
 /* This is importing the routes from the files that are in the same directory as this file. */
 const carRoutes = require("./Cars");
