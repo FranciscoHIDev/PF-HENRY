@@ -16,6 +16,8 @@ function Card({
   type,
   _id,
 }) {
+
+
   return (
     <div className="flex flex-col w-[350px] h-[500px] rounded-lg mb-10 mx-3  bg-zinc-100  items-center shadow-md hover:scale-105">
       <img
@@ -33,9 +35,9 @@ function Card({
           {" "}
           {mileage} km
         </p>
-        <p className="rounded-md bg-white px-1 ">
+        <button className="rounded-md bg-white px-1 ">
           <MdFavoriteBorder className="text-[#FB8500] cursor-pointer  text-[22px]" />
-        </p>
+        </button>
       </div>
       <div className="flex flex-row mb-1 ">
         <p className="flex mb-2 mr-5 text-black">

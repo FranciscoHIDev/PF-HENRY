@@ -9,8 +9,10 @@ export const ALL_FILTER = "ALL_FILTER"
 export const PUSH= "PUSH";
 export const DELETE_FIL="DELETE_FIL"
 export const RENDER_INFO_USERS= "RENDER_INFO_USERS";
-export const POST_CONTACT ="POST_CONTACT"
-export const POST_USERS= "POST_USERS"
+export const POST_CONTACT ="POST_CONTACT";
+export const POST_USERS= "POST_USERS";
+export const FAV = "FAV";
+
 export const getAllCars = () => async (dispatch) => {
   try {
     const { data } = await axios.get("http://localhost:3001/cars");
@@ -115,4 +117,11 @@ export const PostContact = async() =>{
     type: "POST_CONTACT",
     payload: contact.data
   } 
+}
+
+export const fav =(payload)=>{
+ return{
+  type: "FAV",
+  payload: payload
+ }
 }

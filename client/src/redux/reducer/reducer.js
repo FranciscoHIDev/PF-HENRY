@@ -10,7 +10,8 @@ import {
   DELETE_FIL,
   RENDER_INFO_USERS,
   POST_CONTACT,
-  POST_USERS
+  POST_USERS,
+  FAV
 } from "../actions/actions";
 
 const initialState = {
@@ -20,7 +21,8 @@ const initialState = {
   filtros: [],
   allUsers: [],  
   userById: [],
-  allContacts: []
+  allContacts: [],
+  fav:[]
 };
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -111,6 +113,12 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         infoUsers: action.payload
       }
+
+    case FAV:
+      return{
+        ...state,
+        fav: action.payload
+      }  
     default:
       return state;
   }
