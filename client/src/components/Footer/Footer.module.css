@@ -16,12 +16,16 @@
     width: 350px;
     display: flex;
     flex-direction: column;
+    margin-left: 50px;
     padding: 0px;
 }
 .item a {
     margin: 5px;
     color: #7a7a7a;
     font-weight: 600;
+}
+.item h3{
+    color: aliceblue;
 }
 .descrip{
     max-width: 350px;
@@ -34,6 +38,8 @@
     max-width: 200px;
     max-height: 200px;
 }
-.i{
+.i{display: flex;
+    flex-direction: row;
+    align-items: center;
     padding: 10px;
 }

@@ -1,8 +1,10 @@
 import React from 'react'
-
-const favorites = () => {
+import Style from "../Favorites/favorites.module.css"
+const favorites = (props) => {
   return (
-    <div>favorites</div>
+    <div className="Style.container"> 
+    favorites
+    </div>
   )
 }
 

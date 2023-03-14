@@ -8,7 +8,7 @@ import {
   NotFound,
   Details,
 } from "../pages/index";
-import Favorites from "../pages/Favorites/Favorites";
+import Favorites from "../pages/Favorites/favorites";
 import LayoutAdmin from "../components/LayoutAdmin/LayoutAdmin";
 import HomeAdmin from "../components/LayoutAdmin/pages/HomeAdmin";
 import UsersAdmin from "../components/LayoutAdmin/pages/UsersAdmin";
@@ -40,11 +40,12 @@ function RoutesApp() {
         </Route>
         <Route exact path="*" element={<NotFound />} />
         <Route exact path="/home/userProfile/" element={<LayoutUser />}>
-          <Route path="MyProfile" element={<Myprofile />}>
-            {" "}
-          </Route>
+          <Route path="MyProfile" element={<Myprofile />}></Route>
+          <Route path="MyCars" element={<MyCars/>}></Route>
+          <Route exact path="favorites" element={<Favorites />} />
+          
         </Route>
-        <Route exact path="favorites" element={<Favorites />} />
+        
       </Routes>
     </>
   );

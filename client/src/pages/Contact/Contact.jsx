@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import { postContact } from "../../redux/actions/actions";
 import {useNavigate} from 'react-router-dom'
 
-function Contact() {
+export default function Contact() {
 const navigate = useNavigate()
   const dispatch = useDispatch()
   
@@ -210,4 +210,4 @@ const navigate = useNavigate()
   );
 }
 
-export default Contact;
+

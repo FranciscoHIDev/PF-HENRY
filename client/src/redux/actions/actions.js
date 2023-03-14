@@ -10,7 +10,10 @@ export const PUSH= "PUSH";
 export const DELETE_FIL="DELETE_FIL"
 export const RENDER_INFO_USERS= "RENDER_INFO_USERS";
 export const POST_CONTACT ="POST_CONTACT"
-export const POST_USERS= "POST_USERS"
+export const POST_USERS= "POST_USERS";
+export const POST_CAR="POST_CAR"
+
+
 export const getAllCars = () => async (dispatch) => {
   try {
     const { data } = await axios.get("http://localhost:3001/cars");
@@ -85,15 +88,15 @@ export const deletefil = (payload) => {
   };
 };
 
-export const createUser = (payload) => {
-  const userCreate = axios.post("http://localhost:3001/users", payload);
+// export const createUser = (payload) => {
+//   const userCreate = axios.post("http://localhost:3001/users", payload);
 
-  return {
-    type: "POST_USERS",
-    payload: userCreate.data,
+//   return {
+//     type: "POST_USERS",
+//     payload: userCreate.data,
 
-  }
-}
+//   }
+// }
 
 export function createUser(infoUser) {
   return dispatch => {
@@ -123,7 +126,7 @@ export const AllUsers = async () => {
 }
 
 
-export const PostContact = async () => {
+export const postContact = async () => {
   const contact = await axios.post("http://localhost:3001/contact");
   return {
     type: "POST_CONTACT",

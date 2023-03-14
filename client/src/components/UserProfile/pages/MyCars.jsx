@@ -5,7 +5,7 @@ import Style from '../pages/MyCars.module.css'
 import { useAuth0 } from '@auth0/auth0-react'
 
 import { useDispatch } from "react-redux";
-import { putUser } from "../../../redux/actions/actions";
+// import { putUser } from "../../../redux/actions/actions";
 import foto from '../../../assets/about-images/what-we-offer.jpg';
 
 export default function MyCars() {

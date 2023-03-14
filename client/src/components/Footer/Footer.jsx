@@ -29,16 +29,17 @@ function Footer() {
         <div className={stl.item}>
           <h3>Social networks</h3>
          <a href="https://www.facebook.com/profile.php?id=100090972464782"><div className={stl.i}>
-            <BsFacebook> </BsFacebook>CarMania
+            <BsFacebook className="w-8"> </BsFacebook>CarMania
           </div></a> 
-          <a><div className={stl.i}>
+          {/* <a><div className={stl.i}>
             <BsGithub></BsGithub>
           </div></a>
           <a><div className={stl.i}>
             <BsLinkedin></BsLinkedin>
-          </div></a>
-          <a href="https://www.instagram.com/carmania_2023/"> <div className={stl.i}>
-            <RiInstagramFill/> CarMania
+          </div></a> */}
+          <a href="https://www.instagram.com/carmania_2023/"> 
+          <div className={stl.i}>
+            <RiInstagramFill className="w-8"> </RiInstagramFill> <br /> <h2>CarMania</h2>
           </div></a>
         </div>
       </div>
