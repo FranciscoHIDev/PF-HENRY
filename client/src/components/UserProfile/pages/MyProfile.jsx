@@ -1,9 +1,6 @@
 import React, { useState } from "react";
-import Style from "../pages/Myprofile.module.css";
-// import HeaderUser from "../HeaderUser";
-// import SideBarUser from "../SideBarUser";
+import Style from "./Myprofile.module.css";
 import { useAuth0 } from "@auth0/auth0-react";
-
 import { useSelector, useDispatch } from "react-redux";
 import { createUser } from "../../../redux/actions/actions";
 
@@ -110,24 +107,6 @@ export default function Myprofile() {
           />
         </div>
 
-        {/* <div class="flex  row space-rounded">
-
-                    <div class="mb-4">
-                        <label class="block text-gray-700 font-bold mb-2" for="Countrie">
-                            Countrie
-                        </label>
-                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="countrie" type="text" placeholder="Countrie" name="countrie" value={users.countrie}  onChange={(e)=>handleInputChange(e)} />
-                    </div>
-                    &nbsp;&nbsp;
-
-                    <div class="mb-4">
-                        <label class="block text-gray-700 font-bold mb-2" for="direction">
-                            Direction
-                        </label>
-                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="direction" type="text" placeholder="Direction" onChange={(e)=>handleInputChange(e)}/>
-                    </div>
-                </div> */}
-
         <div class="flex  row space-rounded">
           <div class="mb-4">
             <label class="block text-gray-700 font-bold mb-2" for="document">
@@ -143,9 +122,8 @@ export default function Myprofile() {
               onChange={handleInputChange}
             />
           </div>
-          &nbsp;&nbsp;
           <div class="mb-4">
-            <label class="block text-gray-700 font-bold mb-2" for="Phone">
+            <label class="block text-gray-700 font-bold mb-2" for="Phone"> 
               Phone
             </label>
             <input
@@ -158,14 +136,6 @@ export default function Myprofile() {
               onChange={handleInputChange}
             />
           </div>
-        </div>
-
-        <div class="flex items-center justify-center">
-          <input
-            class="bg-blue-500 hover:bg-blue value="
-            type="submit"
-            value="Send"
-          />
         </div>
       </form>
     </div>
