@@ -13,8 +13,8 @@ const {
 } = require("../Controllers/UsersController");
 
 /* This is a route that allows you to get the favorite of a user. */
-router.get("/favorite", (req, res) => {
-routerGetFavorite(req, res);
+router.post("/favorite", (req, res) => {
+routerGetFavorite(req, res)
 });
 
 /* This is a route that allows you to create a user. */
