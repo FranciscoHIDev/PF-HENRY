@@ -88,13 +88,14 @@ export const deletefil = (payload) => {
 
 export const createUser = (payload) => {
   const userCreate = axios.post("/users", payload);
-
   return {
     type: "POST_USERS",
-    payload: userCreate.data,
+    payload: userCreate,
 
   }
 }
+
+
 
 
 export const renderInfoUsers = async (id) => {
