@@ -4,6 +4,12 @@ import { Link } from "react-router-dom";
 import NavBar from "../../components/NavBar/NavBar";
 import Footer from "../../components/Footer/Footer";
 import l1 from "../../assets/carousel-landing/logo1.png";
+import l2 from "../../assets/carousel-landing/logo2.png";
+import l3 from "../../assets/carousel-landing/logo3.png";
+import l4 from "../../assets/carousel-landing/logo4.png";
+import l5 from "../../assets/carousel-landing/logo5.png";
+import l6 from "../../assets/carousel-landing/logo6.png";
+import l7 from "../../assets/carousel-landing/logo7.png";
 import selec from "../../assets/carousel-landing/selection.jpg";
 
 function LandingPage() {
@@ -44,7 +50,7 @@ function LandingPage() {
         <button className=" mr-2" onClick={onButtonClick} value="ES">
           ES
         </button>
-        </div>
+      </div>*/}
 
         <div className={Style.titulo}>
           <h1>{lenguaje.titulo}</h1>
@@ -52,18 +58,6 @@ function LandingPage() {
         <div className={Style.boxBtn}>
           <Link to="/home">
             <button>{lenguaje.boton}</button>
-          </Link>
-        </div>*/}
-        <video className={Style.back_video} autoPlay loop muted>
-          <source
-            src="https://prod-streaming-video-msn-com.akamaized.net/a8c412fa-f696-4ff2-9c76-e8ed9cdffe0f/604a87fc-e7bc-463e-8d56-cde7e661d690.mp4"
-            type="video/mp4"
-          />
-        </video>
-        <div className={Style.content}>
-          <h1>RENT A CAR FROM $20 PER DAY</h1>
-          <Link to="/home">
-            <button className={Style.button}>Start</button>
           </Link>
         </div>
       </div>
@@ -85,53 +79,73 @@ function LandingPage() {
         <div className={Style.slider}>
           <div className={Style.slide_track}>
             <div className={Style.con}>
-              <div className={Style.slide}>
+              <div className={Style.slide} id={Style.img1}>
                 <img src={l1} alt="" />
               </div>
             </div>
             <div className={Style.con}>
-              <div className={Style.slide}>
+              <div className={Style.slide} id={Style.img2}>
+                <img src={l2} alt="" />
+              </div>
+            </div>
+            <div className={Style.con}>
+              <div className={Style.slide} id={Style.img3}>
+                <img src={l3} alt="" />
+              </div>
+            </div>
+            <div className={Style.con}>
+              <div className={Style.slide} id={Style.img4}>
+                <img src={l4} alt="" />
+              </div>
+            </div>
+            <div className={Style.con}>
+              <div className={Style.slide} id={Style.img5}>
+                <img src={l5} alt="" />
+              </div>
+            </div>
+            <div className={Style.con}>
+              <div className={Style.slide} id={Style.img6}>
+                <img src={l6} alt="" />
+              </div>
+            </div>
+            <div className={Style.con}>
+              <div className={Style.slide} id={Style.img7}>
+                <img src={l7} alt="" />
+              </div>
+            </div>
+            <div className={Style.con}>
+              <div className={Style.slide} id={Style.img11}>
                 <img src={l1} alt="" />
               </div>
             </div>
             <div className={Style.con}>
-              <div className={Style.slide}>
-                <img src={l1} alt="" />
+              <div className={Style.slide} id={Style.img22}>
+                <img src={l2} alt="" />
               </div>
             </div>
             <div className={Style.con}>
-              <div className={Style.slide}>
-                <img src={l1} alt="" />
+              <div className={Style.slide} id={Style.img33}>
+                <img src={l3} alt="" />
               </div>
             </div>
             <div className={Style.con}>
-              <div className={Style.slide}>
-                <img src={l1} alt="" />
+              <div className={Style.slide} id={Style.img44}>
+                <img src={l4} alt="" />
               </div>
             </div>
             <div className={Style.con}>
-              <div className={Style.slide}>
-                <img src={l1} alt="" />
+              <div className={Style.slide} id={Style.img55}>
+                <img src={l5} alt="" />
               </div>
             </div>
             <div className={Style.con}>
-              <div className={Style.slide}>
-                <img src={l1} alt="" />
+              <div className={Style.slide} id={Style.img66}>
+                <img src={l6} alt="" />
               </div>
             </div>
             <div className={Style.con}>
-              <div className={Style.slide}>
-                <img src={l1} alt="" />
-              </div>
-            </div>
-            <div className={Style.con}>
-              <div className={Style.slide}>
-                <img src={l1} alt="" />
-              </div>
-            </div>
-            <div className={Style.con}>
-              <div className={Style.slide}>
-                <img src={l1} alt="" />
+              <div className={Style.slide} id={Style.img77}>
+                <img src={l7} alt="" />
               </div>
             </div>
           </div>

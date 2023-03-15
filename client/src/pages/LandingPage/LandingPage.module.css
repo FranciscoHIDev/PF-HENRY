@@ -1,10 +1,13 @@
 .container {
-  width: 100%;
-  height: 90vh;
+  margin: 0px;
+  padding: 0px;
+
+  background-image: url("../../assets/peter-broomfield-m3m-lnR90uM-unsplash.jpg");
+  background-size: cover;
+  height: 600px;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
-  text-align: center;
 }
 
 .titulo {
@@ -64,7 +67,7 @@
     transform: translateX(0);
   }
   100% {
-    transform: translateX(calc(-250px * 5));
+    transform: translateX(calc(-250px * 7));
   }
 }
 .slider {
@@ -100,20 +103,45 @@
 .slider .slide_track {
   animation: scroll 15s linear infinite;
   display: flex;
-  width: calc(250px * 5);
+  width: calc(250px * 7);
 }
 .slider .slide {
   height: 230px;
   width: 230px;
-  background-image: linear-gradient(to bottom, rgba(255, 0, 0, 0.5), rgba(0, 0, 255, 0.199)), url("../../assets/carousel-landing/img1.jpg");
   background-size: cover;
+  background-position: center;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+.slider :is(#img1, #img11) {
+  background-image: linear-gradient(to bottom, rgba(255, 0, 0, 0.5), rgba(0, 0, 255, 0.199)), url("../../assets/carousel-landing/img1.jpg");
+}
+.slider :is(#img2, #img22) {
+  background-image: linear-gradient(to bottom, rgba(255, 0, 0, 0.5), rgba(0, 0, 255, 0.199)), url("../../assets/carousel-landing/img2.jpg");
+}
+.slider :is(#img3, #img33) {
+  background-image: linear-gradient(to bottom, rgba(255, 0, 0, 0.5), rgba(0, 0, 255, 0.199)), url("../../assets/carousel-landing/img3.jpg");
+}
+.slider :is(#img4, #img44) {
+  background-image: linear-gradient(to bottom, rgba(255, 0, 0, 0.5), rgba(0, 0, 255, 0.199)), url("../../assets/carousel-landing/img4.jpg");
+}
+.slider :is(#img5, #img55) {
+  background-image: linear-gradient(to bottom, rgba(255, 0, 0, 0.5), rgba(0, 0, 255, 0.199)), url("../../assets/carousel-landing/img5.jpg");
+}
+.slider :is(#img6, #img66) {
+  background-image: linear-gradient(to bottom, rgba(255, 0, 0, 0.5), rgba(0, 0, 255, 0.199)), url("../../assets/carousel-landing/img6.jpg");
+}
+.slider :is(#img7, #img77) {
+  background-image: linear-gradient(to bottom, rgba(255, 0, 0, 0.5), rgba(0, 0, 255, 0.199)), url("../../assets/carousel-landing/img7.jpg");
+}
+:is(#img2, #img22, #img3, #img33, #img4, #img44) img {
+  width: 150px;
+}
 .slider img {
   width: 90px;
 }
+
 .container_2 {
   color: blanchedalmond;
   background-color: darkred;
