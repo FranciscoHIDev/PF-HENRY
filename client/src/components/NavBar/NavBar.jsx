@@ -54,9 +54,6 @@ function NavBar() {
             <MdFavoriteBorder className="text-3xl mr-4" />
           </Link>
 
-          <Link to="userProfile">
-            <button>UserProfile</button>
-          </Link>
           {/* {isAuthenticated ? <button onClick={logout}>Logout</button> : <LoginButton />} */}
           {isAuthenticated ? (
             <>
@@ -84,7 +81,7 @@ function NavBar() {
                 >
                   <MenuItem className="p-0 hover:bg-transparent">
                     <Link
-                      to="/profile/my-dates"
+                      to="/profile"
                       className="rounded-lg transition-colors text-gray-300 hover:bg-secondary-900 flex items-center gap-x-4 py-2 px-6 flex-1"
                     >
                       <img
@@ -103,7 +100,7 @@ function NavBar() {
                   <hr className="my-4 border-gray-500" />
                   <MenuItem className="p-0 hover:bg-transparent">
                     <Link
-                      to="/profile/my-dates"
+                      to="/profile"
                       className="rounded-lg transition-colors text-gray-300 hover:bg-secondary-900 flex items-center gap-x-4 py-2 px-6 flex-1"
                     >
                       <RiProfileLine /> My Profile
@@ -111,7 +108,7 @@ function NavBar() {
                   </MenuItem>
                   <MenuItem className="p-0 hover:bg-transparent">
                     <Link
-                      to="/profile/favorites"
+                      to="/favorites"
                       className="rounded-lg transition-colors text-gray-300 hover:bg-secondary-900 flex items-center gap-x-4 py-2 px-6 flex-1"
                     >
                       <MdOutlineFavorite /> Favorites

@@ -14,7 +14,7 @@ export const POST_USERS = "POST_USERS"
 export const POST_CAR = "POST_CAR"
 export const getAllCars = () => async (dispatch) => {
   try {
-    const { data } = await axios.get("http://localhost:3001/cars");
+    const { data } = await axios.get("/cars");
     dispatch({
       type: "GET_ALL_CARS",
       payload: data,
@@ -35,7 +35,7 @@ export const getCarsByName = (name) => {
 export const getCardsById = (id) => {
   return async function (dispatch) {
     try {
-      const response = await axios.get(`http://localhost:3001/cars/idcar/${id}`);
+      const response = await axios.get(`/cars/idcar/${id}`);
       return dispatch({
         type: "GET_BY_ID",
         payload: response.data,
@@ -87,7 +87,7 @@ export const deletefil = (payload) => {
 };
 
 export const createUser = (payload) => {
-  const userCreate = axios.post("http://localhost:3001/users", payload);
+  const userCreate = axios.post("/users", payload);
 
   return {
     type: "POST_USERS",
@@ -98,20 +98,20 @@ export const createUser = (payload) => {
 
 
 export const renderInfoUsers = async (id) => {
-  const infoUser = await axios.get(`http://localhost:3001/users/${id}`)
+  const infoUser = await axios.get(`/users/${id}`)
   return {
     type: "RENDER_INFO_USERS",
     payload
   }
 }
 export const AllUsers = async () => {
-  const allUsers = await axios.get("http://localhost:3001/users");
+  const allUsers = await axios.get("/users");
   return allUsers.data
 }
 
 
 export const PostContact = async () => {
-  const contact = await axios.post("http://localhost:3001/contact");
+  const contact = await axios.post("/contact");
   return {
     type: "POST_CONTACT",
     payload: contact.data
@@ -120,7 +120,7 @@ export const PostContact = async () => {
 
 export const postCar = (payload) => async (dispatch) => {
   try {
-    const carCreated = await axios.post("http://localhost:3001/cars", payload);
+    const carCreated = await axios.post("/cars", payload);
     return dispatch({
       type: "POST_CAR",
       payload: carCreated,
