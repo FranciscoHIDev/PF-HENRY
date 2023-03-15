@@ -8,4 +8,4 @@ function Bookings() {
   );
 }
 
-export default Bookings
+export default Bookings;

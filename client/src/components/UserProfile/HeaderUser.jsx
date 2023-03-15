@@ -11,9 +11,6 @@ import "@szhsin/react-menu/dist/index.css";
 import "@szhsin/react-menu/dist/transitions/slide.css";
 import { Link } from "react-router-dom";
 import logo2 from "../../assets/logo4.png";
-//import Style from '../UserProfile/HeaderUser.module.css'
-
-
 
 const HeaderUser = () => {
   let today = new Date();
@@ -55,7 +52,7 @@ const HeaderUser = () => {
                   alt={user.given_name}
                   className="w-6 h-6 object-cover rounded-full"
                 />
-                <span >{user.given_name}</span>
+                <span className="mr-2">{user.given_name}</span>
                 <RiArrowDownSLine />
               </MenuButton>
             }
@@ -84,7 +81,7 @@ const HeaderUser = () => {
             <hr className="my-4 border-gray-500" />
             <MenuItem className="p-0 hover:bg-transparent">
               <Link
-                to="/dashboard"
+                to="/profile"
                 className="rounded-lg transition-colors text-gray-300 hover:bg-secondary-900 flex items-center gap-x-4 py-2 px-6 flex-1"
               >
                 <RiProfileLine /> My Profile
