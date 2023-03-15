@@ -6,9 +6,9 @@ const { MONGODB } = require("./db");
 const router = require("./src/Routes/Index");
 const cookieParser = require("cookie-parser");
 //const checkJwt = require('./src/Auth/middleware/middleware')
- 
+const cors = require("cors");
 //app.use(checkJwt);
-
+app.use(cors())
 const port = process.env.PORT || 3001;
 require("dotenv").config();
 
