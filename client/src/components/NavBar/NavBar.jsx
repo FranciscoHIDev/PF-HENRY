@@ -1,12 +1,11 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { Link, Outlet } from "react-router-dom";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { MdFavoriteBorder } from "react-icons/md";
 import logo2 from "../../assets/logo-n2.png";
 import { useAuth0 } from "@auth0/auth0-react";
-
 import LoginButton from "./../Auth0/LoginButton";
-import UserProfile from "../UserProfile/HeaderUser";
 import {
   RiArrowDownSLine,
   RiLogoutCircleRLine,
@@ -16,9 +15,30 @@ import { MdOutlineFavorite } from "react-icons/md";
 import { Menu, MenuItem, MenuButton } from "@szhsin/react-menu";
 import "@szhsin/react-menu/dist/index.css";
 import "@szhsin/react-menu/dist/transitions/slide.css";
+import { useDispatch } from "react-redux";
+import { createUser } from "../../redux/actions/actions";
 
 function NavBar() {
   const { isAuthenticated, user, logout } = useAuth0();
+  
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (user && isAuthenticated) {
+      axios.get("/users").then((x) => {
+        const userDb = x.data.find((x) => x.email !== user.email);
+        if (userDb) {
+          const newUser = {
+            name: user.name,
+            lastname: user.lastname,
+            email: user.email,
+          };
+          dispatch(createUser(newUser));
+        }
+      });
+    }
+  }, [user]);
+
   return (
     <React.Fragment>
       <div className=" flex bg-white w-full fixed p-3 z-10">
@@ -54,7 +74,6 @@ function NavBar() {
             <MdFavoriteBorder className="text-3xl mr-4" />
           </Link>
 
-          {/* {isAuthenticated ? <button onClick={logout}>Logout</button> : <LoginButton />} */}
           {isAuthenticated ? (
             <>
               {" "}
