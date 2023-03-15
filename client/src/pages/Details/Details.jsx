@@ -151,9 +151,7 @@ function Details() {
                     </label>
                   </div>
                 </fieldset>
-                
-                <MPButton id={id}model={allData.model}brand={allData.brand}image={allData.image}price={allData.price}></MPButton>
-                
+                <MPButton id={id} model={allData.model} brand={allData.brand} image={allData.image} price={allData.price}></MPButton>
               </div>
             </div>
           </div>

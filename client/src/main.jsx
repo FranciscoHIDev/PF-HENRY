@@ -7,6 +7,9 @@ import store from "./redux/store/store";
 import { Provider } from "react-redux";
 import { Auth0Provider } from "@auth0/auth0-react";
 
+// axios.defaults.baseURL = "http://localhost:3001"
+//axios.defaults.baseURL = "https://pi-food-henry.up.railway.app"
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={store}>
 
