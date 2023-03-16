@@ -68,19 +68,20 @@ const routerGetFavorite = async (req, res) => {
  */
 
 const routerPostUser = async (req, res) => {
-  try {
-    validateCreate;
-    // validateUser(req, res);
-    const user = userSchema(req.body);
-    let passwordHash = await bcryptjs.hash(user.password, 8);
-    const newUser = await new Users({
-      dni: user.dni,
-      name: user.name,
-      email: user.email,
-      password: passwordHash,
-      lastname: user.lastname,
-      telephone: user.telephone,
-    });
+    try {
+        validateCreate;
+        // validateUser(req, res);
+        const user = userSchema(req.body);
+        //let passwordHash = await bcryptjs.hash(user.password, 8);
+        const newUser = await new Users({
+            dni: user.dni,
+            name: user.name,
+            email: user.email,
+            //password: passwordHash,
+            lastname: user.lastname,
+            telephone: user.telephone,
+        });
+        console.log(newUser)
 
     const saveUser = await newUser.save();
 console.log(saveUser)
