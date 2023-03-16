@@ -9,7 +9,7 @@ import Footer from "../../components/Footer/Footer";
 import { Link } from "react-router-dom";
 import Loading from "../../components/Loading/Loading";
 import {MPButton} from "../../components/MPButton/MPButton"
-
+//import { useState } from "react";
 function Details() {
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -18,8 +18,8 @@ function Details() {
   useEffect(() => {
     dispatch(getCardsById(id));
     return () => dispatch(clearDetail());
+    
   }, [dispatch, id]);
-
   return (
     <>
       <NavBar />
@@ -146,12 +146,12 @@ function Details() {
                         TransissionType: {allData.transissionType}
                       </span>
                       <span className="m-[3px] group inline-block rounded-full border px-3 py-1 text-[15px] font-medium bg-black text-white">
-                        Consumption: {allData.fuelConsumption}
+                        Consumptioaan: {allData.fuelConsumption}
                       </span>
                     </label>
                   </div>
                 </fieldset>
-                <MPButton id={id} model={allData.model} brand={allData.brand} image={allData.image} price={allData.price}></MPButton>
+               <div ><MPButton id={id}></MPButton></div> 
               </div>
             </div>
           </div>

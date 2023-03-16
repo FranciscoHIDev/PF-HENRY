@@ -4,17 +4,16 @@ const userSchema = mongoose.Schema({
     name: {
         type: String,
         required: true,
-        minLength: 3,
-        maxLength: 20,
+
     },
     image: {
         type: String,
-        default: "http://cdn.onlinewebfonts.com/svg/img_141364.png",
+
     },
     lastname: {
         type: String,
-        minLength: 3,
-        maxLength: 20,
+
+
     },
     dni: {
         type: Number,
@@ -24,8 +23,9 @@ const userSchema = mongoose.Schema({
     },
     kindOfPerson: {
         type: String,
-        minLength: 2,
-        maxLength: 25,
+        enum: ["natural", "business"],
+        default: "natural",
+
     },
     email: {
         type: String,
@@ -61,6 +61,8 @@ const userSchema = mongoose.Schema({
         {
             type: mongoose.Types.ObjectId,
             ref: "Review",
+            minLength: 30,
+            maxLength: 300,
         },
     ],
     // password: {

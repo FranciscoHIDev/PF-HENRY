@@ -1,5 +1,6 @@
 const bcryptjs = require("bcryptjs");
 const Cars = require("../Models/Cars");
+const { find } = require("../Models/Users");
 const Users = require("../Models/Users");
 const userSchema = require("../Models/Users");
 const { validateCreate } = require("../Validators/Users.js");
@@ -12,29 +13,7 @@ const { validateCreate } = require("../Validators/Users.js");
  * @param req - The request object.
  * @param res - The response object.
  */
-// const routerGetFavorite = async (req, res) => {
-// try {
-//     const { favori, email } = req.body;
-//     let users = await Users.findOne({ email });
-//     let cars = await Cars.find({ model : favori });
-//     let favorites = users.favorites;
-//     let flag = [];
-//     if (favorites.length) {
-//     favorites.forEach((element, index) => {
-//         if (element.model === favori) {
-//         flag.push(element);
-//         users.favorites.splice(index, 1);
-//         }
-//     });
-//     if (flag.length === 0) favorites.push(cars[0]);
-//     } else favorites.push(cars[0]);
-//     await userSchema.updateOne({ _id: users.id }, { $set: favorites });
-//     await users.save();
-//     res.status(200).json(users.favorites);
-// } catch (error) {
-//     res.status(500).send(`{messaje: ${error}}`);
-// }
-// };
+
 const routerGetFavorite = async (req, res) => {
   try {
     const { favori, email } = req.body;
@@ -71,25 +50,45 @@ const routerPostUser = async (req, res) => {
     try {
         validateCreate;
         // validateUser(req, res);
+        const usersc = await Users.find({})
+        let iNumber = 0;
+        let iDni = 0
+        if (usersc.length !== 0) {
+            iNumber = Number(usersc[usersc.length - 1].telephone)
+            iDni = (usersc[usersc.length - 1].dni)
+        }
+
+        if (iNumber < 1) iNumber = "000000000";
+        else {
+            ++iNumber;
+        }
+        if (iDni < 1) iDni = 1111111;
+        else {
+            ++iDni;
+        }
         const user = userSchema(req.body);
         //let passwordHash = await bcryptjs.hash(user.password, 8);
         const newUser = await new Users({
-            dni: user.dni,
+            dni: user.dni || iDni,
             name: user.name,
             email: user.email,
+            image: user.image || "http://cdn.onlinewebfonts.com/svg/img_141364.png",
             //password: passwordHash,
-            lastname: user.lastname,
-            telephone: user.telephone,
-        });
-        console.log(newUser)
+            lastname: user.lastname || "",
+            telephone: user.telephone || iNumber.toString(),
+            location: user.location || "",
+            kindOfPerson: user.kindOfPerson
 
-    const saveUser = await newUser.save();
-console.log(saveUser)
-    res.status(200).json(saveUser);
-    // eMail1(user.eMail);
-  } catch (error) {
-    res.status(500).send(`{messaje: ${error}}`);
-  }
+        });
+
+
+        const saveUser = await newUser.save();
+        console.log(saveUser)
+        res.status(200).json(saveUser);
+        // eMail1(user.eMail);
+    } catch (error) {
+        res.status(500).send(`{messaje: ${error}}`);
+    }
 };
 
 /**
