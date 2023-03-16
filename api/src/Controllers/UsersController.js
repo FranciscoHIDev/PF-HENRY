@@ -12,29 +12,53 @@ const { validateCreate } = require("../Validators/Users.js");
  * @param req - The request object.
  * @param res - The response object.
  */
+// const routerGetFavorite = async (req, res) => {
+// try {
+//     const { favori, email } = req.body;
+//     let users = await Users.findOne({ email });
+//     let cars = await Cars.find({ model : favori });
+//     let favorites = users.favorites;
+//     let flag = [];
+//     if (favorites.length) {
+//     favorites.forEach((element, index) => {
+//         if (element.model === favori) {
+//         flag.push(element);
+//         users.favorites.splice(index, 1);
+//         }
+//     });
+//     if (flag.length === 0) favorites.push(cars[0]);
+//     } else favorites.push(cars[0]);
+//     await userSchema.updateOne({ _id: users.id }, { $set: favorites });
+//     await users.save();
+//     res.status(200).json(users.favorites);
+// } catch (error) {
+//     res.status(500).send(`{messaje: ${error}}`);
+// }
+// };
+
 const routerGetFavorite = async (req, res) => {
-try {
-    const { favori, email } = req.body;
-    let users = await Users.findOne({ email });
-    let cars = await Cars.find({ model : favori });
-    let favorites = users.favorites;
-    let flag = [];
-    if (favorites.length) {
-    favorites.forEach((element, index) => {
-        if (element.model === favori) {
-        flag.push(element);
-        users.favorites.splice(index, 1);
-        }
-    });
-    if (flag.length === 0) favorites.push(cars[0]);
-    } else favorites.push(cars[0]);
-    await userSchema.updateOne({ _id: users.id }, { $set: favorites });
-    await users.save();
-    res.status(200).json(users.favorites);
-} catch (error) {
-    res.status(500).send(`{messaje: ${error}}`);
-}
-};
+    try {
+        const { favori, email } = req.body;
+        let users = await Users.findOne({ email });
+        let cars = await Cars.find({ _id : favori });
+        let favorites = users.favorites;
+        let flag = [];
+        if (favorites.length) {
+        favorites.forEach((element, index) => {
+            if (JSON.stringify(element._id) === JSON.stringify(favori)) {
+            flag.push(element);
+            users.favorites.splice(index, 1);
+            }
+        });
+        if (flag.length === 0) favorites.push(cars[0]);
+        } else favorites.push(cars[0]);
+        await userSchema.updateOne({ _id: users.id }, { $set: favorites });
+        await users.save();
+        res.status(200).json(users.favorites);
+    } catch (error) {
+        res.status(500).send(`{messaje: ${error}}`);
+    }
+    };
 /**
  * It creates a new user in the database
  * @param req - The request object.
@@ -187,7 +211,7 @@ const { id } = req.params;
 const {
     name,
     lastname,
-   
+//    favorites,
     email,
     location,
     telephone,
@@ -202,7 +226,7 @@ userSchema
         $set: {
         name,
         lastname,
-       
+    //    favorites,
         email,
         location,
         telephone,
@@ -256,6 +280,9 @@ userSchema
     .then((data) => res.json(data))
     .catch((error) => res.status(500).json({ message: `${error} ` }));
 };
+
+
+
 
 module.exports = {
 routerGetFavorite,
