@@ -11,7 +11,9 @@ import {
   RENDER_INFO_USERS,
   POST_CONTACT,
   POST_USERS,
-  POST_CAR
+  POST_CAR,
+  FRANGE,
+  LINK_COMPRA
 } from "../actions/actions";
 
 const initialState = {
@@ -21,7 +23,8 @@ const initialState = {
   filtros: [],
   allUsers: [],
   userById: [],
-  allContacts: []
+  allContacts: [],
+  compra:[]
 };
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -35,6 +38,19 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         cars: action.payload,
+      };
+      case LINK_COMPRA:
+      return {
+        ...state,
+        compra: action.payload,
+      };
+      case FRANGE:
+        let rFiltro=[...state.cars];
+        rFiltro=rFiltro.filter((e)=>(e.price<action.payload[1]&&e.price>action.payload[0]))
+        console.log(rFiltro)
+      return {
+        ...state,
+        cars: rFiltro
       };
     case GET_BY_ID:
       return {

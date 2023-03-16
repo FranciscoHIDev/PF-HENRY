@@ -8,12 +8,17 @@ const {
   routerPutCars,
   routerDeleteCars,
 } = require("../Controllers/CarsController");
-const {pagarProducto, feedback}=require('../Controllers/Producto')
+const {pagarProducto}=require('../Controllers/Producto')
 const {routerLocation}=require('../Controllers/GetLocation')
 
 /* This is a post request that is being sent to the server. */
 router.post("/", (req, res) => {
   routerPostCars(req, res);
+});
+
+router.post("/n", (req, res) => {
+  console.log(req.body)
+  res.status(200).send("OK")
 });
 
 router.post('/comprar',(req, res) => {
