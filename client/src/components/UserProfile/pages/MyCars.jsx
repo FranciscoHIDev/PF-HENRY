@@ -4,13 +4,18 @@ import Style from '../pages/MyCars.module.css'
 // import SideBarUser from "../SideBarUser";
 import { useAuth0 } from '@auth0/auth0-react'
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 // import { putUser } from "../../../redux/actions/actions";
 import foto from '../../../assets/about-images/what-we-offer.jpg';
 
 export default function MyCars() {
+    // const dispatch= useDispatch()
+    // const state = useSelector(state => state)
+    // const [compra , setCompra] = useState({})
 
-    
+
+
+
 
 
 

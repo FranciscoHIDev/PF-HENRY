@@ -12,7 +12,7 @@ export const RENDER_INFO_USERS= "RENDER_INFO_USERS";
 export const POST_CONTACT ="POST_CONTACT"
 export const POST_USERS= "POST_USERS";
 export const POST_CAR="POST_CAR"
-
+export const PUT_USER= "PUT_USER"
 
 export const getAllCars = () => async (dispatch) => {
   try {

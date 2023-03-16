@@ -5,17 +5,17 @@ import Style from "../Contact/Contact.module.css";
 import { useDispatch } from "react-redux";
 import { postContact } from "../../redux/actions/actions";
 import {useNavigate} from 'react-router-dom'
+import { useAuth0 } from "@auth0/auth0-react";
 
 export default function Contact() {
+
+  const {user} = useAuth0()
 const navigate = useNavigate()
   const dispatch = useDispatch()
   
   const [state, setState] = useState({
      
-    name: "",
-    lastname: "",
-    emailAddress: "",
-    message: "",
+    
  
   });
   const [errores, setErrores] = useState({});
@@ -45,7 +45,7 @@ const navigate = useNavigate()
         [e.target.name]: e.target.value,
       })
     );
-    console.log(errores);
+   
   }
 
 
@@ -61,6 +61,7 @@ const navigate = useNavigate()
     e.preventDefault()
     dispatch(postContact(newmensaje))
     
+
     navigate("/home")
   
       alert("Su mensaje se ha enviado correctamente")
@@ -75,7 +76,7 @@ const navigate = useNavigate()
 
   }
 
-
+console.log(state)
 
 
   return (
@@ -84,6 +85,7 @@ const navigate = useNavigate()
 
       <div className={Style.container}>
         <form onSubmit={handleSubmit} className={Style.formulario}>
+          
           <div className={Style.info}>
             <label
               className={Style.label}
@@ -114,7 +116,7 @@ const navigate = useNavigate()
               class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
               for="grid-last-name"
             >
-              Lastname{" "}
+              Lastname
             </label>
             <input
               className={Style.input}
