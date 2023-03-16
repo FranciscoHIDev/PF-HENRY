@@ -37,6 +37,7 @@ export const getCardsById = (id) => {
   return async function (dispatch) {
     try {
       const response = await axios.get(`http://localhost:3001/cars/idcar/${id}`);
+      console.log(response)
       return dispatch({
         type: "GET_BY_ID",
         payload: response.data,
@@ -119,9 +120,15 @@ export const PostContact = async() =>{
   } 
 }
 
-export const fav =(payload)=>{
- return{
-  type: "FAV",
-  payload: payload
- }
+export const fav = async () => { 
+  try {
+    const auto = await axios.get(`http://localhost:3001/favorite`);
+    console.log(" desde aca auto.data" + auto.data) // LLEGA OBJ
+    return {
+      type: "FAV",
+      payload: auto.data,
+    };
+  } catch (error) {
+    return { error: error.message };
+  }
 }

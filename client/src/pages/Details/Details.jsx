@@ -19,6 +19,36 @@ function Details() {
     return () => dispatch(clearDetail());
   }, [dispatch, id]);
 
+
+  const nComentario=()=>{
+    let li = document.createElement;
+    let valorIngresado = document.getElementById("nuevoComentario").value;
+    let text = document.createTextNode(valorIngresado);
+    li.appendChild(borrar)
+
+    if(valorIngresado === ""){
+      alert("Ingrese un comentario")
+    }else{
+      document.getElementById("comentarios").appendChild(li)
+    }
+
+    document.getElementById("nuevoComentario").value = "";
+    li.className="comentario"
+
+    let borrar = document.createElement("p");
+    borrar.innerHTML = ("Borrar");
+    borrar.className = "close";
+    li.appendChild(borrar);
+
+    let close = document.getElementsByClassName("close");
+    for(let i = 0; i < close.length; i++);
+    close[i].onClick = function(){
+      let div = this.parentElement;
+      div.style.display="none";
+    }
+
+  }
+
   return (
     <>
       <NavBar />
@@ -158,6 +188,15 @@ function Details() {
                   >
                     Add to Cart
                   </button>
+                  <div className="input-com">
+                  <input id="nuevoComentario" type="text" placeholder="Nuevo comentario..." />
+                     <div className="btn-agg">
+                      <button onClick={nComentario}> Comentar </button>
+                     </div>
+                    <ul id="comentarios" class="c">
+
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>

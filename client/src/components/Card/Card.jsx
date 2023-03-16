@@ -3,6 +3,9 @@ import { RiGasStationFill } from "react-icons/ri";
 import { MdHdrAutoSelect, MdLocationPin } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { MdFavorite, MdFavoriteBorder } from "react-icons/md";
+import { useDispatch, useSelector } from "react-redux";
+import {fav} from "../../redux/actions/actions"
+
 function Card({
   brand,
   model,
@@ -16,8 +19,14 @@ function Card({
   type,
   _id,
 }) {
-
-
+  const favss= useSelector((state)=>state.fav)
+  const dispatch = useDispatch();
+  //console.log(favss.map((e)=>{e})) // LLEGA []
+  
+  const saveCar = () => {
+    alert("alaaslsa")
+    dispatch(fav())
+  }
   return (
     <div className="flex flex-col w-[350px] h-[500px] rounded-lg mb-10 mx-3  bg-zinc-100  items-center shadow-md hover:scale-105">
       <img
@@ -35,9 +44,14 @@ function Card({
           {" "}
           {mileage} km
         </p>
+        
+        
         <button className="rounded-md bg-white px-1 ">
-          <MdFavoriteBorder className="text-[#FB8500] cursor-pointer  text-[22px]" />
+          <MdFavoriteBorder className="text-[#FB8500] cursor-pointer  text-[22px]"
+          onClick={saveCar} />
         </button>
+
+
       </div>
       <div className="flex flex-row mb-1 ">
         <p className="flex mb-2 mr-5 text-black">
@@ -56,7 +70,7 @@ function Card({
           <span className="ml-2">{location}</span>
         </p>
       </div>
-      <p className="text-3xl text-black font-bold mb-4">US$ {price}</p>
+      <p className="text-3xl text-blak font-bold mb-4">US$ {price}</p>
       <Link to={`/detail/${_id}`}>
         <button className="bg-[rgb(251,133,0)] ">Details</button>
       </Link>

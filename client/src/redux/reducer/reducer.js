@@ -117,8 +117,9 @@ const rootReducer = (state = initialState, action) => {
     case FAV:
       return{
         ...state,
-        fav: action.payload
+        fav:[ ...state.fav, action.payload]
       }  
+      
     default:
       return state;
   }
