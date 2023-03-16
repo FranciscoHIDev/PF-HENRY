@@ -82,6 +82,9 @@ const routerPostUser = async (req, res) => {
             //password: passwordHash,
             lastname: user.lastname || "",
             telephone: user.telephone || iNumber.toString(),
+            location: user.location || "",
+            kindOfPerson: user.kindOfPerson
+
         });
 
 

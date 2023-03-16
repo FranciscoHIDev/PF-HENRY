@@ -23,8 +23,9 @@ const userSchema = mongoose.Schema({
     },
     kindOfPerson: {
         type: String,
-        minLength: 2,
-        maxLength: 25,
+        enum: ["natural", "business"],
+        default: "natural",
+
     },
     email: {
         type: String,
