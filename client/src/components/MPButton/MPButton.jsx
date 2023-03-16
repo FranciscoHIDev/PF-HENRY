@@ -10,9 +10,10 @@ export function MPButton({id}) {
       const res = await fetch("http://localhost:3001/cars/comprar", { 
         method: "POST",
         headers: {
-          "Content-Type": "application/json", 
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify({ dataMP
+        body: JSON.stringify({
+          dataMP,
           // aqui se manda la data recibida en el body
         }),
       });
