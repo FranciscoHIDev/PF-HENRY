@@ -20,14 +20,17 @@ import { createUser } from "../../redux/actions/actions";
 
 function NavBar() {
   const { isAuthenticated, user, logout } = useAuth0();
-  
+
   const dispatch = useDispatch();
 
   useEffect(() => {
     if (user && isAuthenticated) {
       axios.get("/users").then((x) => {
-        const userDb = x.data.find((x) => x.email !== user.email);
+        const userDb = x.data.find((x) => x.email === user.email);
+        console.log(userDb);
         if (userDb) {
+          return false;
+        } else {
           const newUser = {
             name: user.name,
             lastname: user.lastname,
@@ -87,7 +90,7 @@ function NavBar() {
                         className="w-6 h-6 object-cover rounded-full"
                       />
                       <p className="flex">
-                        Hi!<span className="ml-1">{user.given_name}</span>
+                        Hi!<span className="ml-1">{user.name}</span>
                       </p>
                       <RiArrowDownSLine />
                     </MenuButton>
