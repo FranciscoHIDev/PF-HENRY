@@ -33,7 +33,7 @@ function NavBar() {
         } else {
           const newUser = {
             name: user.name,
-            lastname: user.lastname,
+            lastname: user.family_name,
             email: user.email,
           };
           dispatch(createUser(newUser));
