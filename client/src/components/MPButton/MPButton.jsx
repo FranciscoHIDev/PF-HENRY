@@ -1,4 +1,4 @@
-import { useEffect, useContext, useState } from "react";
+import { useEffect} from "react";
 //import {UseMercadoPagoProps} from "mercadopago-v2-react"
 export function MPButton({id}) {
   // aqui se recibe el body

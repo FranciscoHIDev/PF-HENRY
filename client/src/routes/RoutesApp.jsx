@@ -20,6 +20,7 @@ import { FormCar } from "../components/LayoutAdmin/Forms/FormCar";
 import LayoutUser from "../components/UserProfile/LayoutUser";
 import Myprofile from "../components/UserProfile/pages/MyProfile";
 import Playmet from "../pages/Playmet/Playmet";
+import ProtectedRoute from "../components/ProtectedRoute/ProtectedRoute"
 
 function RoutesApp() {
   const { isAuthenticated } = useAuth0();
@@ -44,11 +45,11 @@ function RoutesApp() {
         </Route>
         {/* Configuración de rutas del Perfil de usuario  */}
         <Route path="/profile" element={<LayoutUser />}>
-          <Route index element={<MyProfile />} />
+          <Route index element={<Myprofile />} />
         </Route>
-        <Route element={<ProtectedRoute isAllowed={!!isAuthenticated} />}>
+        <Route element={<ProtectedRoute isAllowed={!!isAuthenticated} />}> 
           <Route path="/profile" element={<LayoutUser />} />
-        </Route>
+        </Route> 
         <Route exact path="*" element={<NotFound />} />
       </Routes>
     </>
