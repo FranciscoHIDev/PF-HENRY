@@ -10,9 +10,10 @@ export function MPButton({id}) {
       const res = await fetch("http://localhost:3001/cars/comprar", { 
         method: "POST",
         headers: {
-          "Content-Type": "application/json", 
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify({ dataMP
+        body: JSON.stringify({
+          dataMP,
           // aqui se manda la data recibida en el body
         }),
       });
@@ -26,9 +27,9 @@ export function MPButton({id}) {
         script.src = "https://sdk.mercadopago.com/js/v2";
         script.setAttribute("data-preference-id", data.id);
         document.body.appendChild(script);
-      }
-      console.log(document.body)
-         const mp = await new window.MercadoPago(
+
+
+        const mp = new window.MercadoPago(
           "TEST-b38eba64-c8b9-4330-aa82-c3e0e29d9f66",
           {
             locale: "es-AR",
@@ -53,8 +54,10 @@ export function MPButton({id}) {
   }, []);
 
   return (
+
   <>
     <div className="cho-container"></div>
   </>);
   
 }
+
