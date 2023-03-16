@@ -128,7 +128,7 @@ export const renderInfoUsers = async (id) => {
 }
 
 
-export const AllUsers = async () => {
+export const allUsers = async () => {
   const allUsers = await axios.get("/users");
   return allUsers.data
 }
@@ -141,6 +141,9 @@ export const PostContact = async () => {
     payload: contact.data
   }
 }
+
+
+
 
 export const postCar = (payload) => async (dispatch) => {
   try {

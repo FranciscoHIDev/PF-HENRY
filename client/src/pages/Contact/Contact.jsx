@@ -3,7 +3,7 @@ import NavBar from "../../components/NavBar/NavBar";
 import Footer from "../../components/Footer/Footer";
 import Style from "../Contact/Contact.module.css";
 import { useDispatch } from "react-redux";
-import { postContact } from "../../redux/actions/actions";
+import  { PostContact }  from "../../redux/actions/actions";
 import {useNavigate} from 'react-router-dom'
 import { useAuth0 } from "@auth0/auth0-react";
 
@@ -59,7 +59,7 @@ const navigate = useNavigate()
       message : state.message
     }
     e.preventDefault()
-    dispatch(postContact(newmensaje))
+    dispatch(PostContact(newmensaje))
     
 
     navigate("/home")
@@ -91,7 +91,7 @@ console.log(state)
               className={Style.label}
               class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
             >
-              Name{" "}
+              Name
             </label>
             <input
               className={Style.input}
@@ -181,6 +181,7 @@ console.log(state)
               <spam style={{ color: "red" }}>* {errores.message}</spam>
             ) : null}
           </div>
+
           <br />
           <button
             type="submit"
