@@ -7,8 +7,8 @@ export function MPButton({ id, model, brand, image, price }) {
     model,
     brand,
     image,
-    price
-  }
+    price,
+  };
   //-----------------------
 
 
@@ -24,7 +24,7 @@ export function MPButton({ id, model, brand, image, price }) {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          dataMP
+          dataMP,
           // aqui se manda la data recibida en el body
         }),
       });
@@ -38,23 +38,23 @@ export function MPButton({ id, model, brand, image, price }) {
           script.setAttribute("data-preference-id", await data.id);
           document.body.appendChild(script);
 
-          const mp = await new window.MercadoPago(
-            "TEST-b38eba64-c8b9-4330-aa82-c3e0e29d9f66",
-            {
-              locale: "es-AR",
-            }
-          );
-
-          mp.checkout({
-            preference: {
-              id: data.id,
-            },
-            render: {
-              container: ".cho-container",
-              label: "GO PAY",
-            },
-          });
         
+        const mp = new window.MercadoPago(
+          "TEST-b38eba64-c8b9-4330-aa82-c3e0e29d9f66",
+          {
+            locale: "es-AR",
+          }
+        );
+
+        mp.checkout({
+          preference: {
+            id: data.id,
+          },
+          render: {
+            container: ".cho-container",
+            label: "GO PAY",
+          },
+        });
       }
 
     };
@@ -66,6 +66,6 @@ export function MPButton({ id, model, brand, image, price }) {
     <>
       <div>Tittle</div>
       <div className="cho-container"></div>
-    </>);
-
+    </>
+  );
 }

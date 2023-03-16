@@ -18,14 +18,14 @@ import {
   TextField,
 } from "@mui/material";
 
-const API_URL = "http://localhost:3001/contact/";
+
 function ContactsForms() {
   const dispatch = useDispatch();
   const [data, setData] = useState([]);
 
   const dataInfo = async () => {
     try {
-      const { data } = await axios.get(API_URL);
+      const { data } = await axios.get("/contact/");
       setData(data);
     } catch (e) {
       console.log(e);

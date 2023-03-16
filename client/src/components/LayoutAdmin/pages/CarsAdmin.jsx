@@ -21,15 +21,13 @@ import {
   TextField,
 } from "@mui/material";
 
-const API_URL = "http://localhost:3001/cars/";
-
 function CarsAdmin() {
   const dispatch = useDispatch();
   const [data, setData] = useState([]);
   // <--------------Treaer info Api--------------->
   const dataInfo = async () => {
     try {
-      const { data } = await axios.get(API_URL);
+      const { data } = await axios.get("/cars/");
       setData(data);
     } catch (e) {
       console.log(e);
@@ -76,58 +74,62 @@ function CarsAdmin() {
   }
 
   const BanearCar = async () => {
-    await axios.put(API_URL + carSelected._id, carSelected).then((response) => {
-      var dataNew = data;
-      console.log(dataNew);
-      dataNew.map((c) => {
-        if (carSelected._id === c._id) {
-          c.status = carSelected.status;
-        }
+    await axios
+      .put("/cars/" + carSelected._id, carSelected)
+      .then((response) => {
+        var dataNew = data;
+        console.log(dataNew);
+        dataNew.map((c) => {
+          if (carSelected._id === c._id) {
+            c.status = carSelected.status;
+          }
+        });
+        setData(dataNew);
+        openCloseModalDelete();
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "The car has been deactivated successfully",
+          showConfirmButton: false,
+          timer: 3000,
+        });
       });
-      setData(dataNew);
-      openCloseModalDelete();
-      Swal.fire({
-        position: "center",
-        icon: "success",
-        title: "The car has been deactivated successfully",
-        showConfirmButton: false,
-        timer: 3000,
-      });
-    });
   };
   const EditInfo = async () => {
-    await axios.put(API_URL + carSelected._id, carSelected).then((response) => {
-      var dataNew = data;
-      dataNew.map((c) => {
-        if (carSelected._id === c._id) {
-          c.type = carSelected.type;
-          c.brand = carSelected.brand;
-          c.model = carSelected.model;
-          c.price = carSelected.price;
-          c.description = carSelected.description;
-          c.category = carSelected.category;
-          c.location = carSelected.location;
-          c.fuelConsumption = carSelected.fuelConsumption;
-          c.doors = carSelected.doors;
-          c.color = carSelected.color;
-          c.year = carSelected.year;
-          c.mileage = carSelected.mileage;
-          c.fuelType = carSelected.fuelType;
-          c.transissionType = carSelected.transissionType;
-          c.active = carSelected.active;
-          c.status = carSelected.status;
-        }
+    await axios
+      .put("/cars/" + carSelected._id, carSelected)
+      .then((response) => {
+        var dataNew = data;
+        dataNew.map((c) => {
+          if (carSelected._id === c._id) {
+            c.type = carSelected.type;
+            c.brand = carSelected.brand;
+            c.model = carSelected.model;
+            c.price = carSelected.price;
+            c.description = carSelected.description;
+            c.category = carSelected.category;
+            c.location = carSelected.location;
+            c.fuelConsumption = carSelected.fuelConsumption;
+            c.doors = carSelected.doors;
+            c.color = carSelected.color;
+            c.year = carSelected.year;
+            c.mileage = carSelected.mileage;
+            c.fuelType = carSelected.fuelType;
+            c.transissionType = carSelected.transissionType;
+            c.active = carSelected.active;
+            c.status = carSelected.status;
+          }
+        });
+        setData(dataNew);
+        openCloseModalEdit();
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "The car has been successfully modified",
+          showConfirmButton: false,
+          timer: 3000,
+        });
       });
-      setData(dataNew);
-      openCloseModalEdit();
-      Swal.fire({
-        position: "center",
-        icon: "success",
-        title: "The car has been successfully modified",
-        showConfirmButton: false,
-        timer: 3000,
-      });
-    });
   };
   const bodyEdit = (
     <div className="bg-white  pl-2 pr-2">

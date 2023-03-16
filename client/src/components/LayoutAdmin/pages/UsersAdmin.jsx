@@ -18,7 +18,7 @@ import {
 } from "@mui/material";
 import Swal from "sweetalert2";
 
-const API_URL = "http://localhost:3001/users/";
+
 
 function UsersAdmin() {
   const dispatch = useDispatch();
@@ -51,7 +51,7 @@ function UsersAdmin() {
 
   const PutUsers = async () => {
     await axios
-      .put(API_URL + userSeleccionado._id, userSeleccionado)
+      .put("/users/" + userSeleccionado._id, userSeleccionado)
       .then((response) => {
         var dataNew = data;
         console.log(dataNew);
@@ -74,7 +74,7 @@ function UsersAdmin() {
 
   const peticionPut = async () => {
     await axios
-      .put(API_URL + userSeleccionado._id, userSeleccionado)
+      .put("/users/" + userSeleccionado._id, userSeleccionado)
       .then((response) => {
         var dataNew = data;
         dataNew.map((user) => {
@@ -97,7 +97,7 @@ function UsersAdmin() {
 
   const dataInfo = async () => {
     try {
-      const { data } = await axios.get(API_URL);
+      const { data } = await axios.get("/users/");
       setData(data);
     } catch (e) {
       console.log(e);
