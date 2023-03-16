@@ -16,7 +16,7 @@ const pagarProducto = async(req , res) =>{
               currency_id: "ARS",
               unit_price: a.price
             }],
-            //notification_url: "http://localhost:3001/cars/feedback",
+            //notification_url: "http://localhost:3001/cars/n",
            /*  payer: {
               phone: {},
               identification: {},
@@ -36,18 +36,11 @@ const pagarProducto = async(req , res) =>{
 			res.send({ 
 				id: response.body.id,
 			})
-      console.log(response)
+      //console.log(response.body.init_point)
 		}).catch(function (error) {
 			console.log(error);
       res.status(400).send(error)
 		});
 }
-const feedback = function (req, res) {
-	res.json({
-		Payment: req.query.payment_id,
-		Status: req.query.status,
-		MerchantOrder: req.query.merchant_order_id
-	});
-};
-module.exports={pagarProducto,
-                feedback}
+
+module.exports={pagarProducto}

@@ -60,6 +60,9 @@ function NavBar() {
               <Link className="mr-10" to="/home">
                 HOME
               </Link>
+              <Link className="mr-10" to="/playmet">
+                Playmet
+              </Link>
               <Link className="mr-10" to="/about">
                 ABOUT
               </Link>
