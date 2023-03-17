@@ -5,18 +5,22 @@ import {Slider} from "@mui/material";
 import { allFilter, deletefil, getAllCars, push, sortByPrice,frange } from "../../redux/actions/actions";
 
 function Filters() {
+  const a= []
   const reFil = useSelector(state => state.filtros);
-  const reFils = useSelector(state => state.allCars);
-
+  let reFils = useSelector(state => state.allCars);
+  reFils.map((car) => {
+    car.status === "valid" ? a.push(car.price) : null;
+  });
   const dispatch = useDispatch();
   let filtroLinks = useSelector((state) => state.cars);
+  filtroLinks = filtroLinks.filter((e)=> e.status === "valid")
   const auxCategory = filtroLinks.map((e) => e.category);
   const reCategory = auxCategory.filter((e, i) => auxCategory.indexOf(e) === i);
   const auxModel = filtroLinks.map((e) => e.model);
   const reModel = auxModel.filter((e, i) => auxModel.indexOf(e) === i);
   const auxType = filtroLinks.map((e) => e.type);
   const reType = auxType.filter((e, i) => auxType.indexOf(e) === i);
-  let a=reFils.map(e=>e.price)
+  console.log(a)
   a.sort((a, b) => a - b)
   console.log(a[length-1])
   const s=[];
@@ -27,11 +31,11 @@ function Filters() {
   const [max, setMax] = useState(5);
   useEffect(()=>{
     setRange(s)
-    setMax(s[1])
-    setMin(s[0])
+    setMax(s[1]+1)
+    setMin(s[0]-1)
   },[reFils])
   
-  console.log(range)
+  /* console.log(range) */
   function handlerPrice(e) {
     dispatch(sortByPrice(e.target.value));
   }
@@ -45,14 +49,12 @@ function Filters() {
     dispatch(allFilter());
     setRange([b[0],b[b.length]])
     console.log(reFil)
-
   }
   function handelrModel(e) {
     dispatch(push({ propety: "model", value: e.target.innerText }));
     dispatch(allFilter());
     setRange([b[0],b[b.length]])
     console.log(reFil)
-
   }
   function handelrType(e) {
     dispatch(push({ propety: "type", value: e.target.innerText }));
@@ -78,7 +80,6 @@ function Filters() {
            The selected range is {range[0]} - {range[1]}
         </div> 
       <br />
-
       <div className="flex flex-wrap" >
       {reFil[0] && reFil.map((e) => <div className="inline-flex m-1 rounded-md bg-white" key={e.value}><p className="justify-self-start mr-1" >{e.value}</p ><button className="bg-white bg-slate-100 flex justify-self-end text-black text-[12px] hover:bg-white " value={e.value} onClick={handlerDelete}>x</button> </div>)}</div>
       {reFil[0] && reFil.find(e=>e.propety==="category")?null:<div className="my-3"><label className="font-bold block my-2  rounded-lg"  >Category</label>
@@ -87,7 +88,6 @@ function Filters() {
       {reModel.map(e => <div className="flex "><p className="hover:cursor-pointer hover:ml-1 text-sm" onClick={handelrModel} >{e}</p> <br /></div>)}</div>}
       {reFil[0] && reFil.find(e=>e.propety==="type")?null:<div className="my-3"><label className="font-bold block my-2  rounded-lg"  >Type</label>
       {reType.map(e => <div className="flex "><p className="hover:cursor-pointer hover:ml-1 text-sm" onClick={handelrType} >{e}</p> <br /></div>)}</div>}
-
     </div>
   );
 }

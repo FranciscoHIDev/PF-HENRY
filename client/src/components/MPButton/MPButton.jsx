@@ -1,11 +1,11 @@
-import { useEffect, useContext, useState } from "react";
+import { useEffect} from "react";
 //import {UseMercadoPagoProps} from "mercadopago-v2-react"
 export function MPButton({id}) {
   // aqui se recibe el body
   const dataMP ={
     id
         }
-  //-----------------------
+
 
   useEffect(() => {
     const fetchCheckout = async () => {
@@ -29,9 +29,9 @@ export function MPButton({id}) {
         script.src = "https://sdk.mercadopago.com/js/v2";
         script.setAttribute("data-preference-id", data.id);
         document.body.appendChild(script);
-
-
-        const mp = new window.MercadoPago(
+      }
+      
+         const mp =  new window.MercadoPago(
           "TEST-b38eba64-c8b9-4330-aa82-c3e0e29d9f66",
           {
             locale: "es-AR",
@@ -57,7 +57,6 @@ export function MPButton({id}) {
   }, []);
   
   return (
-
   <>
     <div className="cho-container">
 
@@ -67,6 +66,6 @@ export function MPButton({id}) {
   
   );
     
-}
-  })
-}
+})
+} 
+

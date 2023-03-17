@@ -18,10 +18,9 @@ import Bookings from "../components/LayoutAdmin/pages/Bookings";
 import ContactsForms from "../components/LayoutAdmin/pages/ContactsForms";
 import { FormCar } from "../components/LayoutAdmin/Forms/FormCar";
 import LayoutUser from "../components/UserProfile/LayoutUser";
+import Myprofile from "../components/UserProfile/pages/MyProfile";
 import Playmet from "../pages/Playmet/Playmet";
-import MyProfile from "../components/UserProfile/pages/MyProfile";
-import ProtectedRoute from "../components/ProtectedRoute/ProtectedRoute";
-
+import ProtectedRoute from "../components/ProtectedRoute/ProtectedRoute"
 
 function RoutesApp() {
   const { isAuthenticated } = useAuth0();
@@ -34,7 +33,6 @@ function RoutesApp() {
         <Route exact path="about" element={<About />} />
         <Route exact path="contact" element={<Contact />} />
         <Route exact path="playmet" element={<Playmet />} />
-        <Route exact path="favorites" element={<Favorites />} />
 
         {/* Configuración de rutas del Dashboard  */}
         <Route path="/dashboard" element={<LayoutAdmin />}>
@@ -47,11 +45,11 @@ function RoutesApp() {
         </Route>
         {/* Configuración de rutas del Perfil de usuario  */}
         <Route path="/profile" element={<LayoutUser />}>
-          <Route index element={<MyProfile />} />
+          <Route index element={<Myprofile />} />
         </Route>
-        <Route element={<ProtectedRoute isAllowed={!!isAuthenticated} />}>
+        <Route element={<ProtectedRoute isAllowed={!!isAuthenticated} />}> 
           <Route path="/profile" element={<LayoutUser />} />
-        </Route>
+        </Route> 
         <Route exact path="*" element={<NotFound />} />
       </Routes>
     </>

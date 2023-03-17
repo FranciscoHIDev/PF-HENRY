@@ -55,7 +55,7 @@ export const getCardsById = (id) => {
   };
 };
 
-export const linkcompra = (id) => {
+/* export const linkcompra = (id) => {
   return async function (dispatch) {
     try {
       const response = await axios.post(`http://localhost:3001/cars/comprar`);
@@ -67,7 +67,7 @@ export const linkcompra = (id) => {
       return { error: error.message };
     }
   };
-};
+}; */
 
 export const sortByPrice = (payload) => {
   return {
@@ -153,7 +153,6 @@ export const allUsers = async () => {
   const allUsers = await axios.get("/users");
   return allUsers.data
 }
-
 
 
 export const postContact = (payload) => async (dispatch) => {

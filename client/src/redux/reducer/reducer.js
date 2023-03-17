@@ -39,14 +39,14 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         cars: action.payload,
       };
-      case LINK_COMPRA:
+     /*  case LINK_COMPRA:
       return {
         ...state,
         compra: action.payload,
-      };
+      }; */
       case FRANGE:
         let rFiltro=[...state.cars];
-        rFiltro=rFiltro.filter((e)=>(e.price<action.payload[1]&&e.price>action.payload[0]))
+        rFiltro=rFiltro.filter((e)=>(e.price<=action.payload[1]&&e.price>=action.payload[0]))
         console.log(rFiltro)
       return {
         ...state,
@@ -84,9 +84,11 @@ const rootReducer = (state = initialState, action) => {
       };
     case ALL_FILTER: {
       let arrfil = state.allCars
+      arrfil= arrfil.filter((e)=>e.status === "valid")
       const cfil = state.filtros
       if (cfil.length === 0) {
         arrfil = state.allCars
+        arrfil= arrfil.filter((e)=>e.status==="valid")
         return {
           ...state,
           cars: arrfil
