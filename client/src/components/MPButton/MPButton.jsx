@@ -55,7 +55,7 @@ export function MPButton({id}) {
    
     fetchCheckout();   
   }, []);
-  )
+  
   return (
 
   <>
@@ -66,6 +66,7 @@ export function MPButton({id}) {
   </>
   
   );
-  
+    
 }
-
+  })
+}
