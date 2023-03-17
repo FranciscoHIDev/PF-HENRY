@@ -25,8 +25,10 @@ function NavBar() {
 
   useEffect(() => {
     if (user && isAuthenticated) {
-      axios.get("/users").then((x) => {
-        const userDb = x.data.find((x) => x.email === user.email);
+      axios.get("/users").then((element) => {
+        const userDb = element.data.find(
+          (element) => element.email === user.email
+        );
         console.log(userDb);
         if (userDb) {
           return false;

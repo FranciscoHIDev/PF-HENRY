@@ -82,16 +82,14 @@ const routerPostUser = async (req, res) => {
             //password: passwordHash,
             lastname: user.lastname || "",
             telephone: user.telephone || iNumber.toString(),
-            location: user.location || "",
-            kindOfPerson: user.kindOfPerson
-
+            location: user.location || ""
         });
 
 
         const saveUser = await newUser.save();
         console.log(saveUser)
         res.status(200).json(saveUser);
-        // eMail1(user.eMail);
+        //eMail1(user.eMail);
     } catch (error) {
         res.status(500).send(`{messaje: ${error}}`);
     }
