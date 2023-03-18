@@ -73,7 +73,7 @@ function Card({
           onClick={onClick}
         >
           {click ? (
-            <MdFavorite className="text-[#ff3252]  text-[22px]" />
+            <MdFavorite className="text-[#0d6efd]  text-[22px]" />
           ) : (
             <MdFavoriteBorder className="text-[#FB8500] text-[22px]" />
           )}

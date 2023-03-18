@@ -31,8 +31,6 @@ function NavBar() {
         );
         console.log(userDb);
         if (userDb) {
-
-          
           return false;
         } else {
           const newUser = {
@@ -84,7 +82,7 @@ function NavBar() {
             <MdFavoriteBorder className="text-3xl mr-4" />
           </Link>
 
-          {isAuthenticated ? (
+          {isAuthenticated && user ? (
             <>
               {" "}
               <nav>
@@ -97,7 +95,10 @@ function NavBar() {
                         className="w-6 h-6 object-cover rounded-full"
                       />
                       <p className="flex">
-                        Hi!<span className="ml-1">{user.name}</span>
+                        Hi!
+                        <span className="ml-1">
+                          {user.given_name || user.name}
+                        </span>
                       </p>
                       <RiArrowDownSLine />
                     </MenuButton>

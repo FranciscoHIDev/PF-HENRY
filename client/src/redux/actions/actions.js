@@ -15,6 +15,7 @@ export const POST_CAR = "POST_CAR"
 export const FRANGE = "FRANGE"
 export const LINK_COMPRA = "LINK_COMPRA"
 export const POST_FAVORITE = "POST_FAVORITE"
+export const GET_ALL_USERS = "GET_ALL_USERS"
 
 export const getAllCars = () => async (dispatch) => {
   try {
@@ -120,9 +121,6 @@ export const createUser = (payload) => {
   }
 }
 
-
-
-
 export const renderInfoUsers = async (id) => {
   const infoUser = await axios.get(`/users/${id}`)
   return {
@@ -130,12 +128,19 @@ export const renderInfoUsers = async (id) => {
     payload
   }
 }
-export const AllUsers = async () => {
-  const allUsers = await axios.get("/users");
-  return allUsers.data
+
+
+export const getAllUsers = () => async (dispatch) => {
+  try {
+    const { data } = await axios.get("/users");
+    dispatch({
+      type: "GET_ALL_USERS",
+      payload: data,
+    });
+  } catch (e) {
+    console.log(e);
+  }
 }
-
-
 export const postContact = (payload) => async (dispatch) => {
   try {
     const data = await axios.post("http://localhost:3001/contact", payload);
@@ -170,4 +175,4 @@ export const postFavorite = (payload) => {
   } catch (e) {
     console.log(e);
   }
-};
+};                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        

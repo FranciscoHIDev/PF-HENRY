@@ -20,7 +20,7 @@ import { FormCar } from "../components/LayoutAdmin/Forms/FormCar";
 import LayoutUser from "../components/UserProfile/LayoutUser";
 import Myprofile from "../components/UserProfile/pages/MyProfile";
 import Playmet from "../pages/Playmet/Playmet";
-import ProtectedRoute from "../components/ProtectedRoute/ProtectedRoute"
+import ProtectedRoute from "../components/ProtectedRoute/ProtectedRoute";
 
 function RoutesApp() {
   const { isAuthenticated } = useAuth0();
@@ -33,7 +33,7 @@ function RoutesApp() {
         <Route exact path="about" element={<About />} />
         <Route exact path="contact" element={<Contact />} />
         <Route exact path="playmet" element={<Playmet />} />
-        <Route exact path="favorites" element={<Favorites/>}/>
+        <Route exact path="favorites" element={<Favorites />} />
 
         {/* Configuración de rutas del Dashboard  */}
         <Route path="/dashboard" element={<LayoutAdmin />}>
@@ -48,9 +48,9 @@ function RoutesApp() {
         <Route path="/profile" element={<LayoutUser />}>
           <Route index element={<Myprofile />} />
         </Route>
-        <Route element={<ProtectedRoute isAllowed={!!isAuthenticated} />}> 
+        <Route element={<ProtectedRoute isAllowed={!!isAuthenticated} />}>
           <Route path="/profile" element={<LayoutUser />} />
-        </Route> 
+        </Route>
         <Route exact path="*" element={<NotFound />} />
       </Routes>
     </>

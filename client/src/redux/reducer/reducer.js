@@ -14,7 +14,8 @@ import {
   POST_CAR,
   FRANGE,
   LINK_COMPRA,
-  POST_FAVORITE
+  POST_FAVORITE,
+  GET_ALL_USERS
 } from "../actions/actions";
 
 const initialState = {
@@ -145,6 +146,11 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         allUsers: action.payload
 
+      }
+    case GET_ALL_USERS:
+      return {
+        ...state,
+        allUsers: action.payload
       }
     default:
       return state;
