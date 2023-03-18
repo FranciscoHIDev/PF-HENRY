@@ -18,11 +18,8 @@ const routerGetFavorite = async (req, res) => {
     try {
         const { favori, email } = req.body;
         let users = await Users.find({ email: email });
-
         let cars = await Cars.findById({ _id: favori });
-
         let favorites = users[0].favorites;
-
 
         let flag = [];
         if (favorites.length > 0) {
@@ -35,12 +32,7 @@ const routerGetFavorite = async (req, res) => {
 
             if (flag.length === 0) favorites.push(cars);
         } else favorites.push(cars);
-
-
         await Users.updateOne({ _id: users[0]._id }, { favorites });
-
-
-
         res.status(200).json(users[0].favorites);
     } catch (error) {
         res.status(500).send(`{messaje: ${error}}`);

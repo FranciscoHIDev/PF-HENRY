@@ -33,6 +33,7 @@ function RoutesApp() {
         <Route exact path="about" element={<About />} />
         <Route exact path="contact" element={<Contact />} />
         <Route exact path="playmet" element={<Playmet />} />
+        <Route exact path="favorites" element={<Favorites/>}/>
 
         {/* Configuración de rutas del Dashboard  */}
         <Route path="/dashboard" element={<LayoutAdmin />}>

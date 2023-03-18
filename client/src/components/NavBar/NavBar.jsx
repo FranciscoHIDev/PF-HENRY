@@ -31,6 +31,8 @@ function NavBar() {
         );
         console.log(userDb);
         if (userDb) {
+
+          
           return false;
         } else {
           const newUser = {
@@ -75,9 +77,9 @@ function NavBar() {
           </div>
         </div>
         <div className="flex items-center justify-end mr-8 ">
-          <Link to="/cart">
+          {/* <Link to="/cart">
             <HiOutlineShoppingBag className="text-3xl mr-4" />
-          </Link>
+          </Link> */}
           <Link to="/favorites">
             <MdFavoriteBorder className="text-3xl mr-4" />
           </Link>

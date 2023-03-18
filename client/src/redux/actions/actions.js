@@ -12,8 +12,10 @@ export const RENDER_INFO_USERS = "RENDER_INFO_USERS";
 export const POST_CONTACT = "POST_CONTACT"
 export const POST_USERS = "POST_USERS"
 export const POST_CAR = "POST_CAR"
-export const FRANGE ="FRANGE"
-export const LINK_COMPRA ="LINK_COMPRA"
+export const FRANGE = "FRANGE"
+export const LINK_COMPRA = "LINK_COMPRA"
+export const POST_FAVORITE = "POST_FAVORITE"
+
 export const getAllCars = () => async (dispatch) => {
   try {
     const { data } = await axios.get("/cars");
@@ -153,6 +155,18 @@ export const postCar = (payload) => async (dispatch) => {
       type: "POST_CAR",
       payload: carCreated,
     });
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+export const postFavorite = (payload) => {
+  try {
+    const addFavorite = axios.post("/users/favorite", payload);
+    return {
+      type: "POST_FAVORITE",
+      payload: addFavorite,
+    };
   } catch (e) {
     console.log(e);
   }
