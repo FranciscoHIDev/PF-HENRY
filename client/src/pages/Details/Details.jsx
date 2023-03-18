@@ -8,7 +8,7 @@ import { ImLocation } from "react-icons/im";
 import Footer from "../../components/Footer/Footer";
 import { Link } from "react-router-dom";
 import Loading from "../../components/Loading/Loading";
-import {MPButton} from "../../components/MPButton/MPButton"
+import { MPButton } from "../../components/MPButton/MPButton";
 //import { useState } from "react";
 function Details() {
   const { id } = useParams();
@@ -18,7 +18,6 @@ function Details() {
   useEffect(() => {
     dispatch(getCardsById(id));
     return () => dispatch(clearDetail());
-    
   }, [dispatch, id]);
   return (
     <>
@@ -151,7 +150,9 @@ function Details() {
                     </label>
                   </div>
                 </fieldset>
-               <div ><MPButton id={id}></MPButton></div> 
+                <div className="mt-4">
+                  <MPButton id={id}></MPButton>
+                </div>
               </div>
             </div>
           </div>
