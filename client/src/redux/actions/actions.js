@@ -129,7 +129,6 @@ export const renderInfoUsers = async (id) => {
   }
 }
 
-
 export const getAllUsers = () => async (dispatch) => {
   try {
     const { data } = await axios.get("/users");

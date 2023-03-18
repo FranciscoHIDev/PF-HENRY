@@ -167,7 +167,7 @@ export default function MyProfile() {
           <div className="flex items-center justify-center">
             <input
               className="bg-blue-500 hover:bg-blue value="
-              type="submit"
+              type="submit" 
               value="Send"
             />
           </div>
