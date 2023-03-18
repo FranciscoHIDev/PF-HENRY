@@ -10,6 +10,7 @@ import SideBar from "./../SideBar/SideBar";
 function Cards() {
   const dispatch = useDispatch();
   const cars = useSelector((state) => state.cars);
+
   const carsValid = [];
   cars.map((car) => {
     car.status === "valid" ? carsValid.push(car) : null;
