@@ -2,7 +2,7 @@ const {mercadopago}=require('../utils/mercadopago');
 const carSchema = require("../Models/Cars.js");
 
 const pagarProducto = async(req , res) =>{
- const car= sreq.body.dataMP
+ const car= req.body.dataMP
  const a = await carSchema.findById(car.id)
  //console.log(a)
 
