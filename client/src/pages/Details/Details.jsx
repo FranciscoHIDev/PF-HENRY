@@ -8,10 +8,9 @@ import { ImLocation } from "react-icons/im";
 import Footer from "../../components/Footer/Footer";
 import { Link } from "react-router-dom";
 import Loading from "../../components/Loading/Loading";
-import {MPButton} from "../../components/MPButton/MPButton";
 import Swal from "sweetalert2";
 import { useAuth0 } from "@auth0/auth0-react";
-
+import { MPButton } from "../../components/MPButton/MPButton";
 //import { useState } from "react";
 function Details() {
 
@@ -24,7 +23,6 @@ function Details() {
   useEffect(() => {
     dispatch(getCardsById(id));
     return () => dispatch(clearDetail());
-    
   }, [dispatch, id]);
 
   function handlerPay() {
@@ -169,9 +167,13 @@ function Details() {
                     </label>
                   </div>
                 </fieldset>
+
                 <div>
                   {isAuthenticated ? <MPButton id={id} /> : <button onClick={handlerPay}>Comprar</button> }
                 </div> 
+                {/*<div className="mt-4">
+                  <MPButton id={id}></MPButton>
+                </div>  */}
               </div>
             </div>
           </div>

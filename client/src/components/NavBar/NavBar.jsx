@@ -25,8 +25,10 @@ function NavBar() {
 
   useEffect(() => {
     if (user && isAuthenticated) {
-      axios.get("/users").then((x) => {
-        const userDb = x.data.find((x) => x.email === user.email);
+      axios.get("/users").then((element) => {
+        const userDb = element.data.find(
+          (element) => element.email === user.email
+        );
         console.log(userDb);
         if (userDb) {
           return false;
@@ -73,14 +75,14 @@ function NavBar() {
           </div>
         </div>
         <div className="flex items-center justify-end mr-8 ">
-          <Link to="/cart">
+          {/* <Link to="/cart">
             <HiOutlineShoppingBag className="text-3xl mr-4" />
-          </Link>
+          </Link> */}
           <Link to="/favorites">
             <MdFavoriteBorder className="text-3xl mr-4" />
           </Link>
 
-          {isAuthenticated ? (
+          {isAuthenticated && user ? (
             <>
               {" "}
               <nav>
@@ -93,7 +95,10 @@ function NavBar() {
                         className="w-6 h-6 object-cover rounded-full"
                       />
                       <p className="flex">
-                        Hi!<span className="ml-1">{user.name}</span>
+                        Hi!
+                        <span className="ml-1">
+                          {user.given_name || user.name}
+                        </span>
                       </p>
                       <RiArrowDownSLine />
                     </MenuButton>

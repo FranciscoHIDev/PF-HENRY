@@ -8,6 +8,8 @@ const {
   routerPutCars,
   routerDeleteCars,
 } = require("../Controllers/CarsController");
+
+const { postCompra, getCompra, putCompra } = require('../Controllers/ControllerCompra')
 const {pagarProducto}=require('../Controllers/Producto')
 const {routerLocation}=require('../Controllers/GetLocation')
 
@@ -24,13 +26,19 @@ router.post("/n", (req, res) => {
 router.post('/comprar',(req, res) => {
   pagarProducto(req, res);
 });
-router.get('/feedback', function (req, res) {
-	res.json({
-		Payment: req.query.payment_id,
-		Status: req.query.status,
-		MerchantOrder: req.query.merchant_order_id
-	});
+
+router.post('/feedback', function (req, res) {
+  postCompra(req, res) 
 });
+
+router.get("/feedback", (req, res) => {
+  getCompra(req, res);
+});
+
+router.put("/feedback", (req, res) => {
+  putCompra(req,res);
+})
+
 
 /* This is a get request that is being sent to the server. */
 router.get("/", (req, res) => {

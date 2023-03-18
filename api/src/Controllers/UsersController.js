@@ -32,9 +32,7 @@ const routerGetFavorite = async (req, res) => {
 
       if (flag.length === 0) favorites.push(cars);
     } else favorites.push(cars);
-
     await Users.updateOne({ _id: users[0]._id }, { favorites });
-
     res.status(200).json(users[0].favorites);
   } catch (error) {
     res.status(500).send(`{messaje: ${error}}`);
@@ -58,7 +56,7 @@ const routerPostUser = async (req, res) => {
       iDni = usersc[usersc.length - 1].dni;
     }
 
-    if (iNumber < 1) iNumber = "000000000";
+    if (iNumber < 1) iNumber = "111111111";
     else {
       ++iNumber;
     }
@@ -77,16 +75,15 @@ const routerPostUser = async (req, res) => {
       lastname: user.lastname || "",
       telephone: user.telephone || iNumber.toString(),
       location: user.location || "",
-      kindOfPerson: user.kindOfPerson,
     });
 
     const saveUser = await newUser.save();
-    console.log(saveUser);
     res.status(200).json(saveUser);
-    // eMail1(user.eMail);
+    //eMail1(user.eMail);
   } catch (error) {
     res.status(500).send(`{messaje: ${error}}`);
   }
+  
 };
 
 /**

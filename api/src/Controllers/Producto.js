@@ -5,7 +5,6 @@ const pagarProducto = async (req, res) => {
   const car = req.body.dataMP;
   const email = car.email;
   const carId = await carSchema.findById(car.id);
-//console.log(carId)
 
   let preference = {
     items: [
@@ -35,15 +34,12 @@ const pagarProducto = async (req, res) => {
     external_reference: email
   };
 
-//console.log(preference)
-
   mercadopago.preferences
     .create(preference)
     .then(function (response) {
       res.send({
         id: response.body.id,
       });
-//console.log(response)
     })
     .catch(function (error) {
       console.log(error);
