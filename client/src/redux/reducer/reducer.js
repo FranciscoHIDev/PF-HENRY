@@ -13,7 +13,9 @@ import {
   POST_USERS,
   POST_CAR,
   FRANGE,
-  LINK_COMPRA
+  LINK_COMPRA,
+  POST_FAVORITE,
+  GET_ALL_USERS
 } from "../actions/actions";
 
 const initialState = {
@@ -24,7 +26,7 @@ const initialState = {
   allUsers: [],
   userById: [],
   allContacts: [],
-  compra:[]
+  compra: []
 };
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -39,15 +41,15 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         cars: action.payload,
       };
-     /*  case LINK_COMPRA:
-      return {
-        ...state,
-        compra: action.payload,
-      }; */
-      case FRANGE:
-        let rFiltro=[...state.cars];
-        rFiltro=rFiltro.filter((e)=>(e.price<=action.payload[1]&&e.price>=action.payload[0]))
-        console.log(rFiltro)
+    /*  case LINK_COMPRA:
+     return {
+       ...state,
+       compra: action.payload,
+     }; */
+    case FRANGE:
+      let rFiltro = [...state.cars];
+      rFiltro = rFiltro.filter((e) => (e.price <= action.payload[1] && e.price >= action.payload[0]))
+      console.log(rFiltro)
       return {
         ...state,
         cars: rFiltro
@@ -84,11 +86,11 @@ const rootReducer = (state = initialState, action) => {
       };
     case ALL_FILTER: {
       let arrfil = state.allCars
-      arrfil= arrfil.filter((e)=>e.status === "valid")
+      arrfil = arrfil.filter((e) => e.status === "valid")
       const cfil = state.filtros
       if (cfil.length === 0) {
         arrfil = state.allCars
-        arrfil= arrfil.filter((e)=>e.status==="valid")
+        arrfil = arrfil.filter((e) => e.status === "valid")
         return {
           ...state,
           cars: arrfil
@@ -122,7 +124,7 @@ const rootReducer = (state = initialState, action) => {
     case POST_USERS:
       return {
         ...state,
-        cars: action.payload
+        allUsers: action.payload
       }
     case POST_CONTACT:
       return {
@@ -138,6 +140,17 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         cars: [...state.cars, action.payload]
+      }
+    case POST_FAVORITE:
+      return {
+        ...state,
+        allUsers: action.payload
+
+      }
+    case GET_ALL_USERS:
+      return {
+        ...state,
+        allUsers: action.payload
       }
     default:
       return state;

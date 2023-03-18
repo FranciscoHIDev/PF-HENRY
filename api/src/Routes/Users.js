@@ -14,7 +14,6 @@ const {
 
 /* This is a route that allows you to get the favorite of a user. */
 router.post("/favorite", (req, res) => {
-    console.log("🚀 ~ file: Users.js:20 ~ router.post ~ favorite", "req.body")
     routerGetFavorite(req, res);
 });
 
