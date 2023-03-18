@@ -3,21 +3,24 @@ const carSchema = require("../Models/Cars.js");
 
 const pagarProducto = async (req, res) => {
   const car = req.body.dataMP;
-  const a = await carSchema.findById(car.id);
-  //console.log(a) 
+  const email = car.email;
+  const carId = await carSchema.findById(car.id);
+//console.log(carId)
 
-    let preference = {
-		items: [
-            {
-              title: a.model+" "+a.brand,
-              description: a.brand,
-              picture_url: a.image,
-              quantity: 1,
-              currency_id: "ARS",
-              unit_price: a.price
-            }],
-            //notification_url: "http://localhost:3001/cars/n",
-           /*  payer: {
+  let preference = {
+    items: [
+      {
+        category_id: carId.id,
+        title: carId.model + " " + carId.brand,
+        description: carId.brand,
+        picture_url: carId.image,
+        quantity: 1,
+        currency_id: "ARS",
+        unit_price: carId.price,
+      },
+    ],
+    //notification_url: "http://localhost:3001/cars/n",
+    /*  payer: {
               phone: {},
               identification: {},
               address: {}
@@ -29,18 +32,23 @@ const pagarProducto = async (req, res) => {
       pending: "http://pending.com",
     },
     auto_return: "approved",
+    external_reference: email
   };
-  //console.log(preference)
-	mercadopago.preferences.create(preference)
-		.then(function (response) {
-			res.send({ 
-				id: response.body.id,
-			})
-      //console.log(response.body.init_point)
-		}).catch(function (error) {
-			console.log(error);
-      res.status(400).send(error)
-		});
-}
 
-module.exports={pagarProducto}
+//console.log(preference)
+
+  mercadopago.preferences
+    .create(preference)
+    .then(function (response) {
+      res.send({
+        id: response.body.id,
+      });
+//console.log(response)
+    })
+    .catch(function (error) {
+      console.log(error);
+      res.status(400).send(error);
+    });
+};
+
+module.exports = { pagarProducto };

@@ -1,5 +1,5 @@
 import NavBar from "../../components/NavBar/NavBar";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getCardsById, clearDetail } from "../../redux/actions/actions";
@@ -8,9 +8,15 @@ import { ImLocation } from "react-icons/im";
 import Footer from "../../components/Footer/Footer";
 import { Link } from "react-router-dom";
 import Loading from "../../components/Loading/Loading";
-import {MPButton} from "../../components/MPButton/MPButton"
+import {MPButton} from "../../components/MPButton/MPButton";
+import Swal from "sweetalert2";
+import { useAuth0 } from "@auth0/auth0-react";
+
 //import { useState } from "react";
 function Details() {
+
+  const [pay, setPay] = useState(false)
+  const { isAuthenticated, user } = useAuth0();
   const { id } = useParams();
   const dispatch = useDispatch();
   const allData = useSelector((state) => state.details);
@@ -20,6 +26,18 @@ function Details() {
     return () => dispatch(clearDetail());
     
   }, [dispatch, id]);
+
+  function handlerPay() {
+    setPay(true);
+    Swal.fire({
+      position: "center",
+      icon: "warning",
+      title: "You need a login",
+      showConfirmButton: true,
+      //timer: 3000,
+    });
+  }
+
   return (
     <>
       <NavBar />
@@ -151,7 +169,9 @@ function Details() {
                     </label>
                   </div>
                 </fieldset>
-               <div ><MPButton id={id}></MPButton></div> 
+                <div>
+                  {isAuthenticated ? <MPButton id={id} /> : <button onClick={handlerPay}>Comprar</button> }
+                </div> 
               </div>
             </div>
           </div>

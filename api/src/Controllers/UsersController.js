@@ -47,48 +47,46 @@ const routerGetFavorite = async (req, res) => {
  */
 
 const routerPostUser = async (req, res) => {
-    try {
-        validateCreate;
-        // validateUser(req, res);
-        const usersc = await Users.find({})
-        let iNumber = 0;
-        let iDni = 0
-        if (usersc.length !== 0) {
-            iNumber = Number(usersc[usersc.length - 1].telephone)
-            iDni = (usersc[usersc.length - 1].dni)
-        }
-
-        if (iNumber < 1) iNumber = "000000000";
-        else {
-            ++iNumber;
-        }
-        if (iDni < 1) iDni = 1111111;
-        else {
-            ++iDni;
-        }
-        const user = userSchema(req.body);
-        //let passwordHash = await bcryptjs.hash(user.password, 8);
-        const newUser = await new Users({
-            dni: user.dni || iDni,
-            name: user.name,
-            email: user.email,
-            image: user.image || "http://cdn.onlinewebfonts.com/svg/img_141364.png",
-            //password: passwordHash,
-            lastname: user.lastname || "",
-            telephone: user.telephone || iNumber.toString(),
-            location: user.location || "",
-            kindOfPerson: user.kindOfPerson
-
-        });
-
-
-        const saveUser = await newUser.save();
-        console.log(saveUser)
-        res.status(200).json(saveUser);
-        // eMail1(user.eMail);
-    } catch (error) {
-        res.status(500).send(`{messaje: ${error}}`);
+  try {
+    validateCreate;
+    // validateUser(req, res);
+    const usersc = await Users.find({});
+    let iNumber = 0;
+    let iDni = 0;
+    if (usersc.length !== 0) {
+      iNumber = Number(usersc[usersc.length - 1].telephone);
+      iDni = usersc[usersc.length - 1].dni;
     }
+
+    if (iNumber < 1) iNumber = "000000000";
+    else {
+      ++iNumber;
+    }
+    if (iDni < 1) iDni = 1111111;
+    else {
+      ++iDni;
+    }
+    const user = userSchema(req.body);
+    //let passwordHash = await bcryptjs.hash(user.password, 8);
+    const newUser = await new Users({
+      dni: user.dni || iDni,
+      name: user.name,
+      email: user.email,
+      image: user.image || "http://cdn.onlinewebfonts.com/svg/img_141364.png",
+      //password: passwordHash,
+      lastname: user.lastname || "",
+      telephone: user.telephone || iNumber.toString(),
+      location: user.location || "",
+      kindOfPerson: user.kindOfPerson,
+    });
+
+    const saveUser = await newUser.save();
+    console.log(saveUser);
+    res.status(200).json(saveUser);
+    // eMail1(user.eMail);
+  } catch (error) {
+    res.status(500).send(`{messaje: ${error}}`);
+  }
 };
 
 /**
