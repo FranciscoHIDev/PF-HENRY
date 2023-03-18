@@ -30,6 +30,7 @@ function Card({
     if (isAuthenticated && user) {
       axios.get("/users").then((e) => {
         const userDB = e.data.find((e) => e.email === user.email);
+        console.log(userDB);
         const newFavorite = {
           favori: _id,
           email: userDB.email,
@@ -50,6 +51,22 @@ function Card({
       });
     }
   };
+
+  useEffect(() => {
+    if (isAuthenticated && user) {
+      axios.get("/users").then((e) => {
+        const userDB = e.data.find((e) => e.email === user.email);
+        console.log(userDB);
+        const favorite = userDB.favorites.map((e) => e._id);
+        console.log(favorite);
+        for (let i = 0; i < favorite.length; i++) {
+          if (favorite[i] === _id) {
+            setClick(true);
+          }
+        }
+      });
+    }
+  }, []);
 
   return (
     <div className="flex flex-col w-[350px] h-[500px] rounded-lg mb-10 mx-3  bg-zinc-100  items-center shadow-md hover:scale-105">

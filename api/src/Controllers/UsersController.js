@@ -56,7 +56,7 @@ const routerPostUser = async (req, res) => {
             iDni = (usersc[usersc.length - 1].dni)
         }
 
-        if (iNumber < 1) iNumber = "000000000";
+        if (iNumber < 1) iNumber = "111111111";
         else {
             ++iNumber;
         }
