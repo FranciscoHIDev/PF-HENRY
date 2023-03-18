@@ -93,7 +93,7 @@ function NavBar() {
                         className="w-6 h-6 object-cover rounded-full"
                       />
                       <p className="flex">
-                        Hi!<span className="ml-1">{user.given_name}</span>
+                        Hi!<span className="ml-1">{user.name}</span>
                       </p>
                       <RiArrowDownSLine />
                     </MenuButton>

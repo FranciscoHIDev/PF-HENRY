@@ -30,14 +30,6 @@ const navigate = useNavigate()
     if (valor.message.length < 15 ) errores.message = "it most have at least 15 characters";
     else if (!/^[a-zA-Z0-9.!#$%&'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)/.test(valor.emailAddress)) {
       errores.emailAddress = "this it´s not an valid email";
-    if (!valor.name) errores.name = "this field is required";
-    if (!valor.lastname) errores.lastname = "this field is required";
-    if (!valor.emailAddress) errores.emailAddress = "This field is empty";
-    
-    // if (!valor.message) errores.message = "este campo esta vacio";
-    if (valor.message.length < 15 ) errores.message = "it most have at least 15 characters";
-    else if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*/.test(valor.emailAddress)) {
-      errores.emailAddress = "this it´s not an valid email";
     }
     return errores;
   }
@@ -53,7 +45,7 @@ const navigate = useNavigate()
         [e.target.name]: e.target.value,
       })
     );
-   
+    console.log(errores);
   }
 
 
@@ -83,23 +75,21 @@ const navigate = useNavigate()
 
   }
 
-console.log(state)
 
 
 
   return (
-    
-      
+    <>
+      <NavBar />
 
       <div className={Style.container}>
         <form onSubmit={handleSubmit} className={Style.formulario}>
-          
           <div className={Style.info}>
             <label
               className={Style.label}
               class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
             >
-              Name
+              Name{" "}
             </label>
             <input
               className={Style.input}
@@ -215,7 +205,8 @@ console.log(state)
               Send
             </button>
           </form>
-        
-      </div>
+        </div>
+        <Footer />
+      </>
     );
-  }}
+  }

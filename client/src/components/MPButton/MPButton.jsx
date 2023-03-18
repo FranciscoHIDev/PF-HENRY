@@ -5,11 +5,9 @@ export function MPButton({id}) {
   const dataMP ={
     id
         }
-
-
-  useEffect(() => {
-    const fetchCheckout = async () => {
-      const res = await fetch("http://localhost:3001/cars/comprar", {
+  //-----------------------
+         const fetchCheckout = async () => {
+      const res = await fetch("http://localhost:3001/cars/comprar", { 
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -20,7 +18,7 @@ export function MPButton({id}) {
         }),
       });
       const data = await res.json();
-     
+      console.log(data)
       
         console.log(data)
         if (data) {
@@ -30,14 +28,14 @@ export function MPButton({id}) {
         script.setAttribute("data-preference-id", data.id);
         document.body.appendChild(script);
       }
-      
-         const mp =  new window.MercadoPago(
+      console.log(document.body)
+         const mp = await new window.MercadoPago(
           "TEST-b38eba64-c8b9-4330-aa82-c3e0e29d9f66",
           {
             locale: "es-AR",
           }
         );
-       
+        console.log(data)
         mp.checkout({
           preference: {
             id: data.id,
@@ -48,24 +46,16 @@ export function MPButton({id}) {
           },
         });
     
-        
-
+      
     };
   useEffect(() => {
    
     fetchCheckout();   
   }, []);
-  
+
   return (
   <>
-    <div className="cho-container">
-
-
-    </div>
-  </>
+    <div className="cho-container"></div>
+  </>);
   
-  );
-    
-})
-} 
-
+}

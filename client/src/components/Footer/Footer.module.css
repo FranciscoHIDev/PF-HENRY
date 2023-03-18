@@ -6,26 +6,20 @@
 }
 .footer_contenedor{
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
-    justify-content:space-evenly;
+    justify-content: space-between;
     margin-top: 10px;
-    padding: 40px;
+    padding: 50px;
 }
 .item{
-    width: 350px;
     display: flex;
     flex-direction: column;
-    margin-left: 50px;
-    padding: 0px;
+    padding: 40px;
 }
 .item a {
     margin: 5px;
     color: #7a7a7a;
     font-weight: 600;
-}
-.item h3{
-    color: aliceblue;
 }
 .descrip{
     max-width: 350px;
@@ -34,12 +28,10 @@
     font-weight: 600;
 }
 .logo{
-    margin:5px;
+    margin:10px;
     max-width: 200px;
     max-height: 200px;
 }
-.i{display: flex;
-    flex-direction: row;
-    align-items: center;
+.i{
     padding: 10px;
 }

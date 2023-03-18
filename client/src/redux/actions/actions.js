@@ -1,4 +1,5 @@
 import axios from "axios";
+
 export const GET_ALL_CARS = "GET_ALL_CARS";
 export const GET_BY_NAME = "GET_BY_NAME";
 export const GET_BY_ID = "GET_BY_ID";
@@ -9,11 +10,13 @@ export const ALL_FILTER = "ALL_FILTER"
 export const PUSH = "PUSH";
 export const DELETE_FIL = "DELETE_FIL"
 export const RENDER_INFO_USERS = "RENDER_INFO_USERS";
-export const POST_CONTACT = "POST_CONTACT"
-export const POST_USERS = "POST_USERS"
-export const POST_CAR = "POST_CAR"
-export const FRANGE ="FRANGE"
-export const LINK_COMPRA ="LINK_COMPRA"
+export const POST_CONTACT = "POST_CONTACT";
+export const POST_USERS = "POST_USERS";
+export const POST_CAR = "POST_CAR";
+export const FRANGE = "FRANGE";
+export const LINK_COMPRA = "LINK_COMPRA";
+export const PUT_USERS= "PUT_USERS";
+
 export const getAllCars = () => async (dispatch) => {
   try {
     const { data } = await axios.get("/cars");
@@ -109,35 +112,33 @@ export const deletefil = (payload) => {
   };
 };
 
-export const createUser = (payload) => {
-  const userCreate = axios.post("/users", payload);
-  return {
-    type: "POST_USERS",
-    payload: userCreate,
+export const createUser = (payload) => async (dispatch) => {
+  try {
+    const userCreate = await axios.post("/users", payload);
+    return dispatch({
+      type: "POST_USERS",
+      payload: userCreate,
 
-//   }
-// }
-
-// export function createUser(infoUser) {
-//   return dispatch => {
-//     return axios.post('http://localhost:3001/users', infoUser)
-//       .then(response => {
-//         dispatch({
-//           type: "POST_USERS",
-//           payload: response.data
-//         });
-//       })
-//       .catch(error => {
-//         throw(error);
-//       });
-//   };
-// }
-
-
+    });
+  }
+  catch (e) {
+    console.log(e);
   }
 }
 
+export const putUser = (payload) => async (dispatch) => {
+  try {
+    const putCreate = await axios.put("/users", payload);
+    return dispatch({
+      type: "PUT_USERS",
+      payload: putCreate,
 
+    });
+  }
+  catch (e) {
+    console.log(e);
+  }
+}
 
 
 export const renderInfoUsers = async (id) => {
@@ -147,9 +148,7 @@ export const renderInfoUsers = async (id) => {
     payload
   }
 }
-
-
-export const allUsers = async () => {
+export const AllUsers = async () => {
   const allUsers = await axios.get("/users");
   return allUsers.data
 }
@@ -166,9 +165,6 @@ export const postContact = (payload) => async (dispatch) => {
     console.log(e);
   }
 };
-
-
-
 
 export const postCar = (payload) => async (dispatch) => {
   try {
