@@ -29,7 +29,7 @@ function NavBar() {
         const userDb = element.data.find(
           (element) => element.email === user.email
         );
-        console.log(userDb);
+
         if (userDb) {
           return false;
         } else {
