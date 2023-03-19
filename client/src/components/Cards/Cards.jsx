@@ -10,6 +10,7 @@ import SideBar from "./../SideBar/SideBar";
 function Cards() {
   const dispatch = useDispatch();
   const cars = useSelector((state) => state.cars);
+
   const carsValid = [];
   cars.map((car) => {
     car.status === "valid" ? carsValid.push(car) : null;
@@ -37,9 +38,9 @@ function Cards() {
     <React.Fragment>
       <SearchBar setPage={setPage} />
 
-      <div className="flex justify-center">
-        <div className="">
-          <SideBar />
+      <div className="flex ">
+        <div className="mr-10">
+          <SideBar className="justify-self-start mr-3" />
         </div>
         <div className="flex mb-[10px] mt-20 flex-wrap  justify-center ">
           {totalCars.length !== 0 ? (

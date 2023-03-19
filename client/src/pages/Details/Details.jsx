@@ -1,5 +1,5 @@
 import NavBar from "../../components/NavBar/NavBar";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getCardsById, clearDetail } from "../../redux/actions/actions";
@@ -8,8 +8,14 @@ import { ImLocation } from "react-icons/im";
 import Footer from "../../components/Footer/Footer";
 import { Link } from "react-router-dom";
 import Loading from "../../components/Loading/Loading";
-
+import Swal from "sweetalert2";
+import { useAuth0 } from "@auth0/auth0-react";
+import { MPButton } from "../../components/MPButton/MPButton";
+//import { useState } from "react";
 function Details() {
+
+  const [pay, setPay] = useState(false)
+  const { isAuthenticated, user } = useAuth0();
   const { id } = useParams();
   const dispatch = useDispatch();
   const allData = useSelector((state) => state.details);
@@ -18,6 +24,17 @@ function Details() {
     dispatch(getCardsById(id));
     return () => dispatch(clearDetail());
   }, [dispatch, id]);
+
+  function handlerPay() {
+    setPay(true);
+    Swal.fire({
+      position: "center",
+      icon: "warning",
+      title: "You need a login",
+      showConfirmButton: true,
+      //timer: 3000,
+    });
+  }
 
   return (
     <>
@@ -145,20 +162,18 @@ function Details() {
                         TransissionType: {allData.transissionType}
                       </span>
                       <span className="m-[3px] group inline-block rounded-full border px-3 py-1 text-[15px] font-medium bg-black text-white">
-                        Consumption: {allData.fuelConsumption}
+                        Consumptioaan: {allData.fuelConsumption}
                       </span>
                     </label>
                   </div>
                 </fieldset>
-                <div className="mt-8 flex gap-4">
-                  <button
-                    onClick={null}
-                    type="submit"
-                    className="block rounded bg-[rgb(251,133,0)] px-4 py-2 text-lx font-medium text-white hover:bg-[#0d6efd]]"
-                  >
-                    Add to Cart
-                  </button>
-                </div>
+
+                <div>
+                  {isAuthenticated ? <MPButton id={id} /> : <button onClick={handlerPay}>Comprar</button> }
+                </div> 
+                {/*<div className="mt-4">
+                  <MPButton id={id}></MPButton>
+                </div>  */}
               </div>
             </div>
           </div>

@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
 import {
   Home,
   About,
@@ -7,16 +8,22 @@ import {
   LandingPage,
   NotFound,
   Details,
+  Favorites,
 } from "../pages/index";
-import Favorites from "../pages/Favorites/Favorites";
 import LayoutAdmin from "../components/LayoutAdmin/LayoutAdmin";
 import HomeAdmin from "../components/LayoutAdmin/pages/HomeAdmin";
 import UsersAdmin from "../components/LayoutAdmin/pages/UsersAdmin";
 import CarsAdmin from "../components/LayoutAdmin/pages/CarsAdmin";
 import Bookings from "../components/LayoutAdmin/pages/Bookings";
-import UserProfile from "../components/UserProfile/UserProfile";
+import ContactsForms from "../components/LayoutAdmin/pages/ContactsForms";
+import { FormCar } from "../components/LayoutAdmin/Forms/FormCar";
+import LayoutUser from "../components/UserProfile/LayoutUser";
+import Myprofile from "../components/UserProfile/pages/MyProfile";
+import Playmet from "../pages/Playmet/Playmet";
+import ProtectedRoute from "../components/ProtectedRoute/ProtectedRoute";
 
 function RoutesApp() {
+  const { isAuthenticated } = useAuth0();
   return (
     <>
       <Routes>
@@ -25,6 +32,8 @@ function RoutesApp() {
         <Route exact path="detail/:id" element={<Details />} />
         <Route exact path="about" element={<About />} />
         <Route exact path="contact" element={<Contact />} />
+        <Route exact path="playmet" element={<Playmet />} />
+        <Route exact path="favorites" element={<Favorites />} />
 
         {/* Configuración de rutas del Dashboard  */}
         <Route path="/dashboard" element={<LayoutAdmin />}>
@@ -32,10 +41,17 @@ function RoutesApp() {
           <Route path="users" element={<UsersAdmin />} />
           <Route path="cars" element={<CarsAdmin />} />
           <Route path="bookings" element={<Bookings />} />
+          <Route path="messages" element={<ContactsForms />} />
+          <Route path="create-car" element={<FormCar />} />
+        </Route>
+        {/* Configuración de rutas del Perfil de usuario  */}
+        <Route path="/profile" element={<LayoutUser />}>
+          <Route index element={<Myprofile />} />
+        </Route>
+        <Route element={<ProtectedRoute isAllowed={!!isAuthenticated} />}>
+          <Route path="/profile" element={<LayoutUser />} />
         </Route>
         <Route exact path="*" element={<NotFound />} />
-        <Route exact path="/home/userProfile/" element={<UserProfile />} />
-        <Route exact path="favorites" element={<Favorites />} />
       </Routes>
     </>
   );

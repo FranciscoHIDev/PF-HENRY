@@ -26,11 +26,11 @@ check("email")
     .withMessage("You must enter a email")
     .not()
     .isString(),
-check("password")
-    .exists()
-    .withMessage("You must enter a password")
-    .not()
-    .isString(),
+// check("password")
+//     .exists()
+//     .withMessage("You must enter a password")
+//     .not()
+//     .isString(),
 
 check("telephone")
     .exists()
