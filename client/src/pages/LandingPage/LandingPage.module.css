@@ -4,6 +4,7 @@
 
   background-image: url("../../assets/peter-broomfield-m3m-lnR90uM-unsplash.jpg");
   background-size: cover;
+  background-position: right;
   height: 600px;
   display: flex;
   flex-direction: column;
@@ -59,15 +60,12 @@
   }
 }
 
-@media screen and (min-width: 480px) {
-}
-
 @keyframes scroll {
   0% {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(calc(-250px * 7));
+    transform: translateX(calc(-250px * 8));
   }
 }
 .slider {
@@ -103,7 +101,7 @@
 .slider .slide_track {
   animation: scroll 15s linear infinite;
   display: flex;
-  width: calc(250px * 7);
+  width: calc(250px * 8);
 }
 .slider .slide {
   height: 230px;
@@ -135,7 +133,10 @@
 .slider :is(#img7, #img77) {
   background-image: linear-gradient(to bottom, rgba(255, 0, 0, 0.5), rgba(0, 0, 255, 0.199)), url("../../assets/carousel-landing/img7.jpg");
 }
-:is(#img2, #img22, #img3, #img33, #img4, #img44) img {
+.slider :is(#img8, #img88) {
+  background-image: linear-gradient(to bottom, rgba(255, 0, 0, 0.5), rgba(0, 0, 255, 0.199)), url("../../assets/carousel-landing/img8.jpg");
+}
+:is(#img2, #img22, #img3, #img33, #img4, #img44, #img8, #img88) img {
   width: 150px;
 }
 .slider img {
@@ -184,12 +185,14 @@
   display: flex;
   background-color: chocolate;
   color: blanchedalmond;
+  height: 350px;
 }
 .col1 {
   width: 50%;
   background-image: linear-gradient(to bottom, black, transparent), url("../../assets/carousel-landing/selection.jpg");
+  background-position: center;
   background-size: cover;
-  height: 370px;
+  height: 100%;
 }
 .col1 img {
   height: 100%;
@@ -200,61 +203,29 @@
 }
 .col2 h2 {
   margin: 30px 50px;
-  font-size: 3em;
+  font-size: 2.5em;
 }
 .col2 p {
   margin-inline: 50px;
 }
 
-.back_video {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  z-index: -1;
-  width: 100%;
-  object-fit: cover;
-
-  height: 100%;
-  margin: 0px;
-  object-fit: cover;
-  padding: 0px;
-}
-
-.content {
-  word-spacing: 5px;
-}
-.content h1 {
-  margin: 70px 20px;
-  font-size: 75px;
-  color: rgb(255, 255, 255);
-  text-shadow: 5px 5px rgb(39, 37, 37);
-  font-weight: bolder;
-  transition: 1s;
-}
-.content h1:hover {
-  transform: skewX(-20deg);
-}
-.content button {
-  text-decoration: none;
-  display: inline-block;
-  background-color: transparent;
-  color: rgb(243, 243, 243);
-  font-size: 24px;
-  width: 170px;
-  border: 3.5px solid rgba(234, 231, 231, 0.685);
-  padding: 20px;
-  border-radius: 35px;
-  transition: 0.7s;
-  animation: btn_shadow 1.5s infinite;
-}
-@keyframes btn_shadow {
-  50% {
-    box-shadow: 0 0 10px 3px rgb(243, 243, 243);
+@media screen and (max-width: 1120px) {
+  .container_3 {
+    height: 450px;
   }
 }
-.content button:hover {
-  background-color: orange;
-  cursor: pointer;
-  transform: translateY(5px);
-  box-shadow: none !important;
+@media screen and (max-width: 910px) {
+  .container_3 {
+    height: 520px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .container_3 {
+    height: 650px;
+  }
+}
+@media screen and (max-width: 630px) {
+  .container_3 {
+    height: 760px;
+  }
 }

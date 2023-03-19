@@ -10,7 +10,8 @@ import l4 from "../../assets/carousel-landing/logo4.png";
 import l5 from "../../assets/carousel-landing/logo5.png";
 import l6 from "../../assets/carousel-landing/logo6.png";
 import l7 from "../../assets/carousel-landing/logo7.png";
-import selec from "../../assets/carousel-landing/selection.jpg";
+import l8 from "../../assets/carousel-landing/logo8.png";
+import { BsGithub, BsLinkedin } from "react-icons/bs";
 
 function LandingPage() {
   const [lenguaje, setLenguje] = React.useState({
@@ -114,6 +115,11 @@ function LandingPage() {
               </div>
             </div>
             <div className={Style.con}>
+              <div className={Style.slide} id={Style.img8}>
+                <img src={l8} alt="" />
+              </div>
+            </div>
+            <div className={Style.con}>
               <div className={Style.slide} id={Style.img11}>
                 <img src={l1} alt="" />
               </div>
@@ -148,6 +154,11 @@ function LandingPage() {
                 <img src={l7} alt="" />
               </div>
             </div>
+            <div className={Style.con}>
+              <div className={Style.slide} id={Style.img88}>
+                <img src={l8} alt="" />
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -162,6 +173,205 @@ function LandingPage() {
             and traditional brands such as Ferrari, Lamborghini, Bentley, Porsche, Land Rover and Mercedes, we provide classics designs to
             limited model variants. High-class tuning and procurement of rare model series are also possible.
           </p>
+        </div>
+      </div>
+
+      <div className="text-center p-10 bg-slate-50">
+        <h2 className="font-bold text-3xl tracking-wide text-cyan-800">Meet our team members</h2>
+        <p className="w-3/5 mx-auto mt-4 mb-7 tracking-wider">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. A assumenda hic maxime cupiditate qui distinctio voluptas cumque sit!
+          Dolor, dignissimos.
+        </p>
+        <div className="flex flex-wrap justify-center gap-10">
+          <div className="w-80 shadow-md bg-white p-5 rounded-2xl">
+            <div className="flex my-3">
+              <div className="rounded-full bg-slate-400" style={{ height: "50px", width: "50px" }}></div>
+              <div className="text-left flex flex-col justify-center ml-3">
+                <h3 className="font-bold">Full Name</h3>
+                <p className="font-bold tracking-wider" style={{ color: "#4a3aff" }}>
+                  FULL-STACK DEVELOPER
+                </p>
+              </div>
+            </div>
+            <p className="text-left tracking-wider">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam natus beatae quaerat! Ut dolorum amet at dolorem soluta hic
+              odio.
+            </p>
+            <div className="flex mt-2">
+              <a className="m-3 ml-0" href="https://github.com">
+                <div>
+                  <BsGithub></BsGithub>
+                </div>
+              </a>
+              <a className="m-3" href="https://linkedin.com">
+                <div>
+                  <BsLinkedin></BsLinkedin>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div className="w-80 shadow-md bg-white p-5 rounded-2xl">
+            <div className="flex my-3">
+              <div className="rounded-full bg-slate-400" style={{ height: "50px", width: "50px" }}></div>
+              <div className="text-left flex flex-col justify-center ml-3">
+                <h3 className="font-bold">Full Name</h3>
+                <p className="font-bold tracking-wider" style={{ color: "#4a3aff" }}>
+                  FULL-STACK DEVELOPER
+                </p>
+              </div>
+            </div>
+            <p className="text-left tracking-wider">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam natus beatae quaerat! Ut dolorum amet at dolorem soluta hic
+              odio.
+            </p>
+            <div className="flex mt-2">
+              <a className="m-3 ml-0" href="https://github.com">
+                <div>
+                  <BsGithub></BsGithub>
+                </div>
+              </a>
+              <a className="m-3" href="https://linkedin.com">
+                <div>
+                  <BsLinkedin></BsLinkedin>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div className="w-80 shadow-md bg-white p-5 rounded-2xl">
+            <div className="flex my-3">
+              <div className="rounded-full bg-slate-400" style={{ height: "50px", width: "50px" }}></div>
+              <div className="text-left flex flex-col justify-center ml-3">
+                <h3 className="font-bold">Full Name</h3>
+                <p className="font-bold tracking-wider" style={{ color: "#4a3aff" }}>
+                  FULL-STACK DEVELOPER
+                </p>
+              </div>
+            </div>
+            <p className="text-left tracking-wider">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam natus beatae quaerat! Ut dolorum amet at dolorem soluta hic
+              odio.
+            </p>
+            <div className="flex mt-2">
+              <a className="m-3 ml-0" href="https://github.com">
+                <div>
+                  <BsGithub></BsGithub>
+                </div>
+              </a>
+              <a className="m-3" href="https://linkedin.com">
+                <div>
+                  <BsLinkedin></BsLinkedin>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div className="w-80 shadow-md bg-white p-5 rounded-2xl">
+            <div className="flex my-3">
+              <div className="rounded-full bg-slate-400" style={{ height: "50px", width: "50px" }}></div>
+              <div className="text-left flex flex-col justify-center ml-3">
+                <h3 className="font-bold">Full Name</h3>
+                <p className="font-bold tracking-wider" style={{ color: "#4a3aff" }}>
+                  FULL-STACK DEVELOPER
+                </p>
+              </div>
+            </div>
+            <p className="text-left tracking-wider">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam natus beatae quaerat! Ut dolorum amet at dolorem soluta hic
+              odio.
+            </p>
+            <div className="flex mt-2">
+              <a className="m-3 ml-0" href="https://github.com">
+                <div>
+                  <BsGithub></BsGithub>
+                </div>
+              </a>
+              <a className="m-3" href="https://linkedin.com">
+                <div>
+                  <BsLinkedin></BsLinkedin>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div className="w-80 shadow-md bg-white p-5 rounded-2xl">
+            <div className="flex my-3">
+              <div className="rounded-full bg-slate-400" style={{ height: "50px", width: "50px" }}></div>
+              <div className="text-left flex flex-col justify-center ml-3">
+                <h3 className="font-bold">Full Name</h3>
+                <p className="font-bold tracking-wider" style={{ color: "#4a3aff" }}>
+                  FULL-STACK DEVELOPER
+                </p>
+              </div>
+            </div>
+            <p className="text-left tracking-wider">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam natus beatae quaerat! Ut dolorum amet at dolorem soluta hic
+              odio.
+            </p>
+            <div className="flex mt-2">
+              <a className="m-3 ml-0" href="https://github.com">
+                <div>
+                  <BsGithub></BsGithub>
+                </div>
+              </a>
+              <a className="m-3" href="https://linkedin.com">
+                <div>
+                  <BsLinkedin></BsLinkedin>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div className="w-80 shadow-md bg-white p-5 rounded-2xl">
+            <div className="flex my-3">
+              <div className="rounded-full bg-slate-400" style={{ height: "50px", width: "50px" }}></div>
+              <div className="text-left flex flex-col justify-center ml-3">
+                <h3 className="font-bold">Full Name</h3>
+                <p className="font-bold tracking-wider" style={{ color: "#4a3aff" }}>
+                  FULL-STACK DEVELOPER
+                </p>
+              </div>
+            </div>
+            <p className="text-left tracking-wider">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam natus beatae quaerat! Ut dolorum amet at dolorem soluta hic
+              odio.
+            </p>
+            <div className="flex mt-2">
+              <a className="m-3 ml-0" href="https://github.com">
+                <div>
+                  <BsGithub></BsGithub>
+                </div>
+              </a>
+              <a className="m-3" href="https://linkedin.com">
+                <div>
+                  <BsLinkedin></BsLinkedin>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div className="w-80 shadow-md bg-white p-5 rounded-2xl">
+            <div className="flex my-3">
+              <div className="rounded-full bg-slate-400" style={{ height: "50px", width: "50px" }}></div>
+              <div className="text-left flex flex-col justify-center ml-3">
+                <h3 className="font-bold">Full Name</h3>
+                <p className="font-bold tracking-wider" style={{ color: "#4a3aff" }}>
+                  FULL-STACK DEVELOPER
+                </p>
+              </div>
+            </div>
+            <p className="text-left tracking-wider">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam natus beatae quaerat! Ut dolorum amet at dolorem soluta hic
+              odio.
+            </p>
+            <div className="flex mt-2">
+              <a className="m-3 ml-0" href="https://github.com">
+                <div>
+                  <BsGithub></BsGithub>
+                </div>
+              </a>
+              <a className="m-3" href="https://linkedin.com">
+                <div>
+                  <BsLinkedin></BsLinkedin>
+                </div>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
       <Footer />
