@@ -20,7 +20,7 @@ transporter.verify().then(() => {
 
 const eMail1 = async (email) => {
   let mensaHTM = `
-  !DOCTYPE html>
+  <!DOCTYPE html>
   <html lang="en">
   <head>
     <meta charset="UTF-8">
@@ -49,10 +49,10 @@ const eMail1 = async (email) => {
       <div style="display: flex; padding: 20px 10px 20px 10px; ">
         <div style=" padding: 10px 0px 10px 0px; width: 100%; text-align: center;">
           <img src="https://ucarecdn.com/b11f4989-21e4-4fc9-9631-a9dda0a87782/logon1.png" alt="" style="width: 300px;" />
-          <p > Any questions contact us <br> from our page <br> or through our digital channels. <br> WE WILL WAIT FOR YOU </p>
+          <p > Any questions contact us from our page or through our digital channels. <br> WE WILL WAIT FOR YOU </p>
         </div>
       </div>
-      <P style="margin-bottom: 10px;"><i>Sincerely:</i><br> CarMania Group </P>
+      <P style="margin-bottom: 10px;"><i>Sincerely:</i><br><br> CarMania Group </P>
       <a style="background-color: rgb(6, 16, 155); border: 2px solid rgb(8, 8, 8); color: rgb(199, 186, 5); padding: 16px 32px; text-align: center; text-decoration: none; font-weight: bold; display: inline-block; font-size: 16px; margin: 4px 2px;
       transition-duration: 0.4s; cursor: pointer;" href="https://carmania-henry.netlify.app/">CarMania</a>
       <div style="background-color: rgb(6, 16, 155); color: rgb(199, 186, 5); padding: 5px 0px 0px 0px; width: 100%; text-align: center;">

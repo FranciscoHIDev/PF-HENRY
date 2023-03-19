@@ -12,9 +12,14 @@ export const RENDER_INFO_USERS = "RENDER_INFO_USERS";
 export const POST_CONTACT = "POST_CONTACT"
 export const POST_USERS = "POST_USERS"
 export const POST_CAR = "POST_CAR"
+export const FRANGE = "FRANGE"
+export const LINK_COMPRA = "LINK_COMPRA"
+export const POST_FAVORITE = "POST_FAVORITE"
+export const GET_ALL_USERS = "GET_ALL_USERS"
+
 export const getAllCars = () => async (dispatch) => {
   try {
-    const { data } = await axios.get("http://localhost:3001/cars");
+    const { data } = await axios.get("/cars");
     dispatch({
       type: "GET_ALL_CARS",
       payload: data,
@@ -32,10 +37,17 @@ export const getCarsByName = (name) => {
   };
 };
 
+export const frange = (payload) => {
+  return {
+    type: "FRANGE",
+    payload: payload,
+  };
+};
+
 export const getCardsById = (id) => {
   return async function (dispatch) {
     try {
-      const response = await axios.get(`http://localhost:3001/cars/idcar/${id}`);
+      const response = await axios.get(`/cars/idcar/${id}`);
       return dispatch({
         type: "GET_BY_ID",
         payload: response.data,
@@ -45,6 +57,20 @@ export const getCardsById = (id) => {
     }
   };
 };
+
+/* export const linkcompra = (id) => {
+  return async function (dispatch) {
+    try {
+      const response = await axios.post(`http://localhost:3001/cars/comprar`);
+      return dispatch({
+        type: "LINK_COMPRA",
+        payload: response,
+      });
+    } catch (error) {
+      return { error: error.message };
+    }
+  };
+}; */
 
 export const sortByPrice = (payload) => {
   return {
@@ -87,40 +113,48 @@ export const deletefil = (payload) => {
 };
 
 export const createUser = (payload) => {
-  const userCreate = axios.post("http://localhost:3001/users", payload);
-
+  const userCreate = axios.post("/users", payload);
   return {
     type: "POST_USERS",
-    payload: userCreate.data,
+    payload: userCreate,
 
   }
 }
 
-
 export const renderInfoUsers = async (id) => {
-  const infoUser = await axios.get(`http://localhost:3001/users/${id}`)
+  const infoUser = await axios.get(`/users/${id}`)
   return {
     type: "RENDER_INFO_USERS",
     payload
   }
 }
-export const AllUsers = async () => {
-  const allUsers = await axios.get("http://localhost:3001/users");
-  return allUsers.data
-}
 
-
-export const PostContact = async () => {
-  const contact = await axios.post("http://localhost:3001/contact");
-  return {
-    type: "POST_CONTACT",
-    payload: contact.data
+export const getAllUsers = () => async (dispatch) => {
+  try {
+    const { data } = await axios.get("/users");
+    dispatch({
+      type: "GET_ALL_USERS",
+      payload: data,
+    });
+  } catch (e) {
+    console.log(e);
   }
 }
+export const postContact = (payload) => async (dispatch) => {
+  try {
+    const data = await axios.post("http://localhost:3001/contact", payload);
+    return dispatch({
+      type: "POST_CONTACT",
+      payload: data,
+    });
+  } catch (e) {
+    console.log(e);
+  }
+};
 
 export const postCar = (payload) => async (dispatch) => {
   try {
-    const carCreated = await axios.post("http://localhost:3001/cars", payload);
+    const carCreated = await axios.post("/cars", payload);
     return dispatch({
       type: "POST_CAR",
       payload: carCreated,
@@ -129,3 +163,15 @@ export const postCar = (payload) => async (dispatch) => {
     console.log(e);
   }
 };
+
+export const postFavorite = (payload) => {
+  try {
+    const addFavorite = axios.post("/users/favorite", payload);
+    return {
+      type: "POST_FAVORITE",
+      payload: addFavorite,
+    };
+  } catch (e) {
+    console.log(e);
+  }
+};                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        

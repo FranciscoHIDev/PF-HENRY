@@ -1,9 +1,10 @@
 const bcryptjs = require("bcryptjs");
 const Cars = require("../Models/Cars");
+const { find } = require("../Models/Users");
 const Users = require("../Models/Users");
 const userSchema = require("../Models/Users");
 const { validateCreate } = require("../Validators/Users.js");
-// const { eMail1 } = require("../Nodemailer/Mailer.js");
+const { eMail1 } = require("../Nodemailer/Mailer.js");
 // const { validateUser } = require("../Assistant/usersAssistant");
 
 /**
@@ -12,28 +13,30 @@ const { validateCreate } = require("../Validators/Users.js");
  * @param req - The request object.
  * @param res - The response object.
  */
+
 const routerGetFavorite = async (req, res) => {
-try {
+  try {
     const { favori, email } = req.body;
-    let users = await Users.findOne({ email });
-    let cars = await Cars.find({ _id : favori });
-    let favorites = users.favorites;
+    let users = await Users.find({ email: email });
+    let cars = await Cars.findById({ _id: favori });
+    let favorites = users[0].favorites;
+
     let flag = [];
-    if (favorites.length) {
-    favorites.forEach((element, index) => {
+    if (favorites.length > 0) {
+      favorites.forEach((element, index) => {
         if (JSON.stringify(element._id) === JSON.stringify(favori)) {
-        flag.push(element);
-        users.favorites.splice(index, 1);
+          flag.push(element);
+          users[0].favorites.splice(index, 1);
         }
-    });
-    if (flag.length === 0) favorites.push(cars[0]);
-    } else favorites.push(cars[0]);
-    await userSchema.updateOne({ _id: users.id }, { $set: favorites });
-    await users.save();
-    res.status(200).json(users.favorites);
-} catch (error) {
+      });
+
+      if (flag.length === 0) favorites.push(cars);
+    } else favorites.push(cars);
+    await Users.updateOne({ _id: users[0]._id }, { favorites });
+    res.status(200).json(users[0].favorites);
+  } catch (error) {
     res.status(500).send(`{messaje: ${error}}`);
-}
+  }
 };
 /**
  * It creates a new user in the database
@@ -42,26 +45,45 @@ try {
  */
 
 const routerPostUser = async (req, res) => {
-try {
+  try {
     validateCreate;
     // validateUser(req, res);
+    const usersc = await Users.find({});
+    let iNumber = 0;
+    let iDni = 0;
+    if (usersc.length !== 0) {
+      iNumber = Number(usersc[usersc.length - 1].telephone);
+      iDni = usersc[usersc.length - 1].dni;
+    }
+
+    if (iNumber < 1) iNumber = "111111111";
+    else {
+      ++iNumber;
+    }
+    if (iDni < 1) iDni = 1111111;
+    else {
+      ++iDni;
+    }
     const user = userSchema(req.body);
-    let passwordHash = await bcryptjs.hash(user.password, 8);
+    //let passwordHash = await bcryptjs.hash(user.password, 8);
     const newUser = await new Users({
-    dni: user.dni,
-    name: user.name,
-    email: user.email,
-    password: passwordHash,
-    lastname: user.lastname,
-    telephone: user.telephone,
+      dni: user.dni || iDni,
+      name: user.name,
+      email: user.email,
+      image: user.image || "http://cdn.onlinewebfonts.com/svg/img_141364.png",
+      //password: passwordHash,
+      lastname: user.lastname || "",
+      telephone: user.telephone || iNumber.toString(),
+      location: user.location || "",
     });
 
     const saveUser = await newUser.save();
     res.status(200).json(saveUser);
-    // eMail1(user.eMail);
-} catch (error) {
+    eMail1(user.email);
+  } catch (error) {
     res.status(500).send(`{messaje: ${error}}`);
-}
+  }
+  
 };
 
 /**
@@ -75,26 +97,26 @@ try {
  * @returns The loading value is being returned.
  */
 const routerPostUserLoading = async (req, res) => {
-try {
+  try {
     const { email, password, loading } = req.body;
     const users = await Users.findOne({ email });
     let equal;
 
     users
-    ? (equal = bcryptjs.compareSync(password, users.password))
-    : res.status(201).json(`${email} Not found`);
+      ? (equal = bcryptjs.compareSync(password, users.password))
+      : res.status(201).json(`${email} Not found`);
 
     if (equal) {
-    await userSchema.updateOne({ _id: users._id }, { $set: { loading } });
-    return res.status(200).json(loading);
+      await userSchema.updateOne({ _id: users._id }, { $set: { loading } });
+      return res.status(200).json(loading);
     } else {
-    return res
+      return res
         .status(201)
         .json({ loading: `${users.loading}`, password: "Incorrect password" });
     }
-} catch (error) {
+  } catch (error) {
     res.status(500).send(`{messaje: ${error}}`);
-}
+  }
 };
 
 /**
@@ -104,24 +126,24 @@ try {
  * @returns The user is being returned.
  */
 const routerPostUserSignoff = async (req, res) => {
-try {
+  try {
     const { _id, loading } = req.body;
     const users = await Users.findOne({ _id });
 
     if (users.loading === "valid") {
-    let Signoff = await userSchema.updateOne(
+      let Signoff = await userSchema.updateOne(
         { _id: _id },
         { $set: { loading } }
-    );
-    return res.status(200).json(Signoff);
+      );
+      return res.status(200).json(Signoff);
     } else {
-    return res
+      return res
         .status(201)
         .json("The transfer cannot be closed. You are not connected.");
     }
-} catch (error) {
+  } catch (error) {
     res.status(500).send(`{messaje: ${error}}`);
-}
+  }
 };
 
 /**
@@ -132,24 +154,23 @@ try {
  * @returns It is being returned the users that are in the database.
  */
 const routerGetUsers = async (req, res) => {
-try {
+  try {
     const { dni } = req.query;
     const { email, password } = req.body;
     const user = await Users.findOne({ email });
-    const users = await userSchema
-    .find()
+    const users = await userSchema.find();
     // .populate("review", { description: 1, rate: 1, car: 1 })
     if (dni) {
-    let userDni = users.filter((user) => user.dni === Number(dni));
-    userDni.length
+      let userDni = users.filter((user) => user.dni === Number(dni));
+      userDni.length
         ? res.status(200).json(userDni)
         : res.status(201).json("Not found");
     } else {
-    res.status(200).json(users);
+      res.status(200).json(users);
     }
-} catch (error) {
+  } catch (error) {
     res.status(500).json(`Error ${error}`);
-}
+  }
 };
 
 /**
@@ -161,17 +182,15 @@ try {
  * @returns The user information is being returned.
  */
 const routerByidUser = async (req, res) => {
-try {
+  try {
     const { id } = req.params;
-    let user = await userSchema
-    .findById(id)
+    let user = await userSchema.findById(id);
     // .populate("review", { description: 1, rate: 1, car: 1 })
 
-
     return res.status(200).json(user);
-} catch (error) {
+  } catch (error) {
     res.status(500).json(`Error ${error}`);
-}
+  }
 };
 
 /**
@@ -182,9 +201,9 @@ try {
  * @returns The userSchema is being returned.
  */
 const routerPutUser = async (req, res) => {
-const { id } = req.params;
+  const { id } = req.params;
 
-const {
+  const {
     name,
     lastname,
     kindOfPerson,
@@ -193,23 +212,23 @@ const {
     telephone,
     active,
     roll,
-} = req.body;
+  } = req.body;
 
-userSchema
+  userSchema
     .updateOne(
-    { _id: id },
-    {
+      { _id: id },
+      {
         $set: {
-        name,
-        lastname,
-        kindOfPerson,
-        email,
-        location,
-        telephone,
-        active,
-        roll,
+          name,
+          lastname,
+          kindOfPerson,
+          email,
+          location,
+          telephone,
+          active,
+          roll,
         },
-    }
+      }
     )
     // .populate("review", { description: 1, rate: 1 })
     .then((data) => res.json(data))
@@ -223,12 +242,12 @@ userSchema
  * @param res - The response object.
  */
 const routerDeleteUser = async (req, res) => {
-const { id } = req.params;
-const { active } = req.body;
+  const { id } = req.params;
+  const { active } = req.body;
 
-let user = await Users.findById(id);
+  let user = await Users.findById(id);
 
-userSchema
+  userSchema
     .updateOne({ _id: id }, { $set: { active } })
     // .populate("review", { description: 1, rate: 1 })
     .then((data) => res.json(data))
@@ -241,30 +260,30 @@ userSchema
  * @param res - The response object.
  */
 const routerPutRollUsers = async (req, res) => {
-const { id } = req.params;
-const { roll } = req.body;
+  const { id } = req.params;
+  const { roll } = req.body;
 
-userSchema
+  userSchema
     .updateOne(
-    { _id: id },
-    {
+      { _id: id },
+      {
         $set: {
-        roll,
+          roll,
         },
-    }
+      }
     )
     .then((data) => res.json(data))
     .catch((error) => res.status(500).json({ message: `${error} ` }));
 };
 
 module.exports = {
-routerGetFavorite,
-routerPostUser,
-routerPostUserLoading,
-routerPostUserSignoff,
-routerGetUsers,
-routerByidUser,
-routerPutUser,
-routerDeleteUser,
-routerPutRollUsers,
+  routerGetFavorite,
+  routerPostUser,
+  routerPostUserLoading,
+  routerPostUserSignoff,
+  routerGetUsers,
+  routerByidUser,
+  routerPutUser,
+  routerDeleteUser,
+  routerPutRollUsers,
 };
