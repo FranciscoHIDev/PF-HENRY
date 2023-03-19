@@ -16,12 +16,12 @@ const routerGetFavorite = async (req, res) => {
 try {
     const { favori, email } = req.body;
     let users = await Users.findOne({ email });
-    let cars = await Cars.find({ model : favori });
+    let cars = await Cars.find({ _id : favori });
     let favorites = users.favorites;
     let flag = [];
     if (favorites.length) {
     favorites.forEach((element, index) => {
-        if (element.model === favori) {
+        if (JSON.stringify(element._id) === JSON.stringify(favori)) {
         flag.push(element);
         users.favorites.splice(index, 1);
         }

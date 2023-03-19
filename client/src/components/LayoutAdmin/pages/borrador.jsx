@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
+// import React, { useState, useEffect } from "react";
+// import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
 import { Edit, Delete } from "@mui/icons-material";
 import loading from "../../../assets/loading.gif";
 import axios from "axios";
-import Swal from "sweetalert2";
 import {
   FormControlLabel,
   MenuItem,
@@ -74,8 +73,12 @@ function CarsAdmin() {
     setCarSelected(c);
     caso === "Edit" ? openCloseModalEdit() : openCloseModalDelete();
   }
-
-  const BanearCar = async () => {
+  // const peticionDelete = async () => {
+  //   await axios.delete(API_URL + carSelected.id).then((response) => {
+  //     setData(data.filter((c) => c.id !== carSelected.id));
+  //   });
+  // };
+  const PutCars = async () => {
     await axios.put(API_URL + carSelected._id, carSelected).then((response) => {
       var dataNew = data;
       console.log(dataNew);
@@ -95,7 +98,7 @@ function CarsAdmin() {
       });
     });
   };
-  const EditInfo = async () => {
+  const peticionPut = async () => {
     await axios.put(API_URL + carSelected._id, carSelected).then((response) => {
       var dataNew = data;
       dataNew.map((c) => {
@@ -134,23 +137,19 @@ function CarsAdmin() {
       <h3 className="text-center pt-4 font-bold text-2xl">EDIT CARS</h3>
       <br />
       <TextField
-        fullWidth
-        select
-        label="Type"
-        value={carSelected && carSelected.type}
         name="type"
         margin="normal"
+        fullWidth
+        label="type"
         onChange={handleChange}
-      >
-        <MenuItem value="New">New</MenuItem>
-        <MenuItem value="Used">Used</MenuItem>
-      </TextField>
+        value={carSelected && carSelected.type}
+      />
       <br />
       <TextField
         name="brand"
         margin="normal"
         fullWidth
-        label="Brand"
+        label="brand"
         onChange={handleChange}
         value={carSelected && carSelected.brand}
       />
@@ -159,7 +158,7 @@ function CarsAdmin() {
         name="model"
         margin="normal"
         fullWidth
-        label="Model"
+        label="model"
         onChange={handleChange}
         value={carSelected && carSelected.model}
       />
@@ -168,7 +167,7 @@ function CarsAdmin() {
         name="price"
         margin="normal"
         fullWidth
-        label="Price"
+        label="price"
         onChange={handleChange}
         value={carSelected && carSelected.price}
       />
@@ -177,7 +176,7 @@ function CarsAdmin() {
         name="description"
         margin="normal"
         fullWidth
-        label="Description"
+        label="description"
         onChange={handleChange}
         value={carSelected && carSelected.description}
       />
@@ -186,7 +185,7 @@ function CarsAdmin() {
         name="category"
         margin="normal"
         fullWidth
-        label="Category"
+        label="category"
         onChange={handleChange}
         value={carSelected && carSelected.category}
       />
@@ -194,7 +193,7 @@ function CarsAdmin() {
         name="location"
         margin="normal"
         fullWidth
-        label="Location"
+        label="location"
         onChange={handleChange}
         value={carSelected && carSelected.location}
       />
@@ -203,7 +202,7 @@ function CarsAdmin() {
         name="fuelConsumption"
         margin="normal"
         fullWidth
-        label="FuelConsumption"
+        label="fuelConsumption"
         onChange={handleChange}
         value={carSelected && carSelected.fuelConsumption}
       />
@@ -212,7 +211,7 @@ function CarsAdmin() {
         name="doors"
         margin="normal"
         fullWidth
-        label="Doors"
+        label="doors"
         onChange={handleChange}
         value={carSelected && carSelected.doors}
       />
@@ -221,7 +220,7 @@ function CarsAdmin() {
         name="color"
         margin="normal"
         fullWidth
-        label="Color"
+        label="color"
         onChange={handleChange}
         value={carSelected && carSelected.color}
       />
@@ -239,7 +238,7 @@ function CarsAdmin() {
         name="mileage"
         margin="normal"
         fullWidth
-        label="Mileage"
+        label="mileage"
         onChange={handleChange}
         value={carSelected && carSelected.mileage}
       />
@@ -261,14 +260,14 @@ function CarsAdmin() {
       <TextField
         fullWidth
         select
-        label="TransissionType"
+        label="transissionType"
         value={carSelected && carSelected.transissionType}
         name="transissionType"
         margin="normal"
         onChange={handleChange}
       >
         <MenuItem value="automatic">automatic</MenuItem>
-        <MenuItem value="handbook">HandBook</MenuItem>
+        <MenuItem value="Handbook">HandBook</MenuItem>
         <MenuItem value="semiautomatic">Semiautomatic</MenuItem>
       </TextField>
       <br />
@@ -317,7 +316,7 @@ function CarsAdmin() {
       </fieldset>
       <br />
       <div className="text-center pb-4">
-        <Button variant="contained" color="success" onClick={EditInfo}>
+        <Button variant="contained" color="success" onClick={peticionPut}>
           Edit
         </Button>
         <Button variant="contained" color="error" onClick={openCloseModalEdit}>
@@ -348,7 +347,7 @@ function CarsAdmin() {
         </RadioGroup>
       </fieldset>
       <div className="text-center pt-4 pb-4 ">
-        <Button variant="contained" color="success" onClick={BanearCar}>
+        <Button variant="contained" color="success" onClick={PutCars}>
           Yes
         </Button>
         <Button
@@ -363,26 +362,26 @@ function CarsAdmin() {
   );
   return (
     <>
-      <div className="flex font-bold text-3xl ">
-        <Link to="/dashboard/create-car">
-          <button
-            type="button"
-            className="absolute top-20 mr-10 right-4 flex px-6 py-2.5 bg-primary text-white font-bold  text-xs leading-tight uppercase rounded shadow-md hover:bg-[#0d6efd] hover:shadow-lg  "
-          >
-            Create new car
-          </button>
-        </Link>
+      <div className="flex font-bold text-3xl">
+        {/* <Link to="/dashboard/create-car">
+            <button
+              type="button"
+              className="absolute top-20 right-4 flex px-6 py-2.5 bg-primary text-[#023047] font-bold  text-xs leading-tight uppercase rounded shadow-md hover:bg-[#219EBC] hover:shadow-lg focus:bg-[#219EBC] focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg  duration-150 ease-in-out"
+            >
+              Create new car
+            </button>
+          </Link> */}
       </div>
       <div className="bg-white mt-[40px]">
         <TableContainer>
           <Table>
-            <TableHead className="bg-[#0d6efd]">
+            <TableHead className="bg-[#8ECAE6]">
               <TableRow>
                 {/* <TableCell>Id</TableCell> */}
-                <TableCell>Type</TableCell>
+                <TableCell>type</TableCell>
                 <TableCell>Model</TableCell>
                 <TableCell>Doors</TableCell>
-                <TableCell>TransissionType</TableCell>
+                <TableCell>transissionType</TableCell>
                 <TableCell>Category</TableCell>
                 <TableCell>Price</TableCell>
                 {/* <TableCell>Colour</TableCell> */}
@@ -441,7 +440,7 @@ function CarsAdmin() {
           onClose={() => openCloseModalDelete()}
         >
           {bodyDelete}
-        </Modal>
+        </Modal>    
       </div>
     </>
   );

@@ -9,6 +9,7 @@ import { Auth0Provider } from "@auth0/auth0-react";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={store}>
+
     <BrowserRouter>
       <Auth0Provider
         domain="dev-2llhwpnt06dhuqy3.us.auth0.com"

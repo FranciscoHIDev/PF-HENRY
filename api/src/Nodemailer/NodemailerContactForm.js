@@ -18,9 +18,9 @@ transporter.verify().then(() => {
   console.log("ready for send emails");
 });
 
-const eMail1 = async (email) => {
+const eMail2 = async (email) => {
   let mensaHTM = `
-  !DOCTYPE html>
+  <!DOCTYPE html>
   <html lang="en">
   <head>
     <meta charset="UTF-8">
@@ -43,16 +43,15 @@ const eMail1 = async (email) => {
       </div>
     </div>
     <div style="background-color: #e3e3e3; margin-top: 0px; padding: 20px 0px 5px 0px; text-align: center;">
-      <h2>Welcome to CarMania</h2>
-      <p>We are a platform dedicated to the sale of vehicles. Where we offer you a wide variety of options.</p>
-      <p>THANK YOU FOR BEING PART OF OUR GROUP</p>
+      <h2>Contact</h2>
+      <p>Dear, we received your message, we are processing it. In the near future we will contact.</p>
+      <p>THANK YOU FOR CONTACTING CARMANIA.</p>
       <div style="display: flex; padding: 20px 10px 20px 10px; ">
         <div style=" padding: 10px 0px 10px 0px; width: 100%; text-align: center;">
           <img src="https://ucarecdn.com/b11f4989-21e4-4fc9-9631-a9dda0a87782/logon1.png" alt="" style="width: 300px;" />
-          <p > Any questions contact us <br> from our page <br> or through our digital channels. <br> WE WILL WAIT FOR YOU </p>
         </div>
       </div>
-      <P style="margin-bottom: 10px;"><i>Sincerely:</i><br> CarMania Group </P>
+      <P style="margin-bottom: 10px;"><i>Sincerely:</i><br><br> CarMania Group </P>
       <a style="background-color: rgb(6, 16, 155); border: 2px solid rgb(8, 8, 8); color: rgb(199, 186, 5); padding: 16px 32px; text-align: center; text-decoration: none; font-weight: bold; display: inline-block; font-size: 16px; margin: 4px 2px;
       transition-duration: 0.4s; cursor: pointer;" href="https://carmania-henry.netlify.app/">CarMania</a>
       <div style="background-color: rgb(6, 16, 155); color: rgb(199, 186, 5); padding: 5px 0px 0px 0px; width: 100%; text-align: center;">
@@ -64,7 +63,7 @@ const eMail1 = async (email) => {
           <a href="https://www.instagram.com/carmania_2023/"style="color: #9faa09;"><img src="https://ucarecdn.com/a8624f95-6615-487b-a1ad-09117e6ee150/instagram.jpg" style="width: 30px; height: 30px;"/></a>
         </p>
         <p style="background-color: black; padding: 10px 0px 10px 0px ; font-size: 12 !important;">
-        @ 2023 CarMania, all rights reserved.</p>
+        @ 2023 CarMania, All rights reserved.</p>
       </div>
     </div>
   <div></div>
@@ -77,8 +76,8 @@ const eMail1 = async (email) => {
   let mensaje = {
     from: '"CarMania" <info.carmania2023@gmail.com>', // sender address
     to: email, // list of receivers
-    subject: "Notificación", // Subject line
-    text: "USER CREATED SUCCESSFULLY", // plain text body
+    subject: "Contact notification", // Subject line
+    text: "CONTACT", // plain text body
     html: mensaHTM,
     attachments: [
       {
@@ -98,4 +97,4 @@ const eMail1 = async (email) => {
 
   console.log(info);
 };
-module.exports = { eMail1 };
+module.exports = { eMail2 };

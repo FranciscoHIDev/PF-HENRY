@@ -11,6 +11,7 @@
   align-items: center;
   justify-content: center;
   padding-top: 100px;
+  color: white;
 }
 
 .cards {
@@ -58,6 +59,7 @@
   grid-template-rows: auto;
   border-radius: 1.25rem;
   z-index: -1;
+  color: antiquewhite;
 }
 @media (max-width: 1222px) {
   .stack_card {
