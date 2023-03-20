@@ -55,7 +55,6 @@ const postCompra = async (req, res) => {
 }
 //========================== FIN NOTIFICATIONS =========================\\
 
-
 const getCompra = async (req, res) => {
   const facturas = await pagoFacturaSchema.find(); 
   res.status(200).json(facturas)
@@ -64,7 +63,6 @@ const getCompra = async (req, res) => {
 const putCompra = async (req, res) => {
   const {statusCar} = req.body;
   const modelCompra = await pagoFacturaSchema.updateOne({_id: req.body.id}, {statusCar})
-console.log(modelCompra)
   res.status(200).json(modelCompra)
 }
 

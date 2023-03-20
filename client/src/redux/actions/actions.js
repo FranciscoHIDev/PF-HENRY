@@ -29,7 +29,6 @@ export const getAllCars = () => async (dispatch) => {
   }
 };
 
-
 export const getCarsByName = (name) => {
   return {
     type: "GET_BY_NAME",
@@ -140,6 +139,7 @@ export const getAllUsers = () => async (dispatch) => {
     console.log(e);
   }
 }
+
 export const postContact = (payload) => async (dispatch) => {
   try {
     const data = await axios.post("http://localhost:3001/contact", payload);

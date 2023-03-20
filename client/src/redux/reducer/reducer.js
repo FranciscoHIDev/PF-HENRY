@@ -15,7 +15,7 @@ import {
   FRANGE,
   LINK_COMPRA,
   POST_FAVORITE,
-  GET_ALL_USERS
+  GET_ALL_USERS 
 } from "../actions/actions";
 
 const initialState = {

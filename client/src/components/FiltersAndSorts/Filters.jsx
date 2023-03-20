@@ -20,9 +20,8 @@ function Filters() {
   const reModel = auxModel.filter((e, i) => auxModel.indexOf(e) === i);
   const auxType = filtroLinks.map((e) => e.type);
   const reType = auxType.filter((e, i) => auxType.indexOf(e) === i);
-  console.log(a)
+  
   a.sort((a, b) => a - b)
-  console.log(a[length-1])
   const s=[];
   s.push(a[0])
   s.push(a[a.length-1])
@@ -48,24 +47,20 @@ function Filters() {
     dispatch(push({ propety: "category", value: e.target.innerText }));
     dispatch(allFilter());
     setRange([b[0],b[b.length]])
-    console.log(reFil)
   }
   function handelrModel(e) {
     dispatch(push({ propety: "model", value: e.target.innerText }));
     dispatch(allFilter());
     setRange([b[0],b[b.length]])
-    console.log(reFil)
   }
   function handelrType(e) {
     dispatch(push({ propety: "type", value: e.target.innerText }));
     dispatch(allFilter());
-    console.log(reFil);
   }
   function handleChanges(event, newValue) {
     setRange(newValue);
     dispatch(allFilter());
     dispatch(frange(newValue))
-    console.log(newValue)
  }
 //////     THIS                       ONE                 PIECE              IS              REAL          !!!!!!!!!!
   return (
