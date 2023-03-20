@@ -1,5 +1,6 @@
 const contactFormSchema = require("../Models/ContactForm.js");
 const { eMail2 } = require("../Nodemailer/NodemailerContactForm.js");
+const { validateCreate } = require("../Validators/ContactForm.js");
 /**
  * It gets all the forms from the database and returns them in the response
  * @param req - The request object represents the HTTP request and has properties for the request query
@@ -34,7 +35,7 @@ const routerGetContactForm = async (req, res) => {
  * @returns the contactFormSchema.
  */
 const routerPostContactForm = async (req, res) => {
-  // validateCreate;
+  validateCreate;
   const carForm = contactFormSchema(req.body);
 
   carForm

@@ -9,7 +9,6 @@ const {
   routerDeleteCars,
 } = require("../Controllers/CarsController");
 
-const { postCompra, getCompra, putCompra } = require('../Controllers/ControllerCompra')
 const {pagarProducto}=require('../Controllers/Producto')
 const {routerLocation}=require('../Controllers/GetLocation')
 
@@ -26,18 +25,6 @@ router.post("/n", (req, res) => {
 router.post('/comprar',(req, res) => {
   pagarProducto(req, res);
 });
-
-router.post('/feedback', function (req, res) {
-  postCompra(req, res) 
-});
-
-router.get("/feedback", (req, res) => {
-  getCompra(req, res);
-});
-
-router.put("/feedback", (req, res) => {
-  putCompra(req,res);
-})
 
 
 /* This is a get request that is being sent to the server. */
