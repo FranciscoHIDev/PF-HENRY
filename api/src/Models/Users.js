@@ -52,14 +52,11 @@ const userSchema = mongoose.Schema({
       ref: "userCompraSchema",
     },
   ],
-  review: [
+  review: 
     {
-      type: mongoose.Types.ObjectId,
+      type: Array,
       ref: "Review",
-      minLength: 30,
-      maxLength: 300,
-    },
-  ],
+     },
   // password: {
   //     type: String,
   //     required: true,
