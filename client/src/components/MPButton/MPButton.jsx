@@ -18,9 +18,9 @@ export function MPButton({id}) {
         }),
       });
       const data = await res.json();
-      console.log(data)
+     
       
-        console.log(data)
+       
         if (data) {
         const script = document.createElement("script");
         script.type = "text/javascript";

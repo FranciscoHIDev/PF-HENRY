@@ -127,9 +127,9 @@ export const createUser = (payload) => async (dispatch) => {
   }
 }
 
-export const putUser = (payload) => async (dispatch) => {
+export const putUser = (id , payload) => async (dispatch) => {
   try {
-    const putCreate = await axios.put(`/users/${id}`, payload);
+    const putCreate = await axios.put(`/users/`+id ,  payload);
     return dispatch({
       type: "PUT_USERS",
       payload: putCreate,

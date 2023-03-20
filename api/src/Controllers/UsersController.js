@@ -209,7 +209,8 @@ const routerPutUser = async (req, res) => {
     const {
         name,
         lastname,
-//        favorites,
+        //        favorites,
+        kindOfPerson,
         email,
         location,
         telephone,
@@ -224,7 +225,8 @@ const routerPutUser = async (req, res) => {
                 $set: {
                     name,
                     lastname,
-                //    favorites,
+                    //    favorites,
+                    kindOfPerson,
                     email,
                     location,
                     telephone,

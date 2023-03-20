@@ -1,66 +1,96 @@
-import React, { useState } from "react";
+import React, { useState , useEffect} from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
-import { putUser } from "../../../redux/actions/actions";
+import { getAllUsers, putUser } from "../../../redux/actions/actions";
 
 
 export default function MyProfile() {
 
-  const dispatch = useDispatch();
+ const dispatch = useDispatch();
 
-  const { user, isAuthenticated } = useAuth0();
+  useEffect(() => {
 
-  const [users, setUsers] = useState({});
+    dispatch(getAllUsers())
+    
+  }, []);
 
 
+const { user, isAuthenticated } = useAuth0();
 
-  if (isAuthenticated && user) {
-    axios.get("/users")
-      .then((e) => {
-        const userDB = e.data.find((e) => e.email === user.email);
-  console.log(userDB)
+
+ const userDB = useSelector(state => state.allUsers)
+
+ if(isAuthenticated && (userDB.length > 0) ){
+  const aux =  userDB.find((e) => e.email === user.email)
+   var userid = aux._id
+  
+}
+
+  const [users, setUsers] = useState({
+   name : "",
+   lastname: "",
+   kindOfPerson: "",
+   email: "",
+   location : "",
+   telephone : "",
+   active: "",
+   rol: ""
+
+  });
+console.log(users)
+  
+
+//   if (isAuthenticated && user) {
+//     axios.get("/users")
+//       .then((e) => {
+//         const userDB = e.data.find((e) => e.email === user.email);
+//   console.log(userDB)
       
 
-    
+//     setUsers({id : userDB._id}) 
 
-  })
+//   })
 
+// }
+
+
+
+function handleInputChange(e) {
+  e.preventDefault();
+  setUsers({
+    ...users,
+
+    [e.target.name]: e.target.value,
+  });
 }
 
 
+function handleSubmit(e) {
+  e.preventDefault();
+  
+  const infoUsertopost = {
 
-// function handleInputChange(e) {
-//   e.preventDefault();
-//   setUsers({
-//     ...users,
+    name: user.given_name,
+    email: user.email,
+    image: user.picture,
+    dni: users.dni,
+    lastname: user.family_name,
+    telephone: users.telephone,
+    location: users.location,
+    kindOfPerson: users.kindOfPerson,
+    active : "valid",
+    roll: "user"
+    
+  }
+  console.log(infoUsertopost)
+  
+  dispatch(putUser());
 
-//     [e.target.name]: e.target.value,
-//   });
-// }
-
-
-// function handleSubmit(e) {
-//   e.preventDefault();
-//   // const infoUsertopost = {
-
-//   //   name: user.given_name,
-//   //   email: users.email,
-//   //   image: users.picture,
-//   //   dni: users.dni,
-//   //   lastname: user.family_name,
-//   //   telephone: users.telephone,
-//   //   location: users.location,
-//   //   kindOfPerson: users.kindOfPerson,
-
-//   // }
-//   // console.log(infoUsertopost)
-//   dispatch(putUser());
-
-//   alert(
-//     user.given_name + " " + "tu informacion ha sido Guardada Correctamente"
-//   );
-// }
+  alert(
+    user.given_name + " " + "tu informacion ha sido Guardada Correctamente"
+  );
+}
 
 
 
@@ -72,7 +102,7 @@ return (
         <div className="mb-4">
           <label
             className="block text-gray-700 font-bold mb-2"
-            for="imagen"
+            htmlFor="imagen"
           ></label>
           <div className="relative rounded-full h-32 w-32 flex items-center justify-center bg-gray-200 overflow-hidden">
             <div className="absolute inset-0 overflow-hidden">

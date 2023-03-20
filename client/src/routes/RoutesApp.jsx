@@ -23,7 +23,11 @@ import Playmet from "../pages/Playmet/Playmet";
 import ProtectedRoute from "../components/ProtectedRoute/ProtectedRoute";
 
 function RoutesApp() {
-  const { isAuthenticated } = useAuth0();
+  const { user , isAuthenticated } = useAuth0();
+
+  if (isAuthenticated && user) {
+  }
+  
   return (
     <>
       <Routes>
