@@ -17,10 +17,6 @@ router.post("/", (req, res) => {
   routerPostCars(req, res);
 });
 
-router.post("/n", (req, res) => {
-  console.log(req.body)
-  res.status(200).send("OK")
-});
 
 router.post('/comprar',(req, res) => {
   pagarProducto(req, res);

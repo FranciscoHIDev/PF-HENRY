@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import {
   Home,
-  About,
+  About,  
   Contact,
   LandingPage,
   NotFound,
@@ -21,6 +21,7 @@ import LayoutUser from "../components/UserProfile/LayoutUser";
 import Myprofile from "../components/UserProfile/pages/MyProfile";
 import Playmet from "../pages/Playmet/Playmet";
 import ProtectedRoute from "../components/ProtectedRoute/ProtectedRoute";
+import MyCars from "../components/UserProfile/pages/MyCars";
 
 function RoutesApp() {
   const { isAuthenticated } = useAuth0();
@@ -47,6 +48,7 @@ function RoutesApp() {
         {/* Configuración de rutas del Perfil de usuario  */}
         <Route path="/profile" element={<LayoutUser />}>
           <Route index element={<Myprofile />} />
+          <Route path="mycars" element={<MyCars />} />
         </Route>
         <Route element={<ProtectedRoute isAllowed={!!isAuthenticated} />}>
           <Route path="/profile" element={<LayoutUser />} />
