@@ -36,7 +36,7 @@ function SideBarUser() {
           <ul>
             <li>
               <Link
-                to="#"
+                to="my"
                 className="flex text-2xl items-center gap-4  py-2 px-4 rounded-lg hover:bg-secondary-900 w-full"
               >
                 <FaShoppingBag className="text-primary" />
@@ -46,7 +46,7 @@ function SideBarUser() {
 
             <li>
               <Link
-                to="cars"
+                to="mycars"
                 className="flex text-2xl items-center gap-4  py-2 px-4 rounded-lg hover:bg-secondary-900 w-full"
               >
                 <RiCarFill className="text-primary" />

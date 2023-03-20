@@ -133,7 +133,7 @@ const rootReducer = (state = initialState, action) => {
  case PUT_USERS:
   return {
     ...state,
-    allUsers: action.action.payload
+    // allUsers: action.action.payload
   }
 
     case POST_CONTACT:

@@ -38,7 +38,7 @@ const { user, isAuthenticated } = useAuth0();
    rol: ""
 
   });
-console.log(users)
+
   
 
 //   if (isAuthenticated && user) {
@@ -71,11 +71,11 @@ function handleSubmit(e) {
   
   const infoUsertopost = {
 
-    name: user.given_name,
+    name: users.name,
     email: user.email,
     image: user.picture,
     dni: users.dni,
-    lastname: user.family_name,
+    lastname: users.lastname,
     telephone: users.telephone,
     location: users.location,
     kindOfPerson: users.kindOfPerson,
@@ -83,9 +83,9 @@ function handleSubmit(e) {
     roll: "user"
     
   }
-  console.log(infoUsertopost)
-  
-  dispatch(putUser());
+  // console.log(infoUsertopost)
+  console.log(userid)
+  dispatch(putUser(userid , infoUsertopost));
 
   alert(
     user.given_name + " " + "tu informacion ha sido Guardada Correctamente"
@@ -98,7 +98,7 @@ function handleSubmit(e) {
 return (
   isAuthenticated && (
     <div>
-      <form className="mx-auto max-w-lg p-6">
+      <form className="mx-auto max-w-lg p-6" onSubmit={handleSubmit}>
         <div className="mb-4">
           <label
             className="block text-gray-700 font-bold mb-2"
@@ -127,17 +127,16 @@ return (
         <div className="flex  row space-rounded">
           <div className="mb-4">
             <label className="block text-gray-700 font-bold mb-2" for="name">
-              Name
+              Name  
             </label>
             <input
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              // onChange={handleInputChange}
-              readOnly={true}
+              onChange={handleInputChange}
               key="name"
               type="text"
-              placeholder={users.name}
+              placeholder="put your name"
               name="name"
-
+              value={users.name}
 
             />
           </div>
@@ -145,23 +144,23 @@ return (
           <div className="mb-4">
             <label
               className="block text-gray-700 font-bold mb-2"
-              for="lastname"
+              htmlFor="lastname"
             >
               Lastname
             </label>
             <input
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              readOnly={true}
               key="lastname"
               id="lastname"
               type="text"
-              placeholder={users.lastname}
+              placeholder="put your lastname"
               name="lastname"
-            // value={users.lastname}
-            // onChange={handleInputChange}
+              value={users.lastname}
+             onChange={handleInputChange}
             />
           </div>
         </div>
+
         <div className="mb-4">
           <label className="block text-gray-700 font-bold mb-2" for="mail">
             Mail
@@ -170,12 +169,11 @@ return (
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             readOnly={true}
             key="email"
-
             type="email"
-            placeholder={users.email}
+            placeholder={user.email}
             name="email"
             value={users.email}
-          // onChange={handleInputChange}
+          onChange={handleInputChange}
           />
         </div>
         <div className="flex  row space-rounded">
@@ -183,7 +181,7 @@ return (
             <label className="block text-gray-700 font-bold mb-2" for="Kingofperson">
               Type of person
             </label>
-            <select name="kindOfPerson" >
+            <select name="kindOfPerson"  onChange={handleInputChange}>
               <option value="natural">natural</option>
               <option value="business">business</option>
             </select>
@@ -203,7 +201,7 @@ return (
                 placeholder={users.location}
                 name="location"
                 value={users.location}
-              // onChange={handleInputChange}
+               onChange={handleInputChange}
               />
             </div>
           </div>
@@ -253,8 +251,8 @@ return (
               type="number"
               placeholder={users.dni}
               name="dni"
-            // value={users.dni}
-            // onChange={handleInputChange}
+             value={users.dni}
+             onChange={handleInputChange}
             />
           </div>
           &nbsp;&nbsp;
@@ -268,8 +266,8 @@ return (
               type="tel"
               placeholder={users.telephone}
               name="telephone"
-            // value={users.telephone}
-            // onChange={handleInputChange}
+              value={users.telephone}
+              onChange={handleInputChange}
             />
           </div>
         </div>

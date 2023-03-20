@@ -8,6 +8,7 @@ const {
   routerPutCars,
   routerDeleteCars,
 } = require("../Controllers/CarsController");
+
 const {pagarProducto}=require('../Controllers/Producto')
 const {routerLocation}=require('../Controllers/GetLocation')
 
@@ -16,21 +17,11 @@ router.post("/", (req, res) => {
   routerPostCars(req, res);
 });
 
-router.post("/n", (req, res) => {
-  console.log(req.body)
-  res.status(200).send("OK")
-});
 
 router.post('/comprar',(req, res) => {
   pagarProducto(req, res);
 });
-router.get('/feedback', function (req, res) {
-	res.json({
-		Payment: req.query.payment_id,
-		Status: req.query.status,
-		MerchantOrder: req.query.merchant_order_id
-	});
-});
+
 
 /* This is a get request that is being sent to the server. */
 router.get("/", (req, res) => {
