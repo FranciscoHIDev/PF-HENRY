@@ -4,7 +4,7 @@ const { find } = require("../Models/Users");
 const Users = require("../Models/Users");
 const userSchema = require("../Models/Users");
 const { validateCreate } = require("../Validators/Users.js");
-// const { eMail1 } = require("../Nodemailer/Mailer.js");
+const { eMail1 } = require("../Nodemailer/Mailer.js");
 // const { validateUser } = require("../Assistant/usersAssistant");
 
 /**
@@ -79,7 +79,7 @@ const routerPostUser = async (req, res) => {
 
     const saveUser = await newUser.save();
     res.status(200).json(saveUser);
-    //eMail1(user.eMail);
+    eMail1(user.email);
   } catch (error) {
     res.status(500).send(`{messaje: ${error}}`);
   }

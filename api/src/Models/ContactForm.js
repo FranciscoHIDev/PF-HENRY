@@ -28,5 +28,10 @@ const contactFormSchema = mongoose.Schema({
         enum: ["valid", "invalid"],
         default: "valid",
     },
+    roll: {
+        type: String,
+        enum: ["user", "invited"],
+        default: "invited",
+    },
 });
 module.exports = mongoose.model("ContactForm", contactFormSchema);
