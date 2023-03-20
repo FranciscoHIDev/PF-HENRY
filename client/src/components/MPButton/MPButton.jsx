@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 
 
+
 export function MPButton({ id }) {
 
 const { isAuthenticated, user } = useAuth0();
@@ -15,6 +16,7 @@ console.log(email)
   
   //-----------------------
   const fetchCheckout = async () => {
+    
     const res = await fetch("http://localhost:3001/cars/comprar", {
       method: "POST",
       headers: {
@@ -27,8 +29,6 @@ console.log(email)
     });
     const data = await res.json();
     console.log(data);
-
-    console.log(data);
     if (data) {
       const script = document.createElement("script");
       script.type = "text/javascript";
@@ -36,8 +36,8 @@ console.log(email)
       script.setAttribute("data-preference-id", data.id);
       document.body.appendChild(script);
     }
-    console.log(document.body);
-    const mp = await new window.MercadoPago(
+      console.log(document.body);
+    const mp = new window.MercadoPago(
       "TEST-b38eba64-c8b9-4330-aa82-c3e0e29d9f66",
       {
         locale: "es-AR",
