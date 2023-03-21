@@ -1,15 +1,13 @@
 import React, { useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
-
 import { useSelector, useDispatch } from "react-redux";
 import { createUser } from "../../../redux/actions/actions";
 
 export default function MyProfile() {
+
   const dispatch = useDispatch();
-
   const { user, isAuthenticated } = useAuth0();
-
-  const [users, setUsers] = useState({});
+  const [ users, setUsers ] = useState({});
 
   function handleInputChange(e) {
     e.preventDefault();

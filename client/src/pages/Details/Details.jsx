@@ -11,6 +11,8 @@ import Loading from "../../components/Loading/Loading";
 import Swal from "sweetalert2";
 import { useAuth0 } from "@auth0/auth0-react";
 import { MPButton } from "../../components/MPButton/MPButton";
+import CarsReviews from "../../components/Reviews/CarsReviews";
+
 //import { useState } from "react";
 function Details() {
 
@@ -177,6 +179,7 @@ function Details() {
               </div>
             </div>
           </div>
+          <CarsReviews id={id} comment={allData.review}/>
         </div>
       ) : (
         <Loading />
