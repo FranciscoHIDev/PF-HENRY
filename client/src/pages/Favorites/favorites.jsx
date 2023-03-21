@@ -26,8 +26,8 @@ console.log(usersRender)
       <NavBar />
       <div className="flex mt-40 mb-40 justify-center">
         <h1 className="">{
-          usersRender.llength && usersRender.map(e => {
-            
+          usersRender.length && usersRender.map(e => {
+            <h2>{e}</h2>
         })
         }</h1> 
       </div>
