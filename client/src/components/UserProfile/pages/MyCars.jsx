@@ -4,7 +4,6 @@ import { getAllUsers } from '../../../redux/actions/actions';
 import {useSelector, useDispatch} from 'react-redux'
 import { useAuth0 } from "@auth0/auth0-react";
 
-
 function MyCars() {
     const dispatch = useDispatch();
     useEffect(()=>{
@@ -12,14 +11,12 @@ function MyCars() {
     },[])
     const { user, isAuthenticated } = useAuth0();
     const usersDB = useSelector(state => state.allUsers)
+    
     if(isAuthenticated && (usersDB.length!==0)){
       const aux = usersDB.find((e)=> e.email===user.email)
       var facturas = aux.pagoFactura
     }
    
-    
- 
-
    // e[0].items[0].picture_url
   return  facturas ?(
     <div>

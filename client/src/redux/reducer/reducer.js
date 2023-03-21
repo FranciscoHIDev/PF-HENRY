@@ -30,9 +30,9 @@ const initialState = {
   userById: [],
   allContacts: [],
   compra: [],
-  userRender: {},
+  userRender: [],
 };
-const rootReducer = (state = initialState, action) => {
+const rootReducer = (state = initialState, action) => { 
   switch (action.type) {
     case GET_ALL_CARS:
       return {

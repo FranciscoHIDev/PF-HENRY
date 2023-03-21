@@ -20,10 +20,10 @@ export default function MyProfile() {
   useEffect(() => {
     if(isAuthenticated && (userDB.length > 0)){
     //const aux =  userDB.find((e) => e.email === user.email)
-    // var userid = aux._id
+    //var userid = aux._id
       dispatch(userRender(user.email))
     }
-  },[userRenderId])
+  },[!userRenderId.length])
   
 
   const userId = userRenderId._id
@@ -62,12 +62,9 @@ function handleInputChange(e) {
   });
 }
 
-
 function handleSubmit(e) {
   e.preventDefault();
-  
   const infoUsertopost = {
-
     name: users.name,
     email: user.email,
     image: user.picture,
@@ -78,19 +75,14 @@ function handleSubmit(e) {
     kindOfPerson: users.kindOfPerson,
     active : "valid",
     roll: "user"
-    
   }
   // console.log(infoUsertopost)
-  console.log(userid)
-  dispatch(putUser(userid , infoUsertopost));
-
+console.log()
+  dispatch(putUser(userId , infoUsertopost));
   alert(
     user.given_name + " " + "tu informacion ha sido Guardada Correctamente"
   );
 }
-
-
-
 
 return (
   isAuthenticated && (
