@@ -20,9 +20,9 @@ function Filters() {
   const reModel = auxModel.filter((e, i) => auxModel.indexOf(e) === i);
   const auxType = filtroLinks.map((e) => e.type);
   const reType = auxType.filter((e, i) => auxType.indexOf(e) === i);
-  console.log(a)
+  
   a.sort((a, b) => a - b)
-  console.log(a[length-1])
+  
   const s=[];
   s.push(a[0])
   s.push(a[a.length-1])

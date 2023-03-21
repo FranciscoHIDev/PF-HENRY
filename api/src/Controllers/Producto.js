@@ -48,3 +48,5 @@ const pagarProducto = async (req, res) => {
 };
 
 module.exports = { pagarProducto };
+
+module.exports={pagarProducto}
