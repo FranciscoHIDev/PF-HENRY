@@ -10,16 +10,16 @@ export const ALL_FILTER = "ALL_FILTER";
 export const PUSH = "PUSH";
 export const DELETE_FIL = "DELETE_FIL";
 export const RENDER_INFO_USERS = "RENDER_INFO_USERS";
-export const POST_CONTACT = "POST_CONTACT";
-export const POST_USERS = "POST_USERS";
-export const POST_CAR = "POST_CAR";
-export const FRANGE = "FRANGE";
-export const LINK_COMPRA = "LINK_COMPRA";
-export const POST_FAVORITE = "POST_FAVORITE";
-export const GET_ALL_USERS = "GET_ALL_USERS";
-export const PUT_USERS = "PUT_USERS";
-export const POST_REVIEW = "POST_REVIEW";
-export const ADD_USER = "ADD_USER"
+export const POST_CONTACT = "POST_CONTACT"
+export const POST_USERS = "POST_USERS"
+export const POST_CAR = "POST_CAR"
+export const FRANGE = "FRANGE"
+export const LINK_COMPRA = "LINK_COMPRA"
+export const POST_FAVORITE = "POST_FAVORITE"
+export const GET_ALL_USERS = "GET_ALL_USERS"
+export const PUT_USERS = "PUT_USERS"
+export const POST_REVIEW = "POST_REVIEW"
+export const ADD_USER = "ADD_USER";
 
 export const getAllCars = () => async (dispatch) => {
   try {
@@ -130,7 +130,7 @@ export const createUser = (payload) => async (dispatch) => {
 }
 
 export const putUser = (id , payload) => async (dispatch) => {
-  console.log(id , payload)
+  console.log(id ,payload)
   try {
     const putCreate = await axios.put(`/users/${id}`,  payload);
     
@@ -202,7 +202,7 @@ export const postFavorite = (payload) => {
   }
 };
 
-export const postReview = (payload) => async (dispatch) => {
+ export const postReview = (payload) => async (dispatch) => {
   try {
     const postReview = await axios.post("/review", payload);
     return dispatch({
@@ -219,3 +219,4 @@ export const userRender = (email) => {
     payload: email
   }
 }
+
