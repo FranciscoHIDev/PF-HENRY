@@ -4,6 +4,7 @@ const axios = require('axios');
 const carSchema = require('../Models/Cars.js');
 const userSchema = require('../Models/Users');
 const Users = require("../Models/Users");
+var nodemailer = require("nodemailer");
 /**
  * It creates a new user in the database
  * @param req - The request object.

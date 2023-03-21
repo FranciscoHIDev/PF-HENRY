@@ -105,7 +105,7 @@ export default function Contact() {
             <label
               className={Style.label}
               class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-              for="grid-last-name"
+              htmlFor="grid-last-name"
             >
               Lastname{" "}
             </label>

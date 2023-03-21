@@ -40,7 +40,7 @@ function Cards() {
 
       <div className="flex ">
         <div className="mr-10">
-          <SideBar setPage={setPage} className="justify-self-start mr-3" />
+          <SideBar  setPage={setPage} className="justify-self-start mr-3" />
         </div>
         <div className="flex mb-[10px] mt-20 flex-wrap  justify-center ">
           {totalCars.length !== 0 ? (

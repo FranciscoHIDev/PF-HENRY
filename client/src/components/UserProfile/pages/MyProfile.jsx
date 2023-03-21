@@ -1,114 +1,243 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
-
+import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
-import { createUser } from "../../../redux/actions/actions";
-
+import { getAllUsers, putUser } from "../../../redux/actions/actions";
+import { FiEdit } from "react-icons/fi"
+import Style from './MyProfile.module.css'
+import Dropzone from 'react-dropzone'
 export default function MyProfile() {
+
   const dispatch = useDispatch();
+
+  useEffect(() => {
+
+    dispatch(getAllUsers())
+
+  }, []);
+
 
   const { user, isAuthenticated } = useAuth0();
 
-  const [users, setUsers] = useState({});
+
+  const userDB = useSelector(state => state.allUsers)
+
+  if (isAuthenticated && (userDB.length > 0)) {
+    var aux = userDB.find((e) => e.email === user.email)
+    console.log(aux)
+    var userid = aux._id
+ var userName = aux.name
+ var userLastname = aux.lastname
+ var userLocation = aux.location 
+ var userDni = aux.dni
+ var userKingofperson = aux.kindOfPerson
+ var userTelephone = aux.telephone
+ var userImage = aux.image
+  }
+
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [users, setUsers] = useState({
+    image: "" || userImage,
+    name: "" || userName,
+    lastname: "" || userLastname,
+    kindOfPerson: "natural" || userKingofperson ,
+    email: user.email,
+    location: "" || userLocation,
+    dni: "" || userDni,
+    telephone: "" || userTelephone ,
+    active: "",
+    rol: ""
+
+  });
+
+
+
+
+  function handleOnClick(e) {
+    e.preventDefault
+    setUsers({
+      [e.target.name]: e.target.value
+    })
+  }
+  //   if (isAuthenticated && user) {
+  //     axios.get("/users")
+  //       .then((e) => {
+  //         const userDB = e.data.find((e) => e.email === user.email);
+  //   console.log(userDB)
+
+
+  //     setUsers({id : userDB._id}) 
+
+  //   })
+
+  // }
+
+  function handleFileSelect(files) {
+    setSelectedFile(files[0]);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    // Aquí puedes enviar el archivo a tu servidor utilizando fetch, axios, etc.
+  }
 
   function handleInputChange(e) {
     e.preventDefault();
     setUsers({
       ...users,
+
       [e.target.name]: e.target.value,
     });
   }
 
+ function onbottonClick(e){
+  e.preventDefault()
+  setUsers({ 
+    ...users,
+    [e.target.name] : e.target.value
+  } 
+  )
+ }
   function handleSubmit(e) {
     e.preventDefault();
 
-    dispatch(createUser(users));
+    setUsers({
+      name: users.name,
+      email: users.email,
+      image: selectedFile,
+      dni: users.dni,
+      lastname: users.lastname,
+      telephone: users.telephone,
+      location: users.location,
+      kindOfPerson: users.kindOfPerson,
+      active: "valid",
+      roll: "user"
+    })
+    // const infoUsertopost = {
+
+
+
+    // }
+    // console.log(infoUsertopost)
+    console.log(users)
+    dispatch(putUser(userid, users));
 
     alert(
       user.given_name + " " + "tu informacion ha sido Guardada Correctamente"
     );
   }
 
-  console.log(users);
+
+
 
   return (
-    isAuthenticated && (
-      <div>
-        <form onSubmit={handleSubmit} class="mx-auto max-w-lg p-6">
-          <div className="mb-4">
-            <label
-              className="block text-gray-700 font-bold mb-2"
-              for="imagen"
-            ></label>
-            <div className="relative rounded-full h-32 w-32 flex items-center justify-center bg-gray-200 overflow-hidden">
-              <div className="absolute inset-0 overflow-hidden">
-                <img
-                  className="h-full w-full object-cover"
-                  src={user.picture}
-                  alt="Imagen de perfil"
-                />
-              </div>
-              <div className="absolute inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center cursor-pointer hover:bg-opacity-75">
-                <span className="text-white text-3xl font-bold">+</span>
-                <input
-                  type="file"
-                  className="absolute inset-0 z-50 w-full h-full opacity-0 cursor-pointer"
-                  onChange={handleInputChange}
-                />
-              </div>
-            </div>
-          </div>
+    <div>
 
+       {isAuthenticated?  (
+      <div>
+       
+
+
+        
+        <form className="mx-auto max-w-lg p-6 text-white" onSubmit={handleSubmit}>
+          <div className={Style.imagen}>
+         
+             <img src={users.image} width="100px" height="100px"  alt="img not fuound" />
+             <input onChange={handleInputChange} type="file" id={users.image} name={users.image}  />
+          </div>
           <div className="flex  row space-rounded">
             <div className="mb-4">
-              <label className="block text-gray-700 font-bold mb-2" for="name">
+              <label className="block text-white-700 font-bold mb-2" for="name">
                 Name
               </label>
               <input
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                readOnly={true}
-                id="name"
+                onChange={handleInputChange}
+                key="name"
                 type="text"
-                placeholder={user.given_name}
+                placeholder={users.name}
                 name="name"
                 value={users.name}
-                onChange={handleInputChange}
+
               />
-            </div>
+            </div> 
+
             &nbsp;&nbsp;
             <div className="mb-4">
               <label
-                className="block text-gray-700 font-bold mb-2"
-                for="lastname"
+                className="block text-white-700 font-bold mb-2"
+                htmlFor="lastname"
               >
                 Lastname
               </label>
               <input
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                readOnly={true}
+                key="lastname"
                 id="lastname"
                 type="text"
-                placeholder={user.family_name}
+                placeholder="put your lastname"
                 name="lastname"
                 value={users.lastname}
                 onChange={handleInputChange}
               />
             </div>
           </div>
+
           <div className="mb-4">
-            <label className="block text-gray-700 font-bold mb-2" for="mail">
-              Mail
+            <label className="block text-white-700 font-bold mb-2" for="mail">
+              Email
             </label>
             <input
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               readOnly={true}
-              id="mail"
+              key="email"
               type="email"
               placeholder={user.email}
               name="email"
               value={users.email}
               onChange={handleInputChange}
             />
+          </div>
+          <div className="flex  row space-rounded">
+            <div className="mb-4">
+              <label className="block text-white-700 font-bold mb-2" for="Kingofperson">
+                Type of person
+              </label>
+              <select name="kindOfPerson" className=" border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" onChange={handleInputChange}>
+                <option value="natural">natural</option>
+                <option value="business">business</option>
+              </select>
+              &nbsp;&nbsp;
+              <div className="mb-4">
+                <label
+                  className="block text-white-700 font-bold mb-2"
+                  for="location"
+                >
+                  Location
+                </label>
+                <input
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  key="location"
+                  id="location"
+                  type="text"
+                  placeholder={users.location}
+                  name="location"
+                  value={users.location}
+                  onChange={handleInputChange}
+                />
+              </div>
+            </div>
+
+            {/* <input
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              readOnly={true}
+              id="mail"
+              type=""
+              placeholder={user.email}
+              name="email"
+              value={users.kindOfPerson}
+              onChange={handleInputChange}
+            /> */}
           </div>
 
           {/* <div class="flex  row space-rounded">
@@ -132,16 +261,17 @@ export default function MyProfile() {
           <div className="flex  row space-rounded">
             <div className="mb-4">
               <label
-                className="block text-gray-700 font-bold mb-2"
+                className="block text-white-700 font-bold mb-2"
                 for="document"
               >
-                Document
+                D.N.I
               </label>
               <input
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="document"
-                type="text"
-                placeholder="DNI"
+                key="dni"
+
+                type="number"
+                placeholder={users.dni}
                 name="dni"
                 value={users.dni}
                 onChange={handleInputChange}
@@ -149,14 +279,14 @@ export default function MyProfile() {
             </div>
             &nbsp;&nbsp;
             <div className="mb-4">
-              <label className="block text-gray-700 font-bold mb-2" for="Phone">
+              <label className="block text-white-700 font-bold mb-2" for="Phone">
                 Phone
               </label>
               <input
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 id="telephone"
                 type="tel"
-                placeholder="Phone"
+                placeholder={users.telephone}
                 name="telephone"
                 value={users.telephone}
                 onChange={handleInputChange}
@@ -165,14 +295,16 @@ export default function MyProfile() {
           </div>
 
           <div className="flex items-center justify-center">
-            <input
-              className="bg-blue-500 hover:bg-blue value="
-              type="submit" 
-              value="Send"
-            />
+            <button type="submit"  >Send</button>
+
+            {/* onClick={handleSubmit} */}
+
+
           </div>
         </form>
       </div>
-    )
+    ) : <p> there is not information to show</p>}
+    </div>
+   
   );
 }
