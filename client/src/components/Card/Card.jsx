@@ -30,7 +30,6 @@ function Card({
     if (isAuthenticated && user) {
       axios.get("/users").then((e) => {
         const userDB = e.data.find((e) => e.email === user.email);
-        console.log(userDB);
         const newFavorite = {
           favori: _id,
           email: userDB.email,
@@ -56,7 +55,6 @@ function Card({
     if (isAuthenticated && user) {
       axios.get("/users").then((e) => {
         const userDB = e.data.find((e) => e.email === user.email);
-        
         const favorite = userDB.favorites.map((e) => e._id);
         
         for (let i = 0; i < favorite.length; i++) {
