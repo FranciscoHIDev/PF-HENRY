@@ -15,6 +15,7 @@ console.log(email)
   };
   
   //-----------------------
+  useEffect(() => {
   const fetchCheckout = async () => {
     
     const res = await fetch("http://localhost:3001/cars/comprar", {
@@ -28,14 +29,14 @@ console.log(email)
       }),
     });
     const data = await res.json();
-    console.log(data);
-    if (data) {
+    console.log(data.global);
+    if (data.global) {
       const script = document.createElement("script");
       script.type = "text/javascript";
       script.src = "https://sdk.mercadopago.com/js/v2";
-      script.setAttribute("data-preference-id", data.id);
+      script.setAttribute("data-preference-id", data.global);
       document.body.appendChild(script);
-    }
+    
       console.log(document.body);
     const mp = new window.MercadoPago(
       "TEST-b38eba64-c8b9-4330-aa82-c3e0e29d9f66",
@@ -46,16 +47,18 @@ console.log(email)
     console.log(data);
     mp.checkout({
       preference: {
-        id: data.id,
+        id: data.global,
       },
       render: {
         container: ".cho-container",
         label: "Mercadopago",
       },
     });
+  }
   };
-  useEffect(() => {
-    fetchCheckout();
+  
+    fetchCheckout()
+
   }, []);
 
   return (

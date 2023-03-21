@@ -4,7 +4,7 @@ import {Slider} from "@mui/material";
 //import FilterPrice from "../FilterPrice/FilterPrice"
 import { allFilter, deletefil, getAllCars, push, sortByPrice,frange } from "../../redux/actions/actions";
 
-function Filters() {
+function Filters({setPage}) {
   const a= []
   const reFil = useSelector(state => state.filtros);
   let reFils = useSelector(state => state.allCars);
@@ -47,18 +47,21 @@ function Filters() {
   function handelrCate(e) {
     dispatch(push({ propety: "category", value: e.target.innerText }));
     dispatch(allFilter());
+    setPage(1)
     setRange([b[0],b[b.length]])
     console.log(reFil)
   }
   function handelrModel(e) {
     dispatch(push({ propety: "model", value: e.target.innerText }));
     dispatch(allFilter());
-    setRange([b[0],b[b.length]])
+    setPage(1)
+    setRange([b[0],b[b.length]]) 
     console.log(reFil)
   }
   function handelrType(e) {
     dispatch(push({ propety: "type", value: e.target.innerText }));
     dispatch(allFilter());
+    setPage(1)
     console.log(reFil);
   }
   function handleChanges(event, newValue) {

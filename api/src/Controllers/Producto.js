@@ -37,8 +37,8 @@ const pagarProducto = async (req, res) => {
   mercadopago.preferences
     .create(preference)
     .then(function (response) {
-      res.send({
-        id: response.body.id,
+      res.json({
+        global: response.body.id,
       });
     })
     .catch(function (error) {
