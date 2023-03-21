@@ -20,9 +20,9 @@ function Filters() {
   const reModel = auxModel.filter((e, i) => auxModel.indexOf(e) === i);
   const auxType = filtroLinks.map((e) => e.type);
   const reType = auxType.filter((e, i) => auxType.indexOf(e) === i);
-  console.log(a)
+  
   a.sort((a, b) => a - b)
-  console.log(a[length-1])
+  
   const s=[];
   s.push(a[0])
   s.push(a[a.length-1])
@@ -31,8 +31,8 @@ function Filters() {
   const [max, setMax] = useState(5);
   useEffect(()=>{
     setRange(s)
-    setMax(s[1]+1)
-    setMin(s[0]-1)
+    setMax(s[1])
+    setMin(s[0])
   },[reFils])
   
   /* console.log(range) */
@@ -67,7 +67,7 @@ function Filters() {
     dispatch(frange(newValue))
     console.log(newValue)
  }
-//////     THIS                       ONE                 PIECE              IS              REAL          !!!!!!!!!!
+//////     THIS                   ONE                PIECE              IS              REAL   /////       !!!!!!!!!!
   return (
     <div className="flex flex-col">
       <select className="bg-white" onChange={handlerPrice}>

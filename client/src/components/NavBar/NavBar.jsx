@@ -20,7 +20,6 @@ import { createUser } from "../../redux/actions/actions";
 
 function NavBar() {
   const { isAuthenticated, user, logout } = useAuth0();
-
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -29,7 +28,6 @@ function NavBar() {
         const userDb = element.data.find(
           (element) => element.email === user.email
         );
-
         if (userDb) {
           return false;
         } else {
@@ -95,7 +93,7 @@ function NavBar() {
                         className="w-6 h-6 object-cover rounded-full"
                       />
                       <p className="flex">
-                        Hi!
+                        H!
                         <span className="ml-1">
                           {user.given_name || user.name}
                         </span>

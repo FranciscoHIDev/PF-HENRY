@@ -9,6 +9,7 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 import { postFavorite } from "../../redux/actions/actions";
 import { getAllUsers } from "../../redux/actions/actions";
+import { useNavigate } from "react-router-dom";
 function CardFavorite({
   brand,
   model,
@@ -23,13 +24,17 @@ function CardFavorite({
   _id,
 }) {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+ 
   const { user } = useAuth0();
+  
   const onClick = () => {
     const newFavorite = {
       favori: _id,
       email: user.email,
     };
-    dispatch(postFavorite(newFavorite));
+    dispatch(postFavorite(newFavorite));  
+    //navigate("/favorites");
   };
 
   return (

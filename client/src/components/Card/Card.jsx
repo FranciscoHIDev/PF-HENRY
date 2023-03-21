@@ -59,8 +59,9 @@ function Card({
       axios.get("/users").then((e) => {
         console.log();
         const userDB = e.data.find((e) => e.email === user.email);
-
+        
         const favorite = userDB.favorites.map((e) => e._id);
+        
         for (let i = 0; i < favorite.length; i++) {
           if (favorite[i] === _id) {
             setClick(true);

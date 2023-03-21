@@ -14,12 +14,13 @@ import { postFavorite } from "../../redux/actions/actions";
 // };
 
 export const Favorites = () => {
-  ///const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const [favorite, setFavorite] = useState([]);
-  // useEffect(() => {
-  //   dispatch(getAllUsers());
-  // }, []);
+
+  useEffect(() => {
+    dispatch(getAllUsers());
+  }, []);
 
   const { user, isAuthenticated } = useAuth0();
   // let favorite = [];
@@ -30,16 +31,16 @@ export const Favorites = () => {
   //   //setFavorite(myFavorite);
   // }
 
-  // useEffect(() => {
-
-  if (isAuthenticated) {
-    axios.get("/users").then((e) => {
-      const userDB = e.data.find((e) => e.email === user.email);
-      const myFavorite = userDB.favorites;
-      setFavorite(myFavorite);
-    });
-  }e
-  // }, []);
+  useEffect(() => {
+    if (isAuthenticated) {
+      axios.get("/users").then((e) => {
+        const userDB = e.data.find((e) => e.email === user.email);
+        const myFavorite = userDB.favorites;
+        setFavorite(myFavorite);
+      });
+    }
+    console.log("se renderizo");
+  }, []);
 
   //Aqui se soluciona las peticiones al user.
 
@@ -54,6 +55,7 @@ export const Favorites = () => {
   //       setFavorite(myFavorite);
   //     }
   //   })();
+
   // }, []);
 
   return (
