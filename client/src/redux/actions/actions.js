@@ -18,6 +18,7 @@ export const LINK_COMPRA = "LINK_COMPRA"
 export const POST_FAVORITE = "POST_FAVORITE"
 export const GET_ALL_USERS = "GET_ALL_USERS"
 export const PUT_USERS = "PUT_USERS"
+export const POST_REVIEW = "POST_REVIEW"
 export const getAllCars = () => async (dispatch) => {
   try {
     const { data } = await axios.get("/cars");
@@ -128,7 +129,7 @@ export const createUser = (payload) => async (dispatch) => {
 }
 
 export const putUser = (id , payload) => async (dispatch) => {
-  console.log(id , payload)
+  console.log(id ,payload)
   try {
     const putCreate = await axios.put(`/users/${id}`,  payload);
     
@@ -197,4 +198,14 @@ export const postFavorite = (payload) => {
   } catch (e) {
     console.log(e);
   }
-};                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+};   
+ export const postReview = (payload) => async (dispatch) => {
+  try {
+    const postReview = await axios.post("/review", payload);
+    return dispatch({
+      type: "POST_REVIEW",
+    });
+  } catch (error) {
+    console.error(error);
+  }
+};                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
