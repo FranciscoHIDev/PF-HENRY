@@ -1,4 +1,5 @@
 import axios from "axios";
+
 export const GET_ALL_CARS = "GET_ALL_CARS";
 export const GET_BY_NAME = "GET_BY_NAME";
 export const GET_BY_ID = "GET_BY_ID";
@@ -16,7 +17,8 @@ export const FRANGE = "FRANGE"
 export const LINK_COMPRA = "LINK_COMPRA"
 export const POST_FAVORITE = "POST_FAVORITE"
 export const GET_ALL_USERS = "GET_ALL_USERS"
-
+export const PUT_USERS = "PUT_USERS"
+export const POST_REVIEW = "POST_REVIEW"
 export const getAllCars = () => async (dispatch) => {
   try {
     const { data } = await axios.get("/cars");
@@ -112,12 +114,33 @@ export const deletefil = (payload) => {
   };
 };
 
-export const createUser = (payload) => {
-  const userCreate = axios.post("/users", payload);
-  return {
-    type: "POST_USERS",
-    payload: userCreate,
+export const createUser = (payload) => async (dispatch) => {
+  try {
+    const userCreate = await axios.post("/users", payload);
+    return dispatch({
+      type: "POST_USERS",
+      payload: userCreate,
 
+    });
+  }
+  catch (e) {
+    console.log(e);
+  }
+}
+
+export const putUser = (id , payload) => async (dispatch) => {
+  console.log(id ,payload)
+  try {
+    const putCreate = await axios.put(`/users/${id}`,  payload);
+    
+    return dispatch({
+      type: "PUT_USERS",
+      // payload: putCreate,
+
+    });
+  }
+  catch (e) {
+    console.log(e);
   }
 }
 
@@ -128,6 +151,7 @@ export const renderInfoUsers = async (id) => {
     payload
   }
 }
+
 
 export const getAllUsers = () => async (dispatch) => {
   try {
@@ -174,4 +198,14 @@ export const postFavorite = (payload) => {
   } catch (e) {
     console.log(e);
   }
-};                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+};   
+ export const postReview = (payload) => async (dispatch) => {
+  try {
+    const postReview = await axios.post("/review", payload);
+    return dispatch({
+      type: "POST_REVIEW",
+    });
+  } catch (error) {
+    console.error(error);
+  }
+};                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     

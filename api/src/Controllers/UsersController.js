@@ -4,7 +4,7 @@ const { find } = require("../Models/Users");
 const Users = require("../Models/Users");
 const userSchema = require("../Models/Users");
 const { validateCreate } = require("../Validators/Users.js");
-// const { eMail1 } = require("../Nodemailer/Mailer.js");
+const { eMail1 } = require("../Nodemailer/Mailer.js");
 // const { validateUser } = require("../Assistant/usersAssistant");
 
 /**
@@ -13,7 +13,6 @@ const { validateCreate } = require("../Validators/Users.js");
  * @param req - The request object.
  * @param res - The response object.
  */
-
 const routerGetFavorite = async (req, res) => {
   try {
     const { favori, email } = req.body;
@@ -79,7 +78,7 @@ const routerPostUser = async (req, res) => {
 
     const saveUser = await newUser.save();
     res.status(200).json(saveUser);
-    //eMail1(user.eMail);
+    eMail1(user.email);
   } catch (error) {
     res.status(500).send(`{messaje: ${error}}`);
   }
@@ -275,6 +274,9 @@ const routerPutRollUsers = async (req, res) => {
     .then((data) => res.json(data))
     .catch((error) => res.status(500).json({ message: `${error} ` }));
 };
+
+
+
 
 module.exports = {
   routerGetFavorite,
