@@ -53,6 +53,7 @@ const postRequest = async (req, res) => {
   let carId = await carsSchema.find({_id: idCar})
   carId = carId[0].review;
   review = carId.map(e => JSON.stringify(e._id) === JSON.stringify(id) ? (e.request = request) && e : e );
+console.log(review)
   await carsSchema.updateOne({ _id: id }, { review });
   let userId = await usersSchema.find({email: email});
   userId = userId[0].review;

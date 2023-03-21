@@ -9,7 +9,7 @@ const reviewSchema = mongoose.Schema({
     request: {
         type: String,
         default: "",
-        minLength: 5,
+        //minLength: 5,
         maxLength: 250,
     },
     email: {

@@ -49,7 +49,7 @@ function Filters() {
     setRange([b[0],b[b.length]])
   }
   function handelrModel(e) {
-    dispatch(push({ propety: "model", value: e.target.innerText }));
+    dispatch(push({ propety: "model", value: e.target.innerText })); 
     dispatch(allFilter());
     setRange([b[0],b[b.length]])
   }
