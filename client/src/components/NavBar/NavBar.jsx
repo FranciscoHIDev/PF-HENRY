@@ -13,6 +13,7 @@ import "@szhsin/react-menu/dist/index.css";
 import "@szhsin/react-menu/dist/transitions/slide.css";
 import { useDispatch } from "react-redux";
 import { createUser } from "../../redux/actions/actions";
+import Style from "./NavBar.module.css";
 
 function NavBar() {
   const { isAuthenticated, user, logout } = useAuth0();
@@ -40,13 +41,38 @@ function NavBar() {
 
   return (
     <React.Fragment>
-      <div className="flex flex-col lg:flex-row lg:justify-between bg-white w-full fixed p-3 z-10">
-        <div className="flex justify-center items-center lg:[margin-right:12%] lg:ml-10 ">
-          <Link className="w-[195px] lg:w-[130px]" to="/">
-            <img className="w-[195px] h-[79px] lg:w-[130px] lg:h-[53px] pt-1" src={logo2} alt="logo" />
+      <div className="flex flex-col lg:flex-row lg:justify-between bg-white w-full fixed py-3 md:p-3 z-10">
+        <div className="flex relative justify-center items-center lg:[margin-right:12%] lg:ml-10 ">
+          <section className={Style.p_menu1 + "block absolute left-0 top-1 md:hidden"}>
+            <nav id="navbar" role="navigation">
+              <input className={Style.toggle1} id="toggle1" type="checkbox" />
+              <label className={Style.hamburger1} htmlFor="toggle1">
+                <div className={Style.top}></div>
+                <div className={Style.meat}></div>
+                <div className={Style.bottom}></div>
+              </label>
+
+              <nav className={Style.menu1}>
+                <Link className={Style.link1} to="/home">
+                  HOME
+                </Link>
+                <a className={Style.link1} href="">
+                  Playmet
+                </a>
+                <a className={Style.link1} href="">
+                  ABOUT
+                </a>
+                <a className={Style.link1} href="">
+                  CONTACT
+                </a>
+              </nav>
+            </nav>
+          </section>
+          <Link className="w-[130px] md:w-[195px] lg:w-[130px] z-20" to="/">
+            <img className="w-[130px] h-[53px] md:w-[195px] md:h-[79px] lg:w-[130px] lg:h-[53px] pt-1" src={logo2} alt="logo" />
           </Link>
         </div>
-        <div className="flex justify-between lg:w-4/5 text-[20px] text-black items-center [padding-left:5%] lg:px-0">
+        <div className="hidden md:flex justify-between lg:w-4/5 text-[20px] text-black items-center [padding-left:5%] lg:px-0">
           <div className="flex w-4/5">
             <Link className="[margin-right:calc(30%-100px)] lg:mr-10" to="/home">
               HOME
