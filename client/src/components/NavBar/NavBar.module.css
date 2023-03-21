@@ -33,12 +33,12 @@ a {
 
 .toggle1:checked + .hamburger1 .top {
   transform: rotate(-45deg);
-  margin-top: 22.5px;
+  margin-top: 17px;
 }
 
 .toggle1:checked + .hamburger1 .meat {
   transform: rotate(45deg);
-  margin-top: -5px;
+  margin-top: -4px;
 }
 
 .toggle1:checked + .hamburger1 .bottom {
@@ -46,17 +46,17 @@ a {
 }
 
 .toggle1:checked ~ .menu1 {
-  height: 340px;
+  height: 280px;
+  padding-top: 19px;
 }
 
 /* Menu */
 .menu1 {
   width: 100vw;
-  background-color: #fff;
   margin: 0;
   display: grid;
   grid-template-rows: 1fr repeat(4, 0.5fr);
-  grid-row-gap: 25px;
+  place-items: center;
   padding: 0;
   list-style: none;
   clear: both;
@@ -68,23 +68,11 @@ a {
   transition: all 0.3s ease;
 }
 
-.menu1 a:first-child {
-  margin-top: 40px;
-}
-
-.menu1 a:last-child {
-  margin-bottom: 40px;
-}
-
 .link1 {
   width: 100%;
   margin: 0;
-  padding: 10px 0;
+  padding: 20px 0;
   font: 700 20px "Oswald", sans-serif;
-}
-
-.link1:hover {
+  margin-top: 2px;
   background-color: #fff;
-  color: rgb(61, 61, 61);
-  transition: all 0.3s ease;
 }

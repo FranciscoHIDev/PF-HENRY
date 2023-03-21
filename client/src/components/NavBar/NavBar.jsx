@@ -56,21 +56,89 @@ function NavBar() {
                 <Link className={Style.link1} to="/home">
                   HOME
                 </Link>
-                <a className={Style.link1} href="">
+                <Link className={Style.link1} to="/playmet">
                   Playmet
-                </a>
-                <a className={Style.link1} href="">
+                </Link>
+                <Link className={Style.link1} to="/about">
                   ABOUT
-                </a>
-                <a className={Style.link1} href="">
+                </Link>
+                <Link className={Style.link1} to="/contact">
                   CONTACT
-                </a>
+                </Link>
               </nav>
             </nav>
           </section>
           <Link className="w-[130px] md:w-[195px] lg:w-[130px] z-20" to="/">
             <img className="w-[130px] h-[53px] md:w-[195px] md:h-[79px] lg:w-[130px] lg:h-[53px] pt-1" src={logo2} alt="logo" />
           </Link>
+          <div className="flex items-center justify-end mr-2 lg:mr-8">
+            {/* <Link to="/cart">
+            <HiOutlineShoppingBag className="text-3xl mr-4" />
+          </Link> */}
+            {isAuthenticated && user ? (
+              <>
+                {" "}
+                <nav className="z-20 block md:hidden absolute right-4">
+                  <Menu
+                    menuButton={
+                      <MenuButton className="flex bg-primary items-center gap-x-2 hover:bg-[#0d6efd]  rounded-lg transition-colors pl-3 pr-5">
+                        <img src={user.picture} alt={user.given_name} className="w-8 h-8 object-cover rounded-full" />
+                        <RiArrowDownSLine />
+                      </MenuButton>
+                    }
+                    align="end"
+                    arrow
+                    arrowClassName="bg-secondary-100"
+                    transition
+                    menuClassName="bg-secondary-100 p-4"
+                  >
+                    <MenuItem className="p-0 hover:bg-transparent">
+                      <Link
+                        to="/profile"
+                        className="rounded-lg transition-colors text-gray-300 hover:bg-secondary-900 flex items-center gap-x-4 py-2 px-6 flex-1"
+                      >
+                        <img src={user.picture} alt={user.given_name} className="w-8 h-8 object-cover rounded-full" />
+                        <div className="flex flex-col text-sm">
+                          <span className="text-sm">{user.given_name} </span>
+                          <span className="text-xs text-gray-500">{user.email}</span>
+                        </div>
+                      </Link>
+                    </MenuItem>
+                    <hr className="my-4 border-gray-500" />
+                    <MenuItem className="p-0 hover:bg-transparent">
+                      <Link
+                        to="/profile"
+                        className="rounded-lg transition-colors text-gray-300 hover:bg-secondary-900 flex items-center gap-x-4 py-2 px-6 flex-1"
+                      >
+                        <RiProfileLine /> My Profile
+                      </Link>
+                    </MenuItem>
+                    <MenuItem className="p-0 hover:bg-transparent">
+                      <Link
+                        to="/favorites"
+                        className="rounded-lg transition-colors text-gray-300 hover:bg-secondary-900 flex items-center gap-x-4 py-2 px-6 flex-1"
+                      >
+                        <MdOutlineFavorite /> Favorites
+                      </Link>
+                    </MenuItem>
+                    <MenuItem className="p-0 hover:bg-transparent">
+                      <Link
+                        to="#"
+                        onClick={() => logout({ returnTo: window.location.origin })}
+                        className="rounded-lg transition-colors text-gray-300 hover:bg-secondary-900 flex items-center gap-x-4 py-2 px-6 flex-1"
+                      >
+                        <RiLogoutCircleRLine /> Log Out
+                      </Link>
+                    </MenuItem>
+                  </Menu>
+                </nav>
+              </>
+            ) : (
+              <div className="z-20 block md:hidden absolute right-4">
+                <LoginButton />
+              </div>
+            )}
+          </div>
         </div>
         <div className="hidden md:flex justify-between lg:w-4/5 text-[20px] text-black items-center [padding-left:5%] lg:px-0">
           <div className="flex w-4/5">
