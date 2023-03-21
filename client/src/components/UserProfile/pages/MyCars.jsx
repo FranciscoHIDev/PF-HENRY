@@ -21,7 +21,7 @@ function MyCars() {
  
 
    // e[0].items[0].picture_url
-  return  facturas ?(
+  return  facturas? (
     <div>
       {facturas.map((e)=>(<div className='my-5' >
         <div className='bg-white text-primary p-2 rounded-t-md border-b-2 border-gray-400'>{e[0].date_approved}</div>
@@ -43,7 +43,7 @@ function MyCars() {
      </div>))}
       
     </div> 
-  ):(<h2>no hay facturas</h2>)
+  ):(<h1> you don't have purchases yet </h1>)
 }
 
 export default MyCars
