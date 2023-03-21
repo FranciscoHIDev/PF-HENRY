@@ -42,6 +42,7 @@ function Card({
       } else {
         setClick(false);
       }
+      
     } else {
       Swal.fire({
         position: "center",
@@ -50,15 +51,16 @@ function Card({
         showConfirmButton: true,
       });
     }
+    
   };
 
   useEffect(() => {
     if (isAuthenticated && user) {
       axios.get("/users").then((e) => {
+        console.log();
         const userDB = e.data.find((e) => e.email === user.email);
-        console.log(userDB);
+
         const favorite = userDB.favorites.map((e) => e._id);
-        console.log(favorite);
         for (let i = 0; i < favorite.length; i++) {
           if (favorite[i] === _id) {
             setClick(true);

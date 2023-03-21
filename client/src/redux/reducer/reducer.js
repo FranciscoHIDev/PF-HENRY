@@ -14,7 +14,6 @@ import {
   POST_CAR,
   FRANGE,
   LINK_COMPRA,
-  POST_FAVORITE,
   GET_ALL_USERS
 } from "../actions/actions";
 
@@ -141,12 +140,18 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         cars: [...state.cars, action.payload]
       }
-    case POST_FAVORITE:
-      return {
-        ...state,
-        allUsers: action.payload
+    // case POST_FAVORITE:
+    //   const info = state.allUsers
+    //   const ifo2 = info.find((e) => e.email === action.payload.email);
+    //   // const favorits = info.favorites
+    //   //const fav = favorits.filter((e) => e._id !== action.payload._id)
+    //   console.log(action.payload)
+    //   return {
+    //     ...state,
+    //     allUsers: [...ifo2]
 
-      }
+
+
     case GET_ALL_USERS:
       return {
         ...state,

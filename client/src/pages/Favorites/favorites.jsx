@@ -1,26 +1,60 @@
 import React, { useEffect, useState } from "react";
 import NavBar from "../../components/NavBar/NavBar";
 import Footer from "../../components/Footer/Footer";
-import Card from "../../components/Card/Card";
+import CardFavorite from "../../components/Card/CardFavorite";
+import { useAuth0 } from "@auth0/auth0-react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllUsers } from "../../redux/actions/actions";
-import { useAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
+import { postFavorite } from "../../redux/actions/actions";
 
-const Favorites = () => {
-  const { isAuthenticated, user } = useAuth0();
-  const dispatch = useDispatch();
-  const allUsers = useSelector((state) => state.allUsers);
+// const all = async () => {
+//   const ele = await axios.get("/users");
+//   return ele;
+// };
 
-  useEffect(() => {
-    dispatch(getAllUsers());
-  }, []);
+export const Favorites = () => {
+  ///const dispatch = useDispatch();
 
-  let myFavorite = [];
-  if (isAuthenticated && user) {
-    const userDB = allUsers.find((e) => e.email === user.email);
-    myFavorite = userDB.favorites;
-  }
+  const [favorite, setFavorite] = useState([]);
+  // useEffect(() => {
+  //   dispatch(getAllUsers());
+  // }, []);
+
+  const { user, isAuthenticated } = useAuth0();
+  // let favorite = [];
+  // const allUser = useSelector((state) => state.allUsers);
+  // if (isAuthenticated) {
+  //   const userDB = allUser.find((e) => e.email === user.email);
+  //   favorite = userDB.favorites;
+  //   //setFavorite(myFavorite);
+  // }
+
+  // useEffect(() => {
+
+  if (isAuthenticated) {
+    axios.get("/users").then((e) => {
+      const userDB = e.data.find((e) => e.email === user.email);
+      const myFavorite = userDB.favorites;
+      setFavorite(myFavorite);
+    });
+  }e
+  // }, []);
+
+  //Aqui se soluciona las peticiones al user.
+
+  // useEffect(() => {
+  //   //misFavoritos();
+  //   (async () => {
+  //     const ele = await all();
+  //     if (isAuthenticated) {
+  //       const userDB = ele.data.find((e) => e.email === user.email);
+  //       console.log(userDB.favorites);
+  //       const myFavorite = userDB.favorites;
+  //       setFavorite(myFavorite);
+  //     }
+  //   })();
+  // }, []);
 
   return (
     <React.Fragment>
@@ -30,10 +64,10 @@ const Favorites = () => {
           <h1 className="">My favourites</h1>
         </div>
         <div className="flex mb-[10px] mt-10 flex-wrap  justify-center ">
-          {myFavorite.length !== 0 ? (
-            myFavorite.map((c) => {
+          {favorite ? (
+            favorite.map((c) => {
               return (
-                <Card
+                <CardFavorite
                   key={crypto.randomUUID()}
                   _id={c._id}
                   type={c.type}
