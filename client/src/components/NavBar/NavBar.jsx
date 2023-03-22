@@ -16,19 +16,15 @@ import { createUser } from "../../redux/actions/actions";
 import Style from "./NavBar.module.css";
 
 function NavBar() {
+  
   const { isAuthenticated, user, logout } = useAuth0();
-
-
 //   axios.get("/users")
 //   .then((e) => {
 //     const userDB = e.data.find((e) => e.email === user.email);
-
   
 // const idUSer= userDB._id
 // console.log(idUSer)
-
 // })
-
 
   const dispatch = useDispatch();
 

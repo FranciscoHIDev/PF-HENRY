@@ -10,6 +10,7 @@ import SideBar from "./../SideBar/SideBar";
 function Cards() { 
   const dispatch = useDispatch();
   const cars = useSelector((state) => state.cars);
+  const [loading, setLoading] = useState(true)
 
   const carsValid = [];
   cars.map((car) => {
@@ -46,7 +47,7 @@ function Cards() {
           {totalCars.length !== 0 ? (
             totalCars.map((c) => {
               return (
-                <Card
+                loading && <Card
                   key={crypto.randomUUID()}
                   _id={c._id}
                   type={c.type}
@@ -59,12 +60,11 @@ function Cards() {
                   location={c.location}
                   fuelType={c.fuelType}
                   transissionType={c.transissionType}
-                />
+                />        
               );
             })
-          ) : (
-            <Loading />
-          )}
+          ) : <h2 className="justify-center">Car not found</h2>
+          }
         </div>
       </div>
       <div>
