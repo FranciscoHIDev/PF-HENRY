@@ -51,13 +51,13 @@ function RoutesApp() {
           <Route path="create-car" element={<FormCar />} />
         </Route>
         {/* Configuración de rutas del Perfil de usuario  */}
-        <Route path="/profile"    element={<LayoutUser />}>
+        <Route path="/profile" element={<LayoutUser />}>
           <Route path="MyProfile" element={<Myprofile />} />
-          <Route path="mycars"    element={<MyCars />} />
-          <Route path="coments"   element={<Coments />} />
+          <Route path="mycars" element={<MyCars />} />
+          <Route path="coments" element={<Coments />} />
           <Route path="favorites" element={<Favorites />} />
         </Route>
-        <Route element={<ProtectedRoute isAllowed={!!isAuthenticated} />}>
+        <Route element={<ProtectedRoute isAllowed={isAuthenticated} />}>
           <Route path="/profile" element={<LayoutUser />} />
         </Route>
         <Route exact path="*" element={<NotFound />} />
