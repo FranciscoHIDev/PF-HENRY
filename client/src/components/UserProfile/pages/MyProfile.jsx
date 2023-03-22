@@ -15,8 +15,6 @@ export default function MyProfile() {
   const [selectedFile, setSelectedFile] = useState(null);
   const [render, setRender] = useState([])
 
-  const userDB = useSelector(state => state.allUsers)
-
   if (isAuthenticated && (userDB.length > 0)) {
     var aux = userDB.find((e) => e.email === user.email)
     console.log(aux)
