@@ -12,8 +12,7 @@ export default function MyProfile() {
   const userDB = useSelector((state) => state.allUsers);
   const userIdRender = useSelector(state => state.userRender);
   const { user, isAuthenticated } = useAuth0();
-  const [selectedFile, setSelectedFile] = useState(null);
-  const [render, setRender] = useState([])
+
 
 
   if (isAuthenticated && (userDB.length > 0)) {
@@ -34,8 +33,8 @@ export default function MyProfile() {
     image: "" || userImage,
     name: "" || userName,
     lastname: "" || userLastname,
-    kindOfPerson: "natural" || userKingofperson,
-    email: user.email,
+    kindOfPerson: "natural" || userKingofperson ,
+    email: userEmail,
     location: "" || userLocation,
     dni: "" || userDni,
     telephone: "" || userTelephone,
