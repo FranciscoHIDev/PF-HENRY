@@ -65,7 +65,7 @@ const postCompra = async (req, res) => {
         to: newUserCompra.email,
         subject: "Successful Buys",
         text: `Dear user: ${users.name} Your buys was scheduled
-          \n Reservation data:
+          \n Buys data:
           \nCar ${carSchema[0].brand} ${newUserCompra[0].order}\n In case of any queries, contact <info.carmania2023@gmail.com>
           \n Thank you for choosing us
           
