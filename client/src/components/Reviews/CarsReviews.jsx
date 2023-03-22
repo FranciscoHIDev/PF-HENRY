@@ -39,12 +39,12 @@ function CarsReviews({ id, comment }) {
 
   return (
     <div>
-      <div className="flex">
-        <div className="flex-initial w-64">
+      <div className="flex flex-row ">
+        <div className="mx-5">
           <textarea
             maxlength="250"
             autocomplete="off"
-            className="text-white"
+            className="text-black rounded-md bg-white"
             name=""
             value={commentCar}
             placeholder="write your question..."
@@ -54,24 +54,29 @@ function CarsReviews({ id, comment }) {
             onChange={handlerComment}
           ></textarea>
         </div>
-        <div className="flex-none w-14 h-14" >
+        <div className="" >
           {isAuthenticated && commentCar.length > 5 ? (
-            <button onClick={handlerReviews} type="submit">
+            <button onClick={handlerReviews} type="submit" className="bg-black">
               Questions
             </button>
-          ) : (
-            <button  type="submit" onClick={handlerlogear}>
+          ) :isAuthenticated ? (
+            <button disable type="submit" className="bg-black">
               Questions
             </button>
-          )}
+          ):
+            <button onClick={handlerlogear} type="submit" className="bg-black">
+              Questions
+            </button>}
         </div>
       </div>
 
-      <div>
+      <div className="flex flex-col">
         {reviewAdd?.map((e) => (
-          <div key={e.id}>
-            <span>{e.comment}</span>
+          <div key={e.id} className="place-self-start bg-white mx-5 my-1 p-2 rounded-md ">
+            <div className="text-lg "><span>Question : {e.comment}</span></div>
+            {e.request !== ""  ?(<div className=" p-2 bg-gray-100"><span>ask : {e.request}</span></div>):null}
           </div>
+          
         ))}
       </div>
     </div>
