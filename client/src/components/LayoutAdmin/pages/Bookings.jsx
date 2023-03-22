@@ -214,13 +214,13 @@ function Bookings() {
           <TableHead className="bg-[#0d6efd] ">
             <TableRow>
               {/* <TableCell>Id</TableCell> */}
+              <TableCell>Order</TableCell>
               <TableCell>Date</TableCell>
-              <TableCell>Image</TableCell>
               <TableCell>Email</TableCell>
+              <TableCell>Price</TableCell>
               <TableCell>Status-Pay</TableCell>
               <TableCell>Status-Car</TableCell>
-              <TableCell>Price</TableCell>
-              <TableCell>Accions</TableCell>
+              <TableCell>Accions</TableCell>              
             </TableRow>
           </TableHead>
           <TableBody>
@@ -229,13 +229,13 @@ function Bookings() {
                 return (
                   <TableRow key={u.id}>
                     {/* <TableCell>{u._id}</TableCell> */}
+                    <TableCell>{u.order[0].id}</TableCell>
                     <TableCell>{u.date_approved}</TableCell>
-                    <TableCell>{u.picture_url}</TableCell>
                     <TableCell>{u.email}</TableCell>
+                    <TableCell>{u.items[0].unit_price}</TableCell>
+                    {/* <TableCell>{u.order[0].type}</TableCell> */}
                     <TableCell>{u.status}</TableCell>
                     <TableCell>{u.statusCar}</TableCell>
-                    <TableCell>{u.unit_price}</TableCell>
-                    <TableCell>{u.active}</TableCell>
                     <TableCell>
                       <Edit
                         className="cursor-pointer"
