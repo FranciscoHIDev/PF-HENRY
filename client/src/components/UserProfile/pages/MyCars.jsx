@@ -33,8 +33,7 @@ function MyCars() {
         <div className= 'flex-initial w-64 text-primary font-bold text-lg'>
       <p className='text-gray-400' >Price : <span className='text-black'>{ e.items[0].unit_price}</span> </p> 
       <p className='text-gray-400'>Name : <span className='text-black'>{ e.items[0].description }   {e.items[0].title}</span></p> 
-      <p className='text-gray-400'>Status Buyding: <span className='text-black'>{ e.status}</span></p>
-      <p className='text-gray-400'>Status Delivered : <span className='text-black'>{ e.statusCar}</span></p>
+      <p className='text-gray-400'>Status Buyding: <span className='text-black'>{ e.status}</span></p>  
             </div>
         </div>
      </div>))}

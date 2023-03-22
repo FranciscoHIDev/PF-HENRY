@@ -11,8 +11,8 @@ import { MdOutlineFavorite } from "react-icons/md";
 import { Menu, MenuItem, MenuButton } from "@szhsin/react-menu";
 import "@szhsin/react-menu/dist/index.css";
 import "@szhsin/react-menu/dist/transitions/slide.css";
-import { useDispatch } from "react-redux";
-import { createUser } from "../../redux/actions/actions";
+import { useDispatch, useSelector } from "react-redux";
+import { createUser, getAllUsers } from "../../redux/actions/actions";
 import Style from "./NavBar.module.css";
 
 function NavBar() {
@@ -27,7 +27,11 @@ function NavBar() {
 // })
 
   const dispatch = useDispatch();
-
+  useEffect(() => {
+    dispatch(getAllUsers)
+  }, []);
+  
+    
   useEffect(() => {
     if (user && isAuthenticated) {
       axios.get("/users").then((element) => {
@@ -44,7 +48,10 @@ function NavBar() {
         }
       });
     }
-  }, [user]);
+  }, [user]); 
+  let userState = useSelector(state =>state.allUsers )
+  if (userState.length !==0 && isAuthenticated){
+    var userStateC = userState.filter((element) => element.email === user.email)}
 
   return (
     <React.Fragment>
@@ -113,12 +120,18 @@ function NavBar() {
                     </MenuItem>
                     <hr className="my-4 border-gray-500" />
                     <MenuItem className="p-0 hover:bg-transparent">
-                      <Link
+                      {console.log(userStateC[0].roll == "user")}
+                     {(userStateC[0].roll == "user") ? <Link
                         to="/profile"
                         className="rounded-lg transition-colors text-gray-300 hover:bg-secondary-900 flex items-center gap-x-4 py-2 px-6 flex-1"
                       >
                         <RiProfileLine /> My Profile
-                      </Link>
+                      </Link>:<Link
+                        to="/dashboard"
+                        className="rounded-lg transition-colors text-gray-300 hover:bg-secondary-900 flex items-center gap-x-4 py-2 px-6 flex-1"
+                      >
+                        <RiProfileLine /> Admin
+                      </Link>}
                     </MenuItem>
                     <MenuItem className="p-0 hover:bg-transparent">
                       <Link
@@ -202,12 +215,17 @@ function NavBar() {
                     </MenuItem>
                     <hr className="my-4 border-gray-500" />
                     <MenuItem className="p-0 hover:bg-transparent">
-                      <Link
+                     { userStateC[0].roll =="user" ?<Link
                         to="/profile"
                         className="rounded-lg transition-colors text-gray-300 hover:bg-secondary-900 flex items-center gap-x-4 py-2 px-6 flex-1"
                       >
                         <RiProfileLine /> My Profile
-                      </Link>
+                      </Link>:<Link
+                        to="/dashboard" 
+                        className="rounded-lg transition-colors text-gray-300 hover:bg-secondary-900 flex items-center gap-x-4 py-2 px-6 flex-1"
+                      >
+                        <RiProfileLine /> Admin
+                      </Link>}
                     </MenuItem>
                     <MenuItem className="p-0 hover:bg-transparent">
                       <Link
