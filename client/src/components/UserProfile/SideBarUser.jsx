@@ -33,10 +33,6 @@ function SideBarUser() {
 
   }
 
-  const [users, setUsers] = useState({
-     name: user.given_name,
-    lastname: ""
-  })
 
 
   
@@ -54,7 +50,7 @@ function SideBarUser() {
           {isAuthenticated && (
             <h1 className="text-center text-4xl font-bold text-white mb-10">
               Wellcome, <br />
-              {users.name} {users.lastname}
+              {user.given_name} 
               <span className="text-primary  ">.</span>
             </h1>
           )}
