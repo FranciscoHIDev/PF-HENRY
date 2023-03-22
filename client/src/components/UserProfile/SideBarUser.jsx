@@ -29,7 +29,6 @@ function SideBarUser() {
   // if (isAuthenticated && (userDB.length > 0)) {
   //   const  aux = userDB.find((e) => e.email === user.email)
   //   var infouser = aux
-
   // }
 
   // const [users, setUsers] = useState({
@@ -51,7 +50,7 @@ function SideBarUser() {
           {/* {isAuthenticated && (
             <h1 className="text-center text-4xl font-bold text-white mb-10">
               Wellcome, <br />
-              {users.name} {users.lastname}
+              {user.given_name} 
               <span className="text-primary  ">.</span>
             </h1>
           )} */}

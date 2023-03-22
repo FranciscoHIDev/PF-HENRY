@@ -16,6 +16,7 @@ export default function MyProfile() {
   const userDB = useSelector((state) => state.allUsers);
   //const userIdRender = useSelector((state) => state.userRender);
   const { user, isAuthenticated } = useAuth0();
+
   const [selectedFile, setSelectedFile] = useState(null);
   //const [render, setRender] = useState([]);
 
@@ -27,25 +28,30 @@ export default function MyProfile() {
 
   // const userId = userIdRender._id;
 
-  if (isAuthenticated && userDB.length > 0) {
-    var aux = userDB.find((e) => e.email === user.email);
-    console.log(aux);
-    var userid = aux._id;
-    var userName = aux.name;
-    var userLastname = aux.lastname;
-    var userLocation = aux.location;
-    var userDni = aux.dni;
-    var userKingofperson = aux.kindOfPerson;
-    var userTelephone = aux.telephone;
-    var userImage = aux.image;
+
+
+
+
+  if (isAuthenticated && (userDB.length > 0)) {
+    var aux = userDB.find((e) => e.email === user.email)
+    console.log(aux)
+    var userid = aux._id
+ var userName = aux.name
+ var userLastname = aux.lastname
+ var userLocation = aux.location 
+ var userDni = aux.dni
+ var userKingofperson = aux.kindOfPerson
+ var userTelephone = aux.telephone
+ var userImage = aux.image
+ var userEmail = aux.email
   }
 
   const [users, setUsers] = useState({
     image: "" || userImage,
     name: "" || userName,
     lastname: "" || userLastname,
-    kindOfPerson: "natural" || userKingofperson,
-    email: user.email,
+    kindOfPerson: "natural" || userKingofperson ,
+    email: userEmail,
     location: "" || userLocation,
     dni: "" || userDni,
     telephone: "" || userTelephone,
