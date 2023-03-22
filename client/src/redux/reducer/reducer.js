@@ -33,7 +33,7 @@ const initialState = {
   compra: [],
   userRender: [],
 };
-const rootReducer = (state = initialState, action) => { 
+const rootReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_ALL_CARS:
       return {
@@ -135,7 +135,7 @@ const rootReducer = (state = initialState, action) => {
         allUsers: action.payload,
       };
     case ADD_USER:
-      const copiaState = [...state.allUsers].filter((e) => e.email === action.payload);
+      const copiaState = [...state.allUsers]?.filter((e) => e.email === action.payload);
       return {
         ...state,
         userRender: copiaState,
@@ -162,11 +162,18 @@ const rootReducer = (state = initialState, action) => {
         cars: [...state.cars, action.payload],
       };
     case POST_FAVORITE:
+      console.log("hola")
+      console.log(action.payload.data)
+      const favCars = [...state.userRender]
+
+      favCars.favorites = action.payload.data
+      console.log(favCars)
+
       return {
         ...state,
-        allUsers: action.payload
+        userRender: favCars
       }
-      case POST_REVIEW:
+    case POST_REVIEW:
       return {
         ...state,
         allUsers: action.payload

@@ -9,7 +9,7 @@ import {
 } from "react-icons/ri";
 
 import { FaUsers, FaShoppingBag } from "react-icons/fa";
-import { BsFillChatLeftTextFill } from "react-icons/bs"
+import { BsFillChatLeftTextFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useSelector } from "react-redux";
@@ -18,43 +18,38 @@ import { useDispatch } from "react-redux";
 
 function SideBarUser() {
   //overflow-y-scroll +}
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   useEffect(() => {
-
-    dispatch(getAllUsers())
+    dispatch(getAllUsers());
   }, []);
 
   const { user, isAuthenticated, logout } = useAuth0();
   const userDB = useSelector(state => state.allUsers)
 
-  if (isAuthenticated && (userDB.length > 0)) {
+
+   if (isAuthenticated && (userDB.length > 0)) {
     const  aux = userDB.find((e) => e.email === user.email)
     var infouser = aux
-
   }
-  console.log(infouser)
 
-
-
-  
   const [showSubMenu, setShowSubMenu] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
-
 
   return (
     <>
       <div
-        className={`xl:h-[100vh]  fixed xl:static w-[50%] md:w-[40%] lg:w-[30%] xl:w-auto h-full  top-0 bg-secondary-100 p-4 flex flex-col justify-between z-50  ${showMenu ? "left-0" : "-left-full"
-          } transition-all`}
+        className={`xl:h-[100vh]  fixed xl:static w-[50%] md:w-[40%] lg:w-[30%] xl:w-auto h-full  top-0 bg-secondary-100 p-4 flex flex-col justify-between z-50  ${
+          showMenu ? "left-0" : "-left-full"
+        } transition-all`}
       >
         <div>
-          {isAuthenticated && (
+          {/* {isAuthenticated && (
             <h1 className="text-center text-4xl font-bold text-white mb-10">
               Wellcome, <br />
               {infouser.name} 
               <span className="text-primary  ">.</span>
             </h1>
-          )}
+          )} */}
           <ul>
             <li>
               <Link
