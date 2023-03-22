@@ -95,11 +95,10 @@ const carSchema = mongoose.Schema({
     minLength: 10,
     maxLength: 100,
   },
-   review: 
-    {
-      type: Array,
-      ref: "Review",
-     },
+  review: {
+    type: Array,
+    ref: "Review",
+  },
   billing: [
     {
       type: mongoose.Types.ObjectId,
