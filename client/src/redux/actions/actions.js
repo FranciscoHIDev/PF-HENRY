@@ -168,7 +168,7 @@ export const getAllUsers = () => async (dispatch) => {
 
 export const postContact = (payload) => async (dispatch) => {
   try {
-    const data = await axios.post("http://localhost:3001/contact", payload);
+    const data = await axios.post("/contact", payload);
     return dispatch({
       type: "POST_CONTACT",
       payload: data,
