@@ -3,15 +3,16 @@ import { useDispatch, useSelector } from "react-redux";
 import { userRender } from "../../redux/actions/actions";
 import { useAuth0 } from "@auth0/auth0-react";
 import CardFavorite from "../../components/Card/CardFavorite";
+import axios from "axios";
 
 const Favorites = () => {
   const dispatch = useDispatch();
 
   const [favorite, setFavorite] = useState([]);
 
-  useEffect(() => {
-    dispatch(getAllUsers());
-  }, []);
+  // useEffect(() => {
+  //   dispatch(getAllUsers());
+  // }, []);
 
   const { user, isAuthenticated } = useAuth0();
   // let favorite = [];
