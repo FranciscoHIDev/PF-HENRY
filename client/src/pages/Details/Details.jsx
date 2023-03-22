@@ -1,5 +1,5 @@
 import NavBar from "../../components/NavBar/NavBar";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getCardsById, clearDetail } from "../../redux/actions/actions";
@@ -8,9 +8,17 @@ import { ImLocation } from "react-icons/im";
 import Footer from "../../components/Footer/Footer";
 import { Link } from "react-router-dom";
 import Loading from "../../components/Loading/Loading";
-import {MPButton} from "../../components/MPButton/MPButton"
+import Swal from "sweetalert2";
+import { useAuth0 } from "@auth0/auth0-react";
+import { MPButton } from "../../components/MPButton/MPButton";
+import CarsReviews from "../../components/Reviews/CarsReviews";
 
+//import { useState } from "react";
+import Style from '../../pages/Details/Details.module.css'
 function Details() {
+
+  const [pay, setPay] = useState(false)
+  const { isAuthenticated, user } = useAuth0();
   const { id } = useParams();
   const dispatch = useDispatch();
   const allData = useSelector((state) => state.details);
@@ -19,6 +27,17 @@ function Details() {
     dispatch(getCardsById(id));
     return () => dispatch(clearDetail());
   }, [dispatch, id]);
+
+  function handlerPay() {
+    setPay(true);
+    Swal.fire({
+      position: "center",
+      icon: "warning",
+      title: "You need a login",
+      showConfirmButton: true,
+      //timer: 3000,
+    });
+  }
 
   return (
     <>
@@ -35,12 +54,13 @@ function Details() {
                 <img
                   alt="image"
                   src={allData.image}
-                  className="w-[45em] h-[34em] aspect-square rounded-xl"
+                  className="w-[45em]   rounded-xl"
                 />
               </div>
 
-              <div className="shadow-sm bg-slate-200 p-[20px] rounded-lg sticky top-0">
-                <div className="mt-8 flex justify-between">
+              <div className={Style.infoCar}>
+
+                <div className={Style.title}>
                   <div className="max-w-[35ch] space-y-2">
                     <h1 className="text-xl font-bold sm:text-2xl">
                       {allData.brand}: {allData.model}
@@ -98,7 +118,7 @@ function Details() {
                       </svg>
                     </div>
                   </div>
-                  <p className="text-lg font-bold">${allData.price}</p>
+                  <p className={Style.priceCar}>${allData.price}</p>
                 </div>
                 <div className="mt-4">
                   <div className="prose max-w-none ">
@@ -146,17 +166,22 @@ function Details() {
                         TransissionType: {allData.transissionType}
                       </span>
                       <span className="m-[3px] group inline-block rounded-full border px-3 py-1 text-[15px] font-medium bg-black text-white">
-                        Consumption: {allData.fuelConsumption}
+                        Consumptioaan: {allData.fuelConsumption}
                       </span>
                     </label>
                   </div>
                 </fieldset>
-                
-                <MPButton id={id}model={allData.model}brand={allData.brand}image={allData.image}price={allData.price}></MPButton>
-                
+
+                <div className={Style.botonCompra}>
+                  {isAuthenticated ? <MPButton id={id} /> : <button onClick={handlerPay}>Comprar</button> }
+                </div> 
+                {/*<div className="mt-4">
+                  <MPButton id={id}></MPButton>
+                </div>  */}
               </div>
             </div>
           </div>
+          <CarsReviews id={id} comment={allData.review}/>
         </div>
       ) : (
         <Loading />

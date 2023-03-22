@@ -7,9 +7,11 @@ import Pagination from "../Pagination/Pagination";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import SideBar from "./../SideBar/SideBar";
 
-function Cards() {
+function Cards() { 
   const dispatch = useDispatch();
   const cars = useSelector((state) => state.cars);
+  const [loading, setLoading] = useState(true)
+
   const carsValid = [];
   cars.map((car) => {
     car.status === "valid" ? carsValid.push(car) : null;
@@ -39,13 +41,13 @@ function Cards() {
 
       <div className="flex ">
         <div className="mr-10">
-          <SideBar className="justify-self-start mr-3" />
+          <SideBar  setPage={setPage} className="justify-self-start mr-3" />
         </div>
         <div className="flex mb-[10px] mt-20 flex-wrap  justify-center ">
           {totalCars.length !== 0 ? (
             totalCars.map((c) => {
               return (
-                <Card
+                loading && <Card
                   key={crypto.randomUUID()}
                   _id={c._id}
                   type={c.type}
@@ -58,12 +60,11 @@ function Cards() {
                   location={c.location}
                   fuelType={c.fuelType}
                   transissionType={c.transissionType}
-                />
+                />        
               );
             })
-          ) : (
-            <Loading />
-          )}
+          ) : <h2 className="justify-center">Car not found</h2>
+          }
         </div>
       </div>
       <div>

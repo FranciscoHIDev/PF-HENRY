@@ -1,8 +1,11 @@
-.container{
-    border-radius: 5px;
-    height: 100vh;
-    margin: 20px;
-   
-    background-color: aliceblue;
-    
+.imagen{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding:10px; 
+    margin: 5px;
+
+}
+.btn{
+    margin: 10px;
 }

@@ -4,9 +4,16 @@ import { Link } from "react-router-dom";
 import NavBar from "../../components/NavBar/NavBar";
 import Footer from "../../components/Footer/Footer";
 import l1 from "../../assets/carousel-landing/logo1.png";
-import selec from "../../assets/carousel-landing/selection.jpg";
+import l2 from "../../assets/carousel-landing/logo2.png";
+import l3 from "../../assets/carousel-landing/logo3.png";
+import l4 from "../../assets/carousel-landing/logo4.png";
+import l5 from "../../assets/carousel-landing/logo5.png";
+import l6 from "../../assets/carousel-landing/logo6.png";
+import l7 from "../../assets/carousel-landing/logo7.png";
+import l8 from "../../assets/carousel-landing/logo8.png";
+import { BsGithub, BsLinkedin } from "react-icons/bs";
 
-function LandingPage() {
+function LandingPage() { 
   const [lenguaje, setLenguje] = React.useState({
     titulo: "The place where you buy your car",
     boton: "Go!",
@@ -35,89 +42,125 @@ function LandingPage() {
   return (
     <>
       <NavBar />
-      <div className="main">
-        <div className={Style.container}>
-          <div className={Style.botones}>
-            {/* <button className=" mr-2" onClick={onButtonClick} value="EN">
+
+      <div className={Style.container}>
+        {/* <div className={Style.botones}>
+          <button className=" mr-2" onClick={onButtonClick} value="EN">
           EN
         </button>
         <button className=" mr-2" onClick={onButtonClick} value="ES">
           ES
-        </button> */}
-          </div>
+        </button>
+      </div>*/}
 
-          <div className={Style.titulo}>
-            <h1>{lenguaje.titulo}</h1>
-          </div>
-          <div className={Style.boxBtn}>
-            <Link to="/home">
-              <button>{lenguaje.boton}</button>
-            </Link>
-          </div>
+        <div className={Style.titulo}>
+          <h1>{lenguaje.titulo}</h1>
         </div>
+        <div className={Style.boxBtn}>
+          <Link to="/home">
+            <button>{lenguaje.boton}</button>
+          </Link>
+        </div>
+      </div>
 
-        <div className={Style.container_2}>
-          <h2>Many brands to chose from</h2>
+      <div className={Style.container_2}>
+        <h2>
+          CHOOSE YOUR <span>BRAND</span>
+        </h2>
+        <div className={Style.info}>
           <p>
             We provide tailor-made approach to fit your unique requirement and considerations. We offer full support and service on all
-            stages of purchase and financing a car of your dream. You may choose any model available in our showroom or from our partners
+            stages of purchase and financing a car of your dream.
           </p>
-          <div className={Style.slider}>
-            <div className={Style.slide_track}>
-              <div className={Style.con}>
-                <div className={Style.slide}>
-                  <img src={l1} alt="" />
-                </div>
+          <Link to="/home">
+            <button>EXPLORE MORE</button>
+          </Link>
+        </div>
+
+        <div className={Style.slider}>
+          <div className={Style.slide_track}>
+            <div className={Style.con}>
+              <div className={Style.slide} id={Style.img1}>
+                <img src={l1} alt="" />
               </div>
-              <div className={Style.con}>
-                <div className={Style.slide}>
-                  <img src={l1} alt="" />
-                </div>
+            </div>
+            <div className={Style.con}>
+              <div className={Style.slide} id={Style.img2}>
+                <img src={l2} alt="" />
               </div>
-              <div className={Style.con}>
-                <div className={Style.slide}>
-                  <img src={l1} alt="" />
-                </div>
+            </div>
+            <div className={Style.con}>
+              <div className={Style.slide} id={Style.img3}>
+                <img src={l3} alt="" />
               </div>
-              <div className={Style.con}>
-                <div className={Style.slide}>
-                  <img src={l1} alt="" />
-                </div>
+            </div>
+            <div className={Style.con}>
+              <div className={Style.slide} id={Style.img4}>
+                <img src={l4} alt="" />
               </div>
-              <div className={Style.con}>
-                <div className={Style.slide}>
-                  <img src={l1} alt="" />
-                </div>
+            </div>
+            <div className={Style.con}>
+              <div className={Style.slide} id={Style.img5}>
+                <img src={l5} alt="" />
               </div>
-              <div className={Style.con}>
-                <div className={Style.slide}>
-                  <img src={l1} alt="" />
-                </div>
+            </div>
+            <div className={Style.con}>
+              <div className={Style.slide} id={Style.img6}>
+                <img src={l6} alt="" />
               </div>
-              <div className={Style.con}>
-                <div className={Style.slide}>
-                  <img src={l1} alt="" />
-                </div>
+            </div>
+            <div className={Style.con}>
+              <div className={Style.slide} id={Style.img7}>
+                <img src={l7} alt="" />
               </div>
-              <div className={Style.con}>
-                <div className={Style.slide}>
-                  <img src={l1} alt="" />
-                </div>
+            </div>
+            <div className={Style.con}>
+              <div className={Style.slide} id={Style.img8}>
+                <img src={l8} alt="" />
               </div>
-              <div className={Style.con}>
-                <div className={Style.slide}>
-                  <img src={l1} alt="" />
-                </div>
+            </div>
+            <div className={Style.con}>
+              <div className={Style.slide} id={Style.img11}>
+                <img src={l1} alt="" />
               </div>
-              <div className={Style.con}>
-                <div className={Style.slide}>
-                  <img src={l1} alt="" />
-                </div>
+            </div>
+            <div className={Style.con}>
+              <div className={Style.slide} id={Style.img22}>
+                <img src={l2} alt="" />
+              </div>
+            </div>
+            <div className={Style.con}>
+              <div className={Style.slide} id={Style.img33}>
+                <img src={l3} alt="" />
+              </div>
+            </div>
+            <div className={Style.con}>
+              <div className={Style.slide} id={Style.img44}>
+                <img src={l4} alt="" />
+              </div>
+            </div>
+            <div className={Style.con}>
+              <div className={Style.slide} id={Style.img55}>
+                <img src={l5} alt="" />
+              </div>
+            </div>
+            <div className={Style.con}>
+              <div className={Style.slide} id={Style.img66}>
+                <img src={l6} alt="" />
+              </div>
+            </div>
+            <div className={Style.con}>
+              <div className={Style.slide} id={Style.img77}>
+                <img src={l7} alt="" />
+              </div>
+            </div>
+            <div className={Style.con}>
+              <div className={Style.slide} id={Style.img88}>
+                <img src={l8} alt="" />
               </div>
             </div>
           </div>
         </div>
-        <div className={Style.footer}></div>
       </div>
 
       <div className={Style.container_3}>
@@ -130,6 +173,205 @@ function LandingPage() {
             and traditional brands such as Ferrari, Lamborghini, Bentley, Porsche, Land Rover and Mercedes, we provide classics designs to
             limited model variants. High-class tuning and procurement of rare model series are also possible.
           </p>
+        </div>
+      </div>
+
+      <div className="text-center p-10 bg-slate-50">
+        <h2 className="font-bold text-3xl tracking-wide text-cyan-800">Meet our team members</h2>
+        <p className="w-3/5 mx-auto mt-4 mb-7 tracking-wider">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. A assumenda hic maxime cupiditate qui distinctio voluptas cumque sit!
+          Dolor, dignissimos.
+        </p>
+        <div className="flex flex-wrap justify-center gap-10">
+          <div className="w-80 shadow-md bg-white p-5 rounded-2xl">
+            <div className="flex my-3">
+              <div className="rounded-full bg-slate-400" style={{ height: "50px", width: "50px" }}></div>
+              <div className="text-left flex flex-col justify-center ml-3">
+                <h3 className="font-bold">Full Name</h3>
+                <p className="font-bold tracking-wider" style={{ color: "#4a3aff" }}>
+                  FULL-STACK DEVELOPER
+                </p>
+              </div>
+            </div>
+            <p className="text-left tracking-wider">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam natus beatae quaerat! Ut dolorum amet at dolorem soluta hic
+              odio.
+            </p>
+            <div className="flex mt-2">
+              <a className="m-3 ml-0" href="https://github.com">
+                <div>
+                  <BsGithub></BsGithub>
+                </div>
+              </a>
+              <a className="m-3" href="https://linkedin.com">
+                <div>
+                  <BsLinkedin></BsLinkedin>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div className="w-80 shadow-md bg-white p-5 rounded-2xl">
+            <div className="flex my-3">
+              <div className="rounded-full bg-slate-400" style={{ height: "50px", width: "50px" }}></div>
+              <div className="text-left flex flex-col justify-center ml-3">
+                <h3 className="font-bold">Full Name</h3>
+                <p className="font-bold tracking-wider" style={{ color: "#4a3aff" }}>
+                  FULL-STACK DEVELOPER
+                </p>
+              </div>
+            </div>
+            <p className="text-left tracking-wider">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam natus beatae quaerat! Ut dolorum amet at dolorem soluta hic
+              odio.
+            </p>
+            <div className="flex mt-2">
+              <a className="m-3 ml-0" href="https://github.com">
+                <div>
+                  <BsGithub></BsGithub>
+                </div>
+              </a>
+              <a className="m-3" href="https://linkedin.com">
+                <div>
+                  <BsLinkedin></BsLinkedin>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div className="w-80 shadow-md bg-white p-5 rounded-2xl">
+            <div className="flex my-3">
+              <div className="rounded-full bg-slate-400" style={{ height: "50px", width: "50px" }}></div>
+              <div className="text-left flex flex-col justify-center ml-3">
+                <h3 className="font-bold">Full Name</h3>
+                <p className="font-bold tracking-wider" style={{ color: "#4a3aff" }}>
+                  FULL-STACK DEVELOPER
+                </p>
+              </div>
+            </div>
+            <p className="text-left tracking-wider">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam natus beatae quaerat! Ut dolorum amet at dolorem soluta hic
+              odio.
+            </p>
+            <div className="flex mt-2">
+              <a className="m-3 ml-0" href="https://github.com">
+                <div>
+                  <BsGithub></BsGithub>
+                </div>
+              </a>
+              <a className="m-3" href="https://linkedin.com">
+                <div>
+                  <BsLinkedin></BsLinkedin>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div className="w-80 shadow-md bg-white p-5 rounded-2xl">
+            <div className="flex my-3">
+              <div className="rounded-full bg-slate-400" style={{ height: "50px", width: "50px" }}></div>
+              <div className="text-left flex flex-col justify-center ml-3">
+                <h3 className="font-bold">Full Name</h3>
+                <p className="font-bold tracking-wider" style={{ color: "#4a3aff" }}>
+                  FULL-STACK DEVELOPER
+                </p>
+              </div>
+            </div>
+            <p className="text-left tracking-wider">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam natus beatae quaerat! Ut dolorum amet at dolorem soluta hic
+              odio.
+            </p>
+            <div className="flex mt-2">
+              <a className="m-3 ml-0" href="https://github.com">
+                <div>
+                  <BsGithub></BsGithub>
+                </div>
+              </a>
+              <a className="m-3" href="https://linkedin.com">
+                <div>
+                  <BsLinkedin></BsLinkedin>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div className="w-80 shadow-md bg-white p-5 rounded-2xl">
+            <div className="flex my-3">
+              <div className="rounded-full bg-slate-400" style={{ height: "50px", width: "50px" }}></div>
+              <div className="text-left flex flex-col justify-center ml-3">
+                <h3 className="font-bold">Full Name</h3>
+                <p className="font-bold tracking-wider" style={{ color: "#4a3aff" }}>
+                  FULL-STACK DEVELOPER
+                </p>
+              </div>
+            </div>
+            <p className="text-left tracking-wider">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam natus beatae quaerat! Ut dolorum amet at dolorem soluta hic
+              odio.
+            </p>
+            <div className="flex mt-2">
+              <a className="m-3 ml-0" href="https://github.com">
+                <div>
+                  <BsGithub></BsGithub>
+                </div>
+              </a>
+              <a className="m-3" href="https://linkedin.com">
+                <div>
+                  <BsLinkedin></BsLinkedin>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div className="w-80 shadow-md bg-white p-5 rounded-2xl">
+            <div className="flex my-3">
+              <div className="rounded-full bg-slate-400" style={{ height: "50px", width: "50px" }}></div>
+              <div className="text-left flex flex-col justify-center ml-3">
+                <h3 className="font-bold">Full Name</h3>
+                <p className="font-bold tracking-wider" style={{ color: "#4a3aff" }}>
+                  FULL-STACK DEVELOPER
+                </p>
+              </div>
+            </div>
+            <p className="text-left tracking-wider">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam natus beatae quaerat! Ut dolorum amet at dolorem soluta hic
+              odio.
+            </p>
+            <div className="flex mt-2">
+              <a className="m-3 ml-0" href="https://github.com">
+                <div>
+                  <BsGithub></BsGithub>
+                </div>
+              </a>
+              <a className="m-3" href="https://linkedin.com">
+                <div>
+                  <BsLinkedin></BsLinkedin>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div className="w-80 shadow-md bg-white p-5 rounded-2xl">
+            <div className="flex my-3">
+              <div className="rounded-full bg-slate-400" style={{ height: "50px", width: "50px" }}></div>
+              <div className="text-left flex flex-col justify-center ml-3">
+                <h3 className="font-bold">Full Name</h3>
+                <p className="font-bold tracking-wider" style={{ color: "#4a3aff" }}>
+                  FULL-STACK DEVELOPER
+                </p>
+              </div>
+            </div>
+            <p className="text-left tracking-wider">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam natus beatae quaerat! Ut dolorum amet at dolorem soluta hic
+              odio.
+            </p>
+            <div className="flex mt-2">
+              <a className="m-3 ml-0" href="https://github.com">
+                <div>
+                  <BsGithub></BsGithub>
+                </div>
+              </a>
+              <a className="m-3" href="https://linkedin.com">
+                <div>
+                  <BsLinkedin></BsLinkedin>
+                </div>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
       <Footer />
