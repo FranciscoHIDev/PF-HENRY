@@ -21,9 +21,15 @@ import LayoutUser from "../components/UserProfile/LayoutUser";
 import Myprofile from "../components/UserProfile/pages/MyProfile";
 import Playmet from "../pages/Playmet/Playmet";
 import ProtectedRoute from "../components/ProtectedRoute/ProtectedRoute";
+import MyCars from "../components/UserProfile/pages/MyCars";
+import Coments from "../components/UserProfile/pages/Coments";
 
 function RoutesApp() {
-  const { isAuthenticated } = useAuth0();
+  const { user, isAuthenticated } = useAuth0();
+
+  if (isAuthenticated && user) {
+  }
+
   return (
     <>
       <Routes>
@@ -45,8 +51,11 @@ function RoutesApp() {
           <Route path="create-car" element={<FormCar />} />
         </Route>
         {/* Configuración de rutas del Perfil de usuario  */}
-        <Route path="/profile" element={<LayoutUser />}>
-          <Route index element={<Myprofile />} />
+        <Route path="/profile"    element={<LayoutUser />}>
+          <Route path="MyProfile" element={<Myprofile />} />
+          <Route path="mycars"    element={<MyCars />} />
+          <Route path="coments"   element={<Coments />} />
+          <Route path="favorites" element={<Favorites />} />
         </Route>
         <Route element={<ProtectedRoute isAllowed={!!isAuthenticated} />}>
           <Route path="/profile" element={<LayoutUser />} />

@@ -11,7 +11,10 @@ import Loading from "../../components/Loading/Loading";
 import Swal from "sweetalert2";
 import { useAuth0 } from "@auth0/auth0-react";
 import { MPButton } from "../../components/MPButton/MPButton";
+import CarsReviews from "../../components/Reviews/CarsReviews";
+
 //import { useState } from "react";
+import Style from '../../pages/Details/Details.module.css'
 function Details() {
 
   const [pay, setPay] = useState(false)
@@ -51,12 +54,13 @@ function Details() {
                 <img
                   alt="image"
                   src={allData.image}
-                  className="w-[45em] h-[34em] aspect-square rounded-xl"
+                  className="w-[45em]   rounded-xl"
                 />
               </div>
 
-              <div className="shadow-sm bg-slate-200 p-[20px] rounded-lg sticky top-0">
-                <div className="mt-8 flex justify-between">
+              <div className={Style.infoCar}>
+
+                <div className={Style.title}>
                   <div className="max-w-[35ch] space-y-2">
                     <h1 className="text-xl font-bold sm:text-2xl">
                       {allData.brand}: {allData.model}
@@ -114,7 +118,7 @@ function Details() {
                       </svg>
                     </div>
                   </div>
-                  <p className="text-lg font-bold">${allData.price}</p>
+                  <p className={Style.priceCar}>${allData.price}</p>
                 </div>
                 <div className="mt-4">
                   <div className="prose max-w-none ">
@@ -168,7 +172,7 @@ function Details() {
                   </div>
                 </fieldset>
 
-                <div>
+                <div className={Style.botonCompra}>
                   {isAuthenticated ? <MPButton id={id} /> : <button onClick={handlerPay}>Comprar</button> }
                 </div> 
                 {/*<div className="mt-4">
@@ -177,6 +181,7 @@ function Details() {
               </div>
             </div>
           </div>
+          <CarsReviews id={id} comment={allData.review}/>
         </div>
       ) : (
         <Loading />

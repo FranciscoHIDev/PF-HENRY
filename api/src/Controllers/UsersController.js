@@ -13,7 +13,6 @@ const { eMail1 } = require("../Nodemailer/Mailer.js");
  * @param req - The request object.
  * @param res - The response object.
  */
-
 const routerGetFavorite = async (req, res) => {
   try {
     const { favori, email } = req.body;
@@ -275,6 +274,9 @@ const routerPutRollUsers = async (req, res) => {
     .then((data) => res.json(data))
     .catch((error) => res.status(500).json({ message: `${error} ` }));
 };
+
+
+
 
 module.exports = {
   routerGetFavorite,

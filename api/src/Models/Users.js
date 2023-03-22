@@ -52,14 +52,13 @@ const userSchema = mongoose.Schema({
       ref: "userCompraSchema",
     },
   ],
-  review: [
-    {
-      type: mongoose.Types.ObjectId,
-      ref: "Review",
-      minLength: 30,
-      maxLength: 300,
-    },
-  ],
+  pagoFactura: {
+    type: Array,
+  },
+  review: {
+    type: Array,
+    ref: "Review",
+  },
   // password: {
   //     type: String,
   //     required: true,
