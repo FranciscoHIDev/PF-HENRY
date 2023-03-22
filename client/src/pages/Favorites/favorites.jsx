@@ -10,7 +10,6 @@ const Favorites = () => {
   const { user, isAuthenticated } = useAuth0();
   const dispatch = useDispatch();
   const usersRender = useSelector((state) => state.userRender);
-  
 
   useEffect(() => {
     if(isAuthenticated) {

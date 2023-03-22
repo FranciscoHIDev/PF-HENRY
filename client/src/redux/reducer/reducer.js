@@ -19,7 +19,7 @@ import {
   PUT_USERS,
   POST_REVIEW,
   ADD_USER,
-
+  POST_REQUEST,
 } from "../actions/actions";
 
 const initialState = {
@@ -181,6 +181,11 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         allUsers: action.payload,
       };
+    case POST_REQUEST:
+      return {
+        ...state,
+        allUsers: action.payload
+      }
     default:
       return state;
   }

@@ -81,6 +81,7 @@ export default function MyProfile() {
       [e.target.name]: e.target.value,
     });
   }
+  
   function handleSubmit(e) {
     e.preventDefault();
 
@@ -109,7 +110,7 @@ export default function MyProfile() {
   }
 
   return (
-    
+
     <div>
       {isAuthenticated ? (
         <div>

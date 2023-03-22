@@ -56,11 +56,11 @@ function CarsReviews({ id, comment }) {
           )}
         </div>
       </div>
-
       <div>
         {reviewAdd?.map((e) => (
           <div key={e.id}>
             <span>{e.comment}</span>
+            { e.request !== "" ? <span>{e.request}</span> : null }
           </div>
         ))}
       </div>
