@@ -22,7 +22,7 @@ function Cards() {
   }, [dispatch]);
 
   const [page, setPage] = useState(1);
-  const [carPerPage] = useState(6);
+  const [carPerPage] = useState(8);
 
   const lastCar = page * carPerPage;
   const firstCar = lastCar - carPerPage;

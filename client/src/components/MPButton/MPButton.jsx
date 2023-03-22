@@ -8,7 +8,9 @@ export function MPButton({ id }) {
 
   const { isAuthenticated, user } = useAuth0();
   // aqui se recibe el body
-  const email = user.email;
+
+  const email = user.email
+console.log(email,id)
 
   const dataMP = {
     id,
@@ -77,18 +79,31 @@ export function MPButton({ id }) {
       }
     );
     const data = await res.json();
-    console.log(data.global);
-    if (data.global) {
+    console.log(data.id.id);
+    if (data.id) {
       const script = document.createElement("script");
       script.type = "text/javascript";
       script.src = "https://sdk.mercadopago.com/js/v2";
       script.setAttribute("data-preference-id", data.id);
+        
+      script.onload =  function() {
+      const mp = new window.MercadoPago(
+        "TEST-b38eba64-c8b9-4330-aa82-c3e0e29d9f66",
+        {
+          locale: "es-AR",
+        }
+      );
+      console.log(data);
+      mp.checkout({
+        preference: {
+          id: data.id,
+        },
+        render: {
+          container: ".cho-container",
+          label: "Buy",
+          error: function(error) {
+            console.log(error);
 
-      script.onload = function () {
-        const mp = new window.MercadoPago(
-          "TEST-b38eba64-c8b9-4330-aa82-c3e0e29d9f66",
-          {
-            locale: "es-AR",
           }
         );
         console.log(data);
