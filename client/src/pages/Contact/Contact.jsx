@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import NavBar from "../../components/NavBar/NavBar";
 import Footer from "../../components/Footer/Footer";
 import Style from "../Contact/Contact.module.css";
@@ -6,8 +6,12 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { postContact } from "../../redux/actions/actions";
 import Swal from "sweetalert2";
+import { getAllUsers } from "../../redux/actions/actions";
 
 export default function Contact() {
+  useEffect(() => {
+    dispatch(getAllUsers());
+  }, []);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 

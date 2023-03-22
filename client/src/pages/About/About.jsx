@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import style from "./About.module.css";
 import our_mission from "../../assets/about-images/our-mission.jpg";
 import what_we_offer from "../../assets/about-images/what-we-offer.jpg";
@@ -6,8 +6,14 @@ import excellent_service from "../../assets/about-images/excellent-service.jpg";
 import and_much_more from "../../assets/about-images/and-much-more.jpg";
 import NavBar from "../../components/NavBar/NavBar";
 import Footer from "../../components/Footer/Footer";
+import { getAllUsers } from "../../redux/actions/actions";
+import { useDispatch } from "react-redux";
 
 function About() {
+  useEffect(() => {
+    dispatch(getAllUsers());
+  }, []);
+  const dispatch = useDispatch();
   return (
     <div className={style.about}>
       <NavBar />
