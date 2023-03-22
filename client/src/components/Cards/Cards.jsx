@@ -7,7 +7,7 @@ import Pagination from "../Pagination/Pagination";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import SideBar from "./../SideBar/SideBar";
 
-function Cards() {
+function Cards() { 
   const dispatch = useDispatch();
   const cars = useSelector((state) => state.cars);
 

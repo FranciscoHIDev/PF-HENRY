@@ -33,15 +33,15 @@ export default function MyProfile() {
  var userKingofperson = aux.kindOfPerson
  var userTelephone = aux.telephone
  var userImage = aux.image
+ var userEmail = aux.email
   }
 
-  const [selectedFile, setSelectedFile] = useState(null);
   const [users, setUsers] = useState({
     image: "" || userImage,
     name: "" || userName,
     lastname: "" || userLastname,
     kindOfPerson: "natural" || userKingofperson ,
-    email: user.email,
+    email: userEmail,
     location: "" || userLocation,
     dni: "" || userDni,
     telephone: "" || userTelephone ,
