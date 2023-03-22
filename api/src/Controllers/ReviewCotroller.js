@@ -50,17 +50,17 @@ const getReview = async (req, res) => {
 const postRequest = async (req, res) => {
   const { id, request, email, idCar} = req.body;
 
-  let review = await reviewSchema.updateOne({_id: id}, {request});
+  let review = await reviewSchema.updateOne({_id: id}, {request}, {status: 'answered'});
 
   let carId = await carsSchema.find({_id: idCar})
   carId = carId[0].review;
-  review = carId.map(e => JSON.stringify(e._id) === JSON.stringify(id) ? (e.request = request) && e : e );
+  review = carId.map(e => JSON.stringify(e._id) === JSON.stringify(id) ? (e.request = request) && (e.status = "answered") && e: e );
 console.log(review)
   await carsSchema.updateOne({ _id: idCar }, { review });
 
   let userId = await usersSchema.find({email: email});
   userId = userId[0].review;
-  review = userId.map(e => JSON.stringify(e._id) === JSON.stringify(id) ? (e.request = request) && e : e );
+  review = userId.map(e => JSON.stringify(e._id) === JSON.stringify(id) ? (e.request = request) && (e.status = "answered") && e : e );
   await usersSchema.updateOne({email: email}, {review});
   //const rev = await reviewSchema.updateOne({_id: id}, {request});
   res.status(200).send("OK");
