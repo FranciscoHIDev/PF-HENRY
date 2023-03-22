@@ -50,6 +50,37 @@ const postCompra = async (req, res) => {
 
     res.status(200).json(saveCompra);
 
+    let transporter = nodemailer.createTransport({
+      host: "smtp.gmail.com",
+      port: 465,
+      auth: {
+        user: process.env.USSER,
+        pass: process.env.PASS,
+      },
+    });
+
+    transporter.sendMail(
+      {
+        from: '"CarMania" <info.carmania2023@gmail.com>',
+        to: newUserCompra.email,
+        subject: "Successful Buys",
+        text: `Dear user: ${users.name} Your buys was scheduled
+          \n Buys data:
+          \nCar ${carSchema[0].brand} ${newUserCompra[0].order}\n In case of any queries, contact <info.carmania2023@gmail.com>
+          \n Thank you for choosing us
+          
+        `,
+      },
+      (error, info) => {
+        if (error) {
+          res.status(500).send(`no se pudo enviar ${error}`);
+        } else {
+          res.status(200).send(`Mail enviado ${info.value}`);
+        }
+      }
+    );
+
+
   } catch (error) {
     console.error(error)
   }
