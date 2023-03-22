@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useAuth0 } from "@auth0/auth0-react";
 import { postReview } from "../../redux/actions/actions";
+import Swal from "sweetalert2";
 
 function CarsReviews({ id, comment }) {
   const dispatch = useDispatch();
@@ -25,6 +26,15 @@ function CarsReviews({ id, comment }) {
   function handlerComment(e) {
     e.preventDefault();
     setCommentCar(e.target.value);
+  }
+  function handlerlogear (){
+    Swal.fire({
+      position: "center",
+      icon: "warning",
+      title: "You need a login",
+      showConfirmButton: true,
+      //timer: 3000,
+    });
   }
 
   return (
@@ -50,7 +60,7 @@ function CarsReviews({ id, comment }) {
               Questions
             </button>
           ) : (
-            <button disabled type="submit">
+            <button  type="submit" onClick={handlerlogear}>
               Questions
             </button>
           )}

@@ -32,6 +32,7 @@ function SideBarUser() {
     var infouser = aux
 
   }
+  console.log(infouser)
 
 
 
@@ -50,7 +51,7 @@ function SideBarUser() {
           {isAuthenticated && (
             <h1 className="text-center text-4xl font-bold text-white mb-10">
               Wellcome, <br />
-              {user.given_name} 
+              {infouser.name} 
               <span className="text-primary  ">.</span>
             </h1>
           )}

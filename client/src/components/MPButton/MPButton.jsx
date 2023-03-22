@@ -11,7 +11,7 @@ export function MPButton({ id }) {
 const { isAuthenticated, user } = useAuth0();
   // aqui se recibe el body
   const email = user.email
-
+console.log(email,id)
   const dataMP = {
     id,
     email
@@ -80,8 +80,8 @@ const { isAuthenticated, user } = useAuth0();
       }),
     });
     const data = await res.json();
-    console.log(data.global);
-    if (data.global) {
+    console.log(data.id.id);
+    if (data.id) {
       const script = document.createElement("script");
       script.type = "text/javascript";
       script.src = "https://sdk.mercadopago.com/js/v2";
@@ -102,7 +102,7 @@ const { isAuthenticated, user } = useAuth0();
         },
         render: {
           container: ".cho-container",
-          label: "Comprar",
+          label: "Buy",
           error: function(error) {
             console.log(error);
           }

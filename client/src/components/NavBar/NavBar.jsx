@@ -152,9 +152,6 @@ function NavBar() {
             <Link className="[margin-right:calc(30%-100px)] lg:mr-10" to="/home">
               HOME
             </Link>
-            <Link className="[margin-right:calc(30%-100px)] lg:mr-10" to="/playmet">
-              Playmet
-            </Link>
             <Link className="[margin-right:calc(30%-100px)] lg:mr-10" to="/about">
               ABOUT
             </Link>
