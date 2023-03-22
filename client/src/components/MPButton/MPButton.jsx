@@ -80,8 +80,8 @@ const { isAuthenticated, user } = useAuth0();
       }),
     });
     const data = await res.json();
-    console.log(data);
-    if (data) {
+    console.log(data.global);
+    if (data.global) {
       const script = document.createElement("script");
       script.type = "text/javascript";
       script.src = "https://sdk.mercadopago.com/js/v2";
