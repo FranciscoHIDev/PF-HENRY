@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   RiLogoutCircleRLine,
   RiArrowRightLine,
@@ -9,15 +9,37 @@ import {
 } from "react-icons/ri";
 
 import { FaUsers, FaShoppingBag } from "react-icons/fa";
+import { BsFillChatLeftTextFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
+import { useSelector } from "react-redux";
+import { getAllUsers } from "../../redux/actions/actions";
+import { useDispatch } from "react-redux";
 
 function SideBarUser() {
-  //overflow-y-scroll
-  const { user, isAuthenticated, logout } = useAuth0();
+  //overflow-y-scroll +}
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getAllUsers());
+  }, []);
+
+  // const { user, isAuthenticated, logout } = useAuth0();
+  // const userDB = useSelector(state => state.allUsers)
+
+  // if (isAuthenticated && (userDB.length > 0)) {
+  //   const  aux = userDB.find((e) => e.email === user.email)
+  //   var infouser = aux
+
+  // }
+
+  // const [users, setUsers] = useState({
+  //    name: user.given_name,
+  //   lastname: ""
+  // })
 
   const [showSubMenu, setShowSubMenu] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
+
   return (
     <>
       <div
@@ -26,17 +48,17 @@ function SideBarUser() {
         } transition-all`}
       >
         <div>
-          {isAuthenticated && (
+          {/* {isAuthenticated && (
             <h1 className="text-center text-4xl font-bold text-white mb-10">
               Wellcome, <br />
-              {user.given_name}
+              {users.name} {users.lastname}
               <span className="text-primary  ">.</span>
             </h1>
-          )}
+          )} */}
           <ul>
             <li>
               <Link
-                to="my"
+                to="MyProfile"
                 className="flex text-2xl items-center gap-4  py-2 px-4 rounded-lg hover:bg-secondary-900 w-full"
               >
                 <FaShoppingBag className="text-primary" />
@@ -50,7 +72,16 @@ function SideBarUser() {
                 className="flex text-2xl items-center gap-4  py-2 px-4 rounded-lg hover:bg-secondary-900 w-full"
               >
                 <RiCarFill className="text-primary" />
-                <p className="text-white">Cars</p>
+                <p className="text-white"> My Cars</p>
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="coments"
+                className="flex text-2xl items-center gap-4  py-2 px-4 rounded-lg hover:bg-secondary-900 w-full"
+              >
+                <BsFillChatLeftTextFill className="text-primary" />
+                <p className="text-white"> Coments </p>
               </Link>
             </li>
 

@@ -1,19 +1,10 @@
 import React, { useEffect, useState } from "react";
-import NavBar from "../../components/NavBar/NavBar";
-import Footer from "../../components/Footer/Footer";
-import CardFavorite from "../../components/Card/CardFavorite";
-import { useAuth0 } from "@auth0/auth0-react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllUsers } from "../../redux/actions/actions";
-import axios from "axios";
-import { postFavorite } from "../../redux/actions/actions";
+import { userRender } from "../../redux/actions/actions";
+import { useAuth0 } from "@auth0/auth0-react";
+import CardFavorite from "../../components/Card/CardFavorite";
 
-// const all = async () => {
-//   const ele = await axios.get("/users");
-//   return ele;
-// };
-
-export const Favorites = () => {
+const Favorites = () => {
   const dispatch = useDispatch();
 
   const [favorite, setFavorite] = useState([]);
@@ -31,36 +22,34 @@ export const Favorites = () => {
   //   //setFavorite(myFavorite);
   // }
 
-  useEffect(() => {
-    if (isAuthenticated) {
-      axios.get("/users").then((e) => {
-        const userDB = e.data.find((e) => e.email === user.email);
-        const myFavorite = userDB.favorites;
-        setFavorite(myFavorite);
-      });
-    }
-    console.log("se renderizo");
-  }, []);
+  if (isAuthenticated) {
+    axios.get("/users").then((e) => {
+      const userDB = e.data.find((e) => e.email === user.email);
+      const myFavorite = userDB.favorites;
+      setFavorite(myFavorite);
+    });
+  }
 
-  //Aqui se soluciona las peticiones al user.
-
+  //----------falta arreglar----------------
   // useEffect(() => {
-  //   //misFavoritos();
-  //   (async () => {
-  //     const ele = await all();
-  //     if (isAuthenticated) {
-  //       const userDB = ele.data.find((e) => e.email === user.email);
-  //       console.log(userDB.favorites);
-  //       const myFavorite = userDB.favorites;
-  //       setFavorite(myFavorite);
-  //     }
-  //   })();
-
+  //   if (isAuthenticated) {
+  //     dispatch(userRender(user.email));
+  //   }
   // }, []);
+  // const { user, isAuthenticated } = useAuth0();
+  // const dispatch = useDispatch();
+  // const usersRender = useSelector((state) => state.userRender);
+  // console.log(usersRender, "usuario");
+  // if (usersRender.length !== 0) {
+  //   var fav = usersRender[0].favorites;
+  // }
+
+  // console.log(fav, "uuuu");
+
+  // console.log(usersRender);
 
   return (
     <React.Fragment>
-      <NavBar />
       <div className="flex flex-col mt-40 mb-40 justify-center">
         <div className="flex mb-3 justify-center">
           <h1 className="">My favourites</h1>
@@ -90,7 +79,6 @@ export const Favorites = () => {
           )}
         </div>
       </div>
-      <Footer />
     </React.Fragment>
   );
 };

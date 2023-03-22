@@ -4,7 +4,6 @@ import { getAllUsers } from '../../../redux/actions/actions';
 import {useSelector, useDispatch} from 'react-redux'
 import { useAuth0 } from "@auth0/auth0-react";
 
-
 function MyCars() {
     const dispatch = useDispatch();
     useEffect(()=>{
@@ -12,16 +11,14 @@ function MyCars() {
     },[])
     const { user, isAuthenticated } = useAuth0();
     const usersDB = useSelector(state => state.allUsers)
+    
     if(isAuthenticated && (usersDB.length!==0)){
       const aux = usersDB.find((e)=> e.email===user.email)
       var facturas = aux.pagoFactura
     }
    
-    
- 
-
    // e[0].items[0].picture_url
-  return  facturas ?(
+  return  facturas? (
     <div>
       {facturas.map((e)=>(<div className='my-5' >
         <div className='bg-white text-primary p-2 rounded-t-md border-b-2 border-gray-400'>{e[0].date_approved}</div>
@@ -43,7 +40,7 @@ function MyCars() {
      </div>))}
       
     </div> 
-  ):(<h2>no hay facturas</h2>)
+  ):(<h1> you don't have purchases yet </h1>)
 }
 
 export default MyCars

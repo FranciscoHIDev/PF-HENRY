@@ -4,6 +4,7 @@
 
   background-image: url("../../assets/peter-broomfield-m3m-lnR90uM-unsplash.jpg");
   background-size: cover;
+  background-position: right;
   height: 600px;
   display: flex;
   flex-direction: column;
@@ -59,25 +60,22 @@
   }
 }
 
-@media screen and (min-width: 480px) {
-}
-
 @keyframes scroll {
   0% {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(calc(-250px * 5));
+    transform: translateX(calc(-250px * 8));
   }
 }
 .slider {
   background: transparent;
   box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.125);
   height: 250px;
-  margin: auto;
+  margin: 30px auto;
   overflow: hidden;
   position: relative;
-  width: 1040px;
+  width: 95%;
 }
 .slider::before,
 .slider::after {
@@ -103,20 +101,48 @@
 .slider .slide_track {
   animation: scroll 15s linear infinite;
   display: flex;
-  width: calc(250px * 5);
+  width: calc(250px * 8);
 }
 .slider .slide {
   height: 230px;
   width: 230px;
-  background-image: linear-gradient(to bottom, rgba(255, 0, 0, 0.5), rgba(0, 0, 255, 0.199)), url("../../assets/carousel-landing/img1.jpg");
   background-size: cover;
+  background-position: center;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+.slider :is(#img1, #img11) {
+  background-image: linear-gradient(to bottom, rgba(255, 0, 0, 0.5), rgba(0, 0, 255, 0.199)), url("../../assets/carousel-landing/img1.jpg");
+}
+.slider :is(#img2, #img22) {
+  background-image: linear-gradient(to bottom, rgba(255, 0, 0, 0.5), rgba(0, 0, 255, 0.199)), url("../../assets/carousel-landing/img2.jpg");
+}
+.slider :is(#img3, #img33) {
+  background-image: linear-gradient(to bottom, rgba(255, 0, 0, 0.5), rgba(0, 0, 255, 0.199)), url("../../assets/carousel-landing/img3.jpg");
+}
+.slider :is(#img4, #img44) {
+  background-image: linear-gradient(to bottom, rgba(255, 0, 0, 0.5), rgba(0, 0, 255, 0.199)), url("../../assets/carousel-landing/img4.jpg");
+}
+.slider :is(#img5, #img55) {
+  background-image: linear-gradient(to bottom, rgba(255, 0, 0, 0.5), rgba(0, 0, 255, 0.199)), url("../../assets/carousel-landing/img5.jpg");
+}
+.slider :is(#img6, #img66) {
+  background-image: linear-gradient(to bottom, rgba(255, 0, 0, 0.5), rgba(0, 0, 255, 0.199)), url("../../assets/carousel-landing/img6.jpg");
+}
+.slider :is(#img7, #img77) {
+  background-image: linear-gradient(to bottom, rgba(255, 0, 0, 0.5), rgba(0, 0, 255, 0.199)), url("../../assets/carousel-landing/img7.jpg");
+}
+.slider :is(#img8, #img88) {
+  background-image: linear-gradient(to bottom, rgba(255, 0, 0, 0.5), rgba(0, 0, 255, 0.199)), url("../../assets/carousel-landing/img8.jpg");
+}
+:is(#img2, #img22, #img3, #img33, #img4, #img44, #img8, #img88) img {
+  width: 150px;
+}
 .slider img {
   width: 90px;
 }
+
 .container_2 {
   color: blanchedalmond;
   background-color: darkred;
@@ -127,20 +153,46 @@
   margin-inline: 50px;
   font-size: 3.5em;
 }
+.container_2 h2 span {
+  color: rgb(255, 145, 0);
+}
 .container_2 p {
   margin: 30px 50px;
+  font-size: 19px;
+  width: 70%;
+  letter-spacing: 1px;
+}
+.container_2 .info {
+  display: flex;
+}
+.info a {
+  margin: auto;
+}
+.info button {
+  background: transparent;
+  text-decoration: underline;
+  letter-spacing: 5px;
+  font-size: 20px;
+  text-underline-offset: 10px;
+  transition: 0.5s;
+}
+.info button:hover {
+  background: transparent;
+  color: orange;
 }
 
 .container_3 {
   display: flex;
   background-color: chocolate;
   color: blanchedalmond;
+  height: 350px;
 }
 .col1 {
   width: 50%;
   background-image: linear-gradient(to bottom, black, transparent), url("../../assets/carousel-landing/selection.jpg");
+  background-position: center;
   background-size: cover;
-  height: 370px;
+  height: 100%;
 }
 .col1 img {
   height: 100%;
@@ -151,8 +203,29 @@
 }
 .col2 h2 {
   margin: 30px 50px;
-  font-size: 3em;
+  font-size: 2.5em;
 }
 .col2 p {
   margin-inline: 50px;
+}
+
+@media screen and (max-width: 1120px) {
+  .container_3 {
+    height: 450px;
+  }
+}
+@media screen and (max-width: 910px) {
+  .container_3 {
+    height: 520px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .container_3 {
+    height: 650px;
+  }
+}
+@media screen and (max-width: 630px) {
+  .container_3 {
+    height: 760px;
+  }
 }

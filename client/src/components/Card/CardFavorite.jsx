@@ -2,14 +2,13 @@ import React, { useState, useEffect } from "react";
 import { RiGasStationFill } from "react-icons/ri";
 import { MdHdrAutoSelect, MdLocationPin } from "react-icons/md";
 import { Link } from "react-router-dom";
-import { MdFavorite, MdFavoriteBorder } from "react-icons/md";
-import Swal from "sweetalert2";
+import { MdFavorite } from "react-icons/md";
 import { useAuth0 } from "@auth0/auth0-react";
-import axios from "axios";
 import { useDispatch } from "react-redux";
 import { postFavorite } from "../../redux/actions/actions";
-import { getAllUsers } from "../../redux/actions/actions";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+
 function CardFavorite({
   brand,
   model,
@@ -23,27 +22,23 @@ function CardFavorite({
   type,
   _id,
 }) {
+  let usersRender = useSelector((state) => state.userRender);
   const dispatch = useDispatch();
   const navigate = useNavigate();
- 
+
   const { user } = useAuth0();
-  
+
   const onClick = () => {
     const newFavorite = {
       favori: _id,
       email: user.email,
     };
-    dispatch(postFavorite(newFavorite));  
-    //navigate("/favorites");
+    usersRender = usersRender.filter((e) => e._id !== _id);
+    dispatch(postFavorite(newFavorite));
   };
 
   return (
     <>
-      <div className="flex flex-col mb-10 items-center">
-        <button className="bg-red-500 text-center" onClick={onClick}>
-          X
-        </button>{" "}
-      </div>
       <div className="flex flex-col w-[350px] h-[500px] rounded-lg mb-10 mt-10 mx-3  bg-zinc-100  items-center shadow-md hover:scale-105">
         {/* <button className="bg-red-500" onClick={onClick}>
         X
