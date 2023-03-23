@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useAuth0 } from "@auth0/auth0-react";
 import { postReview } from "../../redux/actions/actions";
+import Swal from "sweetalert2";
 
 function CarsReviews({ id, comment }) {
   const dispatch = useDispatch();
@@ -26,15 +27,24 @@ function CarsReviews({ id, comment }) {
     e.preventDefault();
     setCommentCar(e.target.value);
   }
+  function handlerlogear (){
+    Swal.fire({
+      position: "center",
+      icon: "warning",
+      title: "You need a login",
+      showConfirmButton: true,
+      //timer: 3000,
+    });
+  }
 
   return (
     <div>
-      <div className="flex">
-        <div className="flex-initial w-64">
+      <div className="flex flex-row ">
+        <div className="mx-5">
           <textarea
             maxlength="250"
             autocomplete="off"
-            className="text-white"
+            className="text-black rounded-md bg-white"
             name=""
             value={commentCar}
             placeholder="write your question..."
@@ -44,24 +54,29 @@ function CarsReviews({ id, comment }) {
             onChange={handlerComment}
           ></textarea>
         </div>
-        <div className="flex-none w-14 h-14" >
+        <div className="" >
           {isAuthenticated && commentCar.length > 5 ? (
-            <button onClick={handlerReviews} type="submit">
+            <button onClick={handlerReviews} type="submit" className="bg-primary">
               Questions
             </button>
-          ) : (
-            <button disabled type="submit">
+          ) :isAuthenticated ? (
+            <button disable type="submit" className="bg-primary">
               Questions
             </button>
-          )}
+          ):
+            <button onClick={handlerlogear} type="submit" className="bg-primary">
+              Questions
+            </button>}
         </div>
       </div>
 
-      <div>
+      <div className="flex flex-col">
         {reviewAdd?.map((e) => (
-          <div key={e.id}>
-            <span>{e.comment}</span>
+          <div key={e.id} className="place-self-start bg-white mx-5 my-1 p-2 rounded-md ">
+            <div className="text-lg "><span>{e.comment}</span></div>
+            {e.request !== ""  ?(<div className=" p-2 bg-gray-100 text-gray-400"><span>ask : {e.request}</span></div>):null}
           </div>
+          
         ))}
       </div>
     </div>

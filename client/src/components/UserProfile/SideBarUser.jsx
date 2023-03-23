@@ -23,19 +23,14 @@ function SideBarUser() {
     dispatch(getAllUsers());
   }, []);
 
-  // const { user, isAuthenticated, logout } = useAuth0();
-  // const userDB = useSelector(state => state.allUsers)
+  const { user, isAuthenticated, logout } = useAuth0();
+  const userDB = useSelector(state => state.allUsers)
 
-  // if (isAuthenticated && (userDB.length > 0)) {
-  //   const  aux = userDB.find((e) => e.email === user.email)
-  //   var infouser = aux
 
-  // }
-
-  // const [users, setUsers] = useState({
-  //    name: user.given_name,
-  //   lastname: ""
-  // })
+   if (isAuthenticated && (userDB.length > 0)) {
+    const  aux = userDB.find((e) => e.email === user.email)
+    var infouser = aux
+  }
 
   const [showSubMenu, setShowSubMenu] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
@@ -51,7 +46,7 @@ function SideBarUser() {
           {/* {isAuthenticated && (
             <h1 className="text-center text-4xl font-bold text-white mb-10">
               Wellcome, <br />
-              {users.name} {users.lastname}
+              {infouser.name} 
               <span className="text-primary  ">.</span>
             </h1>
           )} */}

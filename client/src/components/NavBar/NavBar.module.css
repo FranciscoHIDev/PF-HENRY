@@ -46,7 +46,7 @@ a {
 }
 
 .toggle1:checked ~ .menu1 {
-  height: 280px;
+  height: 214px;
   padding-top: 19px;
 }
 

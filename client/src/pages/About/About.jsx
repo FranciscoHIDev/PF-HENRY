@@ -18,7 +18,7 @@ function About() {
     <div className={style.about}>
       <NavBar />
       <div className={style.container}>
-        <div className={style.cards}>
+        <div className={style.cards + " z-10"}>
           <div className={style.padding_global}>
             <div className={style.container_large}>
               <div className={style.stack_component}>
@@ -26,69 +26,36 @@ function About() {
                   <div className={style.w_node}>
                     <h2>Our mission</h2>
                     <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Omnis, dignissimos in. Aliquam, adipisci! Expedita
-                      adipisci maxime recusandae amet mollitia quidem quo nisi,
-                      nihil quas? Inventore sed rem possimus optio asperiores
-                      sequi aut eveniet obcaecati, ad officia libero dicta. Iste
-                      autem labore quisquam excepturi similique dicta corporis
-                      cumque unde vitae exercitationem.
+                      Carmania is more than just a webapp. What's so special about it? To reduce both our own and your footprint to a
+                      minimum, we will offset all unavoidable CO₂ emissions produced throughout the whole process.
                     </p>
                   </div>
-                  <div
-                    className={`${style.w_node} ${style.stack_card_image_wrapper}`}
-                  >
-                    <img
-                      src={our_mission}
-                      loading="lazy"
-                      sizes="46vw"
-                      srcSet={our_mission}
-                      alt=""
-                      className={style.stack_card_image}
-                    />
+                  <div className={`${style.w_node} ${style.stack_card_image_wrapper}`}>
+                    <img src={our_mission} loading="lazy" sizes="46vw" srcSet={our_mission} alt="" className={style.stack_card_image} />
                   </div>
                 </div>
                 <div className={`${style.stack_card} ${style.is_2}`}>
                   <div className={style.w_node}>
                     <h2>What we offer</h2>
                     <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Delectus aperiam ducimus libero rerum dolorum tempora
-                      consequuntur a vel cumque beatae necessitatibus
-                      accusantium, facere expedita neque pariatur sed, veritatis
-                      ea illum numquam. Repudiandae aut odit optio voluptas
-                      voluptatum aspernatur maxime ducimus nihil natus possimus
-                      deleniti quia sed dolore, impedit, vel ad vitae
-                      reprehenderit ea fugit.
+                      We are a pioneering new business conceived to provide different experiences. Extreme levels of technology and
+                      functional design lie beneath the stunning styling of the exterior, with an aim to deliver staggering performance for
+                      a road car.
                     </p>
                   </div>
-                  <div
-                    className={`${style.w_node} ${style.stack_card_image_wrapper}`}
-                  >
-                    <img
-                      src={what_we_offer}
-                      loading="lazy"
-                      sizes="46vw"
-                      srcSet={what_we_offer}
-                      alt=""
-                      className={style.stack_card_image}
-                    />
+                  <div className={`${style.w_node} ${style.stack_card_image_wrapper}`}>
+                    <img src={what_we_offer} loading="lazy" sizes="46vw" srcSet={what_we_offer} alt="" className={style.stack_card_image} />
                   </div>
                 </div>
                 <div className={`${style.stack_card} ${style.is_6}`}>
                   <div className={style.w_node}>
                     <h2>Excellent service</h2>
                     <p>
-                      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                      Quasi consequatur aliquam dicta dignissimos corrupti
-                      laboriosam iure natus laudantium, voluptatibus sit ad
-                      ducimus nulla modi. Ipsum explicabo doloribus dignissimos
-                      facere atque.
+                      We get to serve you better through our customer call center available 24/7 and also track your delivery. Get good
+                      experience with our products with less shipping charges.
                     </p>
                   </div>
-                  <div
-                    className={`${style.w_node} ${style.stack_card_image_wrapper}`}
-                  >
+                  <div className={`${style.w_node} ${style.stack_card_image_wrapper}`}>
                     <img
                       src={excellent_service}
                       loading="lazy"
@@ -103,26 +70,13 @@ function About() {
                   <div className={style.w_node}>
                     <h2>And much more</h2>
                     <p>
-                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                      Eaque vero adipisci assumenda dolorem deserunt maxime
-                      numquam sit repudiandae aperiam nemo, quae expedita
-                      magnam, nesciunt modi dolorum fugiat facere amet, quos
-                      molestias optio totam. Quisquam saepe qui sequi culpa
-                      ullam, provident ratione incidunt cum ex illum
-                      exercitationem suscipit assumenda odio officia!
+                      The biggest benefit of joining Carmania is leveraging a patent-pending group buying technology that gets you access to
+                      bulk prices, without the bulk purchases. We provide an easy process, including the elimination of endless hours
+                      negotiating.
                     </p>
                   </div>
-                  <div
-                    className={`${style.w_node} ${style.stack_card_image_wrapper}`}
-                  >
-                    <img
-                      src={and_much_more}
-                      loading="lazy"
-                      sizes="46vw"
-                      srcSet={and_much_more}
-                      alt=""
-                      className={style.stack_card_image}
-                    />
+                  <div className={`${style.w_node} ${style.stack_card_image_wrapper}`}>
+                    <img src={and_much_more} loading="lazy" sizes="46vw" srcSet={and_much_more} alt="" className={style.stack_card_image} />
                   </div>
                 </div>
               </div>

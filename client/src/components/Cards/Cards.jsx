@@ -7,7 +7,7 @@ import Pagination from "../Pagination/Pagination";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import SideBar from "./../SideBar/SideBar";
 
-function Cards() {
+function Cards() { 
   const dispatch = useDispatch();
   const cars = useSelector((state) => state.cars);
   const [loading, setLoading] = useState(true)
@@ -22,7 +22,7 @@ function Cards() {
   }, [dispatch]);
 
   const [page, setPage] = useState(1);
-  const [carPerPage] = useState(6);
+  const [carPerPage] = useState(8);
 
   const lastCar = page * carPerPage;
   const firstCar = lastCar - carPerPage;
