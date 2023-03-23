@@ -41,9 +41,9 @@ const deleteReview = async (req, res) => {
     (e) => JSON.stringify(e._id) !== JSON.stringify(req.params.id)
   );
   await usersSchema.updateOne({ email: comeet[0].email }, { review });
-  console.log("se peudo")
   res.status(200).json(borado);
 };
+
 
 const getReview = async (req, res) => {
   const review = await reviewSchema.find();
@@ -51,21 +51,22 @@ const getReview = async (req, res) => {
 };
 
 const postRequest = async (req, res) => {
-  const { id, request, email, idCar} = req.body;
+  const { id } = req.params
+  const { request, email, idCar } = req.body;
 
-  let review = await reviewSchema.updateOne({_id: id}, {request});
+  let review = await reviewSchema.updateOne({ _id: id }, { request });
 
-  let carId = await carsSchema.find({_id: idCar})
+  let carId = await carsSchema.find({ _id: idCar })
   carId = carId[0].review;
-  review = carId.map(e => JSON.stringify(e._id) === JSON.stringify(id) ? (e.request = request) && e : e );
-console.log(review)
+  review = carId.map(e => JSON.stringify(e._id) === JSON.stringify(id) ? (e.request = request) && e : e);
+  console.log(review)
   await carsSchema.updateOne({ _id: idCar }, { review });
 
-  let userId = await usersSchema.find({email: email});
+  let userId = await usersSchema.find({ email: email });
   userId = userId[0].review;
-  review = userId.map(e => JSON.stringify(e._id) === JSON.stringify(id) ? (e.request = request) && e : e );
-  await usersSchema.updateOne({email: email}, {review});
-  //const rev = await reviewSchema.updateOne({_id: id}, {request});
+  review = userId.map(e => JSON.stringify(e._id) === JSON.stringify(id) ? (e.request = request) && e : e);
+  await usersSchema.updateOne({ email: email }, { review });
+  const rev = await reviewSchema.updateOne({ _id: id }, { status: "answered" });
   res.status(200).send("OK");
 };
 
