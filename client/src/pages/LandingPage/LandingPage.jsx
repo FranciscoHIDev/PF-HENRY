@@ -1,4 +1,4 @@
-import React from "react";
+import React ,{  useEffect } from "react";
 import Style from "../LandingPage/LandingPage.module.css";
 import { Link } from "react-router-dom";
 import NavBar from "../../components/NavBar/NavBar";
@@ -12,8 +12,14 @@ import l6 from "../../assets/carousel-landing/logo6.png";
 import l7 from "../../assets/carousel-landing/logo7.png";
 import l8 from "../../assets/carousel-landing/logo8.png";
 import { BsGithub, BsLinkedin } from "react-icons/bs";
+import { useDispatch } from "react-redux";
+import { getAllUsers } from "../../redux/actions/actions";
 
 function LandingPage() { 
+const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getAllUsers())
+  },[])
   const [lenguaje, setLenguje] = React.useState({
     titulo: "The place where you buy your car",
     boton: "Go!",
