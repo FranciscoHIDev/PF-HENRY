@@ -8,6 +8,7 @@ import {
   RiHome7Fill,
   RiMessage3Fill,
 } from "react-icons/ri";
+import { AiOutlineComment } from "react-icons/ai";
 
 import { FaUsers, FaShoppingBag } from "react-icons/fa";
 import { Link } from "react-router-dom";
@@ -66,6 +67,15 @@ function Sidebar() {
               >
                 <RiMessage3Fill className="text-primary" />
                 <p className="text-white">Messages</p>
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="reviews"
+                className="flex text-2xl items-center gap-4  py-2 px-4 rounded-lg hover:bg-secondary-900 w-full"
+              >
+                <AiOutlineComment className="text-primary" />
+                <p className="text-white">Reviews</p>
               </Link>
             </li>
             {/* <li>

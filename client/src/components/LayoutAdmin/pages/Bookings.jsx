@@ -22,14 +22,12 @@ function Bookings() {
   const dispatch = useDispatch();
   const [data, setData] = useState([]);
   const [modalEdit, setModalEdit] = useState(false);
-  const [modalDelete, setModalDelete] = useState(false);
-  const [userSeleccionado, setUserSeleccionado] = useState({
-    active: "",
-    roll: "",
+  const [bookSeleccionado, setBookSeleccionado] = useState({
+    statusCar: "",
   });
   function handleChange(e) {
-    setUserSeleccionado({
-      ...userSeleccionado,
+    setBookSeleccionado({
+      ...bookSeleccionado,
       [e.target.name]: e.target.value,
     });
     console.log(e.target.value);
@@ -38,47 +36,19 @@ function Bookings() {
     setModalEdit(!modalEdit);
   };
 
-  const openCloseModalDelete = () => {
-    setModalDelete(!modalDelete);
+  const seleccionarShop = (u, caso) => {
+    setBookSeleccionado(u);
+    caso === "Edit" ? openCloseModalEdit() : null;
   };
 
-  const seleccionarUser = (u, caso) => {
-    setUserSeleccionado(u);
-    caso === "Edit" ? openCloseModalEdit() : openCloseModalDelete();
-  };
-
-  const PutUsers = async () => {
+  const UpdateDelivery = async () => {
     await axios
-      .put("/feedback/" + userSeleccionado._id, userSeleccionado)
+      .put("/feedback/" + bookSeleccionado._id, bookSeleccionado)
       .then((response) => {
         var dataNew = data;
-        console.log(dataNew);
-        dataNew.map((user) => {
-          if (userSeleccionado._id === user._id) {
-            user.active = userSeleccionado.active;
-          }
-        });
-        setData(dataNew);
-        openCloseModalDelete();
-        Swal.fire({
-          position: "center",
-          icon: "success",
-          title: "The user has been deactivated successfully",
-          showConfirmButton: false,
-          timer: 3000,
-        });
-      });
-  };
-
-  const peticionPut = async () => {
-    await axios
-      .put("/feedback/" + userSeleccionado._id, userSeleccionado)
-      .then((response) => {
-        var dataNew = data;
-        dataNew.map((user) => {
-          if (userSeleccionado._id === user._id) {
-            user.active = userSeleccionado.active;
-            user.roll = userSeleccionado.roll;
+        dataNew.map((e) => {
+          if (bookSeleccionado._id === e._id) {
+            e.statusCar = bookSeleccionado.statusCar;
           }
         });
         setData(dataNew);
@@ -86,7 +56,7 @@ function Bookings() {
         Swal.fire({
           position: "center",
           icon: "success",
-          title: "The user has been successfully modified",
+          title: "The car has been delivered",
           showConfirmButton: false,
           timer: 3000,
         });
@@ -108,101 +78,43 @@ function Bookings() {
   const bodyEdit = (
     <div>
       <div className="bg-white  pl-2 pr-2">
-        <h3 className="text-center pt-2 font-bold text-2xl ">MANAGER USERS</h3>
+        <h3 className="text-center pt-2 font-bold text-2xl ">CAR DELIVERY</h3>
         <br />
         <fieldset>
-          <legend>Active</legend>
+          <legend>STATUS CAR</legend>
           <RadioGroup
             row
-            name="active"
-            value={userSeleccionado && userSeleccionado.active}
+            name="statusCar"
+            value={bookSeleccionado && bookSeleccionado.statusCar}
             style={{ marginLeft: "100px" }}
             onChange={handleChange}
           >
             <FormControlLabel
-              value={"valid"}
+              value={"undelivered"}
               control={<Radio size="small" />}
-              label="Valid"
+              label="Undelivered"
             />
             <FormControlLabel
-              value={"invalid"}
+              value={"delivered"}
               control={<Radio size="small" />}
-              label="Invalid"
+              label="Delivered"
             />
           </RadioGroup>
         </fieldset>
-        <br />
-        <fieldset>
-          <legend>Roll</legend>
-          <RadioGroup
-            row
-            name="roll"
-            value={userSeleccionado && userSeleccionado.roll}
-            style={{ marginLeft: "100px" }}
-            onChange={handleChange}
-          >
-            <FormControlLabel
-              value={"user"}
-              control={<Radio size="small" />}
-              label="User"
-            />
-            <FormControlLabel
-              value={"superAdmin"}
-              control={<Radio size="small" />}
-              label="SuperAdmin"
-            />
-          </RadioGroup>
-        </fieldset>
+
         <br />
         <div className="text-center pb-6">
-          <Button variant="contained" color="success" onClick={peticionPut}>
-            Edit
+          <Button variant="contained" color="success" onClick={UpdateDelivery}>
+            DELIVER
           </Button>
           <Button
             variant="contained"
             color="error"
             onClick={openCloseModalEdit}
           >
-            Cancel
+            CANCEL
           </Button>
         </div>
-      </div>
-    </div>
-  );
-
-  const bodyDelete = (
-    <div className="bg-white  pl-2 pr-2">
-      <p className="text-center pt-12 pb-10 font-bold text-2xl ">
-        To confirm if you want to deactivate the user{" "}
-        <b>{userSeleccionado && userSeleccionado.name}</b> select the invalid
-        option
-      </p>
-      <fieldset>
-        <RadioGroup
-          row
-          name="active"
-          value={userSeleccionado && userSeleccionado.active}
-          style={{ marginLeft: "300px" }}
-          onChange={handleChange}
-        >
-          <FormControlLabel
-            value={"invalid"}
-            control={<Radio size="small" />}
-            label="Invalid"
-          />
-        </RadioGroup>
-      </fieldset>
-      <div className="text-center pt-4 pb-4 ">
-        <Button variant="contained" color="success" onClick={PutUsers}>
-          Yes
-        </Button>
-        <Button
-          variant="contained"
-          color="error"
-          onClick={openCloseModalDelete}
-        >
-          No
-        </Button>
       </div>
     </div>
   );
@@ -220,7 +132,7 @@ function Bookings() {
               <TableCell>Price</TableCell>
               <TableCell>Status-Pay</TableCell>
               <TableCell>Status-Car</TableCell>
-              <TableCell>Accions</TableCell>              
+              <TableCell>Accions</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -239,14 +151,8 @@ function Bookings() {
                     <TableCell>
                       <Edit
                         className="cursor-pointer"
-                        onClick={() => seleccionarUser(u, "Edit")}
+                        onClick={() => seleccionarShop(u, "Edit")}
                         color="primary"
-                      />
-                      &nbsp;&nbsp;&nbsp;
-                      <Delete
-                        onClick={() => seleccionarUser(u, "Delete")}
-                        color="error"
-                        className="cursor-pointer"
                       />
                     </TableCell>
                   </TableRow>
@@ -264,14 +170,6 @@ function Bookings() {
         onClose={() => openCloseModalEdit()}
       >
         {bodyEdit}
-      </Modal>
-
-      <Modal
-        className=" mt-40  w-[700px] h-[33%] top-0 left-0 right-0 fixed m-auto scroll-m-2"
-        open={modalDelete}
-        onClose={() => openCloseModalDelete()}
-      >
-        {bodyDelete}
       </Modal>
     </div>
   );
