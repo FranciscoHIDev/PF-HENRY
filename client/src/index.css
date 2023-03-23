@@ -2,11 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  
+#root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+  width: 100%;
 
   color-scheme: light dark;
   color: #464646;
@@ -20,25 +20,25 @@
   -webkit-text-size-adjust: 100%;
 }
 
-
-
 a {
   font-weight: 500;
   color: black;
   text-decoration: inherit;
 }
 a:hover {
-  color:  #0d6efd;
+  color: #0d6efd;
 }
 
-
+html {
+  width: 100%;
+}
 
 body {
   padding-top: 0px;
   margin: 0px;
   display: flex;
-  min-width: 320px;
-  min-height: 100vh;  
+  width: 100%;
+  min-height: 100vh;
   flex-direction: column;
 }
 
@@ -52,21 +52,16 @@ button {
   padding: 0.2em 0.8em;
   font-size: 1em;
   font-weight: 500;
-  font-family: inherit;  
+  font-family: inherit;
   background-color: #fb8500;
-  color:white;
-  cursor: pointer; 
-  }
-
-button:hover { 
-
-  background-color: #0d6efd;
-  /* text-shadow: 0 0 5px #fff; */
-
+  color: white;
+  cursor: pointer;
 }
 
-
-
+button:hover {
+  background-color: #0d6efd;
+  /* text-shadow: 0 0 5px #fff; */
+}
 
 /* @media (prefers-color-scheme: light) {
   :root {
