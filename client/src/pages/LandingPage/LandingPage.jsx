@@ -54,7 +54,7 @@ function LandingPage() {
           </Link>
         </div>
       </div>
-      {/* 
+
       <div className={Style.container_2}>
         <h2>
           CHOOSE YOUR <span>BRAND</span>
@@ -154,7 +154,7 @@ function LandingPage() {
           </div>
         </div>
       </div>
-      
+
       <div className={Style.container_3}>
         <div className={Style.col1}></div>
         <div className={Style.col2}>
@@ -166,7 +166,7 @@ function LandingPage() {
             limited model variants. High-class tuning and procurement of rare model series are also possible.
           </p>
         </div>
-      </div>*/}
+      </div>
 
       <div className="text-center p-10 bg-slate-50">
         <h2 className="font-bold text-3xl tracking-wide text-cyan-800">Meet our team members</h2>
