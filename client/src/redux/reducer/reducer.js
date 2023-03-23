@@ -13,13 +13,13 @@ import {
   POST_USERS,
   POST_CAR,
   FRANGE,
-  //LINK_COMPRA,
+  LINK_COMPRA,
   POST_FAVORITE,
   GET_ALL_USERS,
   PUT_USERS,
   POST_REVIEW,
   ADD_USER,
-  POST_REQUEST,
+
 } from "../actions/actions";
 
 const initialState = {
@@ -33,7 +33,7 @@ const initialState = {
   compra: [],
   userRender: [],
 };
-const rootReducer = (state = initialState, action) => { 
+const rootReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_ALL_CARS:
       return {
@@ -135,7 +135,7 @@ const rootReducer = (state = initialState, action) => {
         allUsers: action.payload,
       };
     case ADD_USER:
-      const copiaState = [...state.allUsers].filter((e) => e.email === action.payload);
+      const copiaState = [...state.allUsers]?.filter((e) => e.email === action.payload);
       return {
         ...state,
         userRender: copiaState,
@@ -162,32 +162,25 @@ const rootReducer = (state = initialState, action) => {
         cars: [...state.cars, action.payload],
       };
     case POST_FAVORITE:
+      console.log("hola")
+      console.log(action.payload.data)
+      const favCars = [...state.userRender]
+
+      favCars.favorites = action.payload.data
+      console.log(favCars)
+
       return {
         ...state,
-        allUsers: action.payload
-      }
-      case POST_REVIEW:
-      return {
-        ...state,
-        allUsers: action.payload
+        userRender: favCars
       }
     case GET_ALL_USERS:
       return {
         ...state,
         allUsers: action.payload,
       };
-    case POST_REVIEW:
-      return {
-        ...state,
-        allUsers: action.payload,
-      };
-    case POST_REQUEST:
-      return {
-        ...state,
-        allUsers: action.payload
-      }
+
     default:
       return state;
   }
-};
+}; 
 export default rootReducer;

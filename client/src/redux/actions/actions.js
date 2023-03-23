@@ -10,17 +10,16 @@ export const ALL_FILTER = "ALL_FILTER";
 export const PUSH = "PUSH";
 export const DELETE_FIL = "DELETE_FIL";
 export const RENDER_INFO_USERS = "RENDER_INFO_USERS";
-export const POST_CONTACT = "POST_CONTACT";
-export const POST_USERS = "POST_USERS";
-export const POST_CAR = "POST_CAR";
-export const FRANGE = "FRANGE";
-//export const LINK_COMPRA = "LINK_COMPRA";
-export const POST_FAVORITE = "POST_FAVORITE";
-export const GET_ALL_USERS = "GET_ALL_USERS";
-export const PUT_USERS = "PUT_USERS";
-export const POST_REVIEW = "POST_REVIEW";
+export const POST_CONTACT = "POST_CONTACT"
+export const POST_USERS = "POST_USERS"
+export const POST_CAR = "POST_CAR"
+export const FRANGE = "FRANGE"
+export const LINK_COMPRA = "LINK_COMPRA"
+export const POST_FAVORITE = "POST_FAVORITE"
+export const GET_ALL_USERS = "GET_ALL_USERS"
+export const PUT_USERS = "PUT_USERS"
+export const POST_REVIEW = "POST_REVIEW"
 export const ADD_USER = "ADD_USER";
-export const POST_REQUEST = "POST_REQUEST";
 
 export const getAllCars = () => async (dispatch) => {
   try {
@@ -122,14 +121,15 @@ export const createUser = (payload) => async (dispatch) => {
     return dispatch({
       type: "POST_USERS",
       payload: userCreate,
+
     });
-  } catch (e) {
+  }
+  catch (e) {
     console.log(e);
   }
-};
+}
 
 export const putUser = (id, payload) => async (dispatch) => {
-
   console.log(id, payload)
   try {
     const putCreate = await axios.put(`/users/${id}`, payload);
@@ -137,11 +137,13 @@ export const putUser = (id, payload) => async (dispatch) => {
     return dispatch({
       type: "PUT_USERS",
       // payload: putCreate,
+
     });
-  } catch (e) {
+  }
+  catch (e) {
     console.log(e);
   }
-};
+}
 
 export const renderInfoUsers = async (id) => {
   const infoUser = await axios.get(`/users/${id}`);
@@ -150,6 +152,7 @@ export const renderInfoUsers = async (id) => {
     payload,
   };
 };
+
 
 export const getAllUsers = () => async (dispatch) => {
   try {
@@ -214,17 +217,6 @@ export const postReview = (payload) => async (dispatch) => {
 export const userRender = (email) => {
   return {
     type: "ADD_USER",
-    payload: email,
-  };
-};
-
-export const postRequest = (payload) => async (dispatch) => {
-  try {
-    const postRequest = await axios.post("/review/request", payload);
-    return dispatch({
-      type: "POST_REQUEST",
-    });
-  } catch (error) {
-    console.error(error);
+    payload: email
   }
-};
+}
