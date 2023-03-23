@@ -95,6 +95,7 @@ const getCompra = async (req, res) => {
 const putCompra = async (req, res) => {
   const {statusCar} = req.body;
   const modelCompra = await pagoFacturaSchema.updateOne({_id: req.body.id}, {statusCar})
+  
   res.status(200).json(modelCompra)
 }
 
