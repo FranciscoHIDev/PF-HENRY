@@ -23,6 +23,7 @@ import Playmet from "../pages/Playmet/Playmet";
 import ProtectedRoute from "../components/ProtectedRoute/ProtectedRoute";
 import MyCars from "../components/UserProfile/pages/MyCars";
 import Coments from "../components/UserProfile/pages/Coments";
+import Comments from "../components/LayoutAdmin/pages/Comments";
 
 function RoutesApp() {
   const { user, isAuthenticated } = useAuth0();
@@ -49,6 +50,7 @@ function RoutesApp() {
           <Route path="bookings" element={<Bookings />} />
           <Route path="messages" element={<ContactsForms />} />
           <Route path="create-car" element={<FormCar />} />
+          <Route path="reviews" element={<Comments />} />
         </Route>
         {/* Configuración de rutas del Perfil de usuario  */}
         <Route path="/profile" element={<LayoutUser />}>

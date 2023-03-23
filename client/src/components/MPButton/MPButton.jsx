@@ -76,13 +76,14 @@ export function MPButton({ id }) {
         }),
       }
     );
+    console.log(dataMP)
     const data = await res.json();
-    console.log(data.global);
+    console.log(data)
     if (data.global) {
       const script = document.createElement("script");
       script.type = "text/javascript";
       script.src = "https://sdk.mercadopago.com/js/v2";
-      script.setAttribute("data-preference-id", data.id);
+      script.setAttribute("data-preference-id", data.global);
 
       script.onload = function () {
         const mp = new window.MercadoPago(
@@ -94,11 +95,11 @@ export function MPButton({ id }) {
         console.log(data);
         mp.checkout({
           preference: {
-            id: data.id,
+            id: data.global,
           },
           render: {
             container: ".cho-container",
-            label: "Comprar",
+            label: "Buy",
             error: function (error) {
               console.log(error);
             },

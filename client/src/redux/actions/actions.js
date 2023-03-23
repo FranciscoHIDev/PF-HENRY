@@ -220,4 +220,3 @@ export const userRender = (email) => {
     payload: email
   }
 }
-

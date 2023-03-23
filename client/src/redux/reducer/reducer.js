@@ -173,23 +173,14 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         userRender: favCars
       }
-    case POST_REVIEW:
-      return {
-        ...state,
-        allUsers: action.payload
-      }
     case GET_ALL_USERS:
       return {
         ...state,
         allUsers: action.payload,
       };
-    case POST_REVIEW:
-      return {
-        ...state,
-        allUsers: action.payload,
-      };
+
     default:
       return state;
   }
-};
+}; 
 export default rootReducer;

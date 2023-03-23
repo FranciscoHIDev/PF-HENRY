@@ -2,10 +2,11 @@ const { mercadopago } = require("../utils/mercadopago");
 const carSchema = require("../Models/Cars.js");
 
 const pagarProducto = async (req, res) => {
+  console.log("aa")
   const car = req.body.dataMP;
   const email = car.email;
   const carId = await carSchema.findById(car.id);
-
+console.log("aa")
   let preference = {
     items: [
       {
@@ -42,10 +43,8 @@ const pagarProducto = async (req, res) => {
     })
     .catch(function (error) {
       console.log(error);
-      res.status(400).send(error);
+      res.status(400).send(error); 
     });
 };
 
 module.exports = { pagarProducto };
-
-module.exports={pagarProducto}
