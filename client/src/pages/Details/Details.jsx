@@ -12,10 +12,12 @@ import Swal from "sweetalert2";
 import { useAuth0 } from "@auth0/auth0-react";
 import { MPButton } from "../../components/MPButton/MPButton";
 import CarsReviews from "../../components/Reviews/CarsReviews";
+import { getAllUsers } from "../../redux/actions/actions";
 
 //import { useState } from "react";
 import Style from '../../pages/Details/Details.module.css'
 function Details() {
+  
 
   const [pay, setPay] = useState(false)
   const { isAuthenticated, user } = useAuth0();
@@ -23,8 +25,10 @@ function Details() {
   const dispatch = useDispatch();
   const allData = useSelector((state) => state.details);
 
+
   useEffect(() => {
     dispatch(getCardsById(id));
+    dispatch(getAllUsers())
     return () => dispatch(clearDetail());
   }, [dispatch, id]);
 

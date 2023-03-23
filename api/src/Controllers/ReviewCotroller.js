@@ -26,19 +26,22 @@ const postReview = async (req, res) => {
 };
 
 const deleteReview = async (req, res) => {
-  const borado = await reviewSchema.deleteOne({ _id: req.body.id });
-  const cars = await Cars.find({ _id: req.body.idCar });
+  console.log(req.params)
+  const comeet = await reviewSchema.find({ _id: req.params.id });
+  const borado = await reviewSchema.deleteOne({ _id: req.params.id });
+  const cars = await Cars.find({ _id: comeet[0].idCar });
   let review = cars[0].review;
   review = review.filter(
-    (e) => JSON.stringify(e._id) !== JSON.stringify(req.body.id)
+    (e) => JSON.stringify(e._id) !== JSON.stringify(req.params.id)
   );
-  await carsSchema.updateOne({ _id: req.body.idCar }, { review });
-  const users = await Users.find({ email: req.body.email });
+  await carsSchema.updateOne({ _id: comeet[0].idCar }, { review });
+  const users = await Users.find({ email: comeet[0].email });
   review = users[0].review;
   review = review.filter(
-    (e) => JSON.stringify(e._id) !== JSON.stringify(req.body.id)
+    (e) => JSON.stringify(e._id) !== JSON.stringify(req.params.id)
   );
-  await usersSchema.updateOne({ email: req.body.email }, { review });
+  await usersSchema.updateOne({ email: comeet[0].email }, { review });
+  console.log("se peudo")
   res.status(200).json(borado);
 };
 

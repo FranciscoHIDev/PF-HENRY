@@ -11,7 +11,7 @@ router.post("/",(req,res)=>{
 router.get("/",(req,res)=>{
     getReview(req,res)
 })
-router.delete("/",(req,res)=>{
+router.delete("/:id",(req,res)=>{
     deleteReview(req,res)
 })
 router.post("/request",(req,res)=>{
