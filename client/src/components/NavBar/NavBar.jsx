@@ -47,7 +47,7 @@ function NavBar() {
 
   return (
     <React.Fragment>
-      <div className="flex flex-col lg:flex-row lg:justify-between bg-white w-full fixed py-3 md:p-3 z-10">
+      <div className="flex flex-col lg:flex-row lg:justify-between bg-white w-full fixed py-3 md:p-3 z-20">
         <div className="flex relative justify-center items-center lg:[margin-right:12%] lg:ml-10 ">
           <section className={Style.p_menu1 + "block absolute left-0 top-1 md:hidden"}>
             <nav id="navbar" role="navigation">
