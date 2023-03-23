@@ -30,7 +30,6 @@ function Card({
     if (isAuthenticated && user) {
       axios.get("/users").then((e) => {
         const userDB = e.data.find((e) => e.email === user.email);
-        console.log(userDB);
         const newFavorite = {
           favori: _id,
           email: userDB.email,
@@ -42,6 +41,7 @@ function Card({
       } else {
         setClick(false);
       }
+      
     } else {
       Swal.fire({
         position: "center",
@@ -50,13 +50,14 @@ function Card({
         showConfirmButton: true,
       });
     }
+    
   };
 
   useEffect(() => {
     if (isAuthenticated && user) {
       axios.get("/users").then((e) => {
+        console.log();
         const userDB = e.data.find((e) => e.email === user.email);
-        
         const favorite = userDB.favorites.map((e) => e._id);
         
         for (let i = 0; i < favorite.length; i++) {

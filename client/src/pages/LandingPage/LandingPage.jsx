@@ -13,7 +13,7 @@ import l7 from "../../assets/carousel-landing/logo7.png";
 import l8 from "../../assets/carousel-landing/logo8.png";
 import { BsGithub, BsLinkedin } from "react-icons/bs";
 
-function LandingPage() {
+function LandingPage() { 
   const [lenguaje, setLenguje] = React.useState({
     titulo: "The place where you buy your car",
     boton: "Go!",

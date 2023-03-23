@@ -52,7 +52,7 @@ function Filters({ setPage }) {
     console.log(reFil)
   }
   function handelrModel(e) {
-    dispatch(push({ propety: "model", value: e.target.innerText }));
+    dispatch(push({ propety: "model", value: e.target.innerText })); 
     dispatch(allFilter());
     setPage(1)
     setRange([b[0], b[b.length]])
@@ -82,7 +82,7 @@ function Filters({ setPage }) {
         {s ? <Slider value={range} min={s[0]} max={s[1]} aria-label="Temperature" step={4000} onChange={handleChanges} valueLabelDisplay="auto" getAriaLabel={() => 'Minimum distance'} disableSwap /> : null}
         The selected range is {range[0]} - {range[1]}
       </div>
-      <br />
+      <br /> 
       <div className="flex flex-wrap" >
         {reFil[0] && reFil.map((e, index) => <div className="inline-flex m-1 rounded-md bg-white" key={index}><p className="justify-self-start mr-1" >{e.value}</p ><button className="bg-white bg-slate-100 flex justify-self-end text-black text-[12px] hover:bg-white " value={e.value} onClick={handlerDelete}>x</button> </div>)}</div>
       {reFil[0] && reFil.find(e => e.propety === "category") ? null : <div className="my-3"><label className="font-bold block my-2  rounded-lg"  >Category</label>

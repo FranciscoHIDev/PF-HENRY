@@ -82,7 +82,7 @@ const routerPostUser = async (req, res) => {
   } catch (error) {
     res.status(500).send(`{messaje: ${error}}`);
   }
-  
+
 };
 
 /**

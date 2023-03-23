@@ -8,7 +8,7 @@ const controllerAuth = async (req, res) => {
   checkJwt
   const userId = req.user.sub;
   auth0Client.authorize(loginOptions);
-}
+} 
 
 const tokenValidator = (req, res) => {
   const { hash } = req.query;
