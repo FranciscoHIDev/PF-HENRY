@@ -64,7 +64,7 @@ export function MPButton({ id }) {
   //-----------------------
   const fetchCheckout = async () => {
     const res = await fetch(
-      "https://deploying-pf-production.up.railway.app/cars/comprar",
+      "https://deploying-back-pf-production.up.railway.app/cars/comprar",
       {
         method: "POST",
         headers: {
