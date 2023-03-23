@@ -171,8 +171,7 @@ function LandingPage() {
       <div className="text-center p-10 bg-slate-50">
         <h2 className="font-bold text-3xl tracking-wide text-cyan-800">Meet our team members</h2>
         <p className="w-3/5 mx-auto mt-4 mb-7 tracking-wider">
-          This project would not have been possible without these 6 people, who always pursued the idea of making something out of the
-          ordinary.
+          This project would not have been possible without these 6 people, who always pursued the idea of making something out of the box.
         </p>
         <div className="flex flex-wrap justify-center gap-10">
           <div className="w-80 shadow-md bg-white p-5 rounded-2xl">
@@ -235,7 +234,7 @@ function LandingPage() {
               <div className="text-left flex flex-col justify-center ml-3">
                 <h3 className="font-bold">Javier García</h3>
                 <p className="font-bold tracking-wider" style={{ color: "#4a3aff" }}>
-                  Always
+                  FULL-STACK DEVELOPER
                 </p>
               </div>
             </div>
@@ -317,7 +316,7 @@ function LandingPage() {
                 </p>
               </div>
             </div>
-            <p className="text-left tracking-wider">Trying to make different kind of outstanding designs.</p>
+            <p className="text-left tracking-wider">Trying to make different kinds of outstanding designs.</p>
             <div className="flex mt-2">
               <a className="m-3 ml-0" href="https://github.com/PedroSaraviaQ" target="_blank">
                 <div>

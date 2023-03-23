@@ -43,6 +43,8 @@
 
 .links {
   display: flex;
+  width: calc(60% - 120px);
+  justify-content: space-between;
 }
 
 @media screen and (max-width: 920px) {
