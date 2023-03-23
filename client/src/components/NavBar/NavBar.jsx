@@ -48,9 +48,9 @@ function NavBar() {
       });
     }
   }, [user]); 
-  let userState = useSelector(state =>state.allUsers )
+  /*let userState = useSelector(state =>state.allUsers )
   if (userState.length !==0 && isAuthenticated){
-    var userStateC = userState.filter((element) => element.email === user.email)}
+    var userStateC = userState.filter((element) => element.email === user.email)}*/
 
   return (
     <React.Fragment>
@@ -116,17 +116,12 @@ function NavBar() {
                     </MenuItem>
                     <hr className="my-4 border-gray-500" />
                     <MenuItem className="p-0 hover:bg-transparent">
-                     {(userStateC[0].roll == "user") ? <Link
+                      <Link
                         to="/profile"
                         className="rounded-lg transition-colors text-gray-300 hover:bg-secondary-900 flex items-center gap-x-4 py-2 px-6 flex-1"
                       >
                         <RiProfileLine /> My Profile
-                      </Link>:<Link
-                        to="/dashboard"
-                        className="rounded-lg transition-colors text-gray-300 hover:bg-secondary-900 flex items-center gap-x-4 py-2 px-6 flex-1"
-                      >
-                        <RiProfileLine /> Admin
-                      </Link>}
+                      </Link>
                     </MenuItem>
                     <MenuItem className="p-0 hover:bg-transparent">
                       <Link
@@ -210,17 +205,12 @@ function NavBar() {
                     </MenuItem>
                     <hr className="my-4 border-gray-500" />
                     <MenuItem className="p-0 hover:bg-transparent">
-                     { userStateC[0].roll =="user" ?<Link
+                    <Link
                         to="/profile"
                         className="rounded-lg transition-colors text-gray-300 hover:bg-secondary-900 flex items-center gap-x-4 py-2 px-6 flex-1"
                       >
                         <RiProfileLine /> My Profile
-                      </Link>:<Link
-                        to="/dashboard" 
-                        className="rounded-lg transition-colors text-gray-300 hover:bg-secondary-900 flex items-center gap-x-4 py-2 px-6 flex-1"
-                      >
-                        <RiProfileLine /> Admin
-                      </Link>}
+                      </Link>
                     </MenuItem>
                     <MenuItem className="p-0 hover:bg-transparent">
                       <Link
