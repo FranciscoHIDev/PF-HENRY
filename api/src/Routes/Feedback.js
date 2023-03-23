@@ -11,7 +11,7 @@ router.post("/", function (req, res) {
     getCompra(req, res);
 });
 
-router.put("/", (req, res) => {
+router.put("/:id", (req, res) => {
     putCompra(req,res);
 })
 

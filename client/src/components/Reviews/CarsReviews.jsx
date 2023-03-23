@@ -56,15 +56,15 @@ function CarsReviews({ id, comment }) {
         </div>
         <div className="" >
           {isAuthenticated && commentCar.length > 5 ? (
-            <button onClick={handlerReviews} type="submit" className="bg-black">
+            <button onClick={handlerReviews} type="submit" className="bg-primary">
               Questions
             </button>
           ) :isAuthenticated ? (
-            <button disable type="submit" className="bg-black">
+            <button disable type="submit" className="bg-primary">
               Questions
             </button>
           ):
-            <button onClick={handlerlogear} type="submit" className="bg-black">
+            <button onClick={handlerlogear} type="submit" className="bg-primary">
               Questions
             </button>}
         </div>
@@ -73,8 +73,8 @@ function CarsReviews({ id, comment }) {
       <div className="flex flex-col">
         {reviewAdd?.map((e) => (
           <div key={e.id} className="place-self-start bg-white mx-5 my-1 p-2 rounded-md ">
-            <div className="text-lg "><span>Question : {e.comment}</span></div>
-            {e.request !== ""  ?(<div className=" p-2 bg-gray-100"><span>ask : {e.request}</span></div>):null}
+            <div className="text-lg "><span>{e.comment}</span></div>
+            {e.request !== ""  ?(<div className=" p-2 bg-gray-100 text-gray-400"><span>ask : {e.request}</span></div>):null}
           </div>
           
         ))}
