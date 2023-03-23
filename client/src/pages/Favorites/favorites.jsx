@@ -15,6 +15,9 @@ const Favorites = () => {
   // }, []);
 
   const { user, isAuthenticated } = useAuth0();
+
+  const usersRender = useSelector((state) => state.userRender);
+
   // let favorite = [];
   // const allUser = useSelector((state) => state.allUsers);
   // if (isAuthenticated) {
@@ -41,7 +44,8 @@ const Favorites = () => {
   // const dispatch = useDispatch();
   // const usersRender = useSelector((state) => state.userRender);
   // console.log(usersRender, "usuario");
-  // if (usersRender.length !== 0) {
+  //['cristian'] ===['cristian'] ? ['cristian']: [newArray] -------> pendiente para revisar y probar de este modo
+  // if (usersRender.length !== 0 && users.length > 0) {
   //   var fav = usersRender[0].favorites;
   // }
 

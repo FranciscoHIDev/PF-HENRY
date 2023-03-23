@@ -79,8 +79,7 @@ function CarsReviews({ id, comment }) {
           <div key={e.id} className="place-self-start bg-white mx-5 my-1 p-2 rounded-md ">
             <div className="text-lg "><span>{e.comment}</span></div>
             {e.request !== ""  ?(<div className=" p-2 bg-gray-100 text-gray-400"><span>ask : {e.request}</span></div>):null}
-          </div>
-          
+          </div> 
         ))}
       </div>
     </div>

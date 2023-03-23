@@ -241,7 +241,7 @@ const dispatch = useDispatch();
               <div className="text-left flex flex-col justify-center ml-3">
                 <h3 className="font-bold">Javier García</h3>
                 <p className="font-bold tracking-wider" style={{ color: "#4a3aff" }}>
-                  Always
+                FULL-STACK DEVELOPER
                 </p>
               </div>
             </div>
