@@ -129,7 +129,8 @@ export const createUser = (payload) => async (dispatch) => {
 };
 
 export const putUser = (id, payload) => async (dispatch) => {
-  console.log(id, payload);
+
+  console.log(id, payload)
   try {
     const putCreate = await axios.put(`/users/${id}`, payload);
 
@@ -186,13 +187,14 @@ export const postCar = (payload) => async (dispatch) => {
   }
 };
 
-export const postFavorite = (payload) => {
+export const postFavorite = (payload) => async (dispatch) => {
   try {
-    const addFavorite = axios.post("/users/favorite", payload);
-    return {
+    const addFavorite = await axios.post("/users/favorite", payload);
+    console.log(addFavorite)
+    return dispatch({
       type: "POST_FAVORITE",
       payload: addFavorite,
-    };
+    });
   } catch (e) {
     console.log(e);
   }

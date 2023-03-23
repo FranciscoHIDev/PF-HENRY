@@ -26,9 +26,9 @@ const pagarProducto = async (req, res) => {
             }, */
 
     back_urls: {
-      success: "http://success.com",
-      failure: "http://failure.com",
-      pending: "http://pending.com",
+      success: "https://carmania-henry.netlify.app/",
+      failure: "https://carmania-henry.netlify.app/",
+      pending: "https://carmania-henry.netlify.app/",
     },
     auto_return: "approved",
     external_reference: email
@@ -37,13 +37,12 @@ const pagarProducto = async (req, res) => {
   mercadopago.preferences
     .create(preference)
     .then(function (response) {
-      res.json({
-        global: response.body.id,
-      });
+      res.json({id:response.body.id}
+      );
     })
     .catch(function (error) {
       console.log(error);
-      res.status(400).send(error);
+      res.status(400).send(error); 
     });
 };
 

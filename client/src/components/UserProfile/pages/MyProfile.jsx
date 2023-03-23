@@ -2,7 +2,11 @@ import React, { useState, useEffect } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
-import { getAllUsers,  putUser, userRender, } from "../../../redux/actions/actions";
+import {
+  getAllUsers,
+  putUser,
+  userRender,
+} from "../../../redux/actions/actions";
 import { FiEdit } from "react-icons/fi";
 import Style from "./MyProfile.module.css";
 import Dropzone from "react-dropzone";
@@ -13,8 +17,19 @@ export default function MyProfile() {
   const userDB = useSelector((state) => state.allUsers);
   //const userIdRender = useSelector(state => state.userRender);
   const { user, isAuthenticated } = useAuth0();
+
   const [selectedFile, setSelectedFile] = useState(null);
-  //const [render, setRender] = useState([])
+
+  //const [render, setRender] = useState([]);
+
+  // useEffect(() => {
+  //   if (isAuthenticated && userDB.length > 0) {
+  //     dispatch(userRender(user.email));
+  //   }
+  // }, [!userIdRender.length]);
+
+  // const userId = userIdRender._id;
+
 
   if (isAuthenticated && (userDB.length > 0)) {
 
@@ -35,8 +50,8 @@ export default function MyProfile() {
     image: "" || userImage,
     name: "" || userName,
     lastname: "" || userLastname,
-    kindOfPerson: "natural" || userKingofperson,
-    email: user.email,
+    kindOfPerson: "natural" || userKingofperson ,
+    email: userEmail,
     location: "" || userLocation,
     dni: "" || userDni,
     telephone: "" || userTelephone,
@@ -121,6 +136,7 @@ export default function MyProfile() {
                 alt="img not fuound"
               />
               <input
+                className="text-primary"
                 onChange={handleInputChange}
                 type="file"
                 id={users.image}
@@ -136,7 +152,7 @@ export default function MyProfile() {
                   Name
                 </label>
                 <input
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-primary leading-tight focus:outline-none focus:shadow-outline"
                   onChange={handleInputChange}
                   key="name"
                   type="text"
@@ -154,7 +170,7 @@ export default function MyProfile() {
                   Lastname
                 </label>
                 <input
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-primary leading-tight focus:outline-none focus:shadow-outline"
                   key="lastname"
                   id="lastname"
                   type="text"
@@ -171,7 +187,7 @@ export default function MyProfile() {
                 Email
               </label>
               <input
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-primary leading-tight focus:outline-none focus:shadow-outline"
                 readOnly={true}
                 key="email"
                 type="email"
@@ -191,7 +207,7 @@ export default function MyProfile() {
                 </label>
                 <select
                   name="kindOfPerson"
-                  className=" border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  className=" border rounded w-full py-2 px-3 text-primary leading-tight focus:outline-none focus:shadow-outline"
                   onChange={handleInputChange}
                 >
                   <option value="natural">natural</option>
@@ -206,7 +222,7 @@ export default function MyProfile() {
                     Location
                   </label>
                   <input
-                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    className="shadow appearance-none border rounded w-full py-2 px-3 text-primary leading-tight focus:outline-none focus:shadow-outline"
                     key="location"
                     id="location"
                     type="text"
@@ -257,7 +273,7 @@ export default function MyProfile() {
                   D.N.I
                 </label>
                 <input
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-primary leading-tight focus:outline-none focus:shadow-outline"
                   key="dni"
                   type="number"
                   placeholder={users.dni}
@@ -275,7 +291,7 @@ export default function MyProfile() {
                   Phone
                 </label>
                 <input
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-primary leading-tight focus:outline-none focus:shadow-outline"
                   id="telephone"
                   type="tel"
                   placeholder={users.telephone}
