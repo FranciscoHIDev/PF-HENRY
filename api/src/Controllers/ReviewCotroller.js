@@ -41,7 +41,6 @@ const deleteReview = async (req, res) => {
     (e) => JSON.stringify(e._id) !== JSON.stringify(req.params.id)
   );
   await usersSchema.updateOne({ email: comeet[0].email }, { review });
-
   res.status(200).json(borado);
 };
 

@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect,useState } from "react";
 import { useDispatch } from "react-redux";
 import { useAuth0 } from "@auth0/auth0-react";
 import { postReview } from "../../redux/actions/actions";
 import Swal from "sweetalert2";
+import { getAllUsers } from "../../redux/actions/actions";
 
 function CarsReviews({ id, comment }) {
   const dispatch = useDispatch();
@@ -10,6 +11,9 @@ function CarsReviews({ id, comment }) {
   const [commentCar, setCommentCar] = useState("");
   const [reviewAdd, setReviewAdd] = useState(comment);
   //console.log(users)
+  useEffect(() => {
+    dispatch(getAllUsers())
+  }, []);
 
   function handlerReviews(e) {
     e.preventDefault();

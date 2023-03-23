@@ -78,7 +78,7 @@ export function MPButton({ id }) {
     );
     console.log(dataMP)
     const data = await res.json();
-    console.log(data.global)
+    console.log(data)
     if (data.global) {
       const script = document.createElement("script");
       script.type = "text/javascript";
