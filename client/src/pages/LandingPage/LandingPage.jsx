@@ -11,9 +11,10 @@ import l5 from "../../assets/carousel-landing/logo5.png";
 import l6 from "../../assets/carousel-landing/logo6.png";
 import l7 from "../../assets/carousel-landing/logo7.png";
 import l8 from "../../assets/carousel-landing/logo8.png";
+import member from "../../assets/carousel-landing/t-member.png";
 import { BsGithub, BsLinkedin } from "react-icons/bs";
 
-function LandingPage() { 
+function LandingPage() {
   const [lenguaje, setLenguje] = React.useState({
     titulo: "The place where you buy your car",
     boton: "Go!",
@@ -53,7 +54,7 @@ function LandingPage() {
           </Link>
         </div>
       </div>
-
+      {/* 
       <div className={Style.container_2}>
         <h2>
           CHOOSE YOUR <span>BRAND</span>
@@ -153,7 +154,7 @@ function LandingPage() {
           </div>
         </div>
       </div>
-      {/* 
+      
       <div className={Style.container_3}>
         <div className={Style.col1}></div>
         <div className={Style.col2}>
@@ -170,13 +171,15 @@ function LandingPage() {
       <div className="text-center p-10 bg-slate-50">
         <h2 className="font-bold text-3xl tracking-wide text-cyan-800">Meet our team members</h2>
         <p className="w-3/5 mx-auto mt-4 mb-7 tracking-wider">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. A assumenda hic maxime cupiditate qui distinctio voluptas cumque sit!
-          Dolor, dignissimos.
+          This project would not have been possible without these 6 people, who always pursued the idea of making something out of the
+          ordinary.
         </p>
         <div className="flex flex-wrap justify-center gap-10">
           <div className="w-80 shadow-md bg-white p-5 rounded-2xl">
             <div className="flex my-3">
-              <div className="rounded-full bg-slate-400" style={{ height: "50px", width: "50px" }}></div>
+              <div className="rounded-full bg-slate-400" style={{ height: "50px", width: "50px" }}>
+                <img src={member} />
+              </div>
               <div className="text-left flex flex-col justify-center ml-3">
                 <h3 className="font-bold">Ramiro Espinosa</h3>
                 <p className="font-bold tracking-wider" style={{ color: "#4a3aff" }}>
@@ -184,7 +187,7 @@ function LandingPage() {
                 </p>
               </div>
             </div>
-            <p className="text-left tracking-wider">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <p className="text-left tracking-wider">Constantly looking for ways to improve productivity.</p>
             <div className="flex mt-2">
               <a className="m-3 ml-0" href="https://github.com/RamiroE1" target="_blank">
                 <div>
@@ -200,7 +203,9 @@ function LandingPage() {
           </div>
           <div className="w-80 shadow-md bg-white p-5 rounded-2xl">
             <div className="flex my-3">
-              <div className="rounded-full bg-slate-400" style={{ height: "50px", width: "50px" }}></div>
+              <div className="rounded-full bg-slate-400" style={{ height: "50px", width: "50px" }}>
+                <img src={member} />
+              </div>
               <div className="text-left flex flex-col justify-center ml-3">
                 <h3 className="font-bold">Isidoro Francisco</h3>
                 <p className="font-bold tracking-wider" style={{ color: "#4a3aff" }}>
@@ -208,7 +213,7 @@ function LandingPage() {
                 </p>
               </div>
             </div>
-            <p className="text-left tracking-wider">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <p className="text-left tracking-wider">Highly motivated researcher of the web stack.</p>
             <div className="flex mt-2">
               <a className="m-3 ml-0" href="https://github.com/FranciscoHIDev" target="_blank">
                 <div>
@@ -224,15 +229,17 @@ function LandingPage() {
           </div>
           <div className="w-80 shadow-md bg-white p-5 rounded-2xl">
             <div className="flex my-3">
-              <div className="rounded-full bg-slate-400" style={{ height: "50px", width: "50px" }}></div>
+              <div className="rounded-full bg-slate-400" style={{ height: "50px", width: "50px" }}>
+                <img src={member} />
+              </div>
               <div className="text-left flex flex-col justify-center ml-3">
                 <h3 className="font-bold">Javier García</h3>
                 <p className="font-bold tracking-wider" style={{ color: "#4a3aff" }}>
-                  FULL-STACK DEVELOPER
+                  Always
                 </p>
               </div>
             </div>
-            <p className="text-left tracking-wider">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <p className="text-left tracking-wider">Always looking forward to debugging different files.</p>
             <div className="flex mt-2">
               <a className="m-3 ml-0" href="https://github.com/javimt" target="_blank">
                 <div>
@@ -248,7 +255,9 @@ function LandingPage() {
           </div>
           <div className="w-80 shadow-md bg-white p-5 rounded-2xl">
             <div className="flex my-3">
-              <div className="rounded-full bg-slate-400" style={{ height: "50px", width: "50px" }}></div>
+              <div className="rounded-full bg-slate-400" style={{ height: "50px", width: "50px" }}>
+                <img src={member} />
+              </div>
               <div className="text-left flex flex-col justify-center ml-3">
                 <h3 className="font-bold">César López</h3>
                 <p className="font-bold tracking-wider" style={{ color: "#4a3aff" }}>
@@ -256,7 +265,7 @@ function LandingPage() {
                 </p>
               </div>
             </div>
-            <p className="text-left tracking-wider">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <p className="text-left tracking-wider">Investigating new ways of developing apps.</p>
             <div className="flex mt-2">
               <a className="m-3 ml-0" href="https://github.com/sibas1" target="_blank">
                 <div>
@@ -272,7 +281,9 @@ function LandingPage() {
           </div>
           <div className="w-80 shadow-md bg-white p-5 rounded-2xl">
             <div className="flex my-3">
-              <div className="rounded-full bg-slate-400" style={{ height: "50px", width: "50px" }}></div>
+              <div className="rounded-full bg-slate-400" style={{ height: "50px", width: "50px" }}>
+                <img src={member} />
+              </div>
               <div className="text-left flex flex-col justify-center ml-3">
                 <h3 className="font-bold">Daniel Quijada</h3>
                 <p className="font-bold tracking-wider" style={{ color: "#4a3aff" }}>
@@ -280,7 +291,7 @@ function LandingPage() {
                 </p>
               </div>
             </div>
-            <p className="text-left tracking-wider">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <p className="text-left tracking-wider">Making projects to revolutionize the industry.</p>
             <div className="flex mt-2">
               <a className="m-3 ml-0" href="https://github.com/mago0oxx" target="_blank">
                 <div>
@@ -296,7 +307,9 @@ function LandingPage() {
           </div>
           <div className="w-80 shadow-md bg-white p-5 rounded-2xl">
             <div className="flex my-3">
-              <div className="rounded-full bg-slate-400" style={{ height: "50px", width: "50px" }}></div>
+              <div className="rounded-full bg-slate-400" style={{ height: "50px", width: "50px" }}>
+                <img src={member} />
+              </div>
               <div className="text-left flex flex-col justify-center ml-3">
                 <h3 className="font-bold">Pedro Saravia</h3>
                 <p className="font-bold tracking-wider" style={{ color: "#4a3aff" }}>
@@ -304,7 +317,7 @@ function LandingPage() {
                 </p>
               </div>
             </div>
-            <p className="text-left tracking-wider">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <p className="text-left tracking-wider">Trying to make different kind of outstanding designs.</p>
             <div className="flex mt-2">
               <a className="m-3 ml-0" href="https://github.com/PedroSaraviaQ" target="_blank">
                 <div>
