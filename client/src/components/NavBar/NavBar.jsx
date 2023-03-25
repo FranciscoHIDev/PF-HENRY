@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, Outlet } from "react-router-dom";
-import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { MdFavoriteBorder } from "react-icons/md";
 import logo2 from "../../assets/logo-n2.png";
 import { useAuth0 } from "@auth0/auth0-react";
@@ -11,8 +10,8 @@ import { MdOutlineFavorite } from "react-icons/md";
 import { Menu, MenuItem, MenuButton } from "@szhsin/react-menu";
 import "@szhsin/react-menu/dist/index.css";
 import "@szhsin/react-menu/dist/transitions/slide.css";
-import { useDispatch, useSelector } from "react-redux";
-import { createUser, getAllUsers } from "../../redux/actions/actions";
+import { useDispatch } from "react-redux";
+import { createUser } from "../../redux/actions/actions";
 import Style from "./NavBar.module.css";
 
 function NavBar() {
