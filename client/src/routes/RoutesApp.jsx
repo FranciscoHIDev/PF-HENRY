@@ -1,5 +1,5 @@
-import React from "react";
-import { Route, Routes } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Route, Routes, Navigate } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import {
   Home,
@@ -20,16 +20,12 @@ import { FormCar } from "../components/LayoutAdmin/Forms/FormCar";
 import LayoutUser from "../components/UserProfile/LayoutUser";
 import Myprofile from "../components/UserProfile/pages/MyProfile";
 import Playmet from "../pages/Playmet/Playmet";
-import ProtectedRoute from "../components/ProtectedRoute/ProtectedRoute";
 import MyCars from "../components/UserProfile/pages/MyCars";
 import Coments from "../components/UserProfile/pages/Coments";
 import Comments from "../components/LayoutAdmin/pages/Comments";
 
 function RoutesApp() {
   const { user, isAuthenticated } = useAuth0();
-
-  if (isAuthenticated && user) {
-  }
 
   return (
     <>
@@ -43,9 +39,16 @@ function RoutesApp() {
         <Route exact path="favorites" element={<Favorites />} />
 
         {/* Configuración de rutas del Dashboard  */}
-        <Route path="/dashboard" element={<LayoutAdmin />}>
+
+        <Route
+          path="/dashboard"
+          element={isAuthenticated ? <LayoutAdmin /> : <Navigate to="/home" />}
+        >
           <Route index element={<HomeAdmin />} />
-          <Route path="users" element={<UsersAdmin />} />
+          <Route
+            path="users"
+            element={isAuthenticated ? <UsersAdmin /> : <Navigate to="/home" />}
+          />
           <Route path="cars" element={<CarsAdmin />} />
           <Route path="bookings" element={<Bookings />} />
           <Route path="messages" element={<ContactsForms />} />
@@ -53,15 +56,16 @@ function RoutesApp() {
           <Route path="reviews" element={<Comments />} />
         </Route>
         {/* Configuración de rutas del Perfil de usuario  */}
-        <Route path="/profile" element={<LayoutUser />}>
+        <Route
+          path="/profile"
+          element={isAuthenticated ? <LayoutUser /> : <Navigate to="/home" />}
+        >
           <Route path="MyProfile" element={<Myprofile />} />
           <Route path="mycars" element={<MyCars />} />
           <Route path="coments" element={<Coments />} />
           <Route path="favorites" element={<Favorites />} />
         </Route>
-        <Route element={<ProtectedRoute isAllowed={isAuthenticated} />}>
-          <Route path="/profile" element={<LayoutUser />} />
-        </Route>
+
         <Route exact path="*" element={<NotFound />} />
       </Routes>
     </>

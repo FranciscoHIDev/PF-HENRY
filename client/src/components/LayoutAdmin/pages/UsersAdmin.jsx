@@ -18,8 +18,6 @@ import {
 } from "@mui/material";
 import Swal from "sweetalert2";
 
-
-
 function UsersAdmin() {
   const dispatch = useDispatch();
   const [data, setData] = useState([]);
@@ -140,13 +138,18 @@ function UsersAdmin() {
             row
             name="roll"
             value={userSeleccionado && userSeleccionado.roll}
-            style={{ marginLeft: "100px" }}
+            style={{ marginLeft: "40px" }}
             onChange={handleChange}
           >
             <FormControlLabel
               value={"user"}
               control={<Radio size="small" />}
               label="User"
+            />
+            <FormControlLabel
+              value={"admin"}
+              control={<Radio size="small" />}
+              label="Admin"
             />
             <FormControlLabel
               value={"superAdmin"}
@@ -229,7 +232,7 @@ function UsersAdmin() {
             {data.length !== 0 ? (
               data.map((u) => {
                 return (
-                  <TableRow key={u.id}>
+                  <TableRow key={crypto.randomUUID()}>
                     {/* <TableCell>{u._id}</TableCell> */}
                     <TableCell>{u.name}</TableCell>
                     <TableCell>{u.lastname}</TableCell>
