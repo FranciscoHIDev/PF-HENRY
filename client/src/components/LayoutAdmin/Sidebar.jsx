@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import {
-  RiLogoutCircleRLine,
-  RiArrowRightLine,
+  RiLogoutCircleRLine, 
   RiMenu3Line,
   RiCloseLine,
   RiCarFill,
   RiHome7Fill,
   RiMessage3Fill,
+  RiProfileLine
 } from "react-icons/ri";
 import { AiOutlineComment } from "react-icons/ai";
 import { FaUsers, FaShoppingBag } from "react-icons/fa";
@@ -18,7 +18,6 @@ function Sidebar() {
   //overflow-y-scroll
   const { isAuthenticated, user, logout } = useAuth0();
   const [infoUser, setInfoUser] = useState({});
-  const [showSubMenu, setShowSubMenu] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
 
   useEffect(() => {
@@ -46,6 +45,15 @@ function Sidebar() {
             Admin<span className="text-primary  ">.</span>
           </h1>
           <ul>
+            <li>
+              <Link
+                to="profile"
+                className="flex text-2xl items-center gap-4  py-2 px-4 rounded-lg hover:bg-secondary-900 w-full"
+              >
+                <RiProfileLine className="text-primary" />
+                <p className="text-white">MyProfile</p>
+              </Link>
+            </li>
             <li>
               <Link
                 to="bookings"
@@ -95,48 +103,7 @@ function Sidebar() {
                 <p className="text-white">Reviews</p>
               </Link>
             </li>
-            {/* <li>
-              <button
-                onClick={() => setShowSubMenu(!showSubMenu)}
-                className="flex items-center justify-between py-2 px-4 rounded-lg hover:bg-secondary-900 w-full"
-              >
-                <span className="flex items-center gap-4 text-2xl">
-                  <FaUsers className="text-primary " /> Users
-                </span>
-                <RiArrowRightLine
-                  className={`mt-1 ${
-                    !showSubMenu && "rotate-90"
-                  } transition-all`}
-                />
-              </button>
 
-              <ul className={`my-2 ${showSubMenu && "hidden"}`}>
-                <li>
-                  <Link
-                    to="/"
-                    className="py-2 px-4 border-l border-gray-500 ml-6 block relative
-                   before:w-3 before:h-3 before:absolute before:bg-primary
-                    before:rounded-full before:-left-[6.5px] before:top-1/2 before:-translate-y-1/2
-                     before:border-secondary-100 before:border-4 hover:text-primary transition-colors 
-                     rounded-lg hover:bg-secondary-900 text-lg"
-                  >
-                    Admin
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/"
-                    className="py-2 px-4 border-l border-gray-500 ml-6 block relative
-                   before:w-3 before:h-3 before:absolute before:bg-primary before:rounded-full
-                    before:-left-[6.5px] before:top-1/2 before:-translate-y-1/2
-                     before:border-secondary-100 before:border-4 hover:text-primary transition-colors 
-                     rounded-lg hover:bg-secondary-900 text-lg"
-                  >
-                    User
-                  </Link>
-                </li>
-              </ul>
-            </li> */}
             <li>
               <Link
                 to="/home"
@@ -153,7 +120,7 @@ function Sidebar() {
             <Link
               to="#"
               onClick={() => logout({ returnTo: window.location.origin })}
-              className="flex text-2xl items-center gap-4 my-[90px] py-1 pl-5 rounded-lg hover:bg-[#0d6efd] hover:text-white transition-colors bg-primary"
+              className="flex text-2xl items-center gap-4 my-[70px] py-1 pl-5 rounded-lg hover:bg-[#0d6efd] hover:text-white transition-colors bg-primary"
             >
               <RiLogoutCircleRLine className="text-white  " />
               <p className="text-white">Log Out</p>
