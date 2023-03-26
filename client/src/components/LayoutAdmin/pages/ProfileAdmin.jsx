@@ -76,7 +76,7 @@ export default function ProfileAdmin() {
     <div>
       {isAuthenticated ? (
         <div>
-          <form className="ml-20 mr-20 text-white  " onSubmit={handleSubmit}>
+          <form className="ml-40 mr-20 text-white  " onSubmit={handleSubmit}>
             <div>
               <img
                 src={users.image}
