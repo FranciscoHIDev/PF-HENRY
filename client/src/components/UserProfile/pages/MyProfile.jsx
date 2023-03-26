@@ -7,6 +7,7 @@ import {
   putUser,
   userRender,
 } from "../../../redux/actions/actions";
+import Swal from "sweetalert2";
 import { FiEdit } from "react-icons/fi";
 import Style from "./MyProfile.module.css";
 import Dropzone from "react-dropzone";
@@ -110,10 +111,13 @@ export default function MyProfile() {
     // console.log(infoUsertopost)
     console.log(users);
     dispatch(putUser(userid, users));
-
-    alert(
-      user.given_name + " " + "tu informacion ha sido Guardada Correctamente"
-    );
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "Your profile has been updated",
+      showConfirmButton: false,
+      timer: 3000,
+    });
   }
 
   return (
