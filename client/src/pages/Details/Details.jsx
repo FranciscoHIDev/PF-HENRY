@@ -177,7 +177,7 @@ function Details() {
                 </fieldset>
 
                 <div className={Style.botonCompra}>
-                  {isAuthenticated ? <MPButton id={id} /> : <button onClick={handlerPay}>Comprar</button> }
+                  {isAuthenticated ? <MPButton id={id} /> : <button onClick={handlerPay}>Buy</button> }
                 </div> 
                 {/*<div className="mt-4">
                   <MPButton id={id}></MPButton>
