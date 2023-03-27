@@ -11,13 +11,12 @@ import axios from "axios";
 //axios.defaults.baseURL = "http://localhost:3001";
 axios.defaults.baseURL = "https://deploying-back-pf-production.up.railway.app";
 
-
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={store}>
     <BrowserRouter>
       <Auth0Provider
-        domain="dev-2llhwpnt06dhuqy3.us.auth0.com"
-        clientId="cPuvb1pkTBLM2bvdB4CMh7zJe3detvvh"
+        domain="dev-vgc7jwfb4gz8q64r.us.auth0.com"
+        clientId="b08kk8UHwGoECWk7kloms5RxdQ7VyuwR"
         authorizationParams={{
           redirect_uri: window.location.origin,
         }}

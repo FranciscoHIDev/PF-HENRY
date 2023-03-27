@@ -22,8 +22,7 @@ function NavBar() {
   const dispatch = useDispatch();
   const { isAuthenticated, user, logout } = useAuth0();
   const [infoUser, setInfoUser] = useState({});
- 
-  
+
   useEffect(() => {
     if (user && isAuthenticated) {
       axios.get("/users").then((element) => {
@@ -44,9 +43,6 @@ function NavBar() {
       });
     }
   }, [user]);
- 
- 
-
 
   return (
     <React.Fragment>
@@ -128,7 +124,8 @@ function NavBar() {
                     </MenuItem>
                     <hr className="my-4 border-gray-500" />
                     <MenuItem className="p-0 hover:bg-transparent">
-                     {infoUser.roll == "superAdmin" ? (
+                      {infoUser.roll == "superAdmin" ||
+                      infoUser.roll == "Admin" ? (
                         <Link
                           to="/dashboard"
                           className="rounded-lg transition-colors text-gray-300 hover:bg-secondary-900 flex items-center gap-x-4 py-2 px-6 flex-1"
@@ -198,9 +195,12 @@ function NavBar() {
             {/* <Link to="/cart">
             <HiOutlineShoppingBag className="text-3xl mr-4" />
           </Link> */}
-            <Link to="/profile/favorites">
-              <MdFavoriteBorder className="text-3xl mr-4" />
-            </Link>
+            {infoUser.roll == "superAdmin" ||
+            infoUser.roll == "Admin" ? null : (
+              <Link to="/profile/favorites">
+                <MdFavoriteBorder className="text-3xl mr-4" />
+              </Link>
+            )}
 
             {isAuthenticated && user ? (
               <>
@@ -249,7 +249,8 @@ function NavBar() {
                     </MenuItem>
                     <hr className="my-4 border-gray-500" />
                     <MenuItem className="p-0 hover:bg-transparent">
-                     {infoUser.roll == "superAdmin" ? (
+                      {infoUser.roll == "superAdmin" ||
+                      infoUser.roll == "Admin" ? (
                         <Link
                           to="/dashboard"
                           className="rounded-lg transition-colors text-gray-300 hover:bg-secondary-900 flex items-center gap-x-4 py-2 px-6 flex-1"
@@ -266,12 +267,15 @@ function NavBar() {
                       )}
                     </MenuItem>
                     <MenuItem className="p-0 hover:bg-transparent">
-                      <Link
-                        to="/profile/favorites"
-                        className="rounded-lg transition-colors text-gray-300 hover:bg-secondary-900 flex items-center gap-x-4 py-2 px-6 flex-1"
-                      >
-                        <MdOutlineFavorite /> Favorites
-                      </Link>
+                      {infoUser.roll == "superAdmin" ||
+                      infoUser.roll == "Admin" ? null : (
+                        <Link
+                          to="/profile/favorites"
+                          className="rounded-lg transition-colors text-gray-300 hover:bg-secondary-900 flex items-center gap-x-4 py-2 px-6 flex-1"
+                        >
+                          <MdOutlineFavorite /> Favorites
+                        </Link>
+                      )}
                     </MenuItem>
                     <MenuItem className="p-0 hover:bg-transparent">
                       <Link
@@ -298,4 +302,4 @@ function NavBar() {
   );
 }
 
-export default NavBar;
+export default NavBar;

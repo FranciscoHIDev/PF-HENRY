@@ -7,12 +7,12 @@ import {
   putUser,
   userRender,
 } from "../../../redux/actions/actions";
+import Swal from "sweetalert2";
 import { FiEdit } from "react-icons/fi";
 import Style from "./MyProfile.module.css";
 import Dropzone from "react-dropzone";
 
 export default function MyProfile() {
-
   const dispatch = useDispatch();
   const userDB = useSelector((state) => state.allUsers);
   //const userIdRender = useSelector(state => state.userRender);
@@ -30,27 +30,25 @@ export default function MyProfile() {
 
   // const userId = userIdRender._id;
 
-
-  if (isAuthenticated && (userDB.length > 0)) {
-
-    var aux = userDB.find((e) => e.email === user.email)
-    console.log(aux)
-    var userid = aux._id
-    var userName = aux.name
-    var userLastname = aux.lastname
-    var userLocation = aux.location 
-    var userDni = aux.dni
-    var userKingofperson = aux.kindOfPerson
-    var userTelephone = aux.telephone
-    var userImage = aux.image
-    var userEmail = aux.email
+  if (isAuthenticated && userDB.length > 0) {
+    var aux = userDB.find((e) => e.email === user.email);
+    console.log(aux);
+    var userid = aux._id;
+    var userName = aux.name;
+    var userLastname = aux.lastname;
+    var userLocation = aux.location;
+    var userDni = aux.dni;
+    var userKingofperson = aux.kindOfPerson;
+    var userTelephone = aux.telephone;
+    var userImage = aux.image;
+    var userEmail = aux.email;
   }
 
   const [users, setUsers] = useState({
     image: "" || userImage,
     name: "" || userName,
     lastname: "" || userLastname,
-    kindOfPerson: "natural" || userKingofperson ,
+    kindOfPerson: "natural" || userKingofperson,
     email: userEmail,
     location: "" || userLocation,
     dni: "" || userDni,
@@ -91,7 +89,7 @@ export default function MyProfile() {
       [e.target.name]: e.target.value,
     });
   }
-  
+
   function handleSubmit(e) {
     e.preventDefault();
 
@@ -113,22 +111,21 @@ export default function MyProfile() {
     // console.log(infoUsertopost)
     console.log(users);
     dispatch(putUser(userid, users));
-
-    alert(
-      user.given_name + " " + "tu informacion ha sido Guardada Correctamente"
-    );
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "Your profile has been updated",
+      showConfirmButton: false,
+      timer: 3000,
+    });
   }
 
   return (
-
     <div>
       {isAuthenticated ? (
         <div>
-          <form
-            className="mx-auto max-w-lg p-6 text-white"
-            onSubmit={handleSubmit}
-          >
-            <div className={Style.imagen}>
+          <form className="ml-40 mr-20 text-white  " onSubmit={handleSubmit}>
+            <div>
               <img
                 src={users.image}
                 width="100px"
@@ -136,7 +133,7 @@ export default function MyProfile() {
                 alt="img not fuound"
               />
               <input
-                className="text-primary"
+                className="text-primary mt-2"
                 onChange={handleInputChange}
                 type="file"
                 id={users.image}
@@ -152,7 +149,7 @@ export default function MyProfile() {
                   Name
                 </label>
                 <input
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-primary leading-tight focus:outline-none focus:shadow-outline"
+                  className="shadow appearance-none border rounded  py-2 px-3 text-primary leading-tight focus:outline-none focus:shadow-outline"
                   onChange={handleInputChange}
                   key="name"
                   type="text"
@@ -170,33 +167,37 @@ export default function MyProfile() {
                   Lastname
                 </label>
                 <input
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-primary leading-tight focus:outline-none focus:shadow-outline"
+                  className="shadow appearance-none border rounded  py-2 px-3 text-primary leading-tight focus:outline-none focus:shadow-outline"
                   key="lastname"
                   id="lastname"
                   type="text"
-                  placeholder="put your lastname"
+                  placeholder="Lastname"
                   name="lastname"
                   value={users.lastname}
                   onChange={handleInputChange}
                 />
               </div>
+              &nbsp;&nbsp;
+              <div className="mb-4">
+                <label
+                  className="block text-white-700 font-bold mb-2"
+                  for="mail"
+                >
+                  Email
+                </label>
+                <input
+                  className="shadow appearance-none border rounded  py-2 px-3 text-primary leading-tight focus:outline-none focus:shadow-outline"
+                  readOnly={true}
+                  key="email"
+                  type="email"
+                  placeholder={user.email}
+                  name="email"
+                  value={users.email}
+                  onChange={handleInputChange}
+                />
+              </div>
             </div>
 
-            <div className="mb-4">
-              <label className="block text-white-700 font-bold mb-2" for="mail">
-                Email
-              </label>
-              <input
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-primary leading-tight focus:outline-none focus:shadow-outline"
-                readOnly={true}
-                key="email"
-                type="email"
-                placeholder={user.email}
-                name="email"
-                value={users.email}
-                onChange={handleInputChange}
-              />
-            </div>
             <div className="flex  row space-rounded">
               <div className="mb-4">
                 <label
@@ -207,62 +208,33 @@ export default function MyProfile() {
                 </label>
                 <select
                   name="kindOfPerson"
-                  className=" border rounded w-full py-2 px-3 text-primary leading-tight focus:outline-none focus:shadow-outline"
+                  className=" border rounded  py-2 px-3 text-primary leading-tight focus:outline-none focus:shadow-outline"
                   onChange={handleInputChange}
                 >
                   <option value="natural">natural</option>
                   <option value="business">business</option>
                 </select>
-                &nbsp;&nbsp;
-                <div className="mb-4">
-                  <label
-                    className="block text-white-700 font-bold mb-2"
-                    for="location"
-                  >
-                    Location
-                  </label>
-                  <input
-                    className="shadow appearance-none border rounded w-full py-2 px-3 text-primary leading-tight focus:outline-none focus:shadow-outline"
-                    key="location"
-                    id="location"
-                    type="text"
-                    placeholder={users.location}
-                    name="location"
-                    value={users.location}
-                    onChange={handleInputChange}
-                  />
-                </div>
               </div>
-
-              {/* <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              readOnly={true}
-              id="mail"
-              type=""
-              placeholder={user.email}
-              name="email"
-              value={users.kindOfPerson}
-              onChange={handleInputChange}
-            /> */}
+              &nbsp;&nbsp;&nbsp;
+              <div className="mb-4">
+                <label
+                  className="block text-white-700 font-bold mb-2"
+                  for="location"
+                >
+                  Location
+                </label>
+                <input
+                  className="shadow appearance-none border rounded  py-2 px-3 text-primary leading-tight focus:outline-none focus:shadow-outline"
+                  key="location"
+                  id="location"
+                  type="text"
+                  placeholder={users.location}
+                  name="location"
+                  value={users.location}
+                  onChange={handleInputChange}
+                />
+              </div>
             </div>
-
-            {/* <div class="flex  row space-rounded">
-
-                    <div class="mb-4">
-                        <label class="block text-gray-700 font-bold mb-2" for="Countrie">
-                            Countrie
-                        </label>
-                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="countrie" type="text" placeholder="Countrie" name="countrie" value={users.countrie}  onChange={(e)=>handleInputChange(e)} />
-                    </div>
-                    &nbsp;&nbsp;
-
-                    <div class="mb-4">
-                        <label class="block text-gray-700 font-bold mb-2" for="direction">
-                            Direction
-                        </label>
-                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="direction" type="text" placeholder="Direction" onChange={(e)=>handleInputChange(e)}/>
-                    </div>
-                </div> */}
 
             <div className="flex  row space-rounded">
               <div className="mb-4">
@@ -273,7 +245,7 @@ export default function MyProfile() {
                   D.N.I
                 </label>
                 <input
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-primary leading-tight focus:outline-none focus:shadow-outline"
+                  className="shadow appearance-none border rounded py-2 px-3 text-primary leading-tight focus:outline-none focus:shadow-outline"
                   key="dni"
                   type="number"
                   placeholder={users.dni}
@@ -291,7 +263,7 @@ export default function MyProfile() {
                   Phone
                 </label>
                 <input
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-primary leading-tight focus:outline-none focus:shadow-outline"
+                  className="shadow appearance-none border rounded  py-2 px-3 text-primary leading-tight focus:outline-none focus:shadow-outline"
                   id="telephone"
                   type="tel"
                   placeholder={users.telephone}
@@ -303,9 +275,9 @@ export default function MyProfile() {
             </div>
 
             <div className="flex items-center justify-center">
-              <button type="submit">Send</button>
-
-              {/* onClick={handleSubmit} */}
+              <button className="bg-primary" type="submit">
+                Send
+              </button>
             </div>
           </form>
         </div>
