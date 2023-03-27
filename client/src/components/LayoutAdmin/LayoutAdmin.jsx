@@ -4,7 +4,6 @@ import Sidebar from "../LayoutAdmin/Sidebar";
 import Header from "../LayoutAdmin/Header";
 
 function LayoutAdmin() {
-  
   return (
     <>
       <div className="bg-secondary-900 min-h-screen grid  grid-cols-1 xl:grid-cols-6">
