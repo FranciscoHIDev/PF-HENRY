@@ -1,38 +1,20 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { userRender } from "../../redux/actions/actions";
 import { useAuth0 } from "@auth0/auth0-react";
 import CardFavorite from "../../components/Card/CardFavorite";
 import axios from "axios";
 
 const Favorites = () => {
-  const dispatch = useDispatch();
-
   const [favorite, setFavorite] = useState([]);
-
-  // useEffect(() => {
-  //   dispatch(getAllUsers());
-  // }, []);
-
   const { user, isAuthenticated } = useAuth0();
-
-  const usersRender = useSelector((state) => state.userRender);
-
-  // let favorite = [];
-  // const allUser = useSelector((state) => state.allUsers);
-  // if (isAuthenticated) {
-  //   const userDB = allUser.find((e) => e.email === user.email);
-  //   favorite = userDB.favorites;
-  //   //setFavorite(myFavorite);
-  // }
-
-  if (isAuthenticated) {
-    axios.get("/users").then((e) => {
-      const userDB = e.data.find((e) => e.email === user.email);
-      const myFavorite = userDB.favorites;
-      setFavorite(myFavorite);
-    });
-  }
+  useEffect(() => {
+    if (isAuthenticated) {
+      axios.get("/users").then((e) => {
+        const userDB = e.data.find((e) => e.email === user.email);
+        const myFavorite = userDB.favorites;
+        setFavorite(myFavorite);
+      });
+    }
+  }, []);
 
   //----------falta arreglar----------------
   // useEffect(() => {
@@ -44,8 +26,12 @@ const Favorites = () => {
   // const dispatch = useDispatch();
   // const usersRender = useSelector((state) => state.userRender);
   // console.log(usersRender, "usuario");
+
   //['cristian'] ===['cristian'] ? ['cristian']: [newArray] -------> pendiente para revisar y probar de este modo
   // if (usersRender.length !== 0 && users.length > 0) {
+
+  // if (usersRender.length !== 0) {
+
   //   var fav = usersRender[0].favorites;
   // }
 
