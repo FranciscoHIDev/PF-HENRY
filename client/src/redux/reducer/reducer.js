@@ -147,6 +147,8 @@ const rootReducer = (state = initialState, action) => {
       };
 
     case POST_CONTACT:
+      const contacts = state.allContacts;
+console.log(action.payload)
       return {
         ...state,
         allContacts: action.payload,

@@ -29,7 +29,7 @@ export const getAllCars = () => async (dispatch) => {
       payload: data,
     });
   } catch (e) {
-    console.log(e);
+    console.error(e);
   }
 };
 
@@ -125,23 +125,20 @@ export const createUser = (payload) => async (dispatch) => {
     });
   }
   catch (e) {
-    console.log(e);
+    console.error(e);
   }
 }
 
 export const putUser = (id, payload) => async (dispatch) => {
-  console.log(id, payload)
+  //console.log(id, payload)
   try {
-    const putCreate = await axios.put(`/users/${id}`, payload);
-
+    const putUser = await axios.put(`/users/${id}`, payload);
     return dispatch({
       type: "PUT_USERS",
-      // payload: putCreate,
-
     });
   }
   catch (e) {
-    console.log(e);
+    console.error(e);
   }
 }
 
@@ -162,19 +159,20 @@ export const getAllUsers = () => async (dispatch) => {
       payload: data,
     });
   } catch (e) {
-    console.log(e);
+    console.error(e);
   }
 };
 
 export const postContact = (payload) => async (dispatch) => {
   try {
     const data = await axios.post("/contact", payload);
+console.log(data.data)
     return dispatch({
       type: "POST_CONTACT",
-      payload: data,
+      payload: data.data,
     });
   } catch (e) {
-    console.log(e);
+    console.error(e);
   }
 };
 
@@ -186,7 +184,7 @@ export const postCar = (payload) => async (dispatch) => {
       payload: carCreated,
     });
   } catch (e) {
-    console.log(e);
+    console.error(e);
   }
 };
 
@@ -199,7 +197,7 @@ export const postFavorite = (payload) => async (dispatch) => {
       payload: addFavorite,
     });
   } catch (e) {
-    console.log(e);
+    console.error(e);
   }
 };
 
