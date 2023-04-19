@@ -124,19 +124,6 @@ function NavBar() {
                     </MenuItem>
                     <hr className="my-4 border-gray-500" />
                     <MenuItem className="p-0 hover:bg-transparent">
-<<<<<<< HEAD
-                     {(userStateC[0].roll === "user") ? <Link
-                        to="/profile"
-                        className="rounded-lg transition-colors text-gray-300 hover:bg-secondary-900 flex items-center gap-x-4 py-2 px-6 flex-1"
-                      >
-                        <RiProfileLine /> My Profile
-                      </Link>:<Link
-                        to="/dashboard"
-                        className="rounded-lg transition-colors text-gray-300 hover:bg-secondary-900 flex items-center gap-x-4 py-2 px-6 flex-1"
-                      >
-                        <RiProfileLine /> Admin
-                      </Link>}
-=======
                       {infoUser.roll == "superAdmin" ||
                       infoUser.roll == "Admin" ? (
                         <Link
@@ -153,7 +140,6 @@ function NavBar() {
                           <RiProfileLine /> My Profile
                         </Link>
                       )}
->>>>>>> 424fca678d5b90bf2705d8e5e5f022b578e4a64e
                     </MenuItem>
                     <MenuItem className="p-0 hover:bg-transparent">
                       <Link
