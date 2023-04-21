@@ -69,7 +69,7 @@ console.log(allContacts.length)
     
     e.preventDefault();
     //if(allContacts.length < 57) {
-    if(allContacts < 0){
+    if(Object.keys(errores).length > 0){
       Swal.fire({
         position: "center",
         icon: "error",
