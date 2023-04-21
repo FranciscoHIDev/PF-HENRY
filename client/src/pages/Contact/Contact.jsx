@@ -68,7 +68,8 @@ console.log(allContacts.length)
   function handleSubmit(e) {
     
     e.preventDefault();
-    if(allContacts.length < 57) {
+    //if(allContacts.length < 57) {
+    if(!state.name || !state.lastname ||state.emailAddress ||state.message){
       Swal.fire({
         position: "center",
         icon: "error",
