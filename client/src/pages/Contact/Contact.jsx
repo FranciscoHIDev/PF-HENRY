@@ -75,8 +75,7 @@ console.log(allContacts.length)
         title: "You need to fill in all the fields",
         showConfirmButton: true,
         timer: 3000,
-      });
-      navigate("/contact");
+      });      
     } else {
       dispatch(postContact(state));
       Swal.fire({
