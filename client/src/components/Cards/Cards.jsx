@@ -5,7 +5,7 @@ import Card from "../Card/Card";
 import Loading from "../Loading/Loading";
 import Pagination from "../Pagination/Pagination";
 import SearchBar from "../../components/SearchBar/SearchBar";
-import SideBar from "./../SideBar/SideBar";
+import SideBar from "./../SideBar/SideBar"; 
 
 function Cards() { 
   const dispatch = useDispatch();
