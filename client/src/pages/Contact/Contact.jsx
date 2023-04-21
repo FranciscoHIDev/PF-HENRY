@@ -69,7 +69,7 @@ console.log(allContacts.length)
     
     e.preventDefault();
     //if(allContacts.length < 57) {
-    if(!state.name || !state.lastname ||state.emailAddress ||state.message){
+    if(!state.name || !state.lastname || !state.emailAddress || !state.message){
       Swal.fire({
         position: "center",
         icon: "error",
