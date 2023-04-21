@@ -24,19 +24,19 @@ export default function Contact() {
   function validate(valor) {
     let errores = {};
     
-    if (!valor.name) errores.name = "this field is required";
-    if (!valor.lastname) errores.lastname = "this field is required";
+    if (!valor.name) errores.name = "This field is required";
+    if (!valor.lastname) errores.lastname = "This field is required";
     if (!valor.emailAddress) errores.emailAddress = "This field is empty";
 
     // if (!valor.message) errores.message = "este campo esta vacio";
     if (valor.message.length < 15)
-      errores.message = "it most have at least 15 characters";
+      errores.message = "It most have at least 15 characters";
     else if (
       !/^[a-zA-Z0-9.!#$%&'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)/.test(
         valor.emailAddress
       )
     ) {
-      errores.emailAddress = "this it's not an valid email";
+      errores.emailAddress = "This it's not an valid email";
     }
     //else if (!valor.length === 0) errores = "haber si es por aca";
     return errores;
@@ -61,9 +61,9 @@ export default function Contact() {
       emailAddress: state.emailAddress,
       message: state.message,
     }; */
-  const objectContact = JSON.stringify(state)
-  const allContacts = Object.keys(objectContact)
-console.log(allContacts.length)
+  //const objectContact = JSON.stringify(state)
+  //const allContacts = Object.keys(objectContact)
+//console.log(allContacts.length)
 
   function handleSubmit(e) {
     
@@ -73,9 +73,8 @@ console.log(allContacts.length)
       Swal.fire({
         position: "center",
         icon: "error",
-        title: "you need to fill in all the fields",
-        showConfirmButton: true,
-        timer: 3000,
+        title: "You need to fill in all the fields",
+        showConfirmButton: true,       
       });
       
     } else {
