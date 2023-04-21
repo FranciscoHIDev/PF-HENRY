@@ -69,15 +69,15 @@ console.log(allContacts.length)
     
     e.preventDefault();
     //if(allContacts.length < 57) {
-    if(!state.name || !state.lastname || !state.emailAddress || !state.message){
+    if(allContacts >0){
       Swal.fire({
         position: "center",
         icon: "error",
         title: "you need to fill in all the fields",
-        showConfirmButton: false,
+        showConfirmButton: true,
         timer: 3000,
       });
-      navigate("/contact");
+      
     } else {
       dispatch(postContact(state));
       Swal.fire({
