@@ -61,20 +61,21 @@ export default function Contact() {
       emailAddress: state.emailAddress,
       message: state.message,
     }; */
-  const objectContact = JSON.stringify(state)
-  const allContacts = Object.keys(objectContact)
-console.log(allContacts.length)
+ // const objectContact = JSON.stringify(state)
+ // const allContacts = Object.keys(objectContact)
+//console.log(allContacts.length)
 
   function handleSubmit(e) {
     
     e.preventDefault();
-    if(allContacts.length < 57) {
+   // if(allContacts.length < 57) {
+      if(!state.name || !state.lastname ||!state.emailAddress ||!state.message || Object.keys(errores).length > 0){
       Swal.fire({
         position: "center",
         icon: "error",
         title: "You need to fill in all the fields",
         showConfirmButton: true,
-        timer: 3000,
+        
       });      
     } else {
       dispatch(postContact(state));
