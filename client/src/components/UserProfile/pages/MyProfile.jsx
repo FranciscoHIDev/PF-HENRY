@@ -1,16 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  getAllUsers,
-  putUser,
-  userRender,
-} from "../../../redux/actions/actions";
+import {putUser} from "../../../redux/actions/actions";
 import Swal from "sweetalert2";
-import { FiEdit } from "react-icons/fi";
-import Style from "./MyProfile.module.css";
-import Dropzone from "react-dropzone";
 
 export default function MyProfile() {
   const dispatch = useDispatch();

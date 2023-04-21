@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import NavBar from "../../components/NavBar/NavBar";
 import Footer from "../../components/Footer/Footer";
 import Style from "../Contact/Contact.module.css";
@@ -23,6 +23,7 @@ export default function Contact() {
 
   function validate(valor) {
     let errores = {};
+    
     if (!valor.name) errores.name = "this field is required";
     if (!valor.lastname) errores.lastname = "this field is required";
     if (!valor.emailAddress) errores.emailAddress = "This field is empty";
@@ -35,8 +36,9 @@ export default function Contact() {
         valor.emailAddress
       )
     ) {
-      errores.emailAddress = "this it´s not an valid email";
+      errores.emailAddress = "this it's not an valid email";
     }
+    //else if (!valor.length === 0) errores = "haber si es por aca";
     return errores;
   }
 
@@ -51,26 +53,41 @@ export default function Contact() {
         [e.target.name]: e.target.value,
       })
     );
-    console.log(errores);
+    //console.log(errores);
   }
-
-  function handleSubmit(e) {
-    const newmensaje = {
+/* const newmensaje = {
       name: state.name,
       lastname: state.lastname,
       emailAddress: state.emailAddress,
       message: state.message,
-    };
+    }; */
+  const objectContact = JSON.stringify(state)
+  const allContacts = Object.keys(objectContact)
+console.log(allContacts.length)
+
+  function handleSubmit(e) {
+    
     e.preventDefault();
-    dispatch(postContact(newmensaje));
-    Swal.fire({
-      position: "center",
-      icon: "success",
-      title: "Your message has been sent successfully",
-      showConfirmButton: false,
-      timer: 3000,
-    });
-    navigate("/home");
+    if(allContacts.length < 57) {
+      Swal.fire({
+        position: "center",
+        icon: "error",
+        title: "you need to fill in all the fields",
+        showConfirmButton: false,
+        timer: 3000,
+      });
+      navigate("/contact");
+    } else {
+      dispatch(postContact(state));
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Your message has been sent successfully",
+        showConfirmButton: false,
+        timer: 3000,
+      });
+      navigate("/home");
+    }
   }
 
   return (
@@ -97,7 +114,7 @@ export default function Contact() {
               required
             />
             {errores && errores.name ? (
-              <spam style={{ color: "red" }}> {errores.name} </spam>
+              <span style={{ color: "red" }}> {errores.name} </span>
             ) : null}
           </div>
 
@@ -123,7 +140,7 @@ export default function Contact() {
               required
             />
             {errores && errores.lastname ? (
-              <spam style={{ color: "red" }}>{errores.lastname} </spam>
+              <span style={{ color: "red" }}>{errores.lastname} </span>
             ) : null}
           </div>
 
@@ -148,7 +165,7 @@ export default function Contact() {
               required
             />
             {errores && errores.emailAddress ? (
-              <spam style={{ color: "red" }}> * {errores.emailAddress} </spam>
+              <span style={{ color: "red" }}> * {errores.emailAddress} </span>
             ) : null}
           </div>
 
@@ -171,7 +188,7 @@ export default function Contact() {
               value={state.message}
             />
             {errores && errores.message ? (
-              <spam style={{ color: "red" }}>* {errores.message}</spam>
+              <span style={{ color: "red" }}>* {errores.message}</span>
             ) : null}
           </div>
           <br />

@@ -51,7 +51,7 @@ function Card({
       });
     }
     
-  };
+  }; 
 
   useEffect(() => {
     if (isAuthenticated && user) {
