@@ -22,7 +22,7 @@ const routerGetContactForm = async (req, res) => {
       res.status(200).json(contForm);
     }
   } catch (error) {
-    res.send(`Error ${error}`);
+    res.send(`Error ${error}`); 
   }
 };
 
@@ -37,12 +37,21 @@ const routerGetContactForm = async (req, res) => {
 const routerPostContactForm = async (req, res) => {
   validateCreate;
   const carForm = contactFormSchema(req.body);
+  const objectContact = JSON.stringify(carForm)
+  const allContacts = Object.keys(objectContact)
+//console.log(allContacts.length)
 
-  carForm
-    .save()
-    .then((data) => res.status(200).json(data))
-    .catch((error) => res.status(500).json({ message: `${error}` }));
-    eMail2(carForm.emailAddress);
+if(allContacts.length > 123) {
+  carForm 
+  .save()
+  .then((data) => res.status(200).json(data))
+  .catch((error) => res.status(500).json({ message: `${error}` }));
+  eMail2(carForm.emailAddress);
+ 
+} else {
+  res.status(400).send("estas de suerte!! revisa nuevamente el codigo")
+}
+  
 };
 
 /**
