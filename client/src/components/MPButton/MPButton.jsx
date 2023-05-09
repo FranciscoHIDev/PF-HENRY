@@ -64,7 +64,7 @@ export function MPButton({ id }) {
   //-----------------------
   const fetchCheckout = async () => {
     const res = await fetch(
-      "https://pf-henry-theta.vercel.app/cars/comprar",
+      "https://pf-henry-carmania.vercel.app/cars/comprar",
       {
         method: "POST",
         headers: {
