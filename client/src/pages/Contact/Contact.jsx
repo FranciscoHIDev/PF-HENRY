@@ -84,15 +84,8 @@ export default function Contact() {
         position: "center",
         icon: "error",
         title: "You need to fill in all the fields",
-
-        showConfirmButton: true,
-        
-      });      
-
-        showConfirmButton: true,       
-      });
-      
-
+        showConfirmButton: true,        
+      });          
     } else {
       dispatch(postContact(state));
       Swal.fire({
