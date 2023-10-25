@@ -25,12 +25,21 @@ import Coments from "../components/UserProfile/pages/Coments";
 import Comments from "../components/LayoutAdmin/pages/Comments";
 import ProfileAdmin from "../components/LayoutAdmin/pages/ProfileAdmin";
 
+const ScrollToTop = () => {
+  window.scrollTo(0, 0);
+  return null;
+};
+
 function RoutesApp() {
   const { user, isAuthenticated } = useAuth0();
 
   return (
     <>
       <Routes>
+        <Route
+          path="/*"
+          element={<ScrollToTop />} // Añade ScrollToTop como un elemento
+        />  
         <Route exact path="/" element={<LandingPage />} />
         <Route exact path="home" element={<Home />} />
         <Route exact path="detail/:id" element={<Details />} />
